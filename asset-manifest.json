@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ccts-monitor/static/css/main.50d7bc41.css",
+    "main.js": "/ccts-monitor/static/js/main.76270c9c.js",
+    "index.html": "/ccts-monitor/index.html",
+    "main.50d7bc41.css.map": "/ccts-monitor/static/css/main.50d7bc41.css.map",
+    "main.76270c9c.js.map": "/ccts-monitor/static/js/main.76270c9c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50d7bc41.css",
+    "static/js/main.76270c9c.js"
+  ]
+}

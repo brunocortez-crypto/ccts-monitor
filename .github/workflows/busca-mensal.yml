@@ -1,0 +1,49 @@
+name: Busca Automática de CCTs - Dia 20
+
+on:
+  schedule:
+    # Roda todo dia 20 de cada mês, às 08:00 UTC
+    # Nota: UTC-3 (Brasília) = 05:00 AM horário de Brasília
+    - cron: '0 8 20 * *'
+  
+  # Permite disparar manualmente via GitHub Actions
+  workflow_dispatch:
+
+jobs:
+  busca-ccts:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Executar busca automática
+        run: |
+          node scripts/buscar-ccts.js
+      
+      - name: Configurar Git
+        run: |
+          git config --global user.name "CCTS Bot"
+          git config --global user.email "ccts-bot@github.com"
+      
+      - name: Commit e Push
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "🤖 Busca automática: $(date '+%d/%m/%Y %H:%M')"
+            git push
+          else
+            echo "Nenhuma mudança detectada"
+          fi
+      
+      - name: Notificar (opcional)
+        run: |
+          echo "✅ Busca automática concluída!"
+          echo "Data: $(date)"
+          echo "Sindicatos verificados: 63"
