@@ -3,7 +3,6 @@ import Header from './components/Header';
 import MesSeletor from './components/MesSeletor';
 import DashboardCCTs from './components/DashboardCCTs';
 import Configuracoes from './components/Configuracoes';
-import LogVerificacao from './components/LogVerificacao';
 import './App.css';
 
 function App() {
