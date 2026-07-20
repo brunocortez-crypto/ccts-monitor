@@ -1,396 +1,474 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCTS Monitor - Escritorial Contadores</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-        
-        .header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .nav {
-            display: flex;
-            background: white;
-            border-bottom: 2px solid #e0e0e0;
-            margin-bottom: 20px;
-            border-radius: 8px 8px 0 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .nav button {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            color: #666;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .nav button:hover {
-            background: #f5f5f5;
-            color: #333;
-        }
-        
-        .nav button.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-        }
-        
-        .content {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            display: none;
-        }
-        
-        .content.active {
-            display: block;
-        }
-        
-        .mes-seletor {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .mes-seletor button {
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        
-        .mes-seletor button:hover {
-            background: #764ba2;
-        }
-        
-        .mes-display h2 {
-            font-size: 24px;
-            color: #333;
-        }
-        
-        .ccts-lista {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: box-shadow 0.3s;
-        }
-        
-        .card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .card p {
-            font-size: 14px;
-            color: #666;
-            margin: 5px 0;
-        }
-        
-        .info {
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #1976d2;
-            margin: 10px 0;
-        }
-        
-        form {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        input, select {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        
-        button.adicionar {
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        
-        button.adicionar:hover {
-            background: #764ba2;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        table th {
-            background: #f5f5f5;
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 2px solid #ddd;
-        }
-        
-        table td {
-            padding: 12px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        table tr:hover {
-            background: #f9f9f9;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de CCTs | Grupo-E</title>
+<style>
+:root {
+  --verde-escuro: #1b4d3e;
+  --verde-medio: #2e7d5b;
+  --verde-claro: #e8f3ee;
+  --creme: #faf7f2;
+  --laranja: #f5a623;
+  --texto: #2d2d2d;
+  --cinza: #6b6b6b;
+  --borda: #e2ded6;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Tahoma, sans-serif; background:var(--creme); color:var(--texto); }
+
+.header {
+  background: var(--verde-escuro);
+  color:#fff;
+  padding: 22px 30px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+.logo-circle {
+  width:52px; height:52px;
+  background:#fff;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:32px; font-weight:800;
+  color:var(--verde-escuro);
+  font-family: Georgia, serif;
+}
+.header-txt h1 { font-size:22px; letter-spacing:.5px; }
+.header-txt p { font-size:12.5px; opacity:.85; margin-top:2px; letter-spacing:2px; text-transform:uppercase; }
+.header .badge {
+  margin-left:auto;
+  background:var(--laranja);
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  padding:5px 12px;
+  border-radius:20px;
+  letter-spacing:1px;
+}
+
+.container { max-width:1300px; margin:0 auto; padding:24px 20px; }
+
+.nav { display:flex; background:#fff; border-radius:10px; box-shadow:0 1px 4px rgba(0,0,0,.06); margin-bottom:22px; overflow:hidden; }
+.nav button {
+  flex:1; padding:15px 10px; border:none; background:none; cursor:pointer;
+  font-size:14px; font-weight:600; color:var(--cinza);
+  border-bottom:3px solid transparent; transition:.25s;
+}
+.nav button:hover { background:var(--verde-claro); color:var(--verde-escuro); }
+.nav button.active { color:var(--verde-escuro); border-bottom-color:var(--laranja); background:var(--verde-claro); }
+
+.content { background:#fff; padding:28px; border-radius:10px; box-shadow:0 1px 4px rgba(0,0,0,.06); display:none; }
+.content.active { display:block; }
+
+h2 { color:var(--verde-escuro); margin-bottom:18px; font-size:20px; }
+h3 { color:var(--verde-escuro); margin:22px 0 12px; font-size:16px; }
+
+/* Filtros */
+.filtros {
+  display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+  background:var(--verde-claro);
+  padding:16px; border-radius:10px; margin-bottom:22px;
+}
+.filtros label { font-size:13px; font-weight:600; color:var(--verde-escuro); }
+.filtros select, .filtros input {
+  padding:9px 12px; border:1px solid var(--borda); border-radius:6px; font-size:14px; background:#fff;
+}
+.mes-nav { display:flex; align-items:center; gap:10px; }
+.mes-nav button {
+  padding:9px 16px; background:var(--verde-escuro); color:#fff; border:none;
+  border-radius:6px; cursor:pointer; font-weight:600; transition:.2s;
+}
+.mes-nav button:hover { background:var(--verde-medio); }
+.mes-nav .mes-atual { font-size:17px; font-weight:700; color:var(--verde-escuro); min-width:170px; text-align:center; }
+.btn-ano {
+  padding:9px 16px; background:#fff; color:var(--verde-escuro); border:2px solid var(--verde-escuro);
+  border-radius:6px; cursor:pointer; font-weight:600; transition:.2s;
+}
+.btn-ano.on, .btn-ano:hover { background:var(--laranja); border-color:var(--laranja); color:#fff; }
+
+/* Cards */
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-bottom:22px; }
+.stat {
+  background:linear-gradient(135deg,var(--verde-escuro),var(--verde-medio));
+  color:#fff; padding:18px; border-radius:10px;
+}
+.stat .num { font-size:30px; font-weight:800; }
+.stat .lbl { font-size:12.5px; opacity:.9; margin-top:3px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:16px; }
+.card {
+  background:#fff; border:1px solid var(--borda); border-left:5px solid var(--verde-medio);
+  border-radius:10px; padding:18px; transition:.25s;
+}
+.card:hover { box-shadow:0 6px 16px rgba(27,77,62,.12); transform:translateY(-2px); }
+.card h4 { color:var(--verde-escuro); font-size:15px; margin-bottom:8px; }
+.card p { font-size:13.5px; color:var(--cinza); margin:4px 0; }
+.card .tag {
+  display:inline-block; font-size:11px; font-weight:700; padding:3px 10px;
+  border-radius:12px; margin-bottom:8px;
+}
+.tag.nova { background:#fff4e0; color:#b47408; }
+.tag.vigente { background:var(--verde-claro); color:var(--verde-escuro); }
+.tag.vencida { background:#fdeaea; color:#c0392b; }
+.card a.doc {
+  display:inline-block; margin-top:10px; font-size:13px; font-weight:700;
+  color:#fff; background:var(--verde-escuro); padding:8px 14px; border-radius:6px; text-decoration:none;
+}
+.card a.doc:hover { background:var(--verde-medio); }
+
+.vazio { background:var(--verde-claro); color:var(--verde-escuro); padding:18px; border-radius:8px; border-left:4px solid var(--laranja); }
+
+/* Formularios */
+form.frm { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-bottom:8px; }
+form.frm input, form.frm select { padding:10px 12px; border:1px solid var(--borda); border-radius:6px; font-size:14px; }
+form.frm button {
+  padding:10px 18px; background:var(--verde-escuro); color:#fff; border:none; border-radius:6px;
+  cursor:pointer; font-weight:700;
+}
+form.frm button:hover { background:var(--verde-medio); }
+.hint { font-size:12.5px; color:var(--cinza); margin-bottom:16px; }
+
+/* Tabela */
+table { width:100%; border-collapse:collapse; margin-top:14px; font-size:13.5px; }
+th { background:var(--verde-escuro); color:#fff; padding:11px 12px; text-align:left; font-weight:600; }
+td { padding:10px 12px; border-bottom:1px solid var(--borda); }
+tr:hover td { background:var(--verde-claro); }
+.busca-tab { width:100%; padding:10px 14px; border:1px solid var(--borda); border-radius:6px; font-size:14px; margin-bottom:4px; }
+
+.aviso {
+  background:#fff8ec; border-left:4px solid var(--laranja); padding:14px 16px;
+  border-radius:8px; font-size:13.5px; color:#7a5200; margin-bottom:18px;
+}
+.footer { text-align:center; padding:22px; font-size:12px; color:var(--cinza); }
+@media(max-width:700px){ .filtros{flex-direction:column;align-items:stretch} .mes-nav{justify-content:center} }
+</style>
 </head>
 <body>
-    <div class="header">
-        <h1>📋 CCTS Monitor</h1>
-        <p>Escritorial Contadores e Associados - Uberlândia/MG</p>
+
+<div class="header">
+  <div class="logo-circle">e</div>
+  <div class="header-txt">
+    <h1>Monitor de CCTs</h1>
+    <p>Grupo-E &bull; Solu&ccedil;&otilde;es Empresariais</p>
+  </div>
+  <span class="badge">DP</span>
+</div>
+
+<div class="container">
+  <div class="nav">
+    <button class="nav-btn active" data-tab="resumo">&#128202; Resumo</button>
+    <button class="nav-btn" data-tab="ccts">&#128196; CCTs</button>
+    <button class="nav-btn" data-tab="sindicatos">&#127970; Sindicatos</button>
+    <button class="nav-btn" data-tab="log">&#128203; Log</button>
+  </div>
+
+  <!-- RESUMO -->
+  <div id="resumo" class="content active">
+    <div class="stats">
+      <div class="stat"><div class="num" id="stTotal">0</div><div class="lbl">Sindicatos monitorados</div></div>
+      <div class="stat"><div class="num" id="stCcts">0</div><div class="lbl">CCTs cadastradas</div></div>
+      <div class="stat"><div class="num" id="stMes">0</div><div class="lbl">Data-base no per&iacute;odo</div></div>
+      <div class="stat"><div class="num" id="stNovas">0</div><div class="lbl">CCTs novas</div></div>
     </div>
-    
-    <div class="container">
-        <div class="nav">
-            <button class="nav-btn active" data-tab="resumo">📊 Resumo</button>
-            <button class="nav-btn" data-tab="config">⚙️ Configurações</button>
-            <button class="nav-btn" data-tab="log">📋 Log</button>
-        </div>
-        
-        <!-- RESUMO -->
-        <div id="resumo" class="content active">
-            <div class="mes-seletor">
-                <button onclick="mesPrevio()">◀ Anterior</button>
-                <div class="mes-display">
-                    <h2 id="mesMostrado">Julho 2026</h2>
-                </div>
-                <button onclick="mesProximo()">Próximo ▶</button>
-            </div>
-            
-            <h2>CCTs do Mês</h2>
-            <div class="ccts-lista" id="cctsList">
-                <div class="info">Nenhuma CCT neste mês</div>
-            </div>
-        </div>
-        
-        <!-- CONFIGURAÇÕES -->
-        <div id="config" class="content">
-            <h2>⚙️ Gerenciar Sindicatos</h2>
-            
-            <form onsubmit="adicionarSindicato(event)">
-                <input type="text" id="nomeSind" placeholder="Nome do sindicato" required>
-                <input type="text" id="cnjpSind" placeholder="CNPJ" required>
-                <input type="text" id="dataBaseSind" placeholder="Data-base (ex: 15/01)" required>
-                <input type="text" id="categoriaSind" placeholder="Categoria" required>
-                <button type="submit" class="adicionar">➕ Adicionar</button>
-            </form>
-            
-            <h3>Sindicatos Cadastrados</h3>
-            <table id="sindTable">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>CNPJ</th>
-                        <th>Data-base</th>
-                        <th>Categoria</th>
-                    </tr>
-                </thead>
-                <tbody id="sindTableBody"></tbody>
-            </table>
-        </div>
-        
-        <!-- LOG -->
-        <div id="log" class="content">
-            <h2>📋 Log de Verificação</h2>
-            <div class="info">
-                ✅ Sistema ativo desde: <span id="dataUltimaVerif">20/07/2026</span><br>
-                📊 Total de sindicatos monitorados: <strong id="totalSindicatos">0</strong><br>
-                🤖 Próxima busca automática: <strong>20/08/2026 às 08:00</strong>
-            </div>
-            <table id="logTable">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Sindicato</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="logTableBody"></tbody>
-            </table>
-        </div>
+
+    <div class="filtros">
+      <div class="mes-nav">
+        <button onclick="mudarMes(-1)">&#9664;</button>
+        <span class="mes-atual" id="mesLabel">Julho 2026</span>
+        <button onclick="mudarMes(1)">&#9654;</button>
+      </div>
+      <button class="btn-ano" id="btnAno" onclick="toggleAno()">Ver ano inteiro</button>
+      <label>Categoria:
+        <select id="fCat" onchange="render()"><option value="">Todas</option></select>
+      </label>
     </div>
-    
-    <script>
-        let mesAtual = new Date();
-        let sindicatos = JSON.parse(localStorage.getItem('sindicatos')) || [
-            {id: 1, nome: 'SECUA', cnpj: '25.649.153/0001-95', dataBase: '15/12', categoria: 'Comércio'},
-            {id: 2, nome: 'SINDTRANS', cnpj: '21.288.931/0001-07', dataBase: '15/01', categoria: 'Transportes'},
-            {id: 3, nome: 'SINFARMIG', cnpj: '16.842.429/0001-66', dataBase: '15/03', categoria: 'Saúde'},
-        ];
-        
-        let ccts = JSON.parse(localStorage.getItem('ccts')) || [
-            {id: 1, mes: '2026-07', sindicato: 'SECUA', categoria: 'Comércio', status: 'Nova', piso: 'R$ 1.620'},
-            {id: 2, mes: '2026-07', sindicato: 'SINDTRANS', categoria: 'Transportes', status: 'Vigente', piso: 'R$ 1.850'},
-        ];
-        
-        function salvarDados() {
-            localStorage.setItem('sindicatos', JSON.stringify(sindicatos));
-            localStorage.setItem('ccts', JSON.stringify(ccts));
-        }
-        
-        function atualizarUI() {
-            atualizarMes();
-            atualizarSindicatos();
-            atualizarLog();
-        }
-        
-        function atualizarMes() {
-            const mes = mesAtual.toLocaleString('pt-BR', {month: 'long', year: 'numeric'});
-            document.getElementById('mesMostrado').textContent = mes.charAt(0).toUpperCase() + mes.slice(1);
-            
-            const mesStr = mesAtual.getFullYear() + '-' + String(mesAtual.getMonth() + 1).padStart(2, '0');
-            const cctsDoMes = ccts.filter(c => c.mes === mesStr);
-            
-            const lista = document.getElementById('cctsList');
-            if (cctsDoMes.length === 0) {
-                lista.innerHTML = '<div class="info">Nenhuma CCT neste mês</div>';
-            } else {
-                lista.innerHTML = cctsDoMes.map(c => `
-                    <div class="card">
-                        <h3>${c.sindicato}</h3>
-                        <p><strong>Categoria:</strong> ${c.categoria}</p>
-                        <p><strong>Status:</strong> ${c.status}</p>
-                        <p><strong>Piso:</strong> ${c.piso}</p>
-                    </div>
-                `).join('');
-            }
-        }
-        
-        function mesProximo() {
-            mesAtual.setMonth(mesAtual.getMonth() + 1);
-            atualizarMes();
-        }
-        
-        function mesPrevio() {
-            mesAtual.setMonth(mesAtual.getMonth() - 1);
-            atualizarMes();
-        }
-        
-        function adicionarSindicato(e) {
-            e.preventDefault();
-            const novo = {
-                id: sindicatos.length + 1,
-                nome: document.getElementById('nomeSind').value,
-                cnpj: document.getElementById('cnjpSind').value,
-                dataBase: document.getElementById('dataBaseSind').value,
-                categoria: document.getElementById('categoriaSind').value
-            };
-            sindicatos.push(novo);
-            salvarDados();
-            atualizarSindicatos();
-            e.target.reset();
-        }
-        
-        function atualizarSindicatos() {
-            const tbody = document.getElementById('sindTableBody');
-            tbody.innerHTML = sindicatos.map(s => `
-                <tr>
-                    <td>${s.nome}</td>
-                    <td>${s.cnpj}</td>
-                    <td>${s.dataBase}</td>
-                    <td>${s.categoria}</td>
-                </tr>
-            `).join('');
-            document.getElementById('totalSindicatos').textContent = sindicatos.length;
-        }
-        
-        function atualizarLog() {
-            const tbody = document.getElementById('logTableBody');
-            const hoje = new Date().toLocaleDateString('pt-BR');
-            tbody.innerHTML = `
-                <tr>
-                    <td>${hoje}</td>
-                    <td>Sistema</td>
-                    <td>✅ Monitorado</td>
-                </tr>
-            `;
-        }
-        
-        // Navegação
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-            });
-        });
-        
-        // Inicializar
-        atualizarUI();
-    </script>
+
+    <h2 id="tituloResumo">Sindicatos com data-base no per&iacute;odo</h2>
+    <div class="grid" id="listaResumo"></div>
+
+    <h3>CCTs do per&iacute;odo</h3>
+    <div class="grid" id="listaCctsResumo"></div>
+  </div>
+
+  <!-- CCTs -->
+  <div id="ccts" class="content">
+    <h2>&#128196; Cadastrar CCT encontrada</h2>
+    <div class="hint">Cadastre aqui as CCTs localizadas nas buscas (MTE / Mediador). Cole o link do documento na &iacute;ntegra (PDF do Mediador, Google Drive ou pasta da rede).</div>
+    <form class="frm" onsubmit="addCct(event)">
+      <select id="cSind" required><option value="">Sindicato...</option></select>
+      <input id="cTitulo" placeholder="T&iacute;tulo (ex: CCT Com&eacute;rcio Uberl&acirc;ndia 2026)" required>
+      <select id="cMes" required></select>
+      <select id="cStatus"><option>Nova</option><option>Vigente</option><option>Vencida</option></select>
+      <input id="cPiso" placeholder="Piso salarial (ex: R$ 1.620,00)">
+      <input id="cReajuste" placeholder="Reajuste % (ex: 8%)">
+      <input id="cLink" placeholder="Link do documento na &iacute;ntegra (URL)">
+      <input id="cObs" placeholder="Observa&ccedil;&otilde;es">
+      <button type="submit">&#10133; Cadastrar</button>
+    </form>
+
+    <h3>Todas as CCTs</h3>
+    <div class="filtros">
+      <label>M&ecirc;s:
+        <select id="fCctMes" onchange="renderCcts()"><option value="">Todos</option></select>
+      </label>
+      <label>Status:
+        <select id="fCctStatus" onchange="renderCcts()"><option value="">Todos</option><option>Nova</option><option>Vigente</option><option>Vencida</option></select>
+      </label>
+    </div>
+    <div class="grid" id="listaCcts"></div>
+  </div>
+
+  <!-- SINDICATOS -->
+  <div id="sindicatos" class="content">
+    <h2>&#127970; Sindicatos monitorados (<span id="qtdSind">0</span>)</h2>
+    <input class="busca-tab" id="buscaSind" placeholder="&#128269; Buscar por nome, sigla, CNPJ ou categoria..." oninput="renderSind()">
+    <div class="filtros">
+      <label>M&ecirc;s da data-base:
+        <select id="fSindMes" onchange="renderSind()"><option value="">Todos</option></select>
+      </label>
+      <label>Tipo:
+        <select id="fSindTipo" onchange="renderSind()"><option value="">Todos</option><option>Patronal</option><option>Trabalhador</option></select>
+      </label>
+    </div>
+
+    <h3>Adicionar novo sindicato</h3>
+    <form class="frm" onsubmit="addSind(event)">
+      <input id="sNome" placeholder="Nome" required>
+      <input id="sSigla" placeholder="Sigla">
+      <input id="sCnpj" placeholder="CNPJ">
+      <select id="sMes"></select>
+      <select id="sTipo"><option>Patronal</option><option>Trabalhador</option></select>
+      <input id="sCat" placeholder="Categoria (ex: Com&eacute;rcio)">
+      <button type="submit">&#10133; Adicionar</button>
+    </form>
+
+    <table>
+      <thead><tr><th>Sindicato</th><th>Sigla</th><th>CNPJ</th><th>Data-base</th><th>Tipo</th><th>Categoria</th></tr></thead>
+      <tbody id="tbSind"></tbody>
+    </table>
+  </div>
+
+  <!-- LOG -->
+  <div id="log" class="content">
+    <h2>&#128203; Log de verifica&ccedil;&otilde;es</h2>
+    <div class="aviso">&#9888;&#65039; A busca autom&aacute;tica mensal (dia 20, 08:00) ser&aacute; ativada na pr&oacute;xima fase do projeto. Por enquanto, registre aqui as verifica&ccedil;&otilde;es manuais feitas pela equipe.</div>
+    <form class="frm" onsubmit="addLog(event)">
+      <input id="lResp" placeholder="Respons&aacute;vel" required>
+      <input id="lDesc" placeholder="O que foi verificado (ex: Mediador MTE - com&eacute;rcio)" required>
+      <select id="lStatus"><option>Sem altera&ccedil;&atilde;o</option><option>Nova CCT encontrada</option><option>Aditivo encontrado</option></select>
+      <button type="submit">&#10133; Registrar</button>
+    </form>
+    <table>
+      <thead><tr><th>Data</th><th>Respons&aacute;vel</th><th>Verifica&ccedil;&atilde;o</th><th>Resultado</th></tr></thead>
+      <tbody id="tbLog"></tbody>
+    </table>
+  </div>
+
+  <div class="footer">Grupo-E Solu&ccedil;&otilde;es Empresariais &bull; Escritorial Contadores e Associados &bull; Uberl&acirc;ndia/MG</div>
+</div>
+
+<script>
+const MESES = ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const SINDICATOS_BASE = [{"id": "sid_001", "nome": "DOMESTICAS", "sigla": "DOMESTICAS", "cnpj": "00.000.000/0000-00", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_002", "nome": "FED DOS TRAB NA AGRICULTURA NO EST TOCANTINS", "sigla": "FED TRAB AGRI TOCANT", "cnpj": "01.785.997/0001-03", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, TO", "link": "https://www.fetaet.org.br/", "status": "Ativo"}, {"id": "sid_003", "nome": "FED DOS TRAB RURAIS EMP ASS E ASS SO EST DE GOIAS", "sigla": "FETAER GO", "cnpj": "21.462.646/0001-60", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "http://www.fetaergo.org.br/", "status": "Ativo"}, {"id": "sid_004", "nome": "FEDER DOS EMPRE NO COMERCIO E CONGENERES MG", "sigla": "FECCOEMG", "cnpj": "17.219.585/0001-38", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "", "status": "Ativo"}, {"id": "sid_005", "nome": "FEDERACAO TRABALHADORES AGRICULTURA ESTADO MG", "sigla": "FED TRAB AGRIC", "cnpj": "17.388.158/0001-83", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://www.fetaemg.org.br/", "status": "Ativo"}, {"id": "sid_006", "nome": "SENALBA- SIND.DOS EMPREG.ENT.CULT.RECR.A", "sigla": "SENALBA- SIND.DOS EM", "cnpj": "17.450.529/0001-00", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_007", "nome": "SIND DOS NOTARIOS E REGISTRADORES DO EST GOIAS", "sigla": "SIND NOTARIOS REG GO", "cnpj": "02.249.018/0001-57", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "https://sinoreggoias.com.br/", "status": "Ativo"}, {"id": "sid_008", "nome": "SIND DOS TRAB NAS IND. CONST PESADA MG", "sigla": "SIND TRAB CONS PESAD", "cnpj": "38.736.377/0001-86", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://siticopmg.org.br/", "status": "Ativo"}, {"id": "sid_009", "nome": "SIND DOS TRAB. EM TRANSP. ROD UBERLANDIA- CCT", "sigla": "SINDTTRANS", "cnpj": "21.288.931/0001-07", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://sindttrans.com.br/", "status": "Ativo"}, {"id": "sid_010", "nome": "SIND EMPREG DE AGENTES AUTONOMOS DO COM GOIAS", "sigla": "SEAACOM", "cnpj": "02.555.548/0001-23", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "https://seacom.org.br/", "status": "Ativo"}, {"id": "sid_011", "nome": "SIND EMPREG EMPRESAS ASSEIO CONS SIM TRIANG ALTO P", "sigla": "ASSEIO E", "cnpj": "00.450.308/0001-39", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_012", "nome": "SIND EMPREG. COM.H.TURISMO E HOSP-UBERABA", "sigla": "SECOSAER", "cnpj": "23.368.905/0001-14", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberaba, MG", "link": "https://www.secosaer.org.br/", "status": "Ativo"}, {"id": "sid_013", "nome": "SIND EMPREG. TURISMO E HOSP UBER -EM HORAS*Mira/Tr", "sigla": "SIND EMP TUR", "cnpj": "19.042.324/0001-10", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://sethtap.com.br/", "status": "Ativo"}, {"id": "sid_014", "nome": "SIND EMPREGADOS NO COMERCIO DE ITUIUTABA E PONTAL", "sigla": "SECIPTM", "cnpj": "21.328.661/0001-10", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Ituiutaba, MG", "link": "https://www.seciptm.com.br/", "status": "Ativo"}, {"id": "sid_015", "nome": "SIND PUBLIC E TRAB AGENCIA DE PROPAGANDA", "sigla": "SIND PUBLIC E TRAB A", "cnpj": "20.991.758/0001-46", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, Não localizado", "link": "", "status": "Ativo"}, {"id": "sid_016", "nome": "SIND TRAB ESTAC,LAV,GUARD,MANOB E OPER AUT MG", "sigla": "SINTRALAMAC", "cnpj": "42.788.109/0001-85", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sintralamacmg.com/", "status": "Ativo"}, {"id": "sid_017", "nome": "SIND TRAB IND CONSTRUCAO CIVIL E DO MOBI UDIA (MAR", "sigla": "SINTICOMTAP (MARCEN)", "cnpj": "25.649.294/0001-08", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://www.sinticom-tap.com.br/", "status": "Ativo"}, {"id": "sid_018", "nome": "SIND TRABALHADORES RURAIS DE PATOS MINAS", "sigla": "SINDRPATOS", "cnpj": "21.242.318/0001-59", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Patos de Minas, MG", "link": "", "status": "Ativo"}, {"id": "sid_019", "nome": "SIND. DOS TRAB NA IND. CONST. CIVIL E MOB GOIANIA", "sigla": "SINDUSCOM-GO", "cnpj": "01.640.911/0001-46", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "https://www.sintracomgoiania.com.br/", "status": "Ativo"}, {"id": "sid_020", "nome": "SIND. EMPREG. EM EMPRESAS DE PROCESS.DAD", "sigla": "SINDADOS-MG", "cnpj": "19.715.739/0001-08", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sindados-mg.org.br/", "status": "Ativo"}, {"id": "sid_021", "nome": "SIND. EMPREGADOS EM INSTIT.BENEFIC.RELIG", "sigla": "SINTIBREF-MINAS", "cnpj": "02.131.247/0001-72", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sintibref-minas.org.br/", "status": "Ativo"}, {"id": "sid_022", "nome": "SIND.DOS FARMACEUTICOS DO ESTADO DE MINAS GERAIS", "sigla": "SINFARMIG", "cnpj": "16.842.429/0001-66", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sinfarmig.org.br/", "status": "Ativo"}, {"id": "sid_023", "nome": "SIND.TRAB.NAS IND QUIM E FARMACEUTICAS D", "sigla": "STIQUIFAR", "cnpj": "20.052.817/0001-10", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberaba, MG", "link": "https://stiquifar.com.br/", "status": "Ativo"}, {"id": "sid_024", "nome": "SINDICADO TRAB. NO COM. DE MIN.DER. PETR", "sigla": "SINDICADO TRAB. NO C", "cnpj": "22.237.986/0001-50", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_025", "nome": "SINDICATO DOS EMPREG NO COM DE UBERLANDIA/ARAQUARI", "sigla": "SECUA", "cnpj": "25.649.153/0001-95", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://www.secua.com.br/", "status": "Ativo"}, {"id": "sid_026", "nome": "SINDICATO DOS EMPREG NO COMERCIO SERV ESTADO PARA", "sigla": "SEC PA", "cnpj": "04.975.652/0001-00", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belém, PA", "link": "http://secpara.com.br/", "status": "Ativo"}, {"id": "sid_027", "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE UBERABA", "sigla": "SINDICATO DOS EMPREG", "cnpj": "25.449.208/0001-13", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberaba, MG", "link": "https://www.sindcomerciariosuberaba.org.br/", "status": "Ativo"}, {"id": "sid_028", "nome": "SINDICATO DOS PROFESSORES NO ESTADO DE M", "sigla": "SINPROMINAS", "cnpj": "17.243.494/0001-38", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://www.sinprominas.org.br/", "status": "Ativo"}, {"id": "sid_029", "nome": "SINDICATO DOS TRAB RURAIS DE QUIRINOPOLIS", "sigla": "SIND TRAB RUR QUIRIN", "cnpj": "01.466.762/0001-40", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Quirinópolis, GO", "link": "", "status": "Ativo"}, {"id": "sid_030", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE BU", "sigla": "SINDICATO DOS TRABAL", "cnpj": "21.355.805/0001-28", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Buritizeiro, MG", "link": "", "status": "Ativo"}, {"id": "sid_031", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE CA", "sigla": "SINDICATO DOS TRABAL", "cnpj": "01.325.943/0001-57", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_032", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB", "sigla": "STRUBERLANDIA", "cnpj": "06.698.786/0001-49", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://www.facebook.com/SindicatoTRU/", "status": "Ativo"}, {"id": "sid_033", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB", "sigla": "SINDICATO DOS TRABAL", "cnpj": "17.778.382/0001-81", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_034", "nome": "SINDICATO TRAB IND. VESTUARIO DE UBERLANDIA", "sigla": "SINDICATO TRAB IND V", "cnpj": "22.222.020/0001-40", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_035", "nome": "SINDICATO TRABALHADORES RURAIS DE MONTE", "sigla": "SINDICATO TRABALHADO", "cnpj": "19.355.189/0001-63", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Monte Alegre de Minas, MG", "link": "https://sttrmontealegre.com.br/", "status": "Ativo"}, {"id": "sid_036", "nome": "SINPRAFARMA-SND.DOS PRAT.DE FARM.E DOS E", "sigla": "SINPRAFARMA", "cnpj": "00.544.185/0001-03", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://www.sinprafarmamg.com.br/", "status": "Ativo"}, {"id": "sid_037", "nome": "Sindicato dos Trabalhadores Rurais de Canapoilis", "sigla": "STRC", "cnpj": "17.815.341/0001-18", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Canápolis, MG", "link": "", "status": "Ativo"}, {"id": "sid_038", "nome": "Sindicato dos Trabalhadores Rurais de Monte Carmel", "sigla": "SIND RURAL MTE CARME", "cnpj": "21.288.683/0001-02", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Monte Carmelo, MG", "link": "", "status": "Ativo"}, {"id": "sid_039", "nome": "SIND EMPRE ESTAB SERV SAUDE", "sigla": "SEESS", "cnpj": "23.099.179/0001-81", "tipo": "Patronal", "categoria": "Geral", "mesBase": 2, "abrangencia": "Contagem, MG", "link": "https://www.seess.com.br/", "status": "Ativo"}, {"id": "sid_040", "nome": "SINDICATO DOS AUXILIARES DE ADMINISTRACAO ESCOLAR", "sigla": "SAAETM-AP", "cnpj": "21.018.023/0001-01", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 2, "abrangencia": "Uberlândia, MG", "link": "https://saaetmap.com.br/", "status": "Ativo"}, {"id": "sid_041", "nome": "SINDICATO DOS TRAB. DOMESTICOS DE UBL - SINTRAD", "sigla": "SINDICATO DOS TRAB.", "cnpj": "05.434.349/0001-55", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 2, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_042", "nome": "SIND DOS EMPR. ENTIDADES CULT RECREAT NO", "sigla": "SIND DOS EMPR. ENTID", "cnpj": "00.786.960/0001-29", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Belo Horizonte, MG", "link": "https://sindecmg.com.br/", "status": "Ativo"}, {"id": "sid_043", "nome": "SIND EMPREG DE CLUBES ESPORTIVOS E EM FEDER ACADEM", "sigla": "SINDESPORTE", "cnpj": "62.654.496/0001-74", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Uberlândia, Não localizado", "link": "", "status": "Ativo"}, {"id": "sid_044", "nome": "SIND INTERM EMPREGADOS COM.HOTELEIRO ESTADO GOIAS", "sigla": "SECHSEG", "cnpj": "02.889.400/0001-25", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Goiânia, GO", "link": "https://sechseg.com.br/", "status": "Ativo"}, {"id": "sid_045", "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE SANTAREM", "sigla": "SECS", "cnpj": "04.542.619/0001-89", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Santarém, PA", "link": "", "status": "Ativo"}, {"id": "sid_046", "nome": "SIND TRAB NAS INDS METALUR MEC E DE MAT ELET DE UB", "sigla": "STIMMMEUA", "cnpj": "25.649.302/0001-16", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 4, "abrangencia": "Uberlândia, MG", "link": "https://metaludiaraguari.com.br/", "status": "Ativo"}, {"id": "sid_047", "nome": "SIND DOS CONTABILISTAS DE BELO HORIZONTE-MG", "sigla": "SINDCONT", "cnpj": "17.219.403/0001-29", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 5, "abrangencia": "Belo Horizonte, MG", "link": "https://scbh.com.br/", "status": "Ativo"}, {"id": "sid_048", "nome": "SIND DOS TRAB EM EMPRESAS DE ASSES PESQ", "sigla": "SINTAPPI", "cnpj": "23.199.862/0001-90", "tipo": "Patronal", "categoria": "Geral", "mesBase": 5, "abrangencia": "Belo Horizonte, MG", "link": "https://sintappimg.org.br/", "status": "Ativo"}, {"id": "sid_049", "nome": "SIND DOS TRABALHADORES EM TRANSPORTE ROD", "sigla": "SIND DOS", "cnpj": "23.367.709/0001-25", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 5, "abrangencia": "Uberaba, MG", "link": "https://www.sttrur.com.br/", "status": "Ativo"}, {"id": "sid_050", "nome": "SIND EMPREGADOS BARES,RESTAU,SIMILARES SALVADOR BA", "sigla": "SINDBARES", "cnpj": "27.358.200/0001-77", "tipo": "Patronal", "categoria": "Geral", "mesBase": 5, "abrangencia": "Salvador, BA", "link": "https://sindbaresbahia.com.br/", "status": "Ativo"}, {"id": "sid_051", "nome": "SIND EMPREGADOS HOTEIS,REST,BARES E SIMIL MARINGÁ", "sigla": "SETHAP", "cnpj": "80.291.206/0001-57", "tipo": "Patronal", "categoria": "Geral", "mesBase": 5, "abrangencia": "Maringá, PR", "link": "", "status": "Ativo"}, {"id": "sid_052", "nome": "SIND. DOS TRAB INDS GRAFICAS, JORNAIS E", "sigla": "SIND. DOS TRAB INDS", "cnpj": "22.231.898/0001-41", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 5, "abrangencia": "Belo Horizonte, MG", "link": "http://graficosmg.org.br/", "status": "Ativo"}, {"id": "sid_053", "nome": "SIND TABEL ESCREV AUX FUNC DE CART DE REG DE IMOV", "sigla": "SINDSEAC", "cnpj": "07.632.728/0001-85", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 6, "abrangencia": "Goiânia, GO", "link": "", "status": "Ativo"}, {"id": "sid_054", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE ARAGUARI", "sigla": "SINDICATO DOS TRABAL", "cnpj": "19.452.630/0001-25", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 6, "abrangencia": "Araguari, MG", "link": "", "status": "Ativo"}, {"id": "sid_055", "nome": "SIND TRAB RESTAURANTES, BARES, CAMPINAS SP", "sigla": "SINHORES", "cnpj": "46.106.746/0001-85", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 7, "abrangencia": "Campinas, SP", "link": "", "status": "Ativo"}, {"id": "sid_056", "nome": "SINDELOT- SIND. EMPREGADOS LOTERICOS, JO", "sigla": "SINDELOT", "cnpj": "01.480.281/0001-90", "tipo": "Patronal", "categoria": "Geral", "mesBase": 7, "abrangencia": "Belo Horizonte, MG", "link": "https://www.sindelotmg.com.br/", "status": "Ativo"}, {"id": "sid_057", "nome": "SIND DAS EMPRESAS DE SERV CONTABEIS PERNAMBUCO-PE", "sigla": "SESCAP/PE", "cnpj": "41.227.034/0001-09", "tipo": "Patronal", "categoria": "Geral", "mesBase": 8, "abrangencia": "Recife, PE", "link": "http://sescappe.org.br/", "status": "Ativo"}, {"id": "sid_058", "nome": "SIND DO S O A C T I DE CONF ROUP E CHAP DE SENH SP", "sigla": "SINDCOST", "cnpj": "62.812.573/0001-77", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 8, "abrangencia": "São Paulo, SP", "link": "", "status": "Ativo"}, {"id": "sid_059", "nome": "SINDICATO TRAB IND DE EXTRAÇÃO VEGETAL, CARVOEJAME", "sigla": "sindexmg", "cnpj": "08.420.470/0001-16", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 8, "abrangencia": "Belo Horizonte, MG", "link": "", "status": "Ativo"}, {"id": "sid_060", "nome": "SIND.TRAB.IND DE ALIMENTACAO E AFINS DE", "sigla": "STIAU", "cnpj": "25.634.452/0001-56", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 9, "abrangencia": "Uberlândia, MG", "link": "https://www.stiau.org.br/", "status": "Ativo"}, {"id": "sid_061", "nome": "SINDICATO DOS COMERCIARIOS DE SAO PAULO", "sigla": "SINDICOMERCIO", "cnpj": "50.981.489/0001-06", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 9, "abrangencia": "Jundiaí, SP", "link": "https://comerciario.org.br/", "status": "Ativo"}, {"id": "sid_062", "nome": "SIND DOS EMPREG.EM EMPRESAS DISTR PROD SIDER MG", "sigla": "SEEDSIDER-MG", "cnpj": "02.826.581/0001-40", "tipo": "Patronal", "categoria": "Geral", "mesBase": 11, "abrangencia": "Belo Horizonte, MG", "link": "https://seedsider.org.br/", "status": "Ativo"}, {"id": "sid_063", "nome": "SIND TRAB CONST CIVIL E MOB DO PRATA", "sigla": "SIND TRAB CONST PRAT", "cnpj": "22.234.660/0001-70", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 11, "abrangencia": "Prata, MG", "link": "", "status": "Ativo"}];
+
+let sindicatos = JSON.parse(localStorage.getItem('ge_sindicatos') || 'null') || SINDICATOS_BASE;
+let ccts = JSON.parse(localStorage.getItem('ge_ccts') || '[]');
+let logs = JSON.parse(localStorage.getItem('ge_logs') || '[]');
+let mesAtual = new Date().getMonth() + 1;
+let anoAtual = new Date().getFullYear();
+let modoAno = false;
+
+function salvar(){
+  localStorage.setItem('ge_sindicatos', JSON.stringify(sindicatos));
+  localStorage.setItem('ge_ccts', JSON.stringify(ccts));
+  localStorage.setItem('ge_logs', JSON.stringify(logs));
+}
+
+function popularSelects(){
+  const cats = [...new Set(sindicatos.map(s=>s.categoria))].sort();
+  const fCat = document.getElementById('fCat');
+  fCat.innerHTML = '<option value="">Todas</option>' + cats.map(c=>`<option>${c}</option>`).join('');
+
+  const mesOpts = MESES.map((m,i)=>`<option value="${i+1}">${m}</option>`).join('');
+  document.getElementById('cMes').innerHTML = mesOpts;
+  document.getElementById('sMes').innerHTML = mesOpts;
+  document.getElementById('fCctMes').innerHTML = '<option value="">Todos</option>'+mesOpts;
+  document.getElementById('fSindMes').innerHTML = '<option value="">Todos</option>'+mesOpts;
+
+  const sOpts = sindicatos.map(s=>`<option value="${s.id}">${s.sigla||s.nome}</option>`).join('');
+  document.getElementById('cSind').innerHTML = '<option value="">Sindicato...</option>'+sOpts;
+}
+
+function mudarMes(d){
+  modoAno = false;
+  document.getElementById('btnAno').classList.remove('on');
+  mesAtual += d;
+  if(mesAtual<1){mesAtual=12;anoAtual--;}
+  if(mesAtual>12){mesAtual=1;anoAtual++;}
+  render();
+}
+
+function toggleAno(){
+  modoAno = !modoAno;
+  document.getElementById('btnAno').classList.toggle('on', modoAno);
+  render();
+}
+
+function render(){
+  document.getElementById('mesLabel').innerHTML = modoAno ? ('Ano '+anoAtual) : (MESES[mesAtual-1]+' '+anoAtual);
+  document.getElementById('tituloResumo').innerHTML = modoAno
+    ? 'Sindicatos por data-base &mdash; ano inteiro'
+    : 'Sindicatos com data-base em '+MESES[mesAtual-1];
+
+  const cat = document.getElementById('fCat').value;
+  let lista = sindicatos.filter(s => !cat || s.categoria===cat);
+  if(!modoAno) lista = lista.filter(s => s.mesBase === mesAtual);
+
+  const el = document.getElementById('listaResumo');
+  if(lista.length===0){
+    el.innerHTML = '<div class="vazio">Nenhum sindicato com data-base neste per&iacute;odo.</div>';
+  } else if(modoAno){
+    // agrupar por mes
+    let html='';
+    for(let m=1;m<=12;m++){
+      const doMes = lista.filter(s=>s.mesBase===m);
+      if(doMes.length===0) continue;
+      html += `<div style="grid-column:1/-1"><h3 style="margin-top:6px">${MESES[m-1]} (${doMes.length})</h3></div>`;
+      html += doMes.map(cardSind).join('');
+    }
+    el.innerHTML = html;
+  } else {
+    el.innerHTML = lista.map(cardSind).join('');
+  }
+
+  // CCTs do periodo
+  let cctsPer = ccts.filter(c => modoAno ? true : c.mes===mesAtual);
+  document.getElementById('listaCctsResumo').innerHTML = cctsPer.length
+    ? cctsPer.map(cardCct).join('')
+    : '<div class="vazio">Nenhuma CCT cadastrada neste per&iacute;odo. Cadastre na aba <b>CCTs</b>.</div>';
+
+  // stats
+  document.getElementById('stTotal').textContent = sindicatos.length;
+  document.getElementById('stCcts').textContent = ccts.length;
+  document.getElementById('stMes').textContent = lista.length;
+  document.getElementById('stNovas').textContent = ccts.filter(c=>c.status==='Nova').length;
+}
+
+function cardSind(s){
+  return `<div class="card">
+    <h4>${s.sigla || s.nome}</h4>
+    <p><b>Nome:</b> ${s.nome}</p>
+    <p><b>Data-base:</b> ${MESES[s.mesBase-1]}</p>
+    <p><b>Tipo:</b> ${s.tipo||'-'} &bull; <b>Categoria:</b> ${s.categoria}</p>
+    <p><b>Abrang&ecirc;ncia:</b> ${s.abrangencia||'-'}</p>
+    ${s.link ? `<a class="doc" href="${s.link}" target="_blank">Site do sindicato</a>` : ''}
+  </div>`;
+}
+
+function cardCct(c){
+  const sind = sindicatos.find(s=>s.id===c.sindId);
+  const cls = c.status==='Nova'?'nova':(c.status==='Vigente'?'vigente':'vencida');
+  return `<div class="card">
+    <span class="tag ${cls}">${c.status}</span>
+    <h4>${c.titulo}</h4>
+    <p><b>Sindicato:</b> ${sind ? (sind.sigla||sind.nome) : '-'}</p>
+    <p><b>M&ecirc;s:</b> ${MESES[c.mes-1]}</p>
+    ${c.piso?`<p><b>Piso:</b> ${c.piso}</p>`:''}
+    ${c.reajuste?`<p><b>Reajuste:</b> ${c.reajuste}</p>`:''}
+    ${c.obs?`<p>${c.obs}</p>`:''}
+    ${c.link?`<a class="doc" href="${c.link}" target="_blank">&#128196; Documento na &iacute;ntegra</a>`:''}
+  </div>`;
+}
+
+function addCct(e){
+  e.preventDefault();
+  ccts.push({
+    id: 'cct_'+Date.now(),
+    sindId: document.getElementById('cSind').value,
+    titulo: document.getElementById('cTitulo').value,
+    mes: parseInt(document.getElementById('cMes').value),
+    status: document.getElementById('cStatus').value,
+    piso: document.getElementById('cPiso').value,
+    reajuste: document.getElementById('cReajuste').value,
+    link: document.getElementById('cLink').value,
+    obs: document.getElementById('cObs').value
+  });
+  salvar(); renderCcts(); render(); e.target.reset();
+}
+
+function renderCcts(){
+  const m = document.getElementById('fCctMes').value;
+  const st = document.getElementById('fCctStatus').value;
+  let lista = ccts.filter(c => (!m || c.mes==m) && (!st || c.status===st));
+  document.getElementById('listaCcts').innerHTML = lista.length
+    ? lista.map(cardCct).join('')
+    : '<div class="vazio">Nenhuma CCT encontrada com estes filtros.</div>';
+}
+
+function addSind(e){
+  e.preventDefault();
+  sindicatos.push({
+    id:'sid_'+Date.now(),
+    nome: document.getElementById('sNome').value,
+    sigla: document.getElementById('sSigla').value,
+    cnpj: document.getElementById('sCnpj').value,
+    mesBase: parseInt(document.getElementById('sMes').value),
+    tipo: document.getElementById('sTipo').value,
+    categoria: document.getElementById('sCat').value || 'Geral',
+    abrangencia:'', link:'', status:'Ativo'
+  });
+  salvar(); popularSelects(); renderSind(); render(); e.target.reset();
+}
+
+function renderSind(){
+  const q = (document.getElementById('buscaSind').value||'').toLowerCase();
+  const m = document.getElementById('fSindMes').value;
+  const t = document.getElementById('fSindTipo').value;
+  let lista = sindicatos.filter(s =>
+    (!q || (s.nome+' '+s.sigla+' '+s.cnpj+' '+s.categoria).toLowerCase().includes(q)) &&
+    (!m || s.mesBase==m) && (!t || s.tipo===t)
+  );
+  document.getElementById('qtdSind').textContent = sindicatos.length;
+  document.getElementById('tbSind').innerHTML = lista.map(s=>`<tr>
+    <td>${s.nome}</td><td>${s.sigla||'-'}</td><td>${s.cnpj||'-'}</td>
+    <td>${MESES[s.mesBase-1]}</td><td>${s.tipo||'-'}</td><td>${s.categoria}</td>
+  </tr>`).join('');
+}
+
+function addLog(e){
+  e.preventDefault();
+  logs.unshift({
+    data: new Date().toLocaleDateString('pt-BR'),
+    resp: document.getElementById('lResp').value,
+    desc: document.getElementById('lDesc').value,
+    status: document.getElementById('lStatus').value
+  });
+  salvar(); renderLog(); e.target.reset();
+}
+
+function renderLog(){
+  document.getElementById('tbLog').innerHTML = logs.map(l=>`<tr>
+    <td>${l.data}</td><td>${l.resp}</td><td>${l.desc}</td><td>${l.status}</td>
+  </tr>`).join('');
+}
+
+document.querySelectorAll('.nav-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+popularSelects();
+render();
+renderCcts();
+renderSind();
+renderLog();
+</script>
 </body>
 </html>
