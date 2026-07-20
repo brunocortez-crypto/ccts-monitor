@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTS Monitor - Escritorial Contadores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .nav {
+            display: flex;
+            background: white;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .nav button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav button:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .nav button.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        .mes-seletor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .mes-seletor button {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .mes-seletor button:hover {
+            background: #764ba2;
+        }
+        
+        .mes-display h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        
+        .ccts-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #1976d2;
+            margin: 10px 0;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        button.adicionar {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        button.adicionar:hover {
+            background: #764ba2;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        table th {
+            background: #f5f5f5;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        table tr:hover {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📋 CCTS Monitor</h1>
+        <p>Escritorial Contadores e Associados - Uberlândia/MG</p>
+    </div>
+    
+    <div class="container">
+        <div class="nav">
+            <button class="nav-btn active" data-tab="resumo">📊 Resumo</button>
+            <button class="nav-btn" data-tab="config">⚙️ Configurações</button>
+            <button class="nav-btn" data-tab="log">📋 Log</button>
+        </div>
+        
+        <!-- RESUMO -->
+        <div id="resumo" class="content active">
+            <div class="mes-seletor">
+                <button onclick="mesPrevio()">◀ Anterior</button>
+                <div class="mes-display">
+                    <h2 id="mesMostrado">Julho 2026</h2>
+                </div>
+                <button onclick="mesProximo()">Próximo ▶</button>
+            </div>
+            
+            <h2>CCTs do Mês</h2>
+            <div class="ccts-lista" id="cctsList">
+                <div class="info">Nenhuma CCT neste mês</div>
+            </div>
+        </div>
+        
+        <!-- CONFIGURAÇÕES -->
+        <div id="config" class="content">
+            <h2>⚙️ Gerenciar Sindicatos</h2>
+            
+            <form onsubmit="adicionarSindicato(event)">
+                <input type="text" id="nomeSind" placeholder="Nome do sindicato" required>
+                <input type="text" id="cnjpSind" placeholder="CNPJ" required>
+                <input type="text" id="dataBaseSind" placeholder="Data-base (ex: 15/01)" required>
+                <input type="text" id="categoriaSind" placeholder="Categoria" required>
+                <button type="submit" class="adicionar">➕ Adicionar</button>
+            </form>
+            
+            <h3>Sindicatos Cadastrados</h3>
+            <table id="sindTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CNPJ</th>
+                        <th>Data-base</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody id="sindTableBody"></tbody>
+            </table>
+        </div>
+        
+        <!-- LOG -->
+        <div id="log" class="content">
+            <h2>📋 Log de Verificação</h2>
+            <div class="info">
+                ✅ Sistema ativo desde: <span id="dataUltimaVerif">20/07/2026</span><br>
+                📊 Total de sindicatos monitorados: <strong id="totalSindicatos">0</strong><br>
+                🤖 Próxima busca automática: <strong>20/08/2026 às 08:00</strong>
+            </div>
+            <table id="logTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Sindicato</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="logTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        let mesAtual = new Date();
+        let sindicatos = JSON.parse(localStorage.getItem('sindicatos')) || [
+            {id: 1, nome: 'SECUA', cnpj: '25.649.153/0001-95', dataBase: '15/12', categoria: 'Comércio'},
+            {id: 2, nome: 'SINDTRANS', cnpj: '21.288.931/0001-07', dataBase: '15/01', categoria: 'Transportes'},
+            {id: 3, nome: 'SINFARMIG', cnpj: '16.842.429/0001-66', dataBase: '15/03', categoria: 'Saúde'},
+        ];
+        
+        let ccts = JSON.parse(localStorage.getItem('ccts')) || [
+            {id: 1, mes: '2026-07', sindicato: 'SECUA', categoria: 'Comércio', status: 'Nova', piso: 'R$ 1.620'},
+            {id: 2, mes: '2026-07', sindicato: 'SINDTRANS', categoria: 'Transportes', status: 'Vigente', piso: 'R$ 1.850'},
+        ];
+        
+        function salvarDados() {
+            localStorage.setItem('sindicatos', JSON.stringify(sindicatos));
+            localStorage.setItem('ccts', JSON.stringify(ccts));
+        }
+        
+        function atualizarUI() {
+            atualizarMes();
+            atualizarSindicatos();
+            atualizarLog();
+        }
+        
+        function atualizarMes() {
+            const mes = mesAtual.toLocaleString('pt-BR', {month: 'long', year: 'numeric'});
+            document.getElementById('mesMostrado').textContent = mes.charAt(0).toUpperCase() + mes.slice(1);
+            
+            const mesStr = mesAtual.getFullYear() + '-' + String(mesAtual.getMonth() + 1).padStart(2, '0');
+            const cctsDoMes = ccts.filter(c => c.mes === mesStr);
+            
+            const lista = document.getElementById('cctsList');
+            if (cctsDoMes.length === 0) {
+                lista.innerHTML = '<div class="info">Nenhuma CCT neste mês</div>';
+            } else {
+                lista.innerHTML = cctsDoMes.map(c => `
+                    <div class="card">
+                        <h3>${c.sindicato}</h3>
+                        <p><strong>Categoria:</strong> ${c.categoria}</p>
+                        <p><strong>Status:</strong> ${c.status}</p>
+                        <p><strong>Piso:</strong> ${c.piso}</p>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        function mesProximo() {
+            mesAtual.setMonth(mesAtual.getMonth() + 1);
+            atualizarMes();
+        }
+        
+        function mesPrevio() {
+            mesAtual.setMonth(mesAtual.getMonth() - 1);
+            atualizarMes();
+        }
+        
+        function adicionarSindicato(e) {
+            e.preventDefault();
+            const novo = {
+                id: sindicatos.length + 1,
+                nome: document.getElementById('nomeSind').value,
+                cnpj: document.getElementById('cnjpSind').value,
+                dataBase: document.getElementById('dataBaseSind').value,
+                categoria: document.getElementById('categoriaSind').value
+            };
+            sindicatos.push(novo);
+            salvarDados();
+            atualizarSindicatos();
+            e.target.reset();
+        }
+        
+        function atualizarSindicatos() {
+            const tbody = document.getElementById('sindTableBody');
+            tbody.innerHTML = sindicatos.map(s => `
+                <tr>
+                    <td>${s.nome}</td>
+                    <td>${s.cnpj}</td>
+                    <td>${s.dataBase}</td>
+                    <td>${s.categoria}</td>
+                </tr>
+            `).join('');
+            document.getElementById('totalSindicatos').textContent = sindicatos.length;
+        }
+        
+        function atualizarLog() {
+            const tbody = document.getElementById('logTableBody');
+            const hoje = new Date().toLocaleDateString('pt-BR');
+            tbody.innerHTML = `
+                <tr>
+                    <td>${hoje}</td>
+                    <td>Sistema</td>
+                    <td>✅ Monitorado</td>
+                </tr>
+            `;
+        }
+        
+        // Navegação
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Inicializar
+        atualizarUI();
+    </script>
+</body>
+</html>
