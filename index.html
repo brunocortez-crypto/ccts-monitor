@@ -160,6 +160,7 @@ tr:hover td { background:var(--verde-claro); }
 <div class="container">
   <div class="nav">
     <button class="nav-btn active" data-tab="resumo">&#128202; Resumo</button>
+    <button class="nav-btn" data-tab="robo">&#129302; Achados do Rob&ocirc;</button>
     <button class="nav-btn" data-tab="ccts">&#128196; CCTs</button>
     <button class="nav-btn" data-tab="sindicatos">&#127970; Sindicatos</button>
     <button class="nav-btn" data-tab="log">&#128203; Log</button>
@@ -191,6 +192,22 @@ tr:hover td { background:var(--verde-claro); }
 
     <h3>CCTs do per&iacute;odo</h3>
     <div class="grid" id="listaCctsResumo"></div>
+  </div>
+
+
+  <!-- ACHADOS DO ROBO -->
+  <div id="robo" class="content">
+    <h2>&#129302; Achados do Rob&ocirc; de Busca</h2>
+    <div class="hint">Resultados encontrados automaticamente no Google, MTE/Mediador e sites dos sindicatos. O rob&ocirc; roda todo dia 20 &agrave;s 08:00 (e pode ser executado manualmente no GitHub &rarr; Actions &rarr; "Run workflow").</div>
+    <div class="filtros">
+      <label>Fonte:
+        <select id="fRoboFonte" onchange="renderRobo()"><option value="">Todas</option><option>Google (internet)</option><option>MTE/Mediador</option><option>Site do sindicato</option></select>
+      </label>
+      <input class="busca-tab" style="flex:1;min-width:200px" id="buscaRobo" placeholder="&#128269; Filtrar por sindicato ou palavra..." oninput="renderRobo()">
+      <button class="btn-ano" onclick="carregarAchados(true)">&#8635; Atualizar</button>
+    </div>
+    <div id="statusRobo" class="vazio" style="margin-bottom:14px">Carregando achados...</div>
+    <div class="grid" id="listaRobo"></div>
   </div>
 
   <!-- CCTs -->
@@ -463,6 +480,40 @@ document.querySelectorAll('.nav-btn').forEach(btn=>{
     document.getElementById(btn.dataset.tab).classList.add('active');
   });
 });
+
+
+let achadosRobo = [];
+async function carregarAchados(force){
+  const st = document.getElementById('statusRobo');
+  try{
+    const resp = await fetch('data/ccts-encontradas.json' + (force?('?t='+Date.now()):''));
+    achadosRobo = await resp.json();
+    st.style.display = achadosRobo.length ? 'none' : 'block';
+    st.innerHTML = achadosRobo.length ? '' : 'Nenhum achado ainda. O rob&ocirc; roda todo dia 20 &mdash; ou execute manualmente no GitHub Actions.';
+  }catch(e){
+    st.innerHTML = 'Ainda sem dados do rob&ocirc; (arquivo data/ccts-encontradas.json n&atilde;o encontrado).';
+  }
+  renderRobo();
+}
+function renderRobo(){
+  const f = document.getElementById('fRoboFonte').value;
+  const q = (document.getElementById('buscaRobo').value||'').toLowerCase();
+  let lista = achadosRobo.filter(a =>
+    (!f || a.fonte===f) &&
+    (!q || (a.sindicato+' '+a.titulo+' '+(a.resumo||'')).toLowerCase().includes(q))
+  );
+  document.getElementById('listaRobo').innerHTML = lista.map(a=>`<div class="card">
+    <span class="tag nova">${a.fonte}</span>
+    <h4>${a.titulo}</h4>
+    <p><b>Sindicato:</b> ${a.sindicato}</p>
+    <p><b>Descoberto em:</b> ${a.dataDescoberta ? a.dataDescoberta.split('-').reverse().join('/') : '-'}</p>
+    ${a.piso?`<p><b>Piso detectado:</b> ${a.piso}</p>`:''}
+    ${a.reajuste?`<p><b>Reajuste detectado:</b> ${a.reajuste}</p>`:''}
+    <p>${a.resumo||''}</p>
+    <a class="doc" href="${a.url}" target="_blank">&#128196; Abrir documento/p&aacute;gina</a>
+  </div>`).join('');
+}
+carregarAchados();
 
 popularSelects();
 render();
