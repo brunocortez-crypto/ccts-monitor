@@ -1,0 +1,46 @@
+name: Busca Automática de CCTs
+
+on:
+  schedule:
+    # Dia 20 de cada mês às 11:00 UTC = 08:00 Brasília
+    - cron: '0 11 20 * *'
+  workflow_dispatch: {}   # permite rodar manualmente pelo botão "Run workflow"
+
+permissions:
+  contents: write
+
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar nodemailer (email opcional)
+        run: npm install --no-save nodemailer
+
+      - name: Executar bot de busca
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
+        run: node scripts/buscar-ccts.js
+
+      - name: Salvar resultados no repositório
+        run: |
+          git config user.name "CCT Bot"
+          git config user.email "bot@ccts-monitor"
+          git add data/
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "🤖 Busca automática $(date '+%d/%m/%Y %H:%M')"
+            git push
+          else
+            echo "Nenhuma novidade encontrada."
+          fi
