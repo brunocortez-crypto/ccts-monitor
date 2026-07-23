@@ -1,0 +1,10 @@
+[
+  {
+    "data": "2026-07-23 09:15:00",
+    "tipo": "Busca MTE - Fase 1 completa",
+    "sindicatos_pesquisados": 40,
+    "docs_novos": 123,
+    "docs_ignorados": 83,
+    "falhas": []
+  }
+]

@@ -1,6 +1,344 @@
 [
   {
     "id": "doc_0001",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO PATRONAL DO COMERCIO VAREJISTA E ATACADISTA DE LEOPOLDINA MG E REGIAO",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO PATRONAL DO COMERCIO VAREJISTA E ATACADISTA DE LEOPOLDINA MG E REGIAO"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG000114/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG000114_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG000114_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG000114_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2025-09-01",
+      "fim": "2026-08-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0002",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DE UBERABA",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DE UBERABA"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG000148/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG000148_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG000148_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG000148_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2025-08-01",
+      "fim": "2026-07-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0003",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x FEDERACAO DO COMERCIO DE BENS, SERVICOS E TURISMO DO ESTADO",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "FEDERACAO DO COMERCIO DE BENS, SERVICOS E TURISMO DO ESTADO"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG000329/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG000329_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG000329_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG000329_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0004",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x FEDERACAO DO COMERCIO DE BENS, SERVICOS E TURISMO DO ESTADO",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "FEDERACAO DO COMERCIO DE BENS, SERVICOS E TURISMO DO ESTADO"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG000361/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG000361_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG000361_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG000361_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0005",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x FEDERACAO DO COMERCIO DE BENS, SERVICOS E TURISMO DO ESTADO",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "FEDERACAO DO COMERCIO DE BENS, SERVICOS E TURISMO DO ESTADO"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG000426/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG000426_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG000426_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG000426_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0006",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DE SANTOS DUMONT",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DE SANTOS DUMONT"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG001677/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG001677_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG001677_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG001677_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0007",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DE PATOS DE MINAS",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DE PATOS DE MINAS"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG001722/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG001722_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG001722_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG001722_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-03-01",
+      "fim": "2027-02-28"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0008",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DE SUPERMERCADOS",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DE SUPERMERCADOS"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG001725/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG001725_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG001725_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG001725_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0009",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DE SANTOS DUMONT",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DE SANTOS DUMONT"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG001749/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG001749_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG001749_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG001749_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0010",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINCOVITA ITABIRITO",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINCOVITA ITABIRITO"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG001750/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG001750_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG001750_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG001750_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0011",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DE UBERLANDIA",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DE UBERLANDIA"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG001790/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG001790_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG001790_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG001790_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0012",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DE SETE LAGOAS",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DE SETE LAGOAS"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG001871/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG001871_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG001871_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG001871_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0013",
+    "sindicato_id": "sid_001",
+    "sindicato_sigla": "FECCOEMG",
+    "tipo": "Convenção Coletiva",
+    "titulo": "Convenção Coletiva FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS x SINDICATO DO COMERCIO DO VALE DO SAPUCAI",
+    "partes": [
+      "FEDERACAO DOS EMPREGADOS NO COMERCIO E CONGENERES DO ESTADO DE MINAS GERAIS",
+      "SINDICATO DO COMERCIO DO VALE DO SAPUCAI"
+    ],
+    "origem": "mte",
+    "registro_mte": "MG002179/2026",
+    "arquivo": {
+      "nome": "FECCOEMG_Convencao_Coletiva_MG002179_2026.doc",
+      "caminho": "docs/MTE/FECCOEMG_Convencao_Coletiva_MG002179_2026.doc",
+      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/FECCOEMG_Convencao_Coletiva_MG002179_2026.doc",
+      "hash_sha256": null,
+      "extensao": "doc"
+    },
+    "vigencia": {
+      "inicio": "2026-01-01",
+      "fim": "2026-12-31"
+    },
+    "descoberto_em": "2026-07-23",
+    "verificacao_mes": "2026-07"
+  },
+  {
+    "id": "doc_0014",
     "sindicato_id": "sid_002",
     "sindicato_sigla": "FED TRAB AGRIC",
     "tipo": "Convenção Coletiva",
@@ -25,7 +363,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0002",
+    "id": "doc_0015",
     "sindicato_id": "sid_003",
     "sindicato_sigla": "SIND NOTARIOS GO",
     "tipo": "Convenção Coletiva",
@@ -50,32 +388,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0003",
-    "sindicato_id": "sid_003",
-    "sindicato_sigla": "SIND NOTARIOS GO",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo FEDERACAO DA AGRICULTURA E PECUARIA DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "FEDERACAO DA AGRICULTURA E PECUARIA DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002210/2026",
-    "arquivo": {
-      "nome": "SIND_NOTARIOS_GO_Termo_Aditivo_MG002210_2026.doc",
-      "caminho": "docs/MTE/SIND_NOTARIOS_GO_Termo_Aditivo_MG002210_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_NOTARIOS_GO_Termo_Aditivo_MG002210_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0004",
+    "id": "doc_0016",
     "sindicato_id": "sid_004",
     "sindicato_sigla": "SIND TRAB CONS PESAD",
     "tipo": "Convenção Coletiva",
@@ -100,32 +413,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0005",
-    "sindicato_id": "sid_004",
-    "sindicato_sigla": "SIND TRAB CONS PESAD",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DA INDUSTRIA DA CONSTRUCAO PESADA NO ESTADO DE MG",
-    "partes": [
-      "SINDICATO DA INDUSTRIA DA CONSTRUCAO PESADA NO ESTADO DE MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004100/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_CONS_PESAD_Termo_Aditivo_MG004100_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_CONS_PESAD_Termo_Aditivo_MG004100_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_CONS_PESAD_Termo_Aditivo_MG004100_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-11-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-10-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0006",
+    "id": "doc_0017",
     "sindicato_id": "sid_005",
     "sindicato_sigla": "SINDTTRANS",
     "tipo": "Convenção Coletiva",
@@ -150,7 +438,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0007",
+    "id": "doc_0018",
     "sindicato_id": "sid_005",
     "sindicato_sigla": "SINDTTRANS",
     "tipo": "Convenção Coletiva",
@@ -175,7 +463,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0008",
+    "id": "doc_0019",
     "sindicato_id": "sid_005",
     "sindicato_sigla": "SINDTTRANS",
     "tipo": "Convenção Coletiva",
@@ -200,7 +488,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0009",
+    "id": "doc_0020",
     "sindicato_id": "sid_005",
     "sindicato_sigla": "SINDTTRANS",
     "tipo": "Convenção Coletiva",
@@ -225,7 +513,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0010",
+    "id": "doc_0021",
     "sindicato_id": "sid_005",
     "sindicato_sigla": "SINDTTRANS",
     "tipo": "Convenção Coletiva",
@@ -250,132 +538,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0011",
-    "sindicato_id": "sid_005",
-    "sindicato_sigla": "SINDTTRANS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERLANDIA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERLANDIA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG000063/2026",
-    "arquivo": {
-      "nome": "SINDTTRANS_Termo_Aditivo_MG000063_2026.doc",
-      "caminho": "docs/MTE/SINDTTRANS_Termo_Aditivo_MG000063_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDTTRANS_Termo_Aditivo_MG000063_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-12-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-11-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0012",
-    "sindicato_id": "sid_005",
-    "sindicato_sigla": "SINDTTRANS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO NACIONAL DAS EMPRESAS DISTRIBUIDORAS DE GAS LIQUEFEITO DE PETROLEO - SINDIGAS",
-    "partes": [
-      "SINDICATO NACIONAL DAS EMPRESAS DISTRIBUIDORAS DE GAS LIQUEFEITO DE PETROLEO - SINDIGAS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG000269/2026",
-    "arquivo": {
-      "nome": "SINDTTRANS_Termo_Aditivo_MG000269_2026.doc",
-      "caminho": "docs/MTE/SINDTTRANS_Termo_Aditivo_MG000269_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDTTRANS_Termo_Aditivo_MG000269_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-09-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-08-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0013",
-    "sindicato_id": "sid_005",
-    "sindicato_sigla": "SINDTTRANS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002433/2026",
-    "arquivo": {
-      "nome": "SINDTTRANS_Termo_Aditivo_MG002433_2026.doc",
-      "caminho": "docs/MTE/SINDTTRANS_Termo_Aditivo_MG002433_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDTTRANS_Termo_Aditivo_MG002433_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0014",
-    "sindicato_id": "sid_005",
-    "sindicato_sigla": "SINDTTRANS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDPAS - SINDICATO DAS EMPRESAS DE TRANSPORTE DE PASSAGEIRO",
-    "partes": [
-      "SINDPAS - SINDICATO DAS EMPRESAS DE TRANSPORTE DE PASSAGEIRO"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003212/2025",
-    "arquivo": {
-      "nome": "SINDTTRANS_Termo_Aditivo_MG003212_2025.doc",
-      "caminho": "docs/MTE/SINDTTRANS_Termo_Aditivo_MG003212_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDTTRANS_Termo_Aditivo_MG003212_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0015",
-    "sindicato_id": "sid_005",
-    "sindicato_sigla": "SINDTTRANS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDPAS - SINDICATO DAS EMPRESAS DE TRANSPORTE DE PASSAGEIRO",
-    "partes": [
-      "SINDPAS - SINDICATO DAS EMPRESAS DE TRANSPORTE DE PASSAGEIRO"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003277/2025",
-    "arquivo": {
-      "nome": "SINDTTRANS_Termo_Aditivo_MG003277_2025.doc",
-      "caminho": "docs/MTE/SINDTTRANS_Termo_Aditivo_MG003277_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDTTRANS_Termo_Aditivo_MG003277_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0016",
+    "id": "doc_0022",
     "sindicato_id": "sid_006",
     "sindicato_sigla": "SEAACOM",
     "tipo": "Convenção Coletiva",
@@ -400,7 +563,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0017",
+    "id": "doc_0023",
     "sindicato_id": "sid_006",
     "sindicato_sigla": "SEAACOM",
     "tipo": "Convenção Coletiva",
@@ -425,7 +588,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0018",
+    "id": "doc_0024",
     "sindicato_id": "sid_006",
     "sindicato_sigla": "SEAACOM",
     "tipo": "Convenção Coletiva",
@@ -450,7 +613,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0019",
+    "id": "doc_0025",
     "sindicato_id": "sid_006",
     "sindicato_sigla": "SEAACOM",
     "tipo": "Convenção Coletiva",
@@ -475,7 +638,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0020",
+    "id": "doc_0026",
     "sindicato_id": "sid_006",
     "sindicato_sigla": "SEAACOM",
     "tipo": "Convenção Coletiva",
@@ -500,7 +663,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0021",
+    "id": "doc_0027",
     "sindicato_id": "sid_006",
     "sindicato_sigla": "SEAACOM",
     "tipo": "Convenção Coletiva",
@@ -514,156 +677,6 @@
       "nome": "SEAACOM_Convenção_Coletiva_GO000777_2026.doc",
       "caminho": "docs/MTE/SEAACOM_Convenção_Coletiva_GO000777_2026.doc",
       "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEAACOM_Convenção_Coletiva_GO000777_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-07-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-06-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0022",
-    "sindicato_id": "sid_006",
-    "sindicato_sigla": "SEAACOM",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO SOC FOMENTO MERCANTIL FACTORING DO EST. GO E TO",
-    "partes": [
-      "SINDICATO SOC FOMENTO MERCANTIL FACTORING DO EST. GO E TO"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000738/2026",
-    "arquivo": {
-      "nome": "SEAACOM_Termo_Aditivo_GO000738_2026.doc",
-      "caminho": "docs/MTE/SEAACOM_Termo_Aditivo_GO000738_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEAACOM_Termo_Aditivo_GO000738_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-07-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-06-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0023",
-    "sindicato_id": "sid_006",
-    "sindicato_sigla": "SEAACOM",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS COMIS. E CONSIGNATARIOS DO ESTADO DE GOIAS",
-    "partes": [
-      "SINDICATO DOS COMIS. E CONSIGNATARIOS DO ESTADO DE GOIAS"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000739/2026",
-    "arquivo": {
-      "nome": "SEAACOM_Termo_Aditivo_GO000739_2026.doc",
-      "caminho": "docs/MTE/SEAACOM_Termo_Aditivo_GO000739_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEAACOM_Termo_Aditivo_GO000739_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-07-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-06-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0024",
-    "sindicato_id": "sid_006",
-    "sindicato_sigla": "SEAACOM",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS REPRES COMERC E DAS EMPRES DE REPRES COMERCIAL NO EST DE GOIAS",
-    "partes": [
-      "SINDICATO DOS REPRES COMERC E DAS EMPRES DE REPRES COMERCIAL NO EST DE GOIAS"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000740/2026",
-    "arquivo": {
-      "nome": "SEAACOM_Termo_Aditivo_GO000740_2026.doc",
-      "caminho": "docs/MTE/SEAACOM_Termo_Aditivo_GO000740_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEAACOM_Termo_Aditivo_GO000740_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-07-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-06-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0025",
-    "sindicato_id": "sid_006",
-    "sindicato_sigla": "SEAACOM",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS DESPACHANTES AUTONOMOS E SIMILARES DO ESTADO DE GOIAS",
-    "partes": [
-      "SINDICATO DOS DESPACHANTES AUTONOMOS E SIMILARES DO ESTADO DE GOIAS"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000751/2026",
-    "arquivo": {
-      "nome": "SEAACOM_Termo_Aditivo_GO000751_2026.doc",
-      "caminho": "docs/MTE/SEAACOM_Termo_Aditivo_GO000751_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEAACOM_Termo_Aditivo_GO000751_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-07-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-06-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0026",
-    "sindicato_id": "sid_006",
-    "sindicato_sigla": "SEAACOM",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS EMPRESARIOS LOTERICOS DO ESTADO DE GOIAS",
-    "partes": [
-      "SINDICATO DOS EMPRESARIOS LOTERICOS DO ESTADO DE GOIAS"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000762/2026",
-    "arquivo": {
-      "nome": "SEAACOM_Termo_Aditivo_GO000762_2026.doc",
-      "caminho": "docs/MTE/SEAACOM_Termo_Aditivo_GO000762_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEAACOM_Termo_Aditivo_GO000762_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-07-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-06-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0027",
-    "sindicato_id": "sid_006",
-    "sindicato_sigla": "SEAACOM",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPRESAS DE ASSESSORAMENTO, PERICIAS, INFORMACOES E PESQUISAS NO ESTADO DE GOIAS - SESCON-GOIAS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPRESAS DE ASSESSORAMENTO, PERICIAS, INFORMACOES E PESQUISAS NO ESTADO DE GOIAS - SESCON-GOIAS"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000777/2026",
-    "arquivo": {
-      "nome": "SEAACOM_Termo_Aditivo_GO000777_2026.doc",
-      "caminho": "docs/MTE/SEAACOM_Termo_Aditivo_GO000777_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEAACOM_Termo_Aditivo_GO000777_2026.doc",
       "hash_sha256": null,
       "extensao": "doc"
     },
@@ -1026,81 +1039,6 @@
   },
   {
     "id": "doc_0042",
-    "sindicato_id": "sid_008",
-    "sindicato_sigla": "SIND EMP TUR",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG",
-    "partes": [
-      "SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002540/2026",
-    "arquivo": {
-      "nome": "SIND_EMP_TUR_Termo_Aditivo_MG002540_2026.doc",
-      "caminho": "docs/MTE/SIND_EMP_TUR_Termo_Aditivo_MG002540_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_EMP_TUR_Termo_Aditivo_MG002540_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0043",
-    "sindicato_id": "sid_008",
-    "sindicato_sigla": "SIND EMP TUR",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG",
-    "partes": [
-      "SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002568/2026",
-    "arquivo": {
-      "nome": "SIND_EMP_TUR_Termo_Aditivo_MG002568_2026.doc",
-      "caminho": "docs/MTE/SIND_EMP_TUR_Termo_Aditivo_MG002568_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_EMP_TUR_Termo_Aditivo_MG002568_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0044",
-    "sindicato_id": "sid_008",
-    "sindicato_sigla": "SIND EMP TUR",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO INTERMUNICIPAL DE HOTEIS, RESTAURANTES, BARES E SIMILARES DO TRIANG.MINEIRO, ALTO PARANAIBA E NOROESTE MG",
-    "partes": [
-      "SINDICATO INTERMUNICIPAL DE HOTEIS, RESTAURANTES, BARES E SIMILARES DO TRIANG.MINEIRO, ALTO PARANAIBA E NOROESTE MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004433/2025",
-    "arquivo": {
-      "nome": "SIND_EMP_TUR_Termo_Aditivo_MG004433_2025.doc",
-      "caminho": "docs/MTE/SIND_EMP_TUR_Termo_Aditivo_MG004433_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_EMP_TUR_Termo_Aditivo_MG004433_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0045",
     "sindicato_id": "sid_009",
     "sindicato_sigla": "SIND PUBLIC TRAB A",
     "tipo": "Convenção Coletiva",
@@ -1125,7 +1063,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0046",
+    "id": "doc_0043",
     "sindicato_id": "sid_009",
     "sindicato_sigla": "SIND PUBLIC TRAB A",
     "tipo": "Convenção Coletiva",
@@ -1150,7 +1088,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0047",
+    "id": "doc_0044",
     "sindicato_id": "sid_009",
     "sindicato_sigla": "SIND PUBLIC TRAB A",
     "tipo": "Convenção Coletiva",
@@ -1175,82 +1113,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0048",
-    "sindicato_id": "sid_009",
-    "sindicato_sigla": "SIND PUBLIC TRAB A",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG",
-    "partes": [
-      "SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002540/2026",
-    "arquivo": {
-      "nome": "SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG002540_2026.doc",
-      "caminho": "docs/MTE/SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG002540_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG002540_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0049",
-    "sindicato_id": "sid_009",
-    "sindicato_sigla": "SIND PUBLIC TRAB A",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG",
-    "partes": [
-      "SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002568/2026",
-    "arquivo": {
-      "nome": "SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG002568_2026.doc",
-      "caminho": "docs/MTE/SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG002568_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG002568_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0050",
-    "sindicato_id": "sid_009",
-    "sindicato_sigla": "SIND PUBLIC TRAB A",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO INTERMUNICIPAL DE HOTEIS, RESTAURANTES, BARES E SIMILARES DO TRIANG.MINEIRO, ALTO PARANAIBA E NOROESTE MG",
-    "partes": [
-      "SINDICATO INTERMUNICIPAL DE HOTEIS, RESTAURANTES, BARES E SIMILARES DO TRIANG.MINEIRO, ALTO PARANAIBA E NOROESTE MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004433/2025",
-    "arquivo": {
-      "nome": "SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG004433_2025.doc",
-      "caminho": "docs/MTE/SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG004433_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_PUBLIC_TRAB_A_Termo_Aditivo_MG004433_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0051",
+    "id": "doc_0045",
     "sindicato_id": "sid_010",
     "sindicato_sigla": "SINTRALAMAC",
     "tipo": "Convenção Coletiva",
@@ -1275,7 +1138,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0052",
+    "id": "doc_0046",
     "sindicato_id": "sid_010",
     "sindicato_sigla": "SINTRALAMAC",
     "tipo": "Convenção Coletiva",
@@ -1300,7 +1163,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0053",
+    "id": "doc_0047",
     "sindicato_id": "sid_010",
     "sindicato_sigla": "SINTRALAMAC",
     "tipo": "Convenção Coletiva",
@@ -1325,82 +1188,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0054",
-    "sindicato_id": "sid_010",
-    "sindicato_sigla": "SINTRALAMAC",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG",
-    "partes": [
-      "SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002540/2026",
-    "arquivo": {
-      "nome": "SINTRALAMAC_Termo_Aditivo_MG002540_2026.doc",
-      "caminho": "docs/MTE/SINTRALAMAC_Termo_Aditivo_MG002540_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINTRALAMAC_Termo_Aditivo_MG002540_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0055",
-    "sindicato_id": "sid_010",
-    "sindicato_sigla": "SINTRALAMAC",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG",
-    "partes": [
-      "SINDICATO DOS CONDOMINIOS COMERCIAIS, RESIDENCIAIS E MISTOS DE MINAS GERAIS - SINDICON MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002568/2026",
-    "arquivo": {
-      "nome": "SINTRALAMAC_Termo_Aditivo_MG002568_2026.doc",
-      "caminho": "docs/MTE/SINTRALAMAC_Termo_Aditivo_MG002568_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINTRALAMAC_Termo_Aditivo_MG002568_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0056",
-    "sindicato_id": "sid_010",
-    "sindicato_sigla": "SINTRALAMAC",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO INTERMUNICIPAL DE HOTEIS, RESTAURANTES, BARES E SIMILARES DO TRIANG.MINEIRO, ALTO PARANAIBA E NOROESTE MG",
-    "partes": [
-      "SINDICATO INTERMUNICIPAL DE HOTEIS, RESTAURANTES, BARES E SIMILARES DO TRIANG.MINEIRO, ALTO PARANAIBA E NOROESTE MG"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004433/2025",
-    "arquivo": {
-      "nome": "SINTRALAMAC_Termo_Aditivo_MG004433_2025.doc",
-      "caminho": "docs/MTE/SINTRALAMAC_Termo_Aditivo_MG004433_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINTRALAMAC_Termo_Aditivo_MG004433_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0057",
+    "id": "doc_0048",
     "sindicato_id": "sid_011",
     "sindicato_sigla": "SINTICOMTAP",
     "tipo": "Convenção Coletiva",
@@ -1425,7 +1213,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0058",
+    "id": "doc_0049",
     "sindicato_id": "sid_011",
     "sindicato_sigla": "SINTICOMTAP",
     "tipo": "Termo Aditivo",
@@ -1450,7 +1238,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0059",
+    "id": "doc_0050",
     "sindicato_id": "sid_012",
     "sindicato_sigla": "SINDRPATOS",
     "tipo": "Convenção Coletiva",
@@ -1475,32 +1263,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0060",
-    "sindicato_id": "sid_012",
-    "sindicato_sigla": "SINDRPATOS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DA IND CONST CIVIL TRIANG MIN E ALTO PARANAIB",
-    "partes": [
-      "SINDICATO DA IND CONST CIVIL TRIANG MIN E ALTO PARANAIB"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004055/2025",
-    "arquivo": {
-      "nome": "SINDRPATOS_Termo_Aditivo_MG004055_2025.doc",
-      "caminho": "docs/MTE/SINDRPATOS_Termo_Aditivo_MG004055_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDRPATOS_Termo_Aditivo_MG004055_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-11-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-10-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0061",
+    "id": "doc_0051",
     "sindicato_id": "sid_013",
     "sindicato_sigla": "SINDADOS-MG",
     "tipo": "Convenção Coletiva",
@@ -1525,32 +1288,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0062",
-    "sindicato_id": "sid_013",
-    "sindicato_sigla": "SINDADOS-MG",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DA INDUSTRIA DE SOFTWARE E DA TECNOLOGIA DA INFORM",
-    "partes": [
-      "SINDICATO DA INDUSTRIA DE SOFTWARE E DA TECNOLOGIA DA INFORM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004156/2025",
-    "arquivo": {
-      "nome": "SINDADOS-MG_Termo_Aditivo_MG004156_2025.doc",
-      "caminho": "docs/MTE/SINDADOS-MG_Termo_Aditivo_MG004156_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDADOS-MG_Termo_Aditivo_MG004156_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-09-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-08-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0063",
+    "id": "doc_0052",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Convenção Coletiva",
@@ -1575,7 +1313,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0064",
+    "id": "doc_0053",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Convenção Coletiva",
@@ -1600,7 +1338,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0065",
+    "id": "doc_0054",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Convenção Coletiva",
@@ -1625,7 +1363,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0066",
+    "id": "doc_0055",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Convenção Coletiva",
@@ -1650,7 +1388,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0067",
+    "id": "doc_0056",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Convenção Coletiva",
@@ -1675,7 +1413,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0068",
+    "id": "doc_0057",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Termo Aditivo",
@@ -1700,7 +1438,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0069",
+    "id": "doc_0058",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Termo Aditivo",
@@ -1725,7 +1463,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0070",
+    "id": "doc_0059",
     "sindicato_id": "sid_014",
     "sindicato_sigla": "SIND EMPREG UBERABA",
     "tipo": "Termo Aditivo",
@@ -1750,7 +1488,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0071",
+    "id": "doc_0060",
     "sindicato_id": "sid_015",
     "sindicato_sigla": "SIND TRAB RUR QUIRIN",
     "tipo": "Convenção Coletiva",
@@ -1775,7 +1513,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0072",
+    "id": "doc_0061",
     "sindicato_id": "sid_015",
     "sindicato_sigla": "SIND TRAB RUR QUIRIN",
     "tipo": "Convenção Coletiva",
@@ -1800,7 +1538,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0073",
+    "id": "doc_0062",
     "sindicato_id": "sid_015",
     "sindicato_sigla": "SIND TRAB RUR QUIRIN",
     "tipo": "Convenção Coletiva",
@@ -1825,82 +1563,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0074",
-    "sindicato_id": "sid_015",
-    "sindicato_sigla": "SIND TRAB RUR QUIRIN",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003866/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003866_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003866_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003866_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0075",
-    "sindicato_id": "sid_015",
-    "sindicato_sigla": "SIND TRAB RUR QUIRIN",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003923/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003923_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003923_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003923_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0076",
-    "sindicato_id": "sid_015",
-    "sindicato_sigla": "SIND TRAB RUR QUIRIN",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003972/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003972_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003972_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_QUIRIN_Termo_Aditivo_MG003972_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0077",
+    "id": "doc_0063",
     "sindicato_id": "sid_016",
     "sindicato_sigla": "SIND TRAB RUR BU",
     "tipo": "Convenção Coletiva",
@@ -1925,7 +1588,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0078",
+    "id": "doc_0064",
     "sindicato_id": "sid_016",
     "sindicato_sigla": "SIND TRAB RUR BU",
     "tipo": "Convenção Coletiva",
@@ -1950,7 +1613,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0079",
+    "id": "doc_0065",
     "sindicato_id": "sid_016",
     "sindicato_sigla": "SIND TRAB RUR BU",
     "tipo": "Convenção Coletiva",
@@ -1975,82 +1638,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0080",
-    "sindicato_id": "sid_016",
-    "sindicato_sigla": "SIND TRAB RUR BU",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003866/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_BU_Termo_Aditivo_MG003866_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_BU_Termo_Aditivo_MG003866_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_BU_Termo_Aditivo_MG003866_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0081",
-    "sindicato_id": "sid_016",
-    "sindicato_sigla": "SIND TRAB RUR BU",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003923/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_BU_Termo_Aditivo_MG003923_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_BU_Termo_Aditivo_MG003923_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_BU_Termo_Aditivo_MG003923_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0082",
-    "sindicato_id": "sid_016",
-    "sindicato_sigla": "SIND TRAB RUR BU",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003972/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_BU_Termo_Aditivo_MG003972_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_BU_Termo_Aditivo_MG003972_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_BU_Termo_Aditivo_MG003972_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0083",
+    "id": "doc_0066",
     "sindicato_id": "sid_017",
     "sindicato_sigla": "STRUBERLANDIA",
     "tipo": "Convenção Coletiva",
@@ -2075,7 +1663,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0084",
+    "id": "doc_0067",
     "sindicato_id": "sid_017",
     "sindicato_sigla": "STRUBERLANDIA",
     "tipo": "Convenção Coletiva",
@@ -2100,7 +1688,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0085",
+    "id": "doc_0068",
     "sindicato_id": "sid_017",
     "sindicato_sigla": "STRUBERLANDIA",
     "tipo": "Convenção Coletiva",
@@ -2125,82 +1713,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0086",
-    "sindicato_id": "sid_017",
-    "sindicato_sigla": "STRUBERLANDIA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003866/2025",
-    "arquivo": {
-      "nome": "STRUBERLANDIA_Termo_Aditivo_MG003866_2025.doc",
-      "caminho": "docs/MTE/STRUBERLANDIA_Termo_Aditivo_MG003866_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/STRUBERLANDIA_Termo_Aditivo_MG003866_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0087",
-    "sindicato_id": "sid_017",
-    "sindicato_sigla": "STRUBERLANDIA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003923/2025",
-    "arquivo": {
-      "nome": "STRUBERLANDIA_Termo_Aditivo_MG003923_2025.doc",
-      "caminho": "docs/MTE/STRUBERLANDIA_Termo_Aditivo_MG003923_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/STRUBERLANDIA_Termo_Aditivo_MG003923_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0088",
-    "sindicato_id": "sid_017",
-    "sindicato_sigla": "STRUBERLANDIA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003972/2025",
-    "arquivo": {
-      "nome": "STRUBERLANDIA_Termo_Aditivo_MG003972_2025.doc",
-      "caminho": "docs/MTE/STRUBERLANDIA_Termo_Aditivo_MG003972_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/STRUBERLANDIA_Termo_Aditivo_MG003972_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0089",
+    "id": "doc_0069",
     "sindicato_id": "sid_018",
     "sindicato_sigla": "SIND TRAB RUR UBERABA",
     "tipo": "Convenção Coletiva",
@@ -2225,7 +1738,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0090",
+    "id": "doc_0070",
     "sindicato_id": "sid_018",
     "sindicato_sigla": "SIND TRAB RUR UBERABA",
     "tipo": "Convenção Coletiva",
@@ -2250,7 +1763,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0091",
+    "id": "doc_0071",
     "sindicato_id": "sid_018",
     "sindicato_sigla": "SIND TRAB RUR UBERABA",
     "tipo": "Convenção Coletiva",
@@ -2275,82 +1788,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0092",
-    "sindicato_id": "sid_018",
-    "sindicato_sigla": "SIND TRAB RUR UBERABA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003866/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003866_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003866_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003866_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0093",
-    "sindicato_id": "sid_018",
-    "sindicato_sigla": "SIND TRAB RUR UBERABA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003923/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003923_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003923_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003923_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0094",
-    "sindicato_id": "sid_018",
-    "sindicato_sigla": "SIND TRAB RUR UBERABA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003972/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003972_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003972_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_UBERABA_Termo_Aditivo_MG003972_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0095",
+    "id": "doc_0072",
     "sindicato_id": "sid_019",
     "sindicato_sigla": "SIND TRAB IND VEST",
     "tipo": "Convenção Coletiva",
@@ -2375,7 +1813,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0096",
+    "id": "doc_0073",
     "sindicato_id": "sid_019",
     "sindicato_sigla": "SIND TRAB IND VEST",
     "tipo": "Convenção Coletiva",
@@ -2400,7 +1838,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0097",
+    "id": "doc_0074",
     "sindicato_id": "sid_019",
     "sindicato_sigla": "SIND TRAB IND VEST",
     "tipo": "Convenção Coletiva",
@@ -2425,82 +1863,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0098",
-    "sindicato_id": "sid_019",
-    "sindicato_sigla": "SIND TRAB IND VEST",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003866/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_IND_VEST_Termo_Aditivo_MG003866_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_IND_VEST_Termo_Aditivo_MG003866_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_IND_VEST_Termo_Aditivo_MG003866_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0099",
-    "sindicato_id": "sid_019",
-    "sindicato_sigla": "SIND TRAB IND VEST",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003923/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_IND_VEST_Termo_Aditivo_MG003923_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_IND_VEST_Termo_Aditivo_MG003923_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_IND_VEST_Termo_Aditivo_MG003923_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0100",
-    "sindicato_id": "sid_019",
-    "sindicato_sigla": "SIND TRAB IND VEST",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003972/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_IND_VEST_Termo_Aditivo_MG003972_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_IND_VEST_Termo_Aditivo_MG003972_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_IND_VEST_Termo_Aditivo_MG003972_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0101",
+    "id": "doc_0075",
     "sindicato_id": "sid_020",
     "sindicato_sigla": "SIND TRAB RUR MONTE",
     "tipo": "Convenção Coletiva",
@@ -2525,7 +1888,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0102",
+    "id": "doc_0076",
     "sindicato_id": "sid_020",
     "sindicato_sigla": "SIND TRAB RUR MONTE",
     "tipo": "Convenção Coletiva",
@@ -2550,7 +1913,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0103",
+    "id": "doc_0077",
     "sindicato_id": "sid_020",
     "sindicato_sigla": "SIND TRAB RUR MONTE",
     "tipo": "Convenção Coletiva",
@@ -2575,82 +1938,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0104",
-    "sindicato_id": "sid_020",
-    "sindicato_sigla": "SIND TRAB RUR MONTE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003866/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003866_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003866_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003866_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0105",
-    "sindicato_id": "sid_020",
-    "sindicato_sigla": "SIND TRAB RUR MONTE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003923/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003923_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003923_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003923_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0106",
-    "sindicato_id": "sid_020",
-    "sindicato_sigla": "SIND TRAB RUR MONTE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003972/2025",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003972_2025.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003972_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_MONTE_Termo_Aditivo_MG003972_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0107",
+    "id": "doc_0078",
     "sindicato_id": "sid_021",
     "sindicato_sigla": "SEESS",
     "tipo": "Convenção Coletiva",
@@ -2675,7 +1963,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0108",
+    "id": "doc_0079",
     "sindicato_id": "sid_021",
     "sindicato_sigla": "SEESS",
     "tipo": "Convenção Coletiva",
@@ -2700,7 +1988,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0109",
+    "id": "doc_0080",
     "sindicato_id": "sid_021",
     "sindicato_sigla": "SEESS",
     "tipo": "Convenção Coletiva",
@@ -2725,82 +2013,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0110",
-    "sindicato_id": "sid_021",
-    "sindicato_sigla": "SEESS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003866/2025",
-    "arquivo": {
-      "nome": "SEESS_Termo_Aditivo_MG003866_2025.doc",
-      "caminho": "docs/MTE/SEESS_Termo_Aditivo_MG003866_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEESS_Termo_Aditivo_MG003866_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0111",
-    "sindicato_id": "sid_021",
-    "sindicato_sigla": "SEESS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003923/2025",
-    "arquivo": {
-      "nome": "SEESS_Termo_Aditivo_MG003923_2025.doc",
-      "caminho": "docs/MTE/SEESS_Termo_Aditivo_MG003923_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEESS_Termo_Aditivo_MG003923_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0112",
-    "sindicato_id": "sid_021",
-    "sindicato_sigla": "SEESS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERABA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERABA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003972/2025",
-    "arquivo": {
-      "nome": "SEESS_Termo_Aditivo_MG003972_2025.doc",
-      "caminho": "docs/MTE/SEESS_Termo_Aditivo_MG003972_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEESS_Termo_Aditivo_MG003972_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Termo Aditivo de Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0113",
+    "id": "doc_0081",
     "sindicato_id": "sid_022",
     "sindicato_sigla": "SIND ENTID RECREAT",
     "tipo": "Convenção Coletiva",
@@ -2825,32 +2038,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0114",
-    "sindicato_id": "sid_022",
-    "sindicato_sigla": "SIND ENTID RECREAT",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo FEDERACAO NACIONAL DE CULTURA FENAC",
-    "partes": [
-      "FEDERACAO NACIONAL DE CULTURA FENAC"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002112/2026",
-    "arquivo": {
-      "nome": "SIND_ENTID_RECREAT_Termo_Aditivo_MG002112_2026.doc",
-      "caminho": "docs/MTE/SIND_ENTID_RECREAT_Termo_Aditivo_MG002112_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_ENTID_RECREAT_Termo_Aditivo_MG002112_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0115",
+    "id": "doc_0082",
     "sindicato_id": "sid_023",
     "sindicato_sigla": "SINDESPORTE",
     "tipo": "Convenção Coletiva",
@@ -2875,7 +2063,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0116",
+    "id": "doc_0083",
     "sindicato_id": "sid_023",
     "sindicato_sigla": "SINDESPORTE",
     "tipo": "Convenção Coletiva",
@@ -2900,57 +2088,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0117",
-    "sindicato_id": "sid_023",
-    "sindicato_sigla": "SINDESPORTE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS CLUBES DO ESTADO DE SAO PAULO",
-    "partes": [
-      "SINDICATO DOS CLUBES DO ESTADO DE SAO PAULO"
-    ],
-    "origem": "mte",
-    "registro_mte": "SP000343/2026",
-    "arquivo": {
-      "nome": "SINDESPORTE_Termo_Aditivo_SP000343_2026.doc",
-      "caminho": "docs/MTE/SINDESPORTE_Termo_Aditivo_SP000343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDESPORTE_Termo_Aditivo_SP000343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-12-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-11-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0118",
-    "sindicato_id": "sid_023",
-    "sindicato_sigla": "SINDESPORTE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SIND DOS EST DE ESP AQUAT AER E TER DO EST DE SAO PAULO",
-    "partes": [
-      "SIND DOS EST DE ESP AQUAT AER E TER DO EST DE SAO PAULO"
-    ],
-    "origem": "mte",
-    "registro_mte": "SP004636/2026",
-    "arquivo": {
-      "nome": "SINDESPORTE_Termo_Aditivo_SP004636_2026.doc",
-      "caminho": "docs/MTE/SINDESPORTE_Termo_Aditivo_SP004636_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDESPORTE_Termo_Aditivo_SP004636_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0119",
+    "id": "doc_0084",
     "sindicato_id": "sid_024",
     "sindicato_sigla": "SECHSEG",
     "tipo": "Convenção Coletiva",
@@ -2975,7 +2113,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0120",
+    "id": "doc_0085",
     "sindicato_id": "sid_024",
     "sindicato_sigla": "SECHSEG",
     "tipo": "Convenção Coletiva",
@@ -3000,7 +2138,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0121",
+    "id": "doc_0086",
     "sindicato_id": "sid_024",
     "sindicato_sigla": "SECHSEG",
     "tipo": "Convenção Coletiva",
@@ -3025,82 +2163,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0122",
-    "sindicato_id": "sid_024",
-    "sindicato_sigla": "SECHSEG",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DA INDUSTRIA DE HOTEIS DE GOIANIA - SIHGO",
-    "partes": [
-      "SINDICATO DA INDUSTRIA DE HOTEIS DE GOIANIA - SIHGO"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000362/2026",
-    "arquivo": {
-      "nome": "SECHSEG_Termo_Aditivo_GO000362_2026.doc",
-      "caminho": "docs/MTE/SECHSEG_Termo_Aditivo_GO000362_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SECHSEG_Termo_Aditivo_GO000362_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0123",
-    "sindicato_id": "sid_024",
-    "sindicato_sigla": "SECHSEG",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS BARES, RESTAURANTES E SIMILARES DO MUNICIPIO DE GOIANIA",
-    "partes": [
-      "SINDICATO DOS BARES, RESTAURANTES E SIMILARES DO MUNICIPIO DE GOIANIA"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000408/2026",
-    "arquivo": {
-      "nome": "SECHSEG_Termo_Aditivo_GO000408_2026.doc",
-      "caminho": "docs/MTE/SECHSEG_Termo_Aditivo_GO000408_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SECHSEG_Termo_Aditivo_GO000408_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0124",
-    "sindicato_id": "sid_024",
-    "sindicato_sigla": "SECHSEG",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DE HOTEIS REST BARES SIM MUN C NOVAS R QUENTE",
-    "partes": [
-      "SINDICATO DE HOTEIS REST BARES SIM MUN C NOVAS R QUENTE"
-    ],
-    "origem": "mte",
-    "registro_mte": "GO000752/2026",
-    "arquivo": {
-      "nome": "SECHSEG_Termo_Aditivo_GO000752_2026.doc",
-      "caminho": "docs/MTE/SECHSEG_Termo_Aditivo_GO000752_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SECHSEG_Termo_Aditivo_GO000752_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0125",
+    "id": "doc_0087",
     "sindicato_id": "sid_025",
     "sindicato_sigla": "SIND UB",
     "tipo": "Convenção Coletiva",
@@ -3125,32 +2188,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0126",
-    "sindicato_id": "sid_025",
-    "sindicato_sigla": "SIND UB",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS INDS ADUBOS CORRET AGRICOLAS EST M GERAIS",
-    "partes": [
-      "SINDICATO DAS INDS ADUBOS CORRET AGRICOLAS EST M GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004175/2025",
-    "arquivo": {
-      "nome": "SIND_UB_Termo_Aditivo_MG004175_2025.doc",
-      "caminho": "docs/MTE/SIND_UB_Termo_Aditivo_MG004175_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_UB_Termo_Aditivo_MG004175_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-11-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-10-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0127",
+    "id": "doc_0088",
     "sindicato_id": "sid_026",
     "sindicato_sigla": "STIMMMEUA",
     "tipo": "Convenção Coletiva",
@@ -3175,32 +2213,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0128",
-    "sindicato_id": "sid_026",
-    "sindicato_sigla": "STIMMMEUA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS INDUSTRIAS METALURGICAS, MECANICAS E DE MATERIAIS ELETRICOS DE UBERLANDIA",
-    "partes": [
-      "SINDICATO DAS INDUSTRIAS METALURGICAS, MECANICAS E DE MATERIAIS ELETRICOS DE UBERLANDIA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002294/2026",
-    "arquivo": {
-      "nome": "STIMMMEUA_Termo_Aditivo_MG002294_2026.doc",
-      "caminho": "docs/MTE/STIMMMEUA_Termo_Aditivo_MG002294_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/STIMMMEUA_Termo_Aditivo_MG002294_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-04-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-03-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0129",
+    "id": "doc_0089",
     "sindicato_id": "sid_027",
     "sindicato_sigla": "SINDCONT",
     "tipo": "Convenção Coletiva",
@@ -3225,32 +2238,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0130",
-    "sindicato_id": "sid_027",
-    "sindicato_sigla": "SINDCONT",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS INDUSTRIAS METALURGICAS, MECANICAS E DE MATERIAIS ELETRICOS DE UBERLANDIA",
-    "partes": [
-      "SINDICATO DAS INDUSTRIAS METALURGICAS, MECANICAS E DE MATERIAIS ELETRICOS DE UBERLANDIA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002294/2026",
-    "arquivo": {
-      "nome": "SINDCONT_Termo_Aditivo_MG002294_2026.doc",
-      "caminho": "docs/MTE/SINDCONT_Termo_Aditivo_MG002294_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDCONT_Termo_Aditivo_MG002294_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-04-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-03-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0131",
+    "id": "doc_0090",
     "sindicato_id": "sid_028",
     "sindicato_sigla": "SINTAPPI",
     "tipo": "Convenção Coletiva",
@@ -3275,7 +2263,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0132",
+    "id": "doc_0091",
     "sindicato_id": "sid_028",
     "sindicato_sigla": "SINTAPPI",
     "tipo": "Convenção Coletiva",
@@ -3300,7 +2288,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0133",
+    "id": "doc_0092",
     "sindicato_id": "sid_028",
     "sindicato_sigla": "SINTAPPI",
     "tipo": "Convenção Coletiva",
@@ -3325,7 +2313,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0134",
+    "id": "doc_0093",
     "sindicato_id": "sid_028",
     "sindicato_sigla": "SINTAPPI",
     "tipo": "Convenção Coletiva",
@@ -3350,7 +2338,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0135",
+    "id": "doc_0094",
     "sindicato_id": "sid_028",
     "sindicato_sigla": "SINTAPPI",
     "tipo": "Termo Aditivo",
@@ -3375,7 +2363,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0136",
+    "id": "doc_0095",
     "sindicato_id": "sid_029",
     "sindicato_sigla": "SIND DOS",
     "tipo": "Convenção Coletiva",
@@ -3400,7 +2388,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0137",
+    "id": "doc_0096",
     "sindicato_id": "sid_029",
     "sindicato_sigla": "SIND DOS",
     "tipo": "Convenção Coletiva",
@@ -3425,7 +2413,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0138",
+    "id": "doc_0097",
     "sindicato_id": "sid_029",
     "sindicato_sigla": "SIND DOS",
     "tipo": "Convenção Coletiva",
@@ -3450,82 +2438,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0139",
-    "sindicato_id": "sid_029",
-    "sindicato_sigla": "SIND DOS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001343/2026",
-    "arquivo": {
-      "nome": "SIND_DOS_Termo_Aditivo_MG001343_2026.doc",
-      "caminho": "docs/MTE/SIND_DOS_Termo_Aditivo_MG001343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_DOS_Termo_Aditivo_MG001343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0140",
-    "sindicato_id": "sid_029",
-    "sindicato_sigla": "SIND DOS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001369/2026",
-    "arquivo": {
-      "nome": "SIND_DOS_Termo_Aditivo_MG001369_2026.doc",
-      "caminho": "docs/MTE/SIND_DOS_Termo_Aditivo_MG001369_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_DOS_Termo_Aditivo_MG001369_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0141",
-    "sindicato_id": "sid_029",
-    "sindicato_sigla": "SIND DOS",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002234/2026",
-    "arquivo": {
-      "nome": "SIND_DOS_Termo_Aditivo_MG002234_2026.doc",
-      "caminho": "docs/MTE/SIND_DOS_Termo_Aditivo_MG002234_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_DOS_Termo_Aditivo_MG002234_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0142",
+    "id": "doc_0098",
     "sindicato_id": "sid_030",
     "sindicato_sigla": "SINDBARES",
     "tipo": "Convenção Coletiva",
@@ -3550,7 +2463,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0143",
+    "id": "doc_0099",
     "sindicato_id": "sid_030",
     "sindicato_sigla": "SINDBARES",
     "tipo": "Convenção Coletiva",
@@ -3575,7 +2488,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0144",
+    "id": "doc_0100",
     "sindicato_id": "sid_030",
     "sindicato_sigla": "SINDBARES",
     "tipo": "Convenção Coletiva",
@@ -3600,82 +2513,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0145",
-    "sindicato_id": "sid_030",
-    "sindicato_sigla": "SINDBARES",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001343/2026",
-    "arquivo": {
-      "nome": "SINDBARES_Termo_Aditivo_MG001343_2026.doc",
-      "caminho": "docs/MTE/SINDBARES_Termo_Aditivo_MG001343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDBARES_Termo_Aditivo_MG001343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0146",
-    "sindicato_id": "sid_030",
-    "sindicato_sigla": "SINDBARES",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001369/2026",
-    "arquivo": {
-      "nome": "SINDBARES_Termo_Aditivo_MG001369_2026.doc",
-      "caminho": "docs/MTE/SINDBARES_Termo_Aditivo_MG001369_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDBARES_Termo_Aditivo_MG001369_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0147",
-    "sindicato_id": "sid_030",
-    "sindicato_sigla": "SINDBARES",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002234/2026",
-    "arquivo": {
-      "nome": "SINDBARES_Termo_Aditivo_MG002234_2026.doc",
-      "caminho": "docs/MTE/SINDBARES_Termo_Aditivo_MG002234_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDBARES_Termo_Aditivo_MG002234_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0148",
+    "id": "doc_0101",
     "sindicato_id": "sid_031",
     "sindicato_sigla": "SINDUSCOM-GO",
     "tipo": "Convenção Coletiva",
@@ -3700,7 +2538,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0149",
+    "id": "doc_0102",
     "sindicato_id": "sid_031",
     "sindicato_sigla": "SINDUSCOM-GO",
     "tipo": "Convenção Coletiva",
@@ -3725,7 +2563,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0150",
+    "id": "doc_0103",
     "sindicato_id": "sid_031",
     "sindicato_sigla": "SINDUSCOM-GO",
     "tipo": "Convenção Coletiva",
@@ -3750,82 +2588,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0151",
-    "sindicato_id": "sid_031",
-    "sindicato_sigla": "SINDUSCOM-GO",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001343/2026",
-    "arquivo": {
-      "nome": "SINDUSCOM-GO_Termo_Aditivo_MG001343_2026.doc",
-      "caminho": "docs/MTE/SINDUSCOM-GO_Termo_Aditivo_MG001343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDUSCOM-GO_Termo_Aditivo_MG001343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0152",
-    "sindicato_id": "sid_031",
-    "sindicato_sigla": "SINDUSCOM-GO",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001369/2026",
-    "arquivo": {
-      "nome": "SINDUSCOM-GO_Termo_Aditivo_MG001369_2026.doc",
-      "caminho": "docs/MTE/SINDUSCOM-GO_Termo_Aditivo_MG001369_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDUSCOM-GO_Termo_Aditivo_MG001369_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0153",
-    "sindicato_id": "sid_031",
-    "sindicato_sigla": "SINDUSCOM-GO",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002234/2026",
-    "arquivo": {
-      "nome": "SINDUSCOM-GO_Termo_Aditivo_MG002234_2026.doc",
-      "caminho": "docs/MTE/SINDUSCOM-GO_Termo_Aditivo_MG002234_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDUSCOM-GO_Termo_Aditivo_MG002234_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0154",
+    "id": "doc_0104",
     "sindicato_id": "sid_032",
     "sindicato_sigla": "SINDSEAC",
     "tipo": "Convenção Coletiva",
@@ -3850,7 +2613,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0155",
+    "id": "doc_0105",
     "sindicato_id": "sid_032",
     "sindicato_sigla": "SINDSEAC",
     "tipo": "Convenção Coletiva",
@@ -3875,7 +2638,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0156",
+    "id": "doc_0106",
     "sindicato_id": "sid_032",
     "sindicato_sigla": "SINDSEAC",
     "tipo": "Convenção Coletiva",
@@ -3900,82 +2663,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0157",
-    "sindicato_id": "sid_032",
-    "sindicato_sigla": "SINDSEAC",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001343/2026",
-    "arquivo": {
-      "nome": "SINDSEAC_Termo_Aditivo_MG001343_2026.doc",
-      "caminho": "docs/MTE/SINDSEAC_Termo_Aditivo_MG001343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDSEAC_Termo_Aditivo_MG001343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0158",
-    "sindicato_id": "sid_032",
-    "sindicato_sigla": "SINDSEAC",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001369/2026",
-    "arquivo": {
-      "nome": "SINDSEAC_Termo_Aditivo_MG001369_2026.doc",
-      "caminho": "docs/MTE/SINDSEAC_Termo_Aditivo_MG001369_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDSEAC_Termo_Aditivo_MG001369_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0159",
-    "sindicato_id": "sid_032",
-    "sindicato_sigla": "SINDSEAC",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002234/2026",
-    "arquivo": {
-      "nome": "SINDSEAC_Termo_Aditivo_MG002234_2026.doc",
-      "caminho": "docs/MTE/SINDSEAC_Termo_Aditivo_MG002234_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDSEAC_Termo_Aditivo_MG002234_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0160",
+    "id": "doc_0107",
     "sindicato_id": "sid_033",
     "sindicato_sigla": "SIND TRAB RUR ARAGUARI",
     "tipo": "Convenção Coletiva",
@@ -4000,7 +2688,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0161",
+    "id": "doc_0108",
     "sindicato_id": "sid_033",
     "sindicato_sigla": "SIND TRAB RUR ARAGUARI",
     "tipo": "Convenção Coletiva",
@@ -4025,7 +2713,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0162",
+    "id": "doc_0109",
     "sindicato_id": "sid_033",
     "sindicato_sigla": "SIND TRAB RUR ARAGUARI",
     "tipo": "Convenção Coletiva",
@@ -4050,82 +2738,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0163",
-    "sindicato_id": "sid_033",
-    "sindicato_sigla": "SIND TRAB RUR ARAGUARI",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001343/2026",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG001343_2026.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG001343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG001343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0164",
-    "sindicato_id": "sid_033",
-    "sindicato_sigla": "SIND TRAB RUR ARAGUARI",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001369/2026",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG001369_2026.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG001369_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG001369_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0165",
-    "sindicato_id": "sid_033",
-    "sindicato_sigla": "SIND TRAB RUR ARAGUARI",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002234/2026",
-    "arquivo": {
-      "nome": "SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG002234_2026.doc",
-      "caminho": "docs/MTE/SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG002234_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SIND_TRAB_RUR_ARAGUARI_Termo_Aditivo_MG002234_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0166",
+    "id": "doc_0110",
     "sindicato_id": "sid_034",
     "sindicato_sigla": "SINHORES",
     "tipo": "Convenção Coletiva",
@@ -4150,7 +2763,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0167",
+    "id": "doc_0111",
     "sindicato_id": "sid_034",
     "sindicato_sigla": "SINHORES",
     "tipo": "Convenção Coletiva",
@@ -4175,7 +2788,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0168",
+    "id": "doc_0112",
     "sindicato_id": "sid_034",
     "sindicato_sigla": "SINHORES",
     "tipo": "Convenção Coletiva",
@@ -4200,82 +2813,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0169",
-    "sindicato_id": "sid_034",
-    "sindicato_sigla": "SINHORES",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001343/2026",
-    "arquivo": {
-      "nome": "SINHORES_Termo_Aditivo_MG001343_2026.doc",
-      "caminho": "docs/MTE/SINHORES_Termo_Aditivo_MG001343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINHORES_Termo_Aditivo_MG001343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0170",
-    "sindicato_id": "sid_034",
-    "sindicato_sigla": "SINHORES",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001369/2026",
-    "arquivo": {
-      "nome": "SINHORES_Termo_Aditivo_MG001369_2026.doc",
-      "caminho": "docs/MTE/SINHORES_Termo_Aditivo_MG001369_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINHORES_Termo_Aditivo_MG001369_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0171",
-    "sindicato_id": "sid_034",
-    "sindicato_sigla": "SINHORES",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002234/2026",
-    "arquivo": {
-      "nome": "SINHORES_Termo_Aditivo_MG002234_2026.doc",
-      "caminho": "docs/MTE/SINHORES_Termo_Aditivo_MG002234_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINHORES_Termo_Aditivo_MG002234_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0172",
+    "id": "doc_0113",
     "sindicato_id": "sid_035",
     "sindicato_sigla": "SINDELOT",
     "tipo": "Convenção Coletiva",
@@ -4300,7 +2838,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0173",
+    "id": "doc_0114",
     "sindicato_id": "sid_035",
     "sindicato_sigla": "SINDELOT",
     "tipo": "Convenção Coletiva",
@@ -4325,7 +2863,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0174",
+    "id": "doc_0115",
     "sindicato_id": "sid_035",
     "sindicato_sigla": "SINDELOT",
     "tipo": "Convenção Coletiva",
@@ -4350,82 +2888,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0175",
-    "sindicato_id": "sid_035",
-    "sindicato_sigla": "SINDELOT",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE ASSEIO E CONSERVACAO DO ESTADO DE"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001343/2026",
-    "arquivo": {
-      "nome": "SINDELOT_Termo_Aditivo_MG001343_2026.doc",
-      "caminho": "docs/MTE/SINDELOT_Termo_Aditivo_MG001343_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDELOT_Termo_Aditivo_MG001343_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-01-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-12-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0176",
-    "sindicato_id": "sid_035",
-    "sindicato_sigla": "SINDELOT",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTE TURISTICO E DE FRETAMENTO DO ESTADO DE MINAS GERAIS"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG001369/2026",
-    "arquivo": {
-      "nome": "SINDELOT_Termo_Aditivo_MG001369_2026.doc",
-      "caminho": "docs/MTE/SINDELOT_Termo_Aditivo_MG001369_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDELOT_Termo_Aditivo_MG001369_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-03-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-02-28"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0177",
-    "sindicato_id": "sid_035",
-    "sindicato_sigla": "SINDELOT",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM",
-    "partes": [
-      "SINDICATO DAS EMPRESAS DE TRANSPORTES DE CARGAS E LOGISTICA DO TRIANGULO MINEIRO - SETTRIM"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002234/2026",
-    "arquivo": {
-      "nome": "SINDELOT_Termo_Aditivo_MG002234_2026.doc",
-      "caminho": "docs/MTE/SINDELOT_Termo_Aditivo_MG002234_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SINDELOT_Termo_Aditivo_MG002234_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2026-05-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-04-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0178",
+    "id": "doc_0116",
     "sindicato_id": "sid_036",
     "sindicato_sigla": "SESCAP/PE",
     "tipo": "Convenção Coletiva",
@@ -4450,7 +2913,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0179",
+    "id": "doc_0117",
     "sindicato_id": "sid_036",
     "sindicato_sigla": "SESCAP/PE",
     "tipo": "Convenção Coletiva",
@@ -4475,7 +2938,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0180",
+    "id": "doc_0118",
     "sindicato_id": "sid_036",
     "sindicato_sigla": "SESCAP/PE",
     "tipo": "Convenção Coletiva",
@@ -4500,82 +2963,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0181",
-    "sindicato_id": "sid_036",
-    "sindicato_sigla": "SESCAP/PE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SESCAP-PE SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPR. DE ASSES.,PERICIAS, INFORM.E PESQUISAS NO EST.PE",
-    "partes": [
-      "SESCAP-PE SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPR. DE ASSES.,PERICIAS, INFORM.E PESQUISAS NO EST.PE"
-    ],
-    "origem": "mte",
-    "registro_mte": "PE000007/2026",
-    "arquivo": {
-      "nome": "SESCAP_PE_Termo_Aditivo_PE000007_2026.doc",
-      "caminho": "docs/MTE/SESCAP_PE_Termo_Aditivo_PE000007_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SESCAP_PE_Termo_Aditivo_PE000007_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0182",
-    "sindicato_id": "sid_036",
-    "sindicato_sigla": "SESCAP/PE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SESCAP-PE SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPR. DE ASSES.,PERICIAS, INFORM.E PESQUISAS NO EST.PE",
-    "partes": [
-      "SESCAP-PE SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPR. DE ASSES.,PERICIAS, INFORM.E PESQUISAS NO EST.PE"
-    ],
-    "origem": "mte",
-    "registro_mte": "PE001230/2025",
-    "arquivo": {
-      "nome": "SESCAP_PE_Termo_Aditivo_PE001230_2025.doc",
-      "caminho": "docs/MTE/SESCAP_PE_Termo_Aditivo_PE001230_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SESCAP_PE_Termo_Aditivo_PE001230_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0183",
-    "sindicato_id": "sid_036",
-    "sindicato_sigla": "SESCAP/PE",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SESCAP-PE SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPR. DE ASSES.,PERICIAS, INFORM.E PESQUISAS NO EST.PE",
-    "partes": [
-      "SESCAP-PE SINDICATO DAS EMPRESAS DE SERVICOS CONTABEIS E DAS EMPR. DE ASSES.,PERICIAS, INFORM.E PESQUISAS NO EST.PE"
-    ],
-    "origem": "mte",
-    "registro_mte": "PE001233/2025",
-    "arquivo": {
-      "nome": "SESCAP_PE_Termo_Aditivo_PE001233_2025.doc",
-      "caminho": "docs/MTE/SESCAP_PE_Termo_Aditivo_PE001233_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SESCAP_PE_Termo_Aditivo_PE001233_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-08-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-07-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0184",
+    "id": "doc_0119",
     "sindicato_id": "sid_037",
     "sindicato_sigla": "SENALBA",
     "tipo": "Convenção Coletiva",
@@ -4600,7 +2988,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0185",
+    "id": "doc_0120",
     "sindicato_id": "sid_037",
     "sindicato_sigla": "SENALBA",
     "tipo": "Convenção Coletiva",
@@ -4625,57 +3013,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0186",
-    "sindicato_id": "sid_037",
-    "sindicato_sigla": "SENALBA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DOS ESTABELECIMENTOS DE ENSINO LIVRE DO OESTE DE M",
-    "partes": [
-      "SINDICATO DOS ESTABELECIMENTOS DE ENSINO LIVRE DO OESTE DE M"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003752/2025",
-    "arquivo": {
-      "nome": "SENALBA_Termo_Aditivo_MG003752_2025.doc",
-      "caminho": "docs/MTE/SENALBA_Termo_Aditivo_MG003752_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SENALBA_Termo_Aditivo_MG003752_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-09-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-08-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0187",
-    "sindicato_id": "sid_037",
-    "sindicato_sigla": "SENALBA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo FEDERACAO NACIONAL DE CULTURA FENAC",
-    "partes": [
-      "FEDERACAO NACIONAL DE CULTURA FENAC"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG003886/2025",
-    "arquivo": {
-      "nome": "SENALBA_Termo_Aditivo_MG003886_2025.doc",
-      "caminho": "docs/MTE/SENALBA_Termo_Aditivo_MG003886_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SENALBA_Termo_Aditivo_MG003886_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-09-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-08-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0188",
+    "id": "doc_0121",
     "sindicato_id": "sid_038",
     "sindicato_sigla": "STIAU",
     "tipo": "Convenção Coletiva",
@@ -4700,32 +3038,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0189",
-    "sindicato_id": "sid_038",
-    "sindicato_sigla": "STIAU",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS INDUSTRIAS DE ALIMENTACAO DE UBERLANDIA",
-    "partes": [
-      "SINDICATO DAS INDUSTRIAS DE ALIMENTACAO DE UBERLANDIA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004497/2025",
-    "arquivo": {
-      "nome": "STIAU_Termo_Aditivo_MG004497_2025.doc",
-      "caminho": "docs/MTE/STIAU_Termo_Aditivo_MG004497_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/STIAU_Termo_Aditivo_MG004497_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-09-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-08-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0190",
+    "id": "doc_0122",
     "sindicato_id": "sid_039",
     "sindicato_sigla": "SEEDSIDER-MG",
     "tipo": "Convenção Coletiva",
@@ -4750,32 +3063,7 @@
     "verificacao_mes": "2026-07"
   },
   {
-    "id": "doc_0191",
-    "sindicato_id": "sid_039",
-    "sindicato_sigla": "SEEDSIDER-MG",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DAS INDUSTRIAS DE ALIMENTACAO DE UBERLANDIA",
-    "partes": [
-      "SINDICATO DAS INDUSTRIAS DE ALIMENTACAO DE UBERLANDIA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG004497/2025",
-    "arquivo": {
-      "nome": "SEEDSIDER-MG_Termo_Aditivo_MG004497_2025.doc",
-      "caminho": "docs/MTE/SEEDSIDER-MG_Termo_Aditivo_MG004497_2025.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SEEDSIDER-MG_Termo_Aditivo_MG004497_2025.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-09-Convenção Coletiva\tVigência\t01",
-      "fim": "2027-08-31"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0192",
+    "id": "doc_0123",
     "sindicato_id": "sid_040",
     "sindicato_sigla": "SECUA",
     "tipo": "Convenção Coletiva",
@@ -4789,31 +3077,6 @@
       "nome": "SECUA_Convenção_Coletiva_MG002245_2026.doc",
       "caminho": "docs/MTE/SECUA_Convenção_Coletiva_MG002245_2026.doc",
       "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SECUA_Convenção_Coletiva_MG002245_2026.doc",
-      "hash_sha256": null,
-      "extensao": "doc"
-    },
-    "vigencia": {
-      "inicio": "2025-12-Convenção Coletiva\tVigência\t01",
-      "fim": "2026-11-30"
-    },
-    "descoberto_em": "2026-07-23",
-    "verificacao_mes": "2026-07"
-  },
-  {
-    "id": "doc_0193",
-    "sindicato_id": "sid_040",
-    "sindicato_sigla": "SECUA",
-    "tipo": "Termo Aditivo",
-    "titulo": "Termo Aditivo SINDICATO DO COMERCIO DE UBERLANDIA",
-    "partes": [
-      "SINDICATO DO COMERCIO DE UBERLANDIA"
-    ],
-    "origem": "mte",
-    "registro_mte": "MG002245/2026",
-    "arquivo": {
-      "nome": "SECUA_Termo_Aditivo_MG002245_2026.doc",
-      "caminho": "docs/MTE/SECUA_Termo_Aditivo_MG002245_2026.doc",
-      "url_vercel": "https://ccts-monitor.vercel.app/docs/MTE/SECUA_Termo_Aditivo_MG002245_2026.doc",
       "hash_sha256": null,
       "extensao": "doc"
     },
