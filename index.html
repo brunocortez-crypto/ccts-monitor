@@ -4,522 +4,807 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monitor de CCTs | Grupo-E</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
-:root {
-  --verde-escuro: #1b4d3e;
-  --verde-medio: #2e7d5b;
-  --verde-claro: #e8f3ee;
-  --creme: #faf7f2;
-  --laranja: #f5a623;
-  --texto: #2d2d2d;
-  --cinza: #6b6b6b;
-  --borda: #e2ded6;
+:root{
+  --verde:#1a4f3a; --verde-esc:#123527; --verde-cla:#2d7355;
+  --dourado:#e8a33d; --dourado-esc:#c4842a;
+  --fundo:#f4f6f5; --branco:#fff; --borda:#e2e8e5;
+  --txt:#1f2d28; --txt2:#6b7d76;
+  --ok:#2d7355; --alerta:#e8a33d; --erro:#c0392b; --neutro:#94a3a0;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Segoe UI', Tahoma, sans-serif; background:var(--creme); color:var(--texto); }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fundo);color:var(--txt);line-height:1.5}
 
-.header {
-  background: var(--verde-escuro);
-  color:#fff;
-  padding: 22px 30px;
-  display:flex;
-  align-items:center;
-  gap:16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,.15);
-}
-.logo-circle {
-  width:52px; height:52px;
-  background:#fff;
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:32px; font-weight:800;
-  color:var(--verde-escuro);
-  font-family: Georgia, serif;
-}
-.header-txt h1 { font-size:22px; letter-spacing:.5px; }
-.header-txt p { font-size:12.5px; opacity:.85; margin-top:2px; letter-spacing:2px; text-transform:uppercase; }
-.header .badge {
-  margin-left:auto;
-  background:var(--laranja);
-  color:#fff;
-  font-size:11px;
-  font-weight:700;
-  padding:5px 12px;
-  border-radius:20px;
-  letter-spacing:1px;
-}
+/* CABEÇALHO */
+header{background:var(--verde);color:#fff;padding:22px 0}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.topo{display:flex;align-items:center;gap:16px}
+.logo{width:46px;height:46px;border-radius:50%;background:var(--branco);color:var(--verde);
+  display:grid;place-items:center;font-size:24px;font-weight:700;flex-shrink:0}
+.titulo h1{font-size:23px;font-weight:700;letter-spacing:-.3px}
+.titulo p{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--dourado);margin-top:2px}
+.selo{margin-left:auto;background:var(--dourado);color:var(--verde-esc);
+  padding:7px 15px;border-radius:20px;font-weight:700;font-size:13px}
 
-.container { max-width:1300px; margin:0 auto; padding:24px 20px; }
+/* BARRA DE AÇÃO */
+.barra{background:var(--verde-esc);padding:11px 0}
+.barra .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.btn-rodar{background:var(--dourado);color:var(--verde-esc);border:none;padding:9px 18px;
+  border-radius:7px;font-weight:700;font-size:13.5px;cursor:pointer;transition:.15s}
+.btn-rodar:hover{filter:brightness(1.08)}
+.ultima-exec{color:#a8c4b8;font-size:12.5px}
 
-.nav { display:flex; background:#fff; border-radius:10px; box-shadow:0 1px 4px rgba(0,0,0,.06); margin-bottom:22px; overflow:hidden; }
-.nav button {
-  flex:1; padding:15px 10px; border:none; background:none; cursor:pointer;
-  font-size:14px; font-weight:600; color:var(--cinza);
-  border-bottom:3px solid transparent; transition:.25s;
-}
-.nav button:hover { background:var(--verde-claro); color:var(--verde-escuro); }
-.nav button.active { color:var(--verde-escuro); border-bottom-color:var(--laranja); background:var(--verde-claro); }
+/* ABAS */
+nav{background:var(--branco);border-bottom:1px solid var(--borda);position:sticky;top:0;z-index:50;
+  box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.abas{display:flex;max-width:1280px;margin:0 auto;padding:0 24px;overflow-x:auto}
+.aba{padding:15px 22px;border:none;background:none;font-size:14.5px;font-weight:600;color:var(--txt2);
+  cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:.15s}
+.aba:hover{color:var(--verde)}
+.aba.ativa{color:var(--verde);border-bottom-color:var(--dourado);background:#f8faf9}
 
-.content { background:#fff; padding:28px; border-radius:10px; box-shadow:0 1px 4px rgba(0,0,0,.06); display:none; }
-.content.active { display:block; }
+main{max-width:1280px;margin:0 auto;padding:26px 24px 60px}
+.painel{display:none}
+.painel.ativo{display:block}
 
-h2 { color:var(--verde-escuro); margin-bottom:18px; font-size:20px; }
-h3 { color:var(--verde-escuro); margin:22px 0 12px; font-size:16px; }
+/* INDICADORES */
+.indicadores{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:26px}
+.ind{background:linear-gradient(140deg,var(--verde) 0%,var(--verde-cla) 100%);color:#fff;
+  padding:20px 22px;border-radius:12px;position:relative;overflow:hidden}
+.ind::after{content:'';position:absolute;right:-18px;top:-18px;width:80px;height:80px;
+  border-radius:50%;background:rgba(255,255,255,.07)}
+.ind .num{font-size:34px;font-weight:700;line-height:1.1}
+.ind .lbl{font-size:12.5px;opacity:.88;margin-top:5px}
+.ind.dourado{background:linear-gradient(140deg,var(--dourado-esc) 0%,var(--dourado) 100%);color:var(--verde-esc)}
 
-/* Filtros */
-.filtros {
-  display:flex; flex-wrap:wrap; gap:12px; align-items:center;
-  background:var(--verde-claro);
-  padding:16px; border-radius:10px; margin-bottom:22px;
-}
-.filtros label { font-size:13px; font-weight:600; color:var(--verde-escuro); }
-.filtros select, .filtros input {
-  padding:9px 12px; border:1px solid var(--borda); border-radius:6px; font-size:14px; background:#fff;
-}
-.mes-nav { display:flex; align-items:center; gap:10px; }
-.mes-nav button {
-  padding:9px 16px; background:var(--verde-escuro); color:#fff; border:none;
-  border-radius:6px; cursor:pointer; font-weight:600; transition:.2s;
-}
-.mes-nav button:hover { background:var(--verde-medio); }
-.mes-nav .mes-atual { font-size:17px; font-weight:700; color:var(--verde-escuro); min-width:170px; text-align:center; }
-.btn-ano {
-  padding:9px 16px; background:#fff; color:var(--verde-escuro); border:2px solid var(--verde-escuro);
-  border-radius:6px; cursor:pointer; font-weight:600; transition:.2s;
-}
-.btn-ano.on, .btn-ano:hover { background:var(--laranja); border-color:var(--laranja); color:#fff; }
+/* CARTÕES */
+.cartao{background:var(--branco);border:1px solid var(--borda);border-radius:12px;padding:22px;margin-bottom:18px}
+.cartao h2{font-size:17px;color:var(--verde);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.desc{font-size:13.5px;color:var(--txt2);margin-bottom:16px}
 
-/* Cards */
-.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-bottom:22px; }
-.stat {
-  background:linear-gradient(135deg,var(--verde-escuro),var(--verde-medio));
-  color:#fff; padding:18px; border-radius:10px;
-}
-.stat .num { font-size:30px; font-weight:800; }
-.stat .lbl { font-size:12.5px; opacity:.9; margin-top:3px; }
+/* FILTROS */
+.filtros{display:flex;gap:11px;flex-wrap:wrap;align-items:center;margin-bottom:18px;
+  background:#f8faf9;padding:13px 15px;border-radius:9px;border:1px solid var(--borda)}
+.filtros label{font-size:12.5px;font-weight:600;color:var(--txt2)}
+select,input[type=text],input[type=search]{padding:8px 11px;border:1px solid var(--borda);
+  border-radius:7px;font-size:13.5px;font-family:inherit;background:#fff;color:var(--txt)}
+input[type=search]{flex:1;min-width:190px}
+select:focus,input:focus{outline:2px solid var(--verde-cla);outline-offset:-1px}
 
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:16px; }
-.card {
-  background:#fff; border:1px solid var(--borda); border-left:5px solid var(--verde-medio);
-  border-radius:10px; padding:18px; transition:.25s;
-}
-.card:hover { box-shadow:0 6px 16px rgba(27,77,62,.12); transform:translateY(-2px); }
-.card h4 { color:var(--verde-escuro); font-size:15px; margin-bottom:8px; }
-.card p { font-size:13.5px; color:var(--cinza); margin:4px 0; }
-.card .tag {
-  display:inline-block; font-size:11px; font-weight:700; padding:3px 10px;
-  border-radius:12px; margin-bottom:8px;
-}
-.tag.nova { background:#fff4e0; color:#b47408; }
-.tag.vigente { background:var(--verde-claro); color:var(--verde-escuro); }
-.tag.vencida { background:#fdeaea; color:#c0392b; }
-.card a.doc {
-  display:inline-block; margin-top:10px; font-size:13px; font-weight:700;
-  color:#fff; background:var(--verde-escuro); padding:8px 14px; border-radius:6px; text-decoration:none;
-}
-.card a.doc:hover { background:var(--verde-medio); }
+/* TABELA */
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--verde);color:#fff;padding:11px 13px;text-align:left;font-weight:600;font-size:12.5px;
+  position:sticky;top:0}
+th:first-child{border-radius:8px 0 0 0}
+th:last-child{border-radius:0 8px 0 0}
+td{padding:11px 13px;border-bottom:1px solid var(--borda)}
+tbody tr:hover{background:#f8faf9}
+.tabela-scroll{overflow-x:auto;border-radius:8px}
 
-.vazio { background:var(--verde-claro); color:var(--verde-escuro); padding:18px; border-radius:8px; border-left:4px solid var(--laranja); }
+/* SELOS DE STATUS */
+.st{display:inline-flex;align-items:center;gap:5px;padding:3.5px 10px;border-radius:20px;
+  font-size:11.5px;font-weight:700;white-space:nowrap}
+.st-atualizado{background:#dcf0e7;color:#1a5c40}
+.st-aguardando{background:#fdf0d8;color:#8a5f10}
+.st-sem_cc_2026{background:#fbe0dd;color:#96271b}
+.st-sem_registros{background:#eef1f0;color:#5c6b66}
+.origem{display:inline-block;padding:2.5px 9px;border-radius:5px;font-size:11px;font-weight:700}
+.origem-mte{background:#dcf0e7;color:#1a5c40}
+.origem-site{background:#fdf0d8;color:#8a5f10}
 
-/* Formularios */
-form.frm { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-bottom:8px; }
-form.frm input, form.frm select { padding:10px 12px; border:1px solid var(--borda); border-radius:6px; font-size:14px; }
-form.frm button {
-  padding:10px 18px; background:var(--verde-escuro); color:#fff; border:none; border-radius:6px;
-  cursor:pointer; font-weight:700;
+/* AÇÕES */
+.acoes{display:flex;gap:5px}
+.ico{width:31px;height:31px;border:1px solid var(--borda);background:#fff;border-radius:7px;
+  cursor:pointer;font-size:14px;display:grid;place-items:center;transition:.15s;padding:0}
+.ico:hover{background:var(--verde);border-color:var(--verde);transform:translateY(-1px)}
+.ico.perigo:hover{background:var(--erro);border-color:var(--erro)}
+
+/* ACCORDION */
+.grupo{border:1px solid var(--borda);border-radius:10px;margin-bottom:11px;overflow:hidden;background:#fff}
+.grupo-topo{padding:14px 17px;background:#f8faf9;cursor:pointer;display:flex;align-items:center;gap:12px;
+  transition:.15s;user-select:none}
+.grupo-topo:hover{background:#eef4f1}
+.seta{color:var(--verde);font-size:12px;transition:transform .2s;flex-shrink:0}
+.grupo.aberto .seta{transform:rotate(90deg)}
+.grupo-nome{font-weight:700;color:var(--verde);font-size:14.5px}
+.grupo-meta{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{background:var(--verde);color:#fff;padding:2.5px 10px;border-radius:20px;font-size:11.5px;font-weight:700}
+.grupo-corpo{display:none;padding:6px 17px 17px}
+.grupo.aberto .grupo-corpo{display:block}
+
+.doc{border-left:3px solid var(--ok);background:#fbfcfc;padding:13px 15px;border-radius:0 8px 8px 0;
+  margin-top:9px;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.doc.site{border-left-color:var(--alerta)}
+.doc-info{flex:1;min-width:250px}
+.doc-tit{font-weight:600;font-size:13.5px;margin-bottom:4px;color:var(--txt)}
+.doc-sub{font-size:12px;color:var(--txt2);display:flex;gap:14px;flex-wrap:wrap}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(18,53,39,.55);z-index:200;
+  padding:24px;overflow-y:auto}
+.overlay.aberto{display:block}
+.modal{background:#fff;max-width:820px;margin:24px auto;border-radius:14px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.modal-topo{background:var(--verde);color:#fff;padding:18px 24px;display:flex;align-items:center;gap:14px}
+.modal-topo h3{font-size:17px;flex:1}
+.fechar{background:rgba(255,255,255,.16);border:none;color:#fff;width:31px;height:31px;
+  border-radius:7px;cursor:pointer;font-size:17px;line-height:1}
+.fechar:hover{background:rgba(255,255,255,.28)}
+.modal-corpo{padding:24px;max-height:66vh;overflow-y:auto}
+.linha{display:flex;padding:9px 0;border-bottom:1px solid var(--borda);font-size:13.5px;gap:14px}
+.linha:last-child{border-bottom:none}
+.linha b{min-width:135px;color:var(--txt2);font-weight:600;flex-shrink:0}
+
+/* BOTÕES */
+.btn{background:var(--verde);color:#fff;border:none;padding:9px 17px;border-radius:7px;
+  font-weight:600;font-size:13.5px;cursor:pointer;transition:.15s;font-family:inherit}
+.btn:hover{background:var(--verde-cla)}
+.btn.sec{background:#fff;color:var(--verde);border:1px solid var(--borda)}
+.btn.sec:hover{background:#f0f5f3}
+.btn.ouro{background:var(--dourado);color:var(--verde-esc)}
+.btn.ouro:hover{filter:brightness(1.08)}
+.btn.risco{background:var(--erro)}
+.btn.risco:hover{background:#a52f22}
+
+.vazio{text-align:center;padding:44px 24px;color:var(--txt2)}
+.vazio .emoji{font-size:38px;margin-bottom:10px;opacity:.5}
+.aviso{background:#fdf6e8;border-left:3px solid var(--dourado);padding:13px 16px;
+  border-radius:0 8px 8px 0;font-size:13px;margin-bottom:18px;color:#7a5510}
+
+@media(max-width:640px){
+  .titulo h1{font-size:19px}
+  .indicadores{grid-template-columns:1fr 1fr}
+  .ind .num{font-size:27px}
+  main{padding:18px 14px 40px}
+  .wrap{padding:0 14px}
+  .abas{padding:0 14px}
+  .aba{padding:13px 15px;font-size:13.5px}
 }
-form.frm button:hover { background:var(--verde-medio); }
-.hint { font-size:12.5px; color:var(--cinza); margin-bottom:16px; }
-
-/* Tabela */
-table { width:100%; border-collapse:collapse; margin-top:14px; font-size:13.5px; }
-th { background:var(--verde-escuro); color:#fff; padding:11px 12px; text-align:left; font-weight:600; }
-td { padding:10px 12px; border-bottom:1px solid var(--borda); }
-tr:hover td { background:var(--verde-claro); }
-.busca-tab { width:100%; padding:10px 14px; border:1px solid var(--borda); border-radius:6px; font-size:14px; margin-bottom:4px; }
-
-.aviso {
-  background:#fff8ec; border-left:4px solid var(--laranja); padding:14px 16px;
-  border-radius:8px; font-size:13.5px; color:#7a5200; margin-bottom:18px;
-}
-.footer { text-align:center; padding:22px; font-size:12px; color:var(--cinza); }
-@media(max-width:700px){ .filtros{flex-direction:column;align-items:stretch} .mes-nav{justify-content:center} }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo-circle">e</div>
-  <div class="header-txt">
-    <h1>Monitor de CCTs</h1>
-    <p>Grupo-E &bull; Solu&ccedil;&otilde;es Empresariais</p>
+<header>
+  <div class="wrap topo">
+    <div class="logo">e</div>
+    <div class="titulo">
+      <h1>Monitor de CCTs</h1>
+      <p>Grupo-E • Soluções Empresariais</p>
+    </div>
+    <div class="selo">DP</div>
   </div>
-  <span class="badge">DP</span>
+</header>
+
+<div class="barra">
+  <div class="wrap">
+    <button class="btn-rodar" onclick="rodarVerificacao()">🔄 Rodar verificação</button>
+    <span class="ultima-exec" id="ultimaExec">Carregando…</span>
+  </div>
 </div>
 
-<div class="container">
-  <div class="nav">
-    <button class="nav-btn active" data-tab="resumo">&#128202; Resumo</button>
-    <button class="nav-btn" data-tab="robo">&#129302; Achados do Rob&ocirc;</button>
-    <button class="nav-btn" data-tab="ccts">&#128196; CCTs</button>
-    <button class="nav-btn" data-tab="sindicatos">&#127970; Sindicatos</button>
-    <button class="nav-btn" data-tab="log">&#128203; Log</button>
+<nav>
+  <div class="abas">
+    <button class="aba ativa" data-p="resumo">📊 Resumo</button>
+    <button class="aba" data-p="documentos">📄 Documentos</button>
+    <button class="aba" data-p="sindicatos">🏢 Sindicatos</button>
+    <button class="aba" data-p="log">📋 Log</button>
   </div>
+</nav>
+
+<main>
 
   <!-- RESUMO -->
-  <div id="resumo" class="content active">
-    <div class="stats">
-      <div class="stat"><div class="num" id="stTotal">0</div><div class="lbl">Sindicatos monitorados</div></div>
-      <div class="stat"><div class="num" id="stCcts">0</div><div class="lbl">CCTs cadastradas</div></div>
-      <div class="stat"><div class="num" id="stMes">0</div><div class="lbl">Data-base no per&iacute;odo</div></div>
-      <div class="stat"><div class="num" id="stNovas">0</div><div class="lbl">CCTs novas</div></div>
+  <section class="painel ativo" id="p-resumo">
+    <div class="indicadores">
+      <div class="ind"><div class="num" id="iMes">0</div><div class="lbl">Publicados neste mês</div></div>
+      <div class="ind"><div class="num" id="iMte">0</div><div class="lbl">Registrados no MTE</div></div>
+      <div class="ind dourado"><div class="num" id="iSite">0</div><div class="lbl">Só no site do sindicato</div></div>
+      <div class="ind dourado"><div class="num" id="iAguarda">0</div><div class="lbl">Aguardando data-base</div></div>
     </div>
 
-    <div class="filtros">
-      <div class="mes-nav">
-        <button onclick="mudarMes(-1)">&#9664;</button>
-        <span class="mes-atual" id="mesLabel">Julho 2026</span>
-        <button onclick="mudarMes(1)">&#9654;</button>
+    <div class="cartao">
+      <h2>Situação dos sindicatos</h2>
+      <div id="graficoStatus"></div>
+    </div>
+
+    <div class="cartao">
+      <h2>Data-base do mês</h2>
+      <p class="desc">Sindicatos cuja data-base cai no mês selecionado.</p>
+      <div class="filtros">
+        <label>Mês</label>
+        <select id="filtroMes" onchange="montarResumo()"></select>
       </div>
-      <button class="btn-ano" id="btnAno" onclick="toggleAno()">Ver ano inteiro</button>
-      <label>Categoria:
-        <select id="fCat" onchange="render()"><option value="">Todas</option></select>
-      </label>
+      <div id="listaDataBase"></div>
     </div>
+  </section>
 
-    <h2 id="tituloResumo">Sindicatos com data-base no per&iacute;odo</h2>
-    <div class="grid" id="listaResumo"></div>
-
-    <h3>CCTs do per&iacute;odo</h3>
-    <div class="grid" id="listaCctsResumo"></div>
-  </div>
-
-
-  <!-- ACHADOS DO ROBO -->
-  <div id="robo" class="content">
-    <h2>&#129302; Achados do Rob&ocirc; de Busca</h2>
-    <div class="hint">Resultados encontrados automaticamente no Google, MTE/Mediador e sites dos sindicatos. O rob&ocirc; roda todo dia 20 &agrave;s 08:00 (e pode ser executado manualmente no GitHub &rarr; Actions &rarr; "Run workflow").</div>
-    <div class="filtros">
-      <label>Fonte:
-        <select id="fRoboFonte" onchange="renderRobo()"><option value="">Todas</option><option>Google (internet)</option><option>MTE/Mediador</option><option>Site do sindicato</option></select>
-      </label>
-      <input class="busca-tab" style="flex:1;min-width:200px" id="buscaRobo" placeholder="&#128269; Filtrar por sindicato ou palavra..." oninput="renderRobo()">
-      <button class="btn-ano" onclick="carregarAchados(true)">&#8635; Atualizar</button>
+  <!-- DOCUMENTOS -->
+  <section class="painel" id="p-documentos">
+    <div class="cartao">
+      <h2>Documentos encontrados</h2>
+      <p class="desc">Convenções coletivas e termos aditivos vigentes em 2026, agrupados por sindicato.</p>
+      <div class="filtros">
+        <input type="search" id="buscaDoc" placeholder="Buscar por sindicato, registro ou parte…" oninput="montarDocumentos()">
+        <label>Origem</label>
+        <select id="filtroOrigem" onchange="montarDocumentos()">
+          <option value="">Todas</option>
+          <option value="mte">MTE</option>
+          <option value="site_sindicato">Site do sindicato</option>
+        </select>
+        <label>Tipo</label>
+        <select id="filtroTipo" onchange="montarDocumentos()">
+          <option value="">Todos</option>
+          <option value="Convenção Coletiva">Convenção coletiva</option>
+          <option value="Termo Aditivo">Termo aditivo</option>
+        </select>
+        <button class="btn sec" onclick="alternarTodos()">Expandir / recolher</button>
+      </div>
+      <div id="listaDocs"></div>
     </div>
-    <div id="statusRobo" class="vazio" style="margin-bottom:14px">Carregando achados...</div>
-    <div class="grid" id="listaRobo"></div>
-  </div>
-
-  <!-- CCTs -->
-  <div id="ccts" class="content">
-    <h2>&#128196; Cadastrar CCT encontrada</h2>
-    <div class="hint">Cadastre aqui as CCTs localizadas nas buscas (MTE / Mediador). Cole o link do documento na &iacute;ntegra (PDF do Mediador, Google Drive ou pasta da rede).</div>
-    <form class="frm" onsubmit="addCct(event)">
-      <select id="cSind" required><option value="">Sindicato...</option></select>
-      <input id="cTitulo" placeholder="T&iacute;tulo (ex: CCT Com&eacute;rcio Uberl&acirc;ndia 2026)" required>
-      <select id="cMes" required></select>
-      <select id="cStatus"><option>Nova</option><option>Vigente</option><option>Vencida</option></select>
-      <input id="cPiso" placeholder="Piso salarial (ex: R$ 1.620,00)">
-      <input id="cReajuste" placeholder="Reajuste % (ex: 8%)">
-      <input id="cLink" placeholder="Link do documento na &iacute;ntegra (URL)">
-      <input id="cObs" placeholder="Observa&ccedil;&otilde;es">
-      <button type="submit">&#10133; Cadastrar</button>
-    </form>
-
-    <h3>Todas as CCTs</h3>
-    <div class="filtros">
-      <label>M&ecirc;s:
-        <select id="fCctMes" onchange="renderCcts()"><option value="">Todos</option></select>
-      </label>
-      <label>Status:
-        <select id="fCctStatus" onchange="renderCcts()"><option value="">Todos</option><option>Nova</option><option>Vigente</option><option>Vencida</option></select>
-      </label>
-    </div>
-    <div class="grid" id="listaCcts"></div>
-  </div>
+  </section>
 
   <!-- SINDICATOS -->
-  <div id="sindicatos" class="content">
-    <h2>&#127970; Sindicatos monitorados (<span id="qtdSind">0</span>)</h2>
-    <input class="busca-tab" id="buscaSind" placeholder="&#128269; Buscar por nome, sigla, CNPJ ou categoria..." oninput="renderSind()">
-    <div class="filtros">
-      <label>M&ecirc;s da data-base:
-        <select id="fSindMes" onchange="renderSind()"><option value="">Todos</option></select>
-      </label>
-      <label>Tipo:
-        <select id="fSindTipo" onchange="renderSind()"><option value="">Todos</option><option>Patronal</option><option>Trabalhador</option></select>
-      </label>
+  <section class="painel" id="p-sindicatos">
+    <div class="cartao">
+      <h2>Sindicatos monitorados</h2>
+      <p class="desc">Situação de cada sindicato e documentos localizados.</p>
+
+      <div class="filtros">
+        <input type="search" id="buscaSind" placeholder="Buscar por nome, sigla ou CNPJ…" oninput="montarSindicatos()">
+        <label>Situação</label>
+        <select id="filtroStatus" onchange="montarSindicatos()">
+          <option value="">Todas</option>
+          <option value="atualizado">Atualizado</option>
+          <option value="aguardando_database">Aguardando data-base</option>
+          <option value="sem_cc_2026">Sem CC 2026</option>
+          <option value="sem_registros">Sem registros</option>
+        </select>
+        <label>UF</label>
+        <select id="filtroUf" onchange="montarSindicatos()"><option value="">Todas</option></select>
+        <button class="btn ouro" onclick="abrirImportacao()">📂 Importar planilha</button>
+      </div>
+
+      <div class="tabela-scroll">
+        <table>
+          <thead><tr>
+            <th>Sigla</th><th>Nome</th><th>UF</th><th>Data-base</th>
+            <th>Situação</th><th>MTE</th><th>Site</th><th>Ações</th>
+          </tr></thead>
+          <tbody id="corpoSind"></tbody>
+        </table>
+      </div>
     </div>
-
-    <h3>Adicionar novo sindicato</h3>
-    <form class="frm" onsubmit="addSind(event)">
-      <input id="sNome" placeholder="Nome" required>
-      <input id="sSigla" placeholder="Sigla">
-      <input id="sCnpj" placeholder="CNPJ">
-      <select id="sMes"></select>
-      <select id="sTipo"><option>Patronal</option><option>Trabalhador</option></select>
-      <input id="sCat" placeholder="Categoria (ex: Com&eacute;rcio)">
-      <button type="submit">&#10133; Adicionar</button>
-    </form>
-
-    <table>
-      <thead><tr><th>Sindicato</th><th>Sigla</th><th>CNPJ</th><th>Data-base</th><th>Tipo</th><th>Categoria</th></tr></thead>
-      <tbody id="tbSind"></tbody>
-    </table>
-  </div>
+  </section>
 
   <!-- LOG -->
-  <div id="log" class="content">
-    <h2>&#128203; Log de verifica&ccedil;&otilde;es</h2>
-    <div class="aviso">&#9888;&#65039; A busca autom&aacute;tica mensal (dia 20, 08:00) ser&aacute; ativada na pr&oacute;xima fase do projeto. Por enquanto, registre aqui as verifica&ccedil;&otilde;es manuais feitas pela equipe.</div>
-    <form class="frm" onsubmit="addLog(event)">
-      <input id="lResp" placeholder="Respons&aacute;vel" required>
-      <input id="lDesc" placeholder="O que foi verificado (ex: Mediador MTE - com&eacute;rcio)" required>
-      <select id="lStatus"><option>Sem altera&ccedil;&atilde;o</option><option>Nova CCT encontrada</option><option>Aditivo encontrado</option></select>
-      <button type="submit">&#10133; Registrar</button>
-    </form>
-    <table>
-      <thead><tr><th>Data</th><th>Respons&aacute;vel</th><th>Verifica&ccedil;&atilde;o</th><th>Resultado</th></tr></thead>
-      <tbody id="tbLog"></tbody>
-    </table>
-  </div>
+  <section class="painel" id="p-log">
+    <div class="cartao">
+      <h2>Histórico de verificações</h2>
+      <p class="desc">Cada execução da busca no MTE e nos sites dos sindicatos.</p>
+      <div id="listaLog"></div>
+    </div>
+  </section>
 
-  <div class="footer">Grupo-E Solu&ccedil;&otilde;es Empresariais &bull; Escritorial Contadores e Associados &bull; Uberl&acirc;ndia/MG</div>
+</main>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)fecharModal()">
+  <div class="modal">
+    <div class="modal-topo">
+      <h3 id="modalTitulo">—</h3>
+      <button class="fechar" onclick="fecharModal()">✕</button>
+    </div>
+    <div class="modal-corpo" id="modalCorpo"></div>
+  </div>
 </div>
 
 <script>
-const MESES = ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-const SINDICATOS_BASE = [{"id": "sid_001", "nome": "DOMESTICAS", "sigla": "DOMESTICAS", "cnpj": "00.000.000/0000-00", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_002", "nome": "FED DOS TRAB NA AGRICULTURA NO EST TOCANTINS", "sigla": "FED TRAB AGRI TOCANT", "cnpj": "01.785.997/0001-03", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, TO", "link": "https://www.fetaet.org.br/", "status": "Ativo"}, {"id": "sid_003", "nome": "FED DOS TRAB RURAIS EMP ASS E ASS SO EST DE GOIAS", "sigla": "FETAER GO", "cnpj": "21.462.646/0001-60", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "http://www.fetaergo.org.br/", "status": "Ativo"}, {"id": "sid_004", "nome": "FEDER DOS EMPRE NO COMERCIO E CONGENERES MG", "sigla": "FECCOEMG", "cnpj": "17.219.585/0001-38", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "", "status": "Ativo"}, {"id": "sid_005", "nome": "FEDERACAO TRABALHADORES AGRICULTURA ESTADO MG", "sigla": "FED TRAB AGRIC", "cnpj": "17.388.158/0001-83", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://www.fetaemg.org.br/", "status": "Ativo"}, {"id": "sid_006", "nome": "SENALBA- SIND.DOS EMPREG.ENT.CULT.RECR.A", "sigla": "SENALBA- SIND.DOS EM", "cnpj": "17.450.529/0001-00", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_007", "nome": "SIND DOS NOTARIOS E REGISTRADORES DO EST GOIAS", "sigla": "SIND NOTARIOS REG GO", "cnpj": "02.249.018/0001-57", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "https://sinoreggoias.com.br/", "status": "Ativo"}, {"id": "sid_008", "nome": "SIND DOS TRAB NAS IND. CONST PESADA MG", "sigla": "SIND TRAB CONS PESAD", "cnpj": "38.736.377/0001-86", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://siticopmg.org.br/", "status": "Ativo"}, {"id": "sid_009", "nome": "SIND DOS TRAB. EM TRANSP. ROD UBERLANDIA- CCT", "sigla": "SINDTTRANS", "cnpj": "21.288.931/0001-07", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://sindttrans.com.br/", "status": "Ativo"}, {"id": "sid_010", "nome": "SIND EMPREG DE AGENTES AUTONOMOS DO COM GOIAS", "sigla": "SEAACOM", "cnpj": "02.555.548/0001-23", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "https://seacom.org.br/", "status": "Ativo"}, {"id": "sid_011", "nome": "SIND EMPREG EMPRESAS ASSEIO CONS SIM TRIANG ALTO P", "sigla": "ASSEIO E", "cnpj": "00.450.308/0001-39", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_012", "nome": "SIND EMPREG. COM.H.TURISMO E HOSP-UBERABA", "sigla": "SECOSAER", "cnpj": "23.368.905/0001-14", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberaba, MG", "link": "https://www.secosaer.org.br/", "status": "Ativo"}, {"id": "sid_013", "nome": "SIND EMPREG. TURISMO E HOSP UBER -EM HORAS*Mira/Tr", "sigla": "SIND EMP TUR", "cnpj": "19.042.324/0001-10", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://sethtap.com.br/", "status": "Ativo"}, {"id": "sid_014", "nome": "SIND EMPREGADOS NO COMERCIO DE ITUIUTABA E PONTAL", "sigla": "SECIPTM", "cnpj": "21.328.661/0001-10", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Ituiutaba, MG", "link": "https://www.seciptm.com.br/", "status": "Ativo"}, {"id": "sid_015", "nome": "SIND PUBLIC E TRAB AGENCIA DE PROPAGANDA", "sigla": "SIND PUBLIC E TRAB A", "cnpj": "20.991.758/0001-46", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, Não localizado", "link": "", "status": "Ativo"}, {"id": "sid_016", "nome": "SIND TRAB ESTAC,LAV,GUARD,MANOB E OPER AUT MG", "sigla": "SINTRALAMAC", "cnpj": "42.788.109/0001-85", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sintralamacmg.com/", "status": "Ativo"}, {"id": "sid_017", "nome": "SIND TRAB IND CONSTRUCAO CIVIL E DO MOBI UDIA (MAR", "sigla": "SINTICOMTAP (MARCEN)", "cnpj": "25.649.294/0001-08", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://www.sinticom-tap.com.br/", "status": "Ativo"}, {"id": "sid_018", "nome": "SIND TRABALHADORES RURAIS DE PATOS MINAS", "sigla": "SINDRPATOS", "cnpj": "21.242.318/0001-59", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Patos de Minas, MG", "link": "", "status": "Ativo"}, {"id": "sid_019", "nome": "SIND. DOS TRAB NA IND. CONST. CIVIL E MOB GOIANIA", "sigla": "SINDUSCOM-GO", "cnpj": "01.640.911/0001-46", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Goiânia, GO", "link": "https://www.sintracomgoiania.com.br/", "status": "Ativo"}, {"id": "sid_020", "nome": "SIND. EMPREG. EM EMPRESAS DE PROCESS.DAD", "sigla": "SINDADOS-MG", "cnpj": "19.715.739/0001-08", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sindados-mg.org.br/", "status": "Ativo"}, {"id": "sid_021", "nome": "SIND. EMPREGADOS EM INSTIT.BENEFIC.RELIG", "sigla": "SINTIBREF-MINAS", "cnpj": "02.131.247/0001-72", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sintibref-minas.org.br/", "status": "Ativo"}, {"id": "sid_022", "nome": "SIND.DOS FARMACEUTICOS DO ESTADO DE MINAS GERAIS", "sigla": "SINFARMIG", "cnpj": "16.842.429/0001-66", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://sinfarmig.org.br/", "status": "Ativo"}, {"id": "sid_023", "nome": "SIND.TRAB.NAS IND QUIM E FARMACEUTICAS D", "sigla": "STIQUIFAR", "cnpj": "20.052.817/0001-10", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberaba, MG", "link": "https://stiquifar.com.br/", "status": "Ativo"}, {"id": "sid_024", "nome": "SINDICADO TRAB. NO COM. DE MIN.DER. PETR", "sigla": "SINDICADO TRAB. NO C", "cnpj": "22.237.986/0001-50", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_025", "nome": "SINDICATO DOS EMPREG NO COM DE UBERLANDIA/ARAQUARI", "sigla": "SECUA", "cnpj": "25.649.153/0001-95", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://www.secua.com.br/", "status": "Ativo"}, {"id": "sid_026", "nome": "SINDICATO DOS EMPREG NO COMERCIO SERV ESTADO PARA", "sigla": "SEC PA", "cnpj": "04.975.652/0001-00", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belém, PA", "link": "http://secpara.com.br/", "status": "Ativo"}, {"id": "sid_027", "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE UBERABA", "sigla": "SINDICATO DOS EMPREG", "cnpj": "25.449.208/0001-13", "tipo": "Patronal", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberaba, MG", "link": "https://www.sindcomerciariosuberaba.org.br/", "status": "Ativo"}, {"id": "sid_028", "nome": "SINDICATO DOS PROFESSORES NO ESTADO DE M", "sigla": "SINPROMINAS", "cnpj": "17.243.494/0001-38", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://www.sinprominas.org.br/", "status": "Ativo"}, {"id": "sid_029", "nome": "SINDICATO DOS TRAB RURAIS DE QUIRINOPOLIS", "sigla": "SIND TRAB RUR QUIRIN", "cnpj": "01.466.762/0001-40", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Quirinópolis, GO", "link": "", "status": "Ativo"}, {"id": "sid_030", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE BU", "sigla": "SINDICATO DOS TRABAL", "cnpj": "21.355.805/0001-28", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Buritizeiro, MG", "link": "", "status": "Ativo"}, {"id": "sid_031", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE CA", "sigla": "SINDICATO DOS TRABAL", "cnpj": "01.325.943/0001-57", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_032", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB", "sigla": "STRUBERLANDIA", "cnpj": "06.698.786/0001-49", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "https://www.facebook.com/SindicatoTRU/", "status": "Ativo"}, {"id": "sid_033", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB", "sigla": "SINDICATO DOS TRABAL", "cnpj": "17.778.382/0001-81", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_034", "nome": "SINDICATO TRAB IND. VESTUARIO DE UBERLANDIA", "sigla": "SINDICATO TRAB IND V", "cnpj": "22.222.020/0001-40", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_035", "nome": "SINDICATO TRABALHADORES RURAIS DE MONTE", "sigla": "SINDICATO TRABALHADO", "cnpj": "19.355.189/0001-63", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Monte Alegre de Minas, MG", "link": "https://sttrmontealegre.com.br/", "status": "Ativo"}, {"id": "sid_036", "nome": "SINPRAFARMA-SND.DOS PRAT.DE FARM.E DOS E", "sigla": "SINPRAFARMA", "cnpj": "00.544.185/0001-03", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Belo Horizonte, MG", "link": "https://www.sinprafarmamg.com.br/", "status": "Ativo"}, {"id": "sid_037", "nome": "Sindicato dos Trabalhadores Rurais de Canapoilis", "sigla": "STRC", "cnpj": "17.815.341/0001-18", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Canápolis, MG", "link": "", "status": "Ativo"}, {"id": "sid_038", "nome": "Sindicato dos Trabalhadores Rurais de Monte Carmel", "sigla": "SIND RURAL MTE CARME", "cnpj": "21.288.683/0001-02", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 1, "abrangencia": "Monte Carmelo, MG", "link": "", "status": "Ativo"}, {"id": "sid_039", "nome": "SIND EMPRE ESTAB SERV SAUDE", "sigla": "SEESS", "cnpj": "23.099.179/0001-81", "tipo": "Patronal", "categoria": "Geral", "mesBase": 2, "abrangencia": "Contagem, MG", "link": "https://www.seess.com.br/", "status": "Ativo"}, {"id": "sid_040", "nome": "SINDICATO DOS AUXILIARES DE ADMINISTRACAO ESCOLAR", "sigla": "SAAETM-AP", "cnpj": "21.018.023/0001-01", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 2, "abrangencia": "Uberlândia, MG", "link": "https://saaetmap.com.br/", "status": "Ativo"}, {"id": "sid_041", "nome": "SINDICATO DOS TRAB. DOMESTICOS DE UBL - SINTRAD", "sigla": "SINDICATO DOS TRAB.", "cnpj": "05.434.349/0001-55", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 2, "abrangencia": "Uberlândia, MG", "link": "", "status": "Ativo"}, {"id": "sid_042", "nome": "SIND DOS EMPR. ENTIDADES CULT RECREAT NO", "sigla": "SIND DOS EMPR. ENTID", "cnpj": "00.786.960/0001-29", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Belo Horizonte, MG", "link": "https://sindecmg.com.br/", "status": "Ativo"}, {"id": "sid_043", "nome": "SIND EMPREG DE CLUBES ESPORTIVOS E EM FEDER ACADEM", "sigla": "SINDESPORTE", "cnpj": "62.654.496/0001-74", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Uberlândia, Não localizado", "link": "", "status": "Ativo"}, {"id": "sid_044", "nome": "SIND INTERM EMPREGADOS COM.HOTELEIRO ESTADO GOIAS", "sigla": "SECHSEG", "cnpj": "02.889.400/0001-25", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Goiânia, GO", "link": "https://sechseg.com.br/", "status": "Ativo"}, {"id": "sid_045", "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE SANTAREM", "sigla": "SECS", "cnpj": "04.542.619/0001-89", "tipo": "Patronal", "categoria": "Geral", "mesBase": 3, "abrangencia": "Santarém, PA", "link": "", "status": "Ativo"}, {"id": "sid_046", "nome": "SIND TRAB NAS INDS METALUR MEC E DE MAT ELET DE UB", "sigla": "STIMMMEUA", "cnpj": "25.649.302/0001-16", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 4, "abrangencia": "Uberlândia, MG", "link": "https://metaludiaraguari.com.br/", "status": "Ativo"}, {"id": "sid_047", "nome": "SIND DOS CONTABILISTAS DE BELO HORIZONTE-MG", "sigla": "SINDCONT", "cnpj": "17.219.403/0001-29", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 5, "abrangencia": "Belo Horizonte, MG", "link": "https://scbh.com.br/", "status": "Ativo"}, {"id": "sid_048", "nome": "SIND DOS TRAB EM EMPRESAS DE ASSES PESQ", "sigla": "SINTAPPI", "cnpj": "23.199.862/0001-90", "tipo": "Patronal", "categoria": "Geral", "mesBase": 5, "abrangencia": "Belo Horizonte, MG", "link": "https://sintappimg.org.br/", "status": "Ativo"}, {"id": "sid_049", "nome": "SIND DOS TRABALHADORES EM TRANSPORTE ROD", "sigla": "SIND DOS", "cnpj": "23.367.709/0001-25", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 5, "abrangencia": "Uberaba, MG", "link": "https://www.sttrur.com.br/", "status": "Ativo"}, {"id": "sid_050", "nome": "SIND EMPREGADOS BARES,RESTAU,SIMILARES SALVADOR BA", "sigla": "SINDBARES", "cnpj": "27.358.200/0001-77", "tipo": "Patronal", "categoria": "Geral", "mesBase": 5, "abrangencia": "Salvador, BA", "link": "https://sindbaresbahia.com.br/", "status": "Ativo"}, {"id": "sid_051", "nome": "SIND EMPREGADOS HOTEIS,REST,BARES E SIMIL MARINGÁ", "sigla": "SETHAP", "cnpj": "80.291.206/0001-57", "tipo": "Patronal", "categoria": "Geral", "mesBase": 5, "abrangencia": "Maringá, PR", "link": "", "status": "Ativo"}, {"id": "sid_052", "nome": "SIND. DOS TRAB INDS GRAFICAS, JORNAIS E", "sigla": "SIND. DOS TRAB INDS", "cnpj": "22.231.898/0001-41", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 5, "abrangencia": "Belo Horizonte, MG", "link": "http://graficosmg.org.br/", "status": "Ativo"}, {"id": "sid_053", "nome": "SIND TABEL ESCREV AUX FUNC DE CART DE REG DE IMOV", "sigla": "SINDSEAC", "cnpj": "07.632.728/0001-85", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 6, "abrangencia": "Goiânia, GO", "link": "", "status": "Ativo"}, {"id": "sid_054", "nome": "SINDICATO DOS TRABALHADORES RURAIS DE ARAGUARI", "sigla": "SINDICATO DOS TRABAL", "cnpj": "19.452.630/0001-25", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 6, "abrangencia": "Araguari, MG", "link": "", "status": "Ativo"}, {"id": "sid_055", "nome": "SIND TRAB RESTAURANTES, BARES, CAMPINAS SP", "sigla": "SINHORES", "cnpj": "46.106.746/0001-85", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 7, "abrangencia": "Campinas, SP", "link": "", "status": "Ativo"}, {"id": "sid_056", "nome": "SINDELOT- SIND. EMPREGADOS LOTERICOS, JO", "sigla": "SINDELOT", "cnpj": "01.480.281/0001-90", "tipo": "Patronal", "categoria": "Geral", "mesBase": 7, "abrangencia": "Belo Horizonte, MG", "link": "https://www.sindelotmg.com.br/", "status": "Ativo"}, {"id": "sid_057", "nome": "SIND DAS EMPRESAS DE SERV CONTABEIS PERNAMBUCO-PE", "sigla": "SESCAP/PE", "cnpj": "41.227.034/0001-09", "tipo": "Patronal", "categoria": "Geral", "mesBase": 8, "abrangencia": "Recife, PE", "link": "http://sescappe.org.br/", "status": "Ativo"}, {"id": "sid_058", "nome": "SIND DO S O A C T I DE CONF ROUP E CHAP DE SENH SP", "sigla": "SINDCOST", "cnpj": "62.812.573/0001-77", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 8, "abrangencia": "São Paulo, SP", "link": "", "status": "Ativo"}, {"id": "sid_059", "nome": "SINDICATO TRAB IND DE EXTRAÇÃO VEGETAL, CARVOEJAME", "sigla": "sindexmg", "cnpj": "08.420.470/0001-16", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 8, "abrangencia": "Belo Horizonte, MG", "link": "", "status": "Ativo"}, {"id": "sid_060", "nome": "SIND.TRAB.IND DE ALIMENTACAO E AFINS DE", "sigla": "STIAU", "cnpj": "25.634.452/0001-56", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 9, "abrangencia": "Uberlândia, MG", "link": "https://www.stiau.org.br/", "status": "Ativo"}, {"id": "sid_061", "nome": "SINDICATO DOS COMERCIARIOS DE SAO PAULO", "sigla": "SINDICOMERCIO", "cnpj": "50.981.489/0001-06", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 9, "abrangencia": "Jundiaí, SP", "link": "https://comerciario.org.br/", "status": "Ativo"}, {"id": "sid_062", "nome": "SIND DOS EMPREG.EM EMPRESAS DISTR PROD SIDER MG", "sigla": "SEEDSIDER-MG", "cnpj": "02.826.581/0001-40", "tipo": "Patronal", "categoria": "Geral", "mesBase": 11, "abrangencia": "Belo Horizonte, MG", "link": "https://seedsider.org.br/", "status": "Ativo"}, {"id": "sid_063", "nome": "SIND TRAB CONST CIVIL E MOB DO PRATA", "sigla": "SIND TRAB CONST PRAT", "cnpj": "22.234.660/0001-70", "tipo": "Trabalhador", "categoria": "Geral", "mesBase": 11, "abrangencia": "Prata, MG", "link": "", "status": "Ativo"}];
+/* ── ESTADO ─────────────────────────────────────────── */
+let SINDICATOS = [], DOCUMENTOS = [], STATUS = [], LOGS = [];
+const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+               'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const HOJE = new Date();
+const ROTULO_STATUS = {
+  atualizado:          {t:'Atualizado',           i:'🟢'},
+  aguardando_database: {t:'Aguardando data-base', i:'🟡'},
+  sem_cc_2026:         {t:'Sem CC 2026',          i:'🔴'},
+  sem_registros:       {t:'Sem registros',        i:'⚪'}
+};
 
-let sindicatos = JSON.parse(localStorage.getItem('ge_sindicatos') || 'null') || SINDICATOS_BASE;
-let ccts = JSON.parse(localStorage.getItem('ge_ccts') || '[]');
-let logs = JSON.parse(localStorage.getItem('ge_logs') || '[]');
-let mesAtual = new Date().getMonth() + 1;
-let anoAtual = new Date().getFullYear();
-let modoAno = false;
-
-function salvar(){
-  localStorage.setItem('ge_sindicatos', JSON.stringify(sindicatos));
-  localStorage.setItem('ge_ccts', JSON.stringify(ccts));
-  localStorage.setItem('ge_logs', JSON.stringify(logs));
-}
-
-function popularSelects(){
-  const cats = [...new Set(sindicatos.map(s=>s.categoria))].sort();
-  const fCat = document.getElementById('fCat');
-  fCat.innerHTML = '<option value="">Todas</option>' + cats.map(c=>`<option>${c}</option>`).join('');
-
-  const mesOpts = MESES.map((m,i)=>`<option value="${i+1}">${m}</option>`).join('');
-  document.getElementById('cMes').innerHTML = mesOpts;
-  document.getElementById('sMes').innerHTML = mesOpts;
-  document.getElementById('fCctMes').innerHTML = '<option value="">Todos</option>'+mesOpts;
-  document.getElementById('fSindMes').innerHTML = '<option value="">Todos</option>'+mesOpts;
-
-  const sOpts = sindicatos.map(s=>`<option value="${s.id}">${s.sigla||s.nome}</option>`).join('');
-  document.getElementById('cSind').innerHTML = '<option value="">Sindicato...</option>'+sOpts;
-}
-
-function mudarMes(d){
-  modoAno = false;
-  document.getElementById('btnAno').classList.remove('on');
-  mesAtual += d;
-  if(mesAtual<1){mesAtual=12;anoAtual--;}
-  if(mesAtual>12){mesAtual=1;anoAtual++;}
-  render();
-}
-
-function toggleAno(){
-  modoAno = !modoAno;
-  document.getElementById('btnAno').classList.toggle('on', modoAno);
-  render();
-}
-
-function render(){
-  document.getElementById('mesLabel').innerHTML = modoAno ? ('Ano '+anoAtual) : (MESES[mesAtual-1]+' '+anoAtual);
-  document.getElementById('tituloResumo').innerHTML = modoAno
-    ? 'Sindicatos por data-base &mdash; ano inteiro'
-    : 'Sindicatos com data-base em '+MESES[mesAtual-1];
-
-  const cat = document.getElementById('fCat').value;
-  let lista = sindicatos.filter(s => !cat || s.categoria===cat);
-  if(!modoAno) lista = lista.filter(s => s.mesBase === mesAtual);
-
-  const el = document.getElementById('listaResumo');
-  if(lista.length===0){
-    el.innerHTML = '<div class="vazio">Nenhum sindicato com data-base neste per&iacute;odo.</div>';
-  } else if(modoAno){
-    // agrupar por mes
-    let html='';
-    for(let m=1;m<=12;m++){
-      const doMes = lista.filter(s=>s.mesBase===m);
-      if(doMes.length===0) continue;
-      html += `<div style="grid-column:1/-1"><h3 style="margin-top:6px">${MESES[m-1]} (${doMes.length})</h3></div>`;
-      html += doMes.map(cardSind).join('');
+/* ── CARREGAMENTO ───────────────────────────────────── */
+async function carregar(){
+  // Procura o arquivo em data/, na mesma pasta e na raiz do site
+  const CAMINHOS = ['data/', './', '../data/', '/data/'];
+  const ler = async (arq, alt=[]) => {
+    for(const base of CAMINHOS){
+      try{
+        const r = await fetch(base+arq+'?v='+Date.now());
+        if(!r.ok) continue;
+        const j = await r.json();
+        if(Array.isArray(j)) return j;
+      }catch(e){ /* tenta o próximo */ }
     }
-    el.innerHTML = html;
-  } else {
-    el.innerHTML = lista.map(cardSind).join('');
-  }
+    return alt;
+  };
+  [SINDICATOS, DOCUMENTOS, STATUS, LOGS] = await Promise.all([
+    ler('sindicatos.json'), ler('documentos.json'),
+    ler('status-sindicatos.json'), ler('logs.json')
+  ]);
 
-  // CCTs do periodo
-  let cctsPer = ccts.filter(c => modoAno ? true : c.mes===mesAtual);
-  document.getElementById('listaCctsResumo').innerHTML = cctsPer.length
-    ? cctsPer.map(cardCct).join('')
-    : '<div class="vazio">Nenhuma CCT cadastrada neste per&iacute;odo. Cadastre na aba <b>CCTs</b>.</div>';
+  // Se não houver status pronto, calcula na hora
+  if(!STATUS.length && SINDICATOS.length) STATUS = calcularStatus();
 
-  // stats
-  document.getElementById('stTotal').textContent = sindicatos.length;
-  document.getElementById('stCcts').textContent = ccts.length;
-  document.getElementById('stMes').textContent = lista.length;
-  document.getElementById('stNovas').textContent = ccts.filter(c=>c.status==='Nova').length;
+  prepararFiltros();
+  montarResumo(); montarDocumentos(); montarSindicatos(); montarLog();
+
+  const ult = LOGS[0]?.data;
+  document.getElementById('ultimaExec').textContent =
+    ult ? 'Última verificação: '+formatarDataHora(ult) : 'Nenhuma verificação registrada';
 }
 
-function cardSind(s){
-  return `<div class="card">
-    <h4>${s.sigla || s.nome}</h4>
-    <p><b>Nome:</b> ${s.nome}</p>
-    <p><b>Data-base:</b> ${MESES[s.mesBase-1]}</p>
-    <p><b>Tipo:</b> ${s.tipo||'-'} &bull; <b>Categoria:</b> ${s.categoria}</p>
-    <p><b>Abrang&ecirc;ncia:</b> ${s.abrangencia||'-'}</p>
-    ${s.link ? `<a class="doc" href="${s.link}" target="_blank">Site do sindicato</a>` : ''}
-  </div>`;
-}
-
-function cardCct(c){
-  const sind = sindicatos.find(s=>s.id===c.sindId);
-  const cls = c.status==='Nova'?'nova':(c.status==='Vigente'?'vigente':'vencida');
-  return `<div class="card">
-    <span class="tag ${cls}">${c.status}</span>
-    <h4>${c.titulo}</h4>
-    <p><b>Sindicato:</b> ${sind ? (sind.sigla||sind.nome) : '-'}</p>
-    <p><b>M&ecirc;s:</b> ${MESES[c.mes-1]}</p>
-    ${c.piso?`<p><b>Piso:</b> ${c.piso}</p>`:''}
-    ${c.reajuste?`<p><b>Reajuste:</b> ${c.reajuste}</p>`:''}
-    ${c.obs?`<p>${c.obs}</p>`:''}
-    ${c.link?`<a class="doc" href="${c.link}" target="_blank">&#128196; Documento na &iacute;ntegra</a>`:''}
-  </div>`;
-}
-
-function addCct(e){
-  e.preventDefault();
-  ccts.push({
-    id: 'cct_'+Date.now(),
-    sindId: document.getElementById('cSind').value,
-    titulo: document.getElementById('cTitulo').value,
-    mes: parseInt(document.getElementById('cMes').value),
-    status: document.getElementById('cStatus').value,
-    piso: document.getElementById('cPiso').value,
-    reajuste: document.getElementById('cReajuste').value,
-    link: document.getElementById('cLink').value,
-    obs: document.getElementById('cObs').value
+function calcularStatus(){
+  return SINDICATOS.map(s=>{
+    const docs = DOCUMENTOS.filter(d=>d.sindicato_id===s.id || d.sindicato_sigla===s.sigla);
+    const mte  = docs.filter(d=>d.origem==='mte').length;
+    let st;
+    if(docs.length) st='atualizado';
+    else if((s.mes_database_numero||0) > HOJE.getMonth()+1) st='aguardando_database';
+    else st='sem_cc_2026';
+    return {sindicato_id:s.id, sigla:s.sigla, nome:s.nome, uf:s.uf, status:st,
+            docs_no_mte:mte, docs_so_no_site:docs.length-mte, docs_total:docs.length,
+            mes_database:s.mes_database, mes_database_numero:s.mes_database_numero};
   });
-  salvar(); renderCcts(); render(); e.target.reset();
 }
 
-function renderCcts(){
-  const m = document.getElementById('fCctMes').value;
-  const st = document.getElementById('fCctStatus').value;
-  let lista = ccts.filter(c => (!m || c.mes==m) && (!st || c.status===st));
-  document.getElementById('listaCcts').innerHTML = lista.length
-    ? lista.map(cardCct).join('')
-    : '<div class="vazio">Nenhuma CCT encontrada com estes filtros.</div>';
+function prepararFiltros(){
+  const selMes = document.getElementById('filtroMes');
+  selMes.innerHTML = MESES.map((m,i)=>
+    `<option value="${i+1}" ${i===HOJE.getMonth()?'selected':''}>${m}</option>`).join('');
+
+  const ufs = [...new Set(SINDICATOS.map(s=>s.uf).filter(Boolean))].sort();
+  document.getElementById('filtroUf').innerHTML =
+    '<option value="">Todas</option>' + ufs.map(u=>`<option>${u}</option>`).join('');
 }
 
-function addSind(e){
-  e.preventDefault();
-  sindicatos.push({
-    id:'sid_'+Date.now(),
-    nome: document.getElementById('sNome').value,
-    sigla: document.getElementById('sSigla').value,
-    cnpj: document.getElementById('sCnpj').value,
-    mesBase: parseInt(document.getElementById('sMes').value),
-    tipo: document.getElementById('sTipo').value,
-    categoria: document.getElementById('sCat').value || 'Geral',
-    abrangencia:'', link:'', status:'Ativo'
-  });
-  salvar(); popularSelects(); renderSind(); render(); e.target.reset();
+/* ── AUXILIARES ─────────────────────────────────────── */
+const esc = t => String(t??'').replace(/[&<>"']/g, c=>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function dataBR(iso){
+  if(!iso || !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return '—';
+  const [a,m,d]=iso.split('-'); return `${d}/${m}/${a}`;
+}
+function formatarDataHora(s){
+  if(!s) return '—';
+  const [d,h] = String(s).split(' ');
+  return dataBR(d) + (h ? ' às '+h.slice(0,5) : '');
+}
+function statusDoSindicato(id, sigla){
+  return STATUS.find(s=>s.sindicato_id===id || s.sigla===sigla) || {};
+}
+function docsDoSindicato(id, sigla){
+  return DOCUMENTOS.filter(d=>d.sindicato_id===id || d.sindicato_sigla===sigla);
+}
+function linkMediador(){
+  return 'https://mediador.trabalho.gov.br/sistemas/mediador/ConsultarInstColetivo';
 }
 
-function renderSind(){
-  const q = (document.getElementById('buscaSind').value||'').toLowerCase();
-  const m = document.getElementById('fSindMes').value;
-  const t = document.getElementById('fSindTipo').value;
-  let lista = sindicatos.filter(s =>
-    (!q || (s.nome+' '+s.sigla+' '+s.cnpj+' '+s.categoria).toLowerCase().includes(q)) &&
-    (!m || s.mesBase==m) && (!t || s.tipo===t)
-  );
-  document.getElementById('qtdSind').textContent = sindicatos.length;
-  document.getElementById('tbSind').innerHTML = lista.map(s=>`<tr>
-    <td>${s.nome}</td><td>${s.sigla||'-'}</td><td>${s.cnpj||'-'}</td>
-    <td>${MESES[s.mesBase-1]}</td><td>${s.tipo||'-'}</td><td>${s.categoria}</td>
-  </tr>`).join('');
-}
-
-function addLog(e){
-  e.preventDefault();
-  logs.unshift({
-    data: new Date().toLocaleDateString('pt-BR'),
-    resp: document.getElementById('lResp').value,
-    desc: document.getElementById('lDesc').value,
-    status: document.getElementById('lStatus').value
-  });
-  salvar(); renderLog(); e.target.reset();
-}
-
-function renderLog(){
-  document.getElementById('tbLog').innerHTML = logs.map(l=>`<tr>
-    <td>${l.data}</td><td>${l.resp}</td><td>${l.desc}</td><td>${l.status}</td>
-  </tr>`).join('');
-}
-
-document.querySelectorAll('.nav-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.content').forEach(c=>c.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.tab).classList.add('active');
-  });
+/* ── ABAS ───────────────────────────────────────────── */
+document.querySelectorAll('.aba').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.aba').forEach(x=>x.classList.remove('ativa'));
+  document.querySelectorAll('.painel').forEach(x=>x.classList.remove('ativo'));
+  b.classList.add('ativa');
+  document.getElementById('p-'+b.dataset.p).classList.add('ativo');
 });
 
+/* ── RESUMO ─────────────────────────────────────────── */
+function montarResumo(){
+  const mesAtual = HOJE.toISOString().slice(0,7);
+  const noMes = DOCUMENTOS.filter(d=>(d.vigencia?.inicio||'').slice(0,7)===mesAtual).length;
+  const mte   = DOCUMENTOS.filter(d=>d.origem==='mte').length;
+  const site  = DOCUMENTOS.filter(d=>d.origem==='site_sindicato').length;
+  const aguar = STATUS.filter(s=>s.status==='aguardando_database').length;
 
-let achadosRobo = [];
-async function carregarAchados(force){
-  const st = document.getElementById('statusRobo');
-  try{
-    const resp = await fetch('data/ccts-encontradas.json' + (force?('?t='+Date.now()):''));
-    achadosRobo = await resp.json();
-    st.style.display = achadosRobo.length ? 'none' : 'block';
-    st.innerHTML = achadosRobo.length ? '' : 'Nenhum achado ainda. O rob&ocirc; roda todo dia 20 &mdash; ou execute manualmente no GitHub Actions.';
-  }catch(e){
-    st.innerHTML = 'Ainda sem dados do rob&ocirc; (arquivo data/ccts-encontradas.json n&atilde;o encontrado).';
+  document.getElementById('iMes').textContent = noMes;
+  document.getElementById('iMte').textContent = mte;
+  document.getElementById('iSite').textContent = site;
+  document.getElementById('iAguarda').textContent = aguar;
+
+  // Barras de status
+  const cont = {};
+  STATUS.forEach(s=>cont[s.status]=(cont[s.status]||0)+1);
+  const total = STATUS.length || 1;
+  const cores = {atualizado:'var(--ok)', aguardando_database:'var(--alerta)',
+                 sem_cc_2026:'var(--erro)', sem_registros:'var(--neutro)'};
+  document.getElementById('graficoStatus').innerHTML =
+    Object.keys(ROTULO_STATUS).map(k=>{
+      const q = cont[k]||0, pct = (q/total*100).toFixed(0);
+      return `<div style="margin-bottom:12px">
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+          <span>${ROTULO_STATUS[k].i} ${ROTULO_STATUS[k].t}</span>
+          <b>${q}</b>
+        </div>
+        <div style="height:9px;background:#eef1f0;border-radius:5px;overflow:hidden">
+          <div style="height:100%;width:${pct}%;background:${cores[k]};border-radius:5px"></div>
+        </div></div>`;
+    }).join('');
+
+  // Data-base do mês
+  const mes = +document.getElementById('filtroMes').value;
+  const doMes = SINDICATOS.filter(s=>s.mes_database_numero===mes);
+  document.getElementById('listaDataBase').innerHTML = doMes.length
+    ? `<div class="tabela-scroll"><table><thead><tr>
+         <th>Sigla</th><th>Nome</th><th>UF</th><th>Situação</th><th>Documentos</th>
+       </tr></thead><tbody>` +
+       doMes.map(s=>{
+         const st = statusDoSindicato(s.id, s.sigla);
+         const r = ROTULO_STATUS[st.status] || ROTULO_STATUS.sem_registros;
+         return `<tr><td><b>${esc(s.sigla)}</b></td><td>${esc(s.nome)}</td><td>${esc(s.uf)}</td>
+           <td><span class="st st-${st.status||'sem_registros'}">${r.i} ${r.t}</span></td>
+           <td>${st.docs_total||0}</td></tr>`;
+       }).join('') + '</tbody></table></div>'
+    : `<div class="vazio"><div class="emoji">📅</div>Nenhum sindicato com data-base em ${MESES[mes-1]}.</div>`;
+}
+
+/* ── DOCUMENTOS ─────────────────────────────────────── */
+function montarDocumentos(){
+  const busca  = document.getElementById('buscaDoc').value.toLowerCase().trim();
+  const origem = document.getElementById('filtroOrigem').value;
+  const tipo   = document.getElementById('filtroTipo').value;
+
+  let docs = DOCUMENTOS;
+  if(origem) docs = docs.filter(d=>d.origem===origem);
+  if(tipo)   docs = docs.filter(d=>d.tipo===tipo);
+  if(busca)  docs = docs.filter(d=>
+    (d.sindicato_sigla+' '+d.registro_mte+' '+d.titulo+' '+(d.partes||[]).join(' '))
+      .toLowerCase().includes(busca));
+
+  if(!docs.length){
+    document.getElementById('listaDocs').innerHTML =
+      `<div class="vazio"><div class="emoji">🔍</div>Nenhum documento encontrado com esses filtros.</div>`;
+    return;
   }
-  renderRobo();
-}
-function renderRobo(){
-  const f = document.getElementById('fRoboFonte').value;
-  const q = (document.getElementById('buscaRobo').value||'').toLowerCase();
-  let lista = achadosRobo.filter(a =>
-    (!f || a.fonte===f) &&
-    (!q || (a.sindicato+' '+a.titulo+' '+(a.resumo||'')).toLowerCase().includes(q))
-  );
-  document.getElementById('listaRobo').innerHTML = lista.map(a=>`<div class="card">
-    <span class="tag nova">${a.fonte}</span>
-    <h4>${a.titulo}</h4>
-    <p><b>Sindicato:</b> ${a.sindicato}</p>
-    <p><b>Descoberto em:</b> ${a.dataDescoberta ? a.dataDescoberta.split('-').reverse().join('/') : '-'}</p>
-    ${a.piso?`<p><b>Piso detectado:</b> ${a.piso}</p>`:''}
-    ${a.reajuste?`<p><b>Reajuste detectado:</b> ${a.reajuste}</p>`:''}
-    <p>${a.resumo||''}</p>
-    <a class="doc" href="${a.url}" target="_blank">&#128196; Abrir documento/p&aacute;gina</a>
-  </div>`).join('');
-}
-carregarAchados();
 
-popularSelects();
-render();
-renderCcts();
-renderSind();
-renderLog();
+  const porSind = {};
+  docs.forEach(d=>{ (porSind[d.sindicato_sigla] ||= []).push(d); });
+
+  document.getElementById('listaDocs').innerHTML =
+    Object.entries(porSind).sort((a,b)=>a[0].localeCompare(b[0])).map(([sigla, lista])=>{
+      const mte = lista.filter(d=>d.origem==='mte').length;
+      const st  = lista.length - mte;
+      return `<div class="grupo">
+        <div class="grupo-topo" onclick="this.parentElement.classList.toggle('aberto')">
+          <span class="seta">▶</span>
+          <span class="grupo-nome">${esc(sigla)}</span>
+          <span class="grupo-meta">
+            ${mte?`<span class="origem origem-mte">${mte} no MTE</span>`:''}
+            ${st?`<span class="origem origem-site">${st} só no site</span>`:''}
+            <span class="pill">${lista.length}</span>
+          </span>
+        </div>
+        <div class="grupo-corpo">${lista.map(cartaoDoc).join('')}</div>
+      </div>`;
+    }).join('');
+}
+
+function cartaoDoc(d){
+  const v = d.vigencia||{};
+  return `<div class="doc ${d.origem==='site_sindicato'?'site':''}">
+    <div class="doc-info">
+      <div class="doc-tit">${esc(d.titulo||d.tipo)}</div>
+      <div class="doc-sub">
+        <span><b>Registro</b> ${esc(d.registro_mte||'—')}</span>
+        <span><b>Vigência</b> ${dataBR(v.inicio)} a ${dataBR(v.fim)}</span>
+        <span class="origem origem-${d.origem==='mte'?'mte':'site'}">${d.origem==='mte'?'MTE':'Site'}</span>
+      </div>
+    </div>
+    <div class="acoes">
+      <button class="ico" title="Ver resumo" onclick="verDocumento('${d.id}')">👁️</button>
+      <button class="ico" title="Abrir no Mediador" onclick="abrirMediador('${esc(d.registro_mte)}')">🏛️</button>
+    </div>
+  </div>`;
+}
+
+function alternarTodos(){
+  const grupos = document.querySelectorAll('#listaDocs .grupo');
+  const abrir = ![...grupos].every(g=>g.classList.contains('aberto'));
+  grupos.forEach(g=>g.classList.toggle('aberto', abrir));
+}
+
+/* ── SINDICATOS ─────────────────────────────────────── */
+function montarSindicatos(){
+  const busca = document.getElementById('buscaSind').value.toLowerCase().trim();
+  const fSt   = document.getElementById('filtroStatus').value;
+  const fUf   = document.getElementById('filtroUf').value;
+
+  let lista = SINDICATOS;
+  if(busca) lista = lista.filter(s=>
+    (s.sigla+' '+s.nome+' '+s.cnpj).toLowerCase().includes(busca));
+  if(fUf)   lista = lista.filter(s=>s.uf===fUf);
+  if(fSt)   lista = lista.filter(s=>statusDoSindicato(s.id,s.sigla).status===fSt);
+
+  const corpo = document.getElementById('corpoSind');
+  if(!lista.length){
+    corpo.innerHTML = `<tr><td colspan="8"><div class="vazio">
+      <div class="emoji">🏢</div>Nenhum sindicato encontrado com esses filtros.</div></td></tr>`;
+    return;
+  }
+
+  corpo.innerHTML = lista.map(s=>{
+    const st = statusDoSindicato(s.id, s.sigla);
+    const r  = ROTULO_STATUS[st.status] || ROTULO_STATUS.sem_registros;
+    return `<tr>
+      <td><b>${esc(s.sigla)}</b></td>
+      <td style="max-width:300px">${esc(s.nome)}</td>
+      <td>${esc(s.uf)}</td>
+      <td>${esc(s.mes_database||'—')}</td>
+      <td><span class="st st-${st.status||'sem_registros'}">${r.i} ${r.t}</span></td>
+      <td>${st.docs_no_mte||0}</td>
+      <td>${st.docs_so_no_site||0}</td>
+      <td><div class="acoes">
+        <button class="ico" title="Ver resumo" onclick="verSindicato('${s.id}')">👁️</button>
+        <button class="ico" title="Abrir no Mediador" onclick="consultarMTE('${esc(s.cnpj)}')">🏛️</button>
+        <button class="ico perigo" title="Excluir sindicato" onclick="excluirSindicato('${s.id}')">🗑️</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── LOG ────────────────────────────────────────────── */
+function montarLog(){
+  if(!LOGS.length){
+    document.getElementById('listaLog').innerHTML =
+      `<div class="vazio"><div class="emoji">📋</div>Nenhuma verificação registrada ainda.</div>`;
+    return;
+  }
+  document.getElementById('listaLog').innerHTML =
+    `<div class="tabela-scroll"><table><thead><tr>
+      <th>Data</th><th>Tipo</th><th>Sindicatos</th><th>Novos</th><th>Ignorados</th><th>Falhas</th>
+    </tr></thead><tbody>` +
+    LOGS.map(l=>`<tr>
+      <td>${formatarDataHora(l.data)}</td>
+      <td>${esc(l.tipo||'Verificação')}</td>
+      <td>${l.sindicatos_pesquisados??'—'}</td>
+      <td><b style="color:var(--ok)">+${l.docs_novos??0}</b></td>
+      <td>${l.docs_ignorados??0}</td>
+      <td>${(l.falhas||[]).length}</td>
+    </tr>`).join('') + '</tbody></table></div>';
+}
+
+/* ── MODAIS ─────────────────────────────────────────── */
+function abrirModal(titulo, html){
+  document.getElementById('modalTitulo').textContent = titulo;
+  document.getElementById('modalCorpo').innerHTML = html;
+  document.getElementById('overlay').classList.add('aberto');
+  document.body.style.overflow='hidden';
+}
+function fecharModal(){
+  document.getElementById('overlay').classList.remove('aberto');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') fecharModal(); });
+
+function verSindicato(id){
+  const s = SINDICATOS.find(x=>x.id===id); if(!s) return;
+  const st = statusDoSindicato(s.id, s.sigla);
+  const r  = ROTULO_STATUS[st.status] || ROTULO_STATUS.sem_registros;
+  const docs = docsDoSindicato(s.id, s.sigla);
+
+  abrirModal(s.sigla, `
+    <div class="linha"><b>Nome</b><span>${esc(s.nome)}</span></div>
+    <div class="linha"><b>CNPJ</b><span>${esc(s.cnpj)}</span></div>
+    <div class="linha"><b>Localidade</b><span>${esc(s.cidade||'—')} / ${esc(s.uf)}</span></div>
+    <div class="linha"><b>Data-base</b><span>${esc(s.mes_database||'—')}</span></div>
+    <div class="linha"><b>Situação</b><span class="st st-${st.status||'sem_registros'}">${r.i} ${r.t}</span></div>
+    <div class="linha"><b>Site</b><span>${s.site_url
+      ? `<a href="${esc(s.site_url)}" target="_blank" rel="noopener" style="color:var(--verde)">${esc(s.site_url)}</a>`
+      : 'não localizado'}</span></div>
+
+    <h2 style="margin:22px 0 12px;font-size:15px;color:var(--verde)">
+      Documentos (${docs.length})</h2>
+    ${docs.length ? docs.map(cartaoDoc).join('')
+      : '<div class="vazio" style="padding:26px"><div class="emoji">📄</div>Nenhum documento localizado.</div>'}
+
+    <div style="margin-top:20px;display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn" onclick="consultarMTE('${esc(s.cnpj)}')">🏛️ Consultar no Mediador</button>
+      ${s.site_url?`<button class="btn sec" onclick="window.open('${esc(s.site_url)}','_blank')">🌐 Abrir site</button>`:''}
+    </div>
+  `);
+}
+
+function verDocumento(id){
+  const d = DOCUMENTOS.find(x=>x.id===id); if(!d) return;
+  const v = d.vigencia||{};
+  abrirModal(d.registro_mte || d.tipo, `
+    <div class="linha"><b>Sindicato</b><span>${esc(d.sindicato_sigla)}</span></div>
+    <div class="linha"><b>Tipo</b><span>${esc(d.tipo)}</span></div>
+    <div class="linha"><b>Registro MTE</b><span>${esc(d.registro_mte||'—')}</span></div>
+    <div class="linha"><b>Vigência</b><span>${dataBR(v.inicio)} a ${dataBR(v.fim)}</span></div>
+    <div class="linha"><b>Origem</b><span class="origem origem-${d.origem==='mte'?'mte':'site'}">
+      ${d.origem==='mte'?'Mediador MTE':'Site do sindicato'}</span></div>
+    <div class="linha"><b>Partes</b><span>${(d.partes||[]).map(esc).join('<br>') || '—'}</span></div>
+    <div class="linha"><b>Localizado em</b><span>${dataBR(d.descoberto_em)}</span></div>
+
+    <div class="aviso" style="margin-top:20px">
+      O arquivo na íntegra ainda não foi baixado para o sistema. Use o botão abaixo
+      para consultar o documento no Mediador do MTE.
+    </div>
+    <button class="btn" onclick="abrirMediador('${esc(d.registro_mte)}')">🏛️ Abrir no Mediador</button>
+  `);
+}
+
+function abrirMediador(){ window.open(linkMediador(), '_blank', 'noopener'); }
+function consultarMTE(cnpj){
+  navigator.clipboard?.writeText(cnpj).catch(()=>{});
+  window.open(linkMediador(), '_blank', 'noopener');
+}
+
+function excluirSindicato(id){
+  const s = SINDICATOS.find(x=>x.id===id); if(!s) return;
+  const docs = docsDoSindicato(s.id, s.sigla);
+  abrirModal('Excluir sindicato', `
+    <p style="font-size:14px;margin-bottom:16px">
+      Remover <b>${esc(s.sigla)}</b> da lista de monitoramento?
+    </p>
+    <div class="aviso">
+      Os ${docs.length} documento(s) já localizados continuam no histórico para auditoria.
+      Esta alteração vale apenas nesta sessão — para gravar de vez, exporte a lista
+      e envie o arquivo para o repositório.
+    </div>
+    <div style="display:flex;gap:9px;margin-top:18px">
+      <button class="btn risco" onclick="confirmarExclusao('${id}')">Excluir</button>
+      <button class="btn sec" onclick="fecharModal()">Cancelar</button>
+    </div>
+  `);
+}
+function confirmarExclusao(id){
+  SINDICATOS = SINDICATOS.filter(s=>s.id!==id);
+  STATUS = STATUS.filter(s=>s.sindicato_id!==id);
+  fecharModal(); montarSindicatos(); montarResumo();
+  baixarJSON(SINDICATOS, 'sindicatos.json');
+}
+
+/* ── IMPORTAR PLANILHA ──────────────────────────────── */
+function abrirImportacao(){
+  abrirModal('Importar planilha de sindicatos', `
+    <div class="aviso">
+      A planilha substitui a lista atual de ${SINDICATOS.length} sindicatos.
+      Colunas esperadas: <b>Sindicato, Sigla, CNPJ, Município, Estado, Mês da Data-Base, Site</b>.
+    </div>
+    <input type="file" id="arquivoPlanilha" accept=".xlsx,.xls,.csv"
+      style="margin:14px 0;font-size:13.5px" onchange="lerPlanilha(this)">
+    <div id="resultadoImport"></div>
+  `);
+}
+
+function lerPlanilha(input){
+  const arq = input.files?.[0]; if(!arq) return;
+  const leitor = new FileReader();
+  leitor.onload = e=>{
+    try{
+      const wb = XLSX.read(e.target.result, {type:'array'});
+      const linhas = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+      processarPlanilha(linhas);
+    }catch(err){
+      document.getElementById('resultadoImport').innerHTML =
+        `<div class="aviso" style="border-color:var(--erro);background:#fbe0dd;color:#96271b">
+          Não foi possível ler a planilha: ${esc(err.message)}</div>`;
+    }
+  };
+  leitor.readAsArrayBuffer(arq);
+}
+
+function processarPlanilha(linhas){
+  const pegar = (o, ...chaves)=>{
+    for(const k of Object.keys(o)){
+      const norm = k.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      if(chaves.some(c=>norm.includes(c))) return String(o[k]??'').trim();
+    }
+    return '';
+  };
+  const UFS = ['AC','AL','AM','AP','BA','CE','DF','ES','GO','MA','MG','MS','MT','PA','PB',
+               'PE','PI','PR','RJ','RN','RO','RR','RS','SC','SE','SP','TO'];
+
+  const validos = [], erros = [];
+  const cnpjsVistos = new Set();
+
+  linhas.forEach((l, i)=>{
+    const nome  = pegar(l,'sindicato','nome');
+    const sigla = pegar(l,'sigla');
+    const cnpj  = pegar(l,'cnpj');
+    const uf    = pegar(l,'estado','uf').toUpperCase();
+    const cid   = pegar(l,'municipio','cidade');
+    const mes   = pegar(l,'data-base','database','mes');
+    const site  = pegar(l,'site','url');
+
+    if(!nome){ erros.push(`Linha ${i+2}: sem nome do sindicato`); return; }
+    if(!UFS.includes(uf)){ erros.push(`Linha ${i+2}: ${sigla||nome} — UF inválida ("${uf}")`); return; }
+    const numeros = cnpj.replace(/\D/g,'');
+    if(numeros.length!==14){ erros.push(`Linha ${i+2}: ${sigla||nome} — CNPJ inválido`); return; }
+    if(cnpjsVistos.has(numeros)) return; // duplicata: ignora silenciosamente
+    cnpjsVistos.add(numeros);
+
+    const iMes = MESES.findIndex(m=>m.toLowerCase()===mes.toLowerCase());
+    const temSite = site && !/nao localizado|não localizado/i.test(site);
+
+    validos.push({
+      id:`sid_${String(validos.length+1).padStart(3,'0')}`,
+      nome, sigla: sigla||nome.slice(0,20), cnpj, cnpj_valido:true,
+      uf, cidade:cid, site: site||'Não localizado',
+      site_url: temSite ? site : null,
+      mes_database: iMes>=0 ? MESES[iMes] : '',
+      mes_database_numero: iMes>=0 ? iMes+1 : 0,
+      status:'Ativo',
+      importado_em: new Date().toISOString().slice(0,10)
+    });
+  });
+
+  const dup = linhas.length - validos.length - erros.length;
+  document.getElementById('resultadoImport').innerHTML = `
+    <div style="background:#f8faf9;border:1px solid var(--borda);border-radius:9px;padding:16px;margin-top:6px">
+      <div class="linha"><b>Linhas lidas</b><span>${linhas.length}</span></div>
+      <div class="linha"><b>Sindicatos válidos</b><span style="color:var(--ok);font-weight:700">${validos.length}</span></div>
+      <div class="linha"><b>Duplicados ignorados</b><span>${dup>0?dup:0}</span></div>
+      <div class="linha"><b>Com erro</b><span style="color:${erros.length?'var(--erro)':'inherit'}">${erros.length}</span></div>
+    </div>
+    ${erros.length?`<div class="aviso" style="margin-top:14px">
+      ${erros.slice(0,10).map(esc).join('<br>')}
+      ${erros.length>10?`<br><i>…e mais ${erros.length-10}</i>`:''}</div>`:''}
+    ${validos.length?`
+      <div class="aviso" style="margin-top:14px">
+        Ao confirmar, o arquivo <b>sindicatos.json</b> é baixado.
+        Envie-o para a pasta <b>data/</b> do repositório para publicar a alteração.
+      </div>
+      <div style="display:flex;gap:9px;margin-top:16px">
+        <button class="btn ouro" onclick='aplicarImportacao(${JSON.stringify(validos).replace(/'/g,"&#39;")})'>
+          Substituir ${validos.length} sindicatos</button>
+        <button class="btn sec" onclick="fecharModal()">Cancelar</button>
+      </div>`:''}
+  `;
+}
+
+function aplicarImportacao(novos){
+  SINDICATOS = novos;
+  STATUS = calcularStatus();
+  fecharModal();
+  prepararFiltros(); montarResumo(); montarSindicatos();
+  baixarJSON(novos, 'sindicatos.json');
+}
+
+function baixarJSON(dados, nome){
+  const blob = new Blob([JSON.stringify(dados,null,2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = nome; a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ── RODAR VERIFICAÇÃO ──────────────────────────────── */
+function rodarVerificacao(){
+  const ult = LOGS[0]?.data;
+  abrirModal('Rodar verificação', `
+    <div class="linha"><b>Última execução</b><span>${formatarDataHora(ult)}</span></div>
+    <div class="linha"><b>Sindicatos</b><span>${SINDICATOS.length}</span></div>
+    <div class="linha"><b>Documentos</b><span>${DOCUMENTOS.length}</span></div>
+
+    <h2 style="margin:22px 0 10px;font-size:15px;color:var(--verde)">Sites dos sindicatos</h2>
+    <p style="font-size:13.5px;color:var(--txt2);margin-bottom:12px">
+      Roda sozinho todo dia 20 às 08:00. Para executar agora, abra o GitHub Actions
+      e use "Run workflow".
+    </p>
+    <button class="btn" onclick="window.open('https://github.com/brunocortez-crypto/ccts-monitor/actions','_blank','noopener')">
+      Abrir GitHub Actions</button>
+
+    <h2 style="margin:24px 0 10px;font-size:15px;color:var(--verde)">Mediador do MTE</h2>
+    <div class="aviso">
+      O Mediador usa verificação anti-robô, então a consulta precisa de um navegador.
+      Abra o chat do Claude e envie: <b>roda verificação</b>
+    </div>
+  `);
+}
+
+carregar();
 </script>
 </body>
 </html>
