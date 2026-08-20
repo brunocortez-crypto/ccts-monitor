@@ -1,5 +1,12 @@
 [
   {
+    "data": "2026-08-20T09:54:17.408Z",
+    "versao": "3.0-agressiva",
+    "sindicatosVerificados": 40,
+    "novosAchados": 0,
+    "totalAcumulado": 31
+  },
+  {
     "data": "2026-07-21T17:02:27.161Z",
     "versao": "3.0-agressiva",
     "sindicatosVerificados": 63,
