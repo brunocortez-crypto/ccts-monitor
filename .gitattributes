@@ -1,0 +1,11 @@
+# Os extratos do MTE vêm em windows-1252 e o conteúdo é HTML com cabeçalho do Word.
+# Sem marcar como binário, o Git converte LF/CRLF e altera os bytes do documento —
+# o arquivo deixa de ser cópia fiel do que o MTE serviu.
+docs/MTE/*.doc binary
+
+# JSON e código ficam com LF no repositório, independente da máquina.
+*.json text eol=lf
+*.js   text eol=lf
+*.yml  text eol=lf
+*.md   text eol=lf
+*.html text eol=lf

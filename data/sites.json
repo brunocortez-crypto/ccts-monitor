@@ -1,0 +1,705 @@
+[
+  {
+    "sindicato_id": "sid_004",
+    "sigla": "FED TRAB AGRI TOCANT",
+    "site": "https://www.fetaet.org.br/",
+    "verificado_em": "2026-09-17T18:57:15.846Z",
+    "status": "falha",
+    "motivo": "fetch failed"
+  },
+  {
+    "sindicato_id": "sid_005",
+    "sigla": "FED TRAB AGRIC",
+    "site": "https://www.fetaemg.org.br/",
+    "url_final": "https://www.fetaemg.org.br/site/",
+    "verificado_em": "2026-09-17T18:57:23.842Z",
+    "status": "ok",
+    "total_links_relevantes": 1,
+    "links": [
+      {
+        "url": "https://www.fetaemg.org.br/site/fetaemg-e-faemg-assinam-convencao-coletiva-de-trabalho-mais-direitos-seguranca-e-valorizacao-da-mao-de-obra-rural/",
+        "rotulo": "Saiba mais",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_006",
+    "sigla": "FETAER GO",
+    "site": "http://www.fetaergo.org.br/",
+    "url_final": "http://www.fetaergo.org.br/",
+    "verificado_em": "2026-09-17T18:57:26.416Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_007",
+    "sigla": "SAAETM-AP",
+    "site": "https://saaetmap.com.br/",
+    "url_final": "https://saaetmap.com.br/",
+    "verificado_em": "2026-09-17T18:57:30.231Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_008",
+    "sigla": "SEAACOM",
+    "site": "https://seacom.org.br/",
+    "url_final": "https://seacom.org.br/",
+    "verificado_em": "2026-09-17T18:57:33.730Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_009",
+    "sigla": "SEC PA",
+    "site": "http://secpara.com.br/",
+    "url_final": "http://secpara.com.br/",
+    "verificado_em": "2026-09-17T18:57:38.600Z",
+    "status": "ok",
+    "total_links_relevantes": 1,
+    "links": [
+      {
+        "url": "https://secpara.com.br/convencao-coletiva-de-trabalho/",
+        "rotulo": "Conv. Colet. de Trabalho",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_010",
+    "sigla": "SECHSEG",
+    "site": "https://sechseg.com.br/",
+    "url_final": "https://sechseg.com.br/",
+    "verificado_em": "2026-09-17T18:57:40.863Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_011",
+    "sigla": "SECIPTM",
+    "site": "https://www.seciptm.com.br/",
+    "url_final": "https://www.seciptm.com.br/",
+    "verificado_em": "2026-09-17T18:57:43.564Z",
+    "status": "ok",
+    "total_links_relevantes": 1,
+    "links": [
+      {
+        "url": "https://www.seciptm.com.br/convencao.php",
+        "rotulo": "CONVENÇÕES",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_012",
+    "sigla": "SECOSAER",
+    "site": "https://www.secosaer.org.br/",
+    "url_final": "https://www.secosaer.org.br/",
+    "verificado_em": "2026-09-17T18:57:47.026Z",
+    "status": "ok",
+    "total_links_relevantes": 2,
+    "links": [
+      {
+        "url": "https://www.secosaer.org.br/noticia/cct-2025-asseio-e-conservacao-regional-registrada",
+        "rotulo": "(sem texto)",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://www.secosaer.org.br/noticia/cct-2025-limpeza-urbana-uberaba-registrada",
+        "rotulo": "(sem texto)",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_014",
+    "sigla": "SECUA",
+    "site": "https://www.secua.com.br/",
+    "url_final": "https://www.secua.com.br/",
+    "verificado_em": "2026-09-17T18:57:49.466Z",
+    "status": "ok",
+    "total_links_relevantes": 3,
+    "links": [
+      {
+        "url": "https://www.secua.com.br/cctaditivosaraguari",
+        "rotulo": "CCT/Aditivos Araguari",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://www.secua.com.br/cctaditivosuberlandia",
+        "rotulo": "CCT/Aditivos Uberlândia",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://www.secua.com.br/c%C3%B3pia-cct-aditivos-uberl%C3%A2ndia",
+        "rotulo": "2026 - CCT/Aditivos Uberlândia",
+        "e_arquivo": false,
+        "menciona_ano": true
+      }
+    ],
+    "candidatos_do_ano": 1,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_015",
+    "sigla": "SEEDSIDER-MG",
+    "site": "https://seedsider.org.br/",
+    "url_final": "https://seedsider.org.br/",
+    "verificado_em": "2026-09-17T18:57:52.011Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_016",
+    "sigla": "SEESS",
+    "site": "https://www.seess.com.br/",
+    "url_final": "https://www.seess.com.br/",
+    "verificado_em": "2026-09-17T18:57:55.808Z",
+    "status": "ok",
+    "total_links_relevantes": 2,
+    "links": [
+      {
+        "url": "https://www.seess.com.br/instrumento-coletivo",
+        "rotulo": "Convenção Coletiva",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://www.seess.com.br/elementor-675",
+        "rotulo": "Adesão ACT",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_018",
+    "sigla": "SESCAP/PE",
+    "site": "http://sescappe.org.br/",
+    "url_final": "http://sescappe.org.br/",
+    "verificado_em": "2026-09-17T18:58:00.129Z",
+    "status": "ok",
+    "total_links_relevantes": 2,
+    "links": [
+      {
+        "url": "http://sescappe.org.br/encerradas-as-negociacoes-da-cct-2025-2026/",
+        "rotulo": "Encerradas as negociações da CCT 2025/2026 entre o Sescap-PE e o Sindicon-PE",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "http://sescappe.org.br/convencao-coletiva-de-trabalho-2025-2026-ja-esta-disponivel/",
+        "rotulo": "Convenção Coletiva de Trabalho 2025/2026",
+        "e_arquivo": false,
+        "menciona_ano": true
+      }
+    ],
+    "candidatos_do_ano": 2,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_020",
+    "sigla": "SIND DOS",
+    "site": "https://www.sttrur.com.br/",
+    "url_final": "https://www.sttrur.com.br/",
+    "verificado_em": "2026-09-17T18:58:02.641Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_021",
+    "sigla": "SIND DOS EMPR. ENTID",
+    "site": "https://sindecmg.com.br/",
+    "url_final": "https://sindecmg.com.br/",
+    "verificado_em": "2026-09-17T18:58:04.723Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_022",
+    "sigla": "SIND EMP TUR",
+    "site": "https://sethtap.com.br/",
+    "url_final": "https://sethtap.com.br/",
+    "verificado_em": "2026-09-17T18:58:07.360Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_023",
+    "sigla": "SIND NOTARIOS REG GO",
+    "site": "https://sinoreggoias.com.br/",
+    "url_final": "https://sinoreggoias.com.br/",
+    "verificado_em": "2026-09-17T18:58:10.702Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_026",
+    "sigla": "SIND TRAB CONS PESAD",
+    "site": "https://siticopmg.org.br/",
+    "url_final": "https://siticopmg.org.br/",
+    "verificado_em": "2026-09-17T18:58:14.558Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_029",
+    "sigla": "SIND. DOS TRAB INDS",
+    "site": "http://graficosmg.org.br/",
+    "url_final": "https://graficosmg.org.br/site/",
+    "verificado_em": "2026-09-17T18:58:18.604Z",
+    "status": "ok",
+    "total_links_relevantes": 3,
+    "links": [
+      {
+        "url": "https://graficosmg.org.br/site/campanha_salarial-2026-2027/",
+        "rotulo": "Assembléia Geral – Campanha Salarial 2026/2027",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://graficosmg.org.br/site/campanha-salarial-2026-2027/",
+        "rotulo": "CAMPANHA SALARIAL 2026/2027",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://graficosmg.org.br/site/assembleia-geral-2/",
+        "rotulo": "Assembléia Geral – Campanha Salarial 2026",
+        "e_arquivo": false,
+        "menciona_ano": true
+      }
+    ],
+    "candidatos_do_ano": 3,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_030",
+    "sigla": "SINDADOS-MG",
+    "site": "https://sindados-mg.org.br/",
+    "url_final": "https://sindados-mg.org.br/",
+    "verificado_em": "2026-09-17T18:58:20.885Z",
+    "status": "ok",
+    "total_links_relevantes": 4,
+    "links": [
+      {
+        "url": "https://sindados-mg.org.br/ccts-e-acts-principal/database-setembro-cct-act-pag/",
+        "rotulo": "Database Setembro – Empresas Privadas",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sindados-mg.org.br/convencao-coletiva/conven-coletiva-database-setembro/2005-2007/",
+        "rotulo": "Convenção Coletiva de Trabalho – 2005/2007",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sindados-mg.org.br/convencao-coletiva/conven-coletiva-database-setembro/1998/",
+        "rotulo": "Convenção Coletiva de Trabalho – 1998",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sindados-mg.org.br/convencao-coletiva/conven-coletiva-database-setembro/1999-2000-19897/",
+        "rotulo": "Convenção Coletiva de Trabalho – 1999/2000",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_031",
+    "sigla": "SINDBARES",
+    "site": "https://sindbaresbahia.com.br/",
+    "url_final": "https://sindbaresbahia.com.br/",
+    "verificado_em": "2026-09-17T18:58:23.453Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_032",
+    "sigla": "SINDCONT",
+    "site": "https://scbh.com.br/",
+    "url_final": "https://scbh.com.br/",
+    "verificado_em": "2026-09-17T18:58:29.819Z",
+    "status": "ok",
+    "total_links_relevantes": 5,
+    "links": [
+      {
+        "url": "https://scbh.com.br/cct-assinada/",
+        "rotulo": "CCT Assinada",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://scbh.com.br/2026/07/31/cct-2026-2027-e-assinada-e-ja-esta-disponivel-para-a-categoria-empregados-em-escritorios-contabilidade/",
+        "rotulo": "CCT 2026/2027 é assinada e já está disponível para a categoria Empregados em Escritórios Contabilidade",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://scbh.com.br/2026/07/31/cct-2026-2027-e-assinada-e-ja-esta-disponivel-para-a-categoria-empregados-em-escritorios-contabilidade/#respond",
+        "rotulo": "No Comments",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://scbh.com.br/2026/06/18/categoria-rejeita-proposta-patronal-e-scbh-segue-em-negociacao-para-a-cct-2026-2027/",
+        "rotulo": "Categoria Rejeita Proposta Patronal e SCBH Segue em Negociação para a CCT 2026/2027",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://scbh.com.br/2026/06/18/categoria-rejeita-proposta-patronal-e-scbh-segue-em-negociacao-para-a-cct-2026-2027/#respond",
+        "rotulo": "No Comments",
+        "e_arquivo": false,
+        "menciona_ano": true
+      }
+    ],
+    "candidatos_do_ano": 4,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_034",
+    "sigla": "SINDELOT",
+    "site": "https://www.sindelotmg.com.br/",
+    "url_final": "https://www.sindelotmg.com.br/",
+    "verificado_em": "2026-09-17T18:58:32.310Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_038",
+    "sigla": "SINDICATO DOS EMPREG",
+    "site": "https://www.sindcomerciariosuberaba.org.br/",
+    "url_final": "https://www.sindcomerciariosuberaba.org.br/",
+    "verificado_em": "2026-09-17T18:58:35.173Z",
+    "status": "ok",
+    "total_links_relevantes": 1,
+    "links": [
+      {
+        "url": "https://www.sindcomerciariosuberaba.org.br/convencao.php",
+        "rotulo": "CONVENÇÕES",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_045",
+    "sigla": "SINDICATO TRABALHADO",
+    "site": "https://sttrmontealegre.com.br/",
+    "verificado_em": "2026-09-17T18:58:36.983Z",
+    "status": "falha",
+    "motivo": "fetch failed"
+  },
+  {
+    "sindicato_id": "sid_046",
+    "sigla": "SINDICOMERCIO",
+    "site": "https://comerciario.org.br/",
+    "url_final": "https://comerciario.org.br/",
+    "verificado_em": "2026-09-17T18:58:39.039Z",
+    "status": "ok",
+    "total_links_relevantes": 1,
+    "links": [
+      {
+        "url": "https://comerciario.org.br/post/reajuste-salarial-digno-e-ampliacao-de-direitos-sao-foco-da-campanha-salarial-dos-comerciarios-648",
+        "rotulo": "Reajuste salarial digno e ampliação de direitos são foco da Campanha Salarial dos Comerciários",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_049",
+    "sigla": "SINDTTRANS",
+    "site": "https://sindttrans.com.br/",
+    "url_final": "https://sindttrans.com.br/",
+    "verificado_em": "2026-09-17T18:58:41.749Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_050",
+    "sigla": "SINDUSCOM-GO",
+    "site": "https://www.sintracomgoiania.com.br/",
+    "url_final": "https://www.sintracomgoiania.com.br/",
+    "verificado_em": "2026-09-17T18:58:44.450Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_051",
+    "sigla": "SINFARMIG",
+    "site": "https://sinfarmig.org.br/",
+    "url_final": "https://sinfarmig.org.br/",
+    "verificado_em": "2026-09-17T18:58:46.847Z",
+    "status": "ok",
+    "total_links_relevantes": 9,
+    "links": [
+      {
+        "url": "https://sinfarmig.org.br/conven%C3%A7%C3%B5es/100-acordos-coletivos/4050-acordo-coletivo-de-trabalho-cct-farmac%C3%AAuticos-hospitalares-2017.html",
+        "rotulo": "Acordo Coletivo de Trabalho - CCT Farmacêuticos Hospitalares 2017",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sinfarmig.org.br/conven%C3%A7%C3%B5es/100-acordos-coletivos/4023-acordo-coletivo-de-trabalho-%E2%80%93-dorgaria-paiva-e-pinheiro.html",
+        "rotulo": "Acordo Coletivo de Trabalho – Dorgaria Paiva e Pinheiro",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sinfarmig.org.br/conven%C3%A7%C3%B5es/100-acordos-coletivos/3486-acordo-coletivo-de-trabalho-hospital-da-baleia.html",
+        "rotulo": "Acordo Coletivo de Trabalho - Hospital da Baleia",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sinfarmig.org.br/comunica%C3%A7%C3%A3o/59-not%C3%ADcias/4675-fechada-nova-conven%C3%A7%C3%A3o-coletiva-2026-do-setor-hospitalar.html",
+        "rotulo": "(sem texto)",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://sinfarmig.org.br/comunica%C3%A7%C3%A3o/59-not%C3%ADcias/4674-nova-conven%C3%A7%C3%A3o-coletiva-farm%C3%A1cias,-drogarias-e-distribuidoras.html",
+        "rotulo": "(sem texto)",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sinfarmig.org.br/images/CCT-INDUSTRIA-2026.pdf",
+        "rotulo": "aqui",
+        "e_arquivo": true,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://sinfarmig.org.br/comunica%C3%A7%C3%A3o/59-not%C3%ADcias/4662-vote-na-enquete-do-pl-1559-2021-piso-salarial-nacional-j%C3%A1.html",
+        "rotulo": "VOTE NA ENQUETE DO PL 1559/2021 - PISO SALARIAL NACIONAL JÁ",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sinfarmig.org.br/images/201708251233.pdf",
+        "rotulo": "CCT Farmacêuticos Hospitalares 2017",
+        "e_arquivo": true,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sinfarmig.org.br/images/paiva.pdf",
+        "rotulo": "Acordo coletivo de trabalho – Drogaria Paiva e Pinheiro",
+        "e_arquivo": true,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 2,
+    "arquivos_encontrados": 3
+  },
+  {
+    "sindicato_id": "sid_053",
+    "sigla": "SINPRAFARMA",
+    "site": "https://www.sinprafarmamg.com.br/",
+    "url_final": "https://www.sinprafarmamg.com.br/",
+    "verificado_em": "2026-09-17T18:58:51.019Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_054",
+    "sigla": "SINPROMINAS",
+    "site": "https://www.sinprominas.org.br/",
+    "url_final": "https://www.sinprominas.org.br/",
+    "verificado_em": "2026-09-17T18:58:53.370Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_055",
+    "sigla": "SINTAPPI",
+    "site": "https://sintappimg.org.br/",
+    "url_final": "https://sintappimg.org.br/novosite/",
+    "verificado_em": "2026-09-17T18:58:57.629Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_056",
+    "sigla": "SINTIBREF-MINAS",
+    "site": "https://sintibref-minas.org.br/",
+    "url_final": "https://sintibref-minas.org.br/",
+    "verificado_em": "2026-09-17T18:59:01.164Z",
+    "status": "ok",
+    "total_links_relevantes": 4,
+    "links": [
+      {
+        "url": "https://sintibref-minas.org.br/beneficio-cct-paf",
+        "rotulo": "Programa de Assistência Familiar",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sintibref-minas.org.br/posts/a-nova-cct-humaniza-o-vinculo-de-trabalho-da-categoria",
+        "rotulo": "(sem texto)",
+        "e_arquivo": false,
+        "menciona_ano": false
+      },
+      {
+        "url": "https://sintibref-minas.org.br/posts/convencao-coletiva-de-trabalho-2026-2027-registrada-acesse-na-integra",
+        "rotulo": "(sem texto)",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://sintibref-minas.org.br/posts/falta-pouco-para-se-aposentar-a-convencao-coletiva-de-trabalho-protege-seu-emprego",
+        "rotulo": "Falta pouco para se aposentar? A Convenção Coletiva de Trabalho protege seu emprego",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 1,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_057",
+    "sigla": "SINTICOMTAP (MARCEN)",
+    "site": "https://www.sinticom-tap.com.br/",
+    "url_final": "https://www.sinticom-tap.com.br/portal/",
+    "verificado_em": "2026-09-17T18:59:05.149Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_058",
+    "sigla": "SINTRALAMAC",
+    "site": "https://sintralamacmg.com/",
+    "url_final": "https://sintralamacmg.com/",
+    "verificado_em": "2026-09-17T18:59:08.394Z",
+    "status": "ok",
+    "total_links_relevantes": 1,
+    "links": [
+      {
+        "url": "https://sintralamacmg.com/?page_id=1133",
+        "rotulo": "CONVENÇÃO COLETIVA 2024/2025",
+        "e_arquivo": false,
+        "menciona_ano": false
+      }
+    ],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_059",
+    "sigla": "STIAU",
+    "site": "https://www.stiau.org.br/",
+    "verificado_em": "2026-09-17T18:59:10.730Z",
+    "status": "falha",
+    "motivo": "fetch failed"
+  },
+  {
+    "sindicato_id": "sid_060",
+    "sigla": "STIMMMEUA",
+    "site": "https://metaludiaraguari.com.br/",
+    "verificado_em": "2026-09-17T18:59:14.433Z",
+    "status": "falha",
+    "motivo": "HTTP 500"
+  },
+  {
+    "sindicato_id": "sid_061",
+    "sigla": "STIQUIFAR",
+    "site": "https://stiquifar.com.br/",
+    "url_final": "https://stiquifar.com.br/",
+    "verificado_em": "2026-09-17T18:59:16.610Z",
+    "status": "ok",
+    "total_links_relevantes": 0,
+    "links": [],
+    "candidatos_do_ano": 0,
+    "arquivos_encontrados": 0
+  },
+  {
+    "sindicato_id": "sid_063",
+    "sigla": "STRUBERLANDIA",
+    "site": "https://www.facebook.com/SindicatoTRU/",
+    "verificado_em": "2026-09-17T18:59:18.656Z",
+    "status": "falha",
+    "motivo": "HTTP 400"
+  }
+]

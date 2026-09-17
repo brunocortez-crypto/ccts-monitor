@@ -1,0 +1,1834 @@
+
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <title>
+        Mediador - Extrato Conven&#231;&#227;o Coletiva
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G"></script>
+
+    <script src='/sistemas/mediador/WebResource.axd?d=GgiiCHsexKYwW6VTVsG4rjPHfW189LGFvYjsgkJTXrpEvbU2zmRYfISARhgE7sA8TxoZX30lnXJJLI22ydsRJ1Gjw5RrxvMyx29HB7poBWNrhg0Cac6TOCbZBGx3rYntImJMtUYNne-lNdUPnlQgLJWN8CBdkR02xdc9Ur5qQH5f5edOUIyoLs7H0K9CVtJP0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=k5vpJpCswu4z1UZ5RnaTzQxbyC1p8BgCBBoqez5mzog9vLYaTet-Vhprt7zJ06tVHXpFLx8xZWPt0hF6aE0KWQrVlO-KhH45CNNQeNR9lRSXHh0PajwY3E8ThF0Li52HxTYG31LsnEu_knAggZ04H51H3Dr9R2FVvisr7T8YRXcKE1sIDxNzR_qgWuc_AeEIUpcafRghbbh5nhFuIneb2Q2&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=mMUPOHUdMHrct4_EFaFO5VI2OCkbrm00FAzsCS5wYwmiLquxA-nbuUMyJHYU37m4-TF4Eiaf9dcjnZ6AuGU0MkJuSLVjvw_phsTCbfczFV9Gm8D1mcvq0bSDXD_n0LXRTAdt7eGWrFx9y8BeF1AoeaX3RjDgqUxXeHsv6V9KuvqtpqMEykeRFJunlcjG0zDP0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=5zkt0AYE3mjczKObPdFrO79hkkoZATLWLCqQS85mAPO-4QWhwjAMG_65zTrJmr8Aa1BM7YLBAJd-gjNAj-gwd3O9oorzy3LAorntMquLSVIu51fxH9REKFb3WOvTgl7cxd08a_gbSkeLuVEH4txfWTw3f3d0OjjEskrCIt-C09XY_Utr6kWuLpqNdz8-WeNi0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=i3cUYFbIHidExeIfZJcuDOeUQNokXaOD-ghqL_FEsxwK201M_fFoHB-R-RyZTCQMfRPok6BWctfZzEA-bCaspWpn6ypP5TYf-_8U3TAPxGAjvQ-CMdYRSxtm6IURHsnm1uiTPTQSaFTohNXCfE5sF2DE1UyT_vNCac94SvDfxEtwy2BGDC7DiD7LedAkBqOa0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=bQwZBSEKfcXoOfphRZAlJDsYolij_YiYFF6P6sqSKVEz4RPpflLS0JY2Mwu74HdtsMhwob4_oT8AJhd8MvZYb6EYglflqkOSeP26xBWRkXLhbajlkpksA2m89yZ9mRGBDg49tpIFEIfwYaseldPhe2aPr64MPREm3lnfSEedsv4YAr-FKgrfNrf12GMWGFCv0&t=639193666532168144' type='text/javascript'></script>
+
+
+<script type="text/javascript">
+        var recaptchaSiteKey = '6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G';
+        var pageLoadToken = '';
+        var isPageValidated = false;
+
+        function onRecaptchaLoad() {
+            console.log('reCAPTCHA carregado, validando página...');
+            executePageLoadRecaptcha();
+        }
+
+        function executePageLoadRecaptcha() {
+            if (typeof grecaptcha === 'undefined') {
+                console.error('reCAPTCHA não carregado');
+                return;
+            }
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute(recaptchaSiteKey, {
+                    action: 'page_load_resumo'
+                }).then(function(token) {
+                    console.log('Token de página gerado');
+                    pageLoadToken = token;
+
+                    // Enviar o token para o servidor
+                    validatePageLoadToken(token);
+                }).catch(function(error) {
+                    console.error('Erro no reCAPTCHA de página:', error);
+                    // Em desenvolvimento, permitir continuar
+                });
+            });
+        }
+
+        function validatePageLoadToken(token) {
+            var currentUrl = window.location.href;
+            var queryString = window.location.search;
+            var nrSolicitacao = 'MR070097/2025';
+
+            $.ajax({
+                url: '/sistemas/mediador/Resumo/ValidateResumoPageLoad',
+                type: 'POST',
+                data: {
+                    recaptchaToken: token,
+                    currentUrl: currentUrl,
+                    queryString: queryString,
+                    nrSolicitacao: nrSolicitacao
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log('Página validada com sucesso');
+                        isPageValidated = true;
+                        showPageContent();
+                    } else {
+                        console.warn('Validação de página falhou:', response.message);
+                        handleValidationFailed(response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erro ao validar página:', error);
+                    handleValidationFailed({ message: 'Erro de comunicação com o servidor' });
+                }
+            });
+        }
+
+        function showPageContent() {
+            // Remover overlay de loading se existir
+            $('#recaptcha-loading').remove();
+            console.log('Conteúdo da página liberado');
+        }
+
+        function handleValidationFailed(response) {
+            // Mostrar mensagem de erro
+            var errorHtml = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                    <div style="text-align: center; padding: 20px;">
+                        <h2 style="color: #d32f2f;">Validação de Segurança</h2>
+                        <p style="font-size: 16px; margin: 20px 0;">${response.message || 'Falha na validação de segurança.'}</p>
+                        <button onclick="window.location.reload()" style="padding: 10px 20px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Tentar Novamente
+                        </button>
+                        <br><br>
+                        <button onclick="window.location.href='/sistemas/mediador/'" style="padding: 8px 16px; background: #757575; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Voltar para Página Inicial
+                        </button>
+                    </div>
+                </div>
+            `;
+            $('body').prepend(errorHtml);
+        }
+
+        $(document).ready(function() {
+            console.log('Página carregada - ambiente de produção');
+
+            // Pular validação reCAPTCHA em produção
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.log('Produção - validando sem reCAPTCHA');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 1000);
+
+            // Timeout de segurança reduzido
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.warn('Timeout na validação - liberando conteúdo');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 5000); // Reduzido para 5 segundos
+        });
+
+        function Imprimir() {
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "none";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "none";
+            window.print();
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "";
+            return true;
+        }
+        $(function () {
+            var marcaDaguaHtml = $('.MarcaDagua').html();
+            var width = $('body').width();
+            var marcaW = $('.MarcaDagua').width();
+
+            var qtdNescessarios = Math.round((width / marcaW) + 0.4);
+            if (qtdNescessarios > 0)
+                for (var incrementador = 0; incrementador < qtdNescessarios; incrementador++) {
+                    $('.MarcaDagua').append("<br />");
+                    $('.MarcaDagua').append(marcaDaguaHtml);
+                }
+        });
+
+
+</script>
+    <style type="text/css">
+        .titulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .Subtitulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        .texto
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .tituloClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .descricaoClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .textogrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .textosubgrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .textonome
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .textofuncao
+        {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .pagebreak
+        {
+            page-break-after: always;
+        }
+        table.titulo
+        {
+            text-align: left;
+        }
+        @page Section2 {size:21cm 29.7cm ;mso-page-orientation:portrait;margin-top:2cm; margin-rigth:2cm; mso-paper-source:0;}
+        div.Section2 {page:Section2;}
+        pre
+        {
+            white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            white-space: normal;
+        }
+    </style>
+    <!--[if gte mso 9]>
+    <xml>
+    <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+    </xml>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="Section2">
+
+        <center>
+            <table border="0" style="width: 18cm;" id="tblConteudo">
+                <tr>
+                    <td>
+                        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+
+                                                            <tr>
+                                    <td align="center" class="titulo" style="text-transform: uppercase;">
+                                        <b>
+                                            Conven&#231;&#227;o Coletiva De Trabalho 2025/2027
+                                        </b>
+                                        <br />
+                                        <br />
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    <div style="text-align: left;">
+                                        <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+                                                        <b>NÚMERO DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        MG004156/2025
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        02/12/2025
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>NÚMERO DA SOLICITAÇÃO:</b>
+                                                </td>
+                                                <td style="width: 10px">
+                                                </td>
+                                                <td>
+                                                    MR070097/2025
+                                                </td>
+                                            </tr>
+                                                                                            <tr>
+                                                    <td>
+                                                        <b>NÚMERO DO PROCESSO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        47979.275761/2025-96
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DO PROTOCOLO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+12/11/2025                                                    </td>
+                                                </tr>
+                                        </table>
+                                        <br />
+
+                                                        <p>
+                                                            <label class="texto">
+                                                                <b>
+                                                                    Confira a autenticidade no endereço http://mediador.trabalho.gov.br/sistemas/mediador/.
+                                                                </b>
+                                                            </label>
+                                                        </p>
+                                                    <br />
+                                                        <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <table border="0" class="titulo" width="100%" cellpadding="0" cellspacing="0">
+                                                                        <tr class="titulo">
+                                                                            <td>
+                                                                                <b>TERMOS ADITIVO(S) VINCULADO(S) </b>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="titulo">
+                                                                            <td>
+<b>Processo n°: </b><b>e Registro n°: </b><br />                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <br />
+                                                        <br />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="texto">
+                                    <p align="justify">
+SINDICATO DOS E E E DE P.DE D S DE INFORMATICA S EST MG, CNPJ n. 19.715.739/0001-08, neste ato representado(a) por seu 
+
+Membro de Diretoria Colegiada, Sr(a). ROSANE MARIA CORDEIRO;
+    <br />
+&nbsp;
+    <br />
+                                        <label>
+                                            E
+                                        </label>
+                                        <br />
+                                        <br />
+SINDICATO DA INDUSTRIA DE SOFTWARE E DA TECNOLOGIA DA INFORM, CNPJ n. 21.613.906/0001-51, neste ato representado(a) por seu 
+
+Presidente, Sr(a). FABIO VERAS DE SOUZA;
+    <br />
+&nbsp;
+    <br />
+                                                                                    celebram
+                                                                                    a
+                                         presente CONVEN&#199;&#195;O COLETIVA DE TRABALHO,
+ estipulando as condi&#231;&#245;es de trabalho previstas nas cl&#225;usulas seguintes:                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA PRIMEIRA - VIG&#202;NCIA E DATA-BASE
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    As partes fixam a vigência da presente Convenção Coletiva de Trabalho no período de 01º de setembro de 2025 a 31 de agosto de 2027 e a data-base da categoria em 01º de setembro.
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA SEGUNDA - ABRANG&#202;NCIA
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    A presente Convenção Coletiva de Trabalho abrangerá a(s) categoria(s) <b>Profissional dos Empregados em Empresas de Processamento de Dados, Serviços de Informática e Similares e Econômica das Empresas de Processamento de Dados, Informática, Software e Serviços em Tecnologia da Informação. EXCETO a Categoria Econômica das Empresas atuantes nos serviços de provimento de acesso à internet</b>, com abrangência territorial em <b>Abadia dos Dourados/MG, Abaeté/MG, Abre Campo/MG, Acaiaca/MG, Açucena/MG, Água Boa/MG, Água Comprida/MG, Aguanil/MG, Águas Formosas/MG, Águas Vermelhas/MG, Aimorés/MG, Aiuruoca/MG, Alagoa/MG, Albertina/MG, Além Paraíba/MG, Alfenas/MG, Alfredo Vasconcelos/MG, Almenara/MG, Alpercata/MG, Alpinópolis/MG, Alterosa/MG, Alto Caparaó/MG, Alto Jequitibá/MG, Alto Rio Doce/MG, Alvarenga/MG, Alvinópolis/MG, Alvorada de Minas/MG, Amparo do Serra/MG, Andradas/MG, Andrelândia/MG, Angelândia/MG, Antônio Carlos/MG, Antônio Dias/MG, Antônio Prado de Minas/MG, Araçaí/MG, Aracitaba/MG, Araçuaí/MG, Araguari/MG, Arantina/MG, Araponga/MG, Araporã/MG, Arapuá/MG, Araújos/MG, Araxá/MG, Arceburgo/MG, Arcos/MG, Areado/MG, Argirita/MG, Aricanduva/MG, Arinos/MG, Astolfo Dutra/MG, Ataléia/MG, Augusto de Lima/MG, Baependi/MG, Baldim/MG, Bambuí/MG, Bandeira do Sul/MG, Bandeira/MG, Barão de Cocais/MG, Barão de Monte Alto/MG, Barbacena/MG, Barra Longa/MG, Barroso/MG, Bela Vista de Minas/MG, Belmiro Braga/MG, Belo Horizonte/MG, Belo Oriente/MG, Belo Vale/MG, Berilo/MG, Berizal/MG, Bertópolis/MG, Betim/MG, Bias Fortes/MG, Bicas/MG, Biquinhas/MG, Boa Esperança/MG, Bocaina de Minas/MG, Bocaiúva/MG, Bom Despacho/MG, Bom Jardim de Minas/MG, Bom Jesus da Penha/MG, Bom Jesus do Amparo/MG, Bom Jesus do Galho/MG, Bom Repouso/MG, Bom Sucesso/MG, Bonfim/MG, Bonfinópolis de Minas/MG, Bonito de Minas/MG, Borda da Mata/MG, Botelhos/MG, Botumirim/MG, Brás Pires/MG, Brasilândia de Minas/MG, Brasília de Minas/MG, Braúnas/MG, Brazópolis/MG, Brumadinho/MG, Bueno Brandão/MG, Buenópolis/MG, Bugre/MG, Buritis/MG, Buritizeiro/MG, Cabeceira Grande/MG, Cabo Verde/MG, Cachoeira da Prata/MG, Cachoeira de Minas/MG, Cachoeira de Pajeú/MG, Cachoeira Dourada/MG, Caetanópolis/MG, Caeté/MG, Caiana/MG, Cajuri/MG, Caldas/MG, Camacho/MG, Camanducaia/MG, Cambuí/MG, Cambuquira/MG, Campanário/MG, Campanha/MG, Campestre/MG, Campina Verde/MG, Campo Azul/MG, Campo Belo/MG, Campo do Meio/MG, Campo Florido/MG, Campos Altos/MG, Campos Gerais/MG, Cana Verde/MG, Canaã/MG, Canápolis/MG, Candeias/MG, Cantagalo/MG, Caparaó/MG, Capela Nova/MG, Capelinha/MG, Capetinga/MG, Capim Branco/MG, Capinópolis/MG, Capitão Andrade/MG, Capitão Enéas/MG, Capitólio/MG, Caputira/MG, Caraí/MG, Caranaíba/MG, Carandaí/MG, Carangola/MG, Caratinga/MG, Carbonita/MG, Careaçu/MG, Carlos Chagas/MG, Carmésia/MG, Carmo da Cachoeira/MG, Carmo da Mata/MG, Carmo de Minas/MG, Carmo do Cajuru/MG, Carmo do Paranaíba/MG, Carmo do Rio Claro/MG, Carmópolis de Minas/MG, Carneirinho/MG, Carrancas/MG, Carvalhópolis/MG, Carvalhos/MG, Casa Grande/MG, Cascalho Rico/MG, Cássia/MG, Cataguases/MG, Catas Altas da Noruega/MG, Catas Altas/MG, Catuji/MG, Catuti/MG, Caxambu/MG, Cedro do Abaeté/MG, Central de Minas/MG, Centralina/MG, Chácara/MG, Chalé/MG, Chapada do Norte/MG, Chapada Gaúcha/MG, Chiador/MG, Cipotânea/MG, Claraval/MG, Claro dos Poções/MG, Cláudio/MG, Coimbra/MG, Coluna/MG, Comendador Gomes/MG, Comercinho/MG, Conceição da Aparecida/MG, Conceição da Barra de Minas/MG, Conceição das Alagoas/MG, Conceição das Pedras/MG, Conceição de Ipanema/MG, Conceição do Mato Dentro/MG, Conceição do Pará/MG, Conceição do Rio Verde/MG, Conceição dos Ouros/MG, Cônego Marinho/MG, Confins/MG, Congonhal/MG, Congonhas do Norte/MG, Congonhas/MG, Conquista/MG, Conselheiro Lafaiete/MG, Conselheiro Pena/MG, Consolação/MG, Contagem/MG, Coqueiral/MG, Coração de Jesus/MG, Cordisburgo/MG, Cordislândia/MG, Corinto/MG, Coroaci/MG, Coromandel/MG, Coronel Fabriciano/MG, Coronel Murta/MG, Coronel Pacheco/MG, Coronel Xavier Chaves/MG, Córrego Danta/MG, Córrego do Bom Jesus/MG, Córrego Fundo/MG, Córrego Novo/MG, Couto de Magalhães de Minas/MG, Crisólita/MG, Cristais/MG, Cristália/MG, Cristiano Otoni/MG, Cristina/MG, Crucilândia/MG, Cruzeiro da Fortaleza/MG, Cruzília/MG, Cuparaque/MG, Curral de Dentro/MG, Curvelo/MG, Datas/MG, Delfim Moreira/MG, Delfinópolis/MG, Delta/MG, Descoberto/MG, Desterro de Entre Rios/MG, Desterro do Melo/MG, Diamantina/MG, Diogo de Vasconcelos/MG, Dionísio/MG, Divinésia/MG, Divino das Laranjeiras/MG, Divino/MG, Divinolândia de Minas/MG, Divinópolis/MG, Divisa Alegre/MG, Divisa Nova/MG, Divisópolis/MG, Dom Bosco/MG, Dom Cavati/MG, Dom Joaquim/MG, Dom Silvério/MG, Dom Viçoso/MG, Dona Eusébia/MG, Dores de Campos/MG, Dores de Guanhães/MG, Dores do Indaiá/MG, Dores do Turvo/MG, Doresópolis/MG, Douradoquara/MG, Durandé/MG, Elói Mendes/MG, Engenheiro Caldas/MG, Engenheiro Navarro/MG, Entre Folhas/MG, Entre Rios de Minas/MG, Ervália/MG, Esmeraldas/MG, Espera Feliz/MG, Espinosa/MG, Espírito Santo do Dourado/MG, Estiva/MG, Estrela Dalva/MG, Estrela do Indaiá/MG, Estrela do Sul/MG, Eugenópolis/MG, Ewbank da Câmara/MG, Extrema/MG, Fama/MG, Faria Lemos/MG, Felício dos Santos/MG, Felisburgo/MG, Felixlândia/MG, Fernandes Tourinho/MG, Ferros/MG, Fervedouro/MG, Florestal/MG, Formiga/MG, Formoso/MG, Fortaleza de Minas/MG, Fortuna de Minas/MG, Francisco Badaró/MG, Francisco Dumont/MG, Francisco Sá/MG, Franciscópolis/MG, Frei Gaspar/MG, Frei Inocêncio/MG, Frei Lagonegro/MG, Fronteira dos Vales/MG, Fronteira/MG, Fruta de Leite/MG, Frutal/MG, Funilândia/MG, Galiléia/MG, Gameleiras/MG, Glaucilândia/MG, Goiabeira/MG, Goianá/MG, Gonçalves/MG, Gonzaga/MG, Gouveia/MG, Governador Valadares/MG, Grão Mogol/MG, Grupiara/MG, Guanhães/MG, Guapé/MG, Guaraciaba/MG, Guaraciama/MG, Guaranésia/MG, Guarani/MG, Guarará/MG, Guarda-Mor/MG, Guaxupé/MG, Guidoval/MG, Guimarânia/MG, Guiricema/MG, Gurinhatã/MG, Heliodora/MG, Iapu/MG, Ibertioga/MG, Ibiá/MG, Ibiaí/MG, Ibiracatu/MG, Ibiraci/MG, Ibirité/MG, Ibitiúra de Minas/MG, Ibituruna/MG, Icaraí de Minas/MG, Igarapé/MG, Igaratinga/MG, Iguatama/MG, Ijaci/MG, Ilicínea/MG, Imbé de Minas/MG, Inconfidentes/MG, Indaiabira/MG, Indianópolis/MG, Ingaí/MG, Inhapim/MG, Inhaúma/MG, Inimutaba/MG, Ipaba/MG, Ipanema/MG, Ipatinga/MG, Ipiaçu/MG, Ipuiúna/MG, Iraí de Minas/MG, Itabira/MG, Itabirinha/MG, Itabirito/MG, Itacambira/MG, Itacarambi/MG, Itaguara/MG, Itaipé/MG, Itajubá/MG, Itamarandiba/MG, Itamarati de Minas/MG, Itambacuri/MG, Itambé do Mato Dentro/MG, Itamogi/MG, Itamonte/MG, Itanhandu/MG, Itanhomi/MG, Itaobim/MG, Itapagipe/MG, Itapecerica/MG, Itapeva/MG, Itatiaiuçu/MG, Itaú de Minas/MG, Itaúna/MG, Itaverava/MG, Itinga/MG, Itueta/MG, Ituiutaba/MG, Itumirim/MG, Iturama/MG, Itutinga/MG, Jaboticatubas/MG, Jacinto/MG, Jacuí/MG, Jacutinga/MG, Jaguaraçu/MG, Jaíba/MG, Jampruca/MG, Janaúba/MG, Januária/MG, Japaraíba/MG, Japonvar/MG, Jeceaba/MG, Jenipapo de Minas/MG, Jequeri/MG, Jequitaí/MG, Jequitibá/MG, Jequitinhonha/MG, Jesuânia/MG, Joaíma/MG, Joanésia/MG, João Monlevade/MG, João Pinheiro/MG, Joaquim Felício/MG, Jordânia/MG, José Gonçalves de Minas/MG, José Raydan/MG, Josenópolis/MG, Juatuba/MG, Juiz de Fora/MG, Juramento/MG, Juruaia/MG, Juvenília/MG, Ladainha/MG, Lagamar/MG, Lagoa da Prata/MG, Lagoa dos Patos/MG, Lagoa Dourada/MG, Lagoa Formosa/MG, Lagoa Grande/MG, Lagoa Santa/MG, Lajinha/MG, Lambari/MG, Lamim/MG, Laranjal/MG, Lassance/MG, Lavras/MG, Leandro Ferreira/MG, Leme do Prado/MG, Leopoldina/MG, Liberdade/MG, Lima Duarte/MG, Limeira do Oeste/MG, Lontra/MG, Luisburgo/MG, Luislândia/MG, Luminárias/MG, Luz/MG, Machacalis/MG, Machado/MG, Madre de Deus de Minas/MG, Malacacheta/MG, Mamonas/MG, Manga/MG, Manhuaçu/MG, Manhumirim/MG, Mantena/MG, Mar de Espanha/MG, Maravilhas/MG, Maria da Fé/MG, Mariana/MG, Marilac/MG, Mário Campos/MG, Maripá de Minas/MG, Marliéria/MG, Marmelópolis/MG, Martinho Campos/MG, Martins Soares/MG, Mata Verde/MG, Materlândia/MG, Mateus Leme/MG, Mathias Lobato/MG, Matias Barbosa/MG, Matias Cardoso/MG, Matipó/MG, Mato Verde/MG, Matozinhos/MG, Matutina/MG, Medeiros/MG, Medina/MG, Mendes Pimentel/MG, Mercês/MG, Mesquita/MG, Minas Novas/MG, Minduri/MG, Mirabela/MG, Miradouro/MG, Miraí/MG, Miravânia/MG, Moeda/MG, Moema/MG, Monjolos/MG, Monsenhor Paulo/MG, Montalvânia/MG, Monte Alegre de Minas/MG, Monte Azul/MG, Monte Belo/MG, Monte Carmelo/MG, Monte Formoso/MG, Monte Santo de Minas/MG, Monte Sião/MG, Montes Claros/MG, Montezuma/MG, Morada Nova de Minas/MG, Morro da Garça/MG, Morro do Pilar/MG, Munhoz/MG, Muriaé/MG, Mutum/MG, Muzambinho/MG, Nacip Raydan/MG, Nanuque/MG, Naque/MG, Natalândia/MG, Natércia/MG, Nazareno/MG, Nepomuceno/MG, Ninheira/MG, Nova Belém/MG, Nova Era/MG, Nova Lima/MG, Nova Módica/MG, Nova Ponte/MG, Nova Porteirinha/MG, Nova Resende/MG, Nova Serrana/MG, Nova União/MG, Novo Cruzeiro/MG, Novo Oriente de Minas/MG, Novorizonte/MG, Olaria/MG, Olhos-d'Água/MG, Olímpio Noronha/MG, Oliveira Fortes/MG, Oliveira/MG, Onça de Pitangui/MG, Oratórios/MG, Orizânia/MG, Ouro Branco/MG, Ouro Fino/MG, Ouro Preto/MG, Ouro Verde de Minas/MG, Padre Carvalho/MG, Padre Paraíso/MG, Pai Pedro/MG, Paineiras/MG, Pains/MG, Paiva/MG, Palma/MG, Palmópolis/MG, Papagaios/MG, Pará de Minas/MG, Paracatu/MG, Paraguaçu/MG, Paraisópolis/MG, Paraopeba/MG, Passa Quatro/MG, Passa Tempo/MG, Passa Vinte/MG, Passabém/MG, Passos/MG, Patis/MG, Patos de Minas/MG, Patrocínio do Muriaé/MG, Patrocínio/MG, Paula Cândido/MG, Paulistas/MG, Pavão/MG, Peçanha/MG, Pedra Azul/MG, Pedra Bonita/MG, Pedra do Anta/MG, Pedra do Indaiá/MG, Pedra Dourada/MG, Pedralva/MG, Pedras de Maria da Cruz/MG, Pedrinópolis/MG, Pedro Leopoldo/MG, Pedro Teixeira/MG, Pequeri/MG, Pequi/MG, Perdigão/MG, Perdizes/MG, Perdões/MG, Periquito/MG, Pescador/MG, Piau/MG, Piedade de Caratinga/MG, Piedade de Ponte Nova/MG, Piedade do Rio Grande/MG, Piedade dos Gerais/MG, Pimenta/MG, Pingo d'Água/MG, Pintópolis/MG, Piracema/MG, Pirajuba/MG, Piranga/MG, Piranguçu/MG, Piranguinho/MG, Pirapetinga/MG, Pirapora/MG, Piraúba/MG, Pitangui/MG, Piumhi/MG, Planura/MG, Poço Fundo/MG, Poços de Caldas/MG, Pocrane/MG, Pompéu/MG, Ponte Nova/MG, Ponto Chique/MG, Ponto dos Volantes/MG, Porteirinha/MG, Porto Firme/MG, Poté/MG, Pouso Alegre/MG, Pouso Alto/MG, Prados/MG, Prata/MG, Pratápolis/MG, Pratinha/MG, Presidente Bernardes/MG, Presidente Juscelino/MG, Presidente Kubitschek/MG, Presidente Olegário/MG, Prudente de Morais/MG, Quartel Geral/MG, Queluzito/MG, Raposos/MG, Raul Soares/MG, Recreio/MG, Reduto/MG, Resende Costa/MG, Resplendor/MG, Ressaquinha/MG, Riachinho/MG, Riacho dos Machados/MG, Ribeirão das Neves/MG, Ribeirão Vermelho/MG, Rio Acima/MG, Rio Casca/MG, Rio do Prado/MG, Rio Doce/MG, Rio Espera/MG, Rio Manso/MG, Rio Novo/MG, Rio Paranaíba/MG, Rio Pardo de Minas/MG, Rio Piracicaba/MG, Rio Pomba/MG, Rio Preto/MG, Rio Vermelho/MG, Ritápolis/MG, Rochedo de Minas/MG, Rodeiro/MG, Romaria/MG, Rosário da Limeira/MG, Rubelita/MG, Rubim/MG, Sabará/MG, Sabinópolis/MG, Sacramento/MG, Salinas/MG, Salto da Divisa/MG, Santa Bárbara do Leste/MG, Santa Bárbara do Monte Verde/MG, Santa Bárbara do Tugúrio/MG, Santa Bárbara/MG, Santa Cruz de Minas/MG, Santa Cruz de Salinas/MG, Santa Cruz do Escalvado/MG, Santa Efigênia de Minas/MG, Santa Fé de Minas/MG, Santa Helena de Minas/MG, Santa Juliana/MG, Santa Luzia/MG, Santa Margarida/MG, Santa Maria de Itabira/MG, Santa Maria do Salto/MG, Santa Maria do Suaçuí/MG, Santa Rita de Caldas/MG, Santa Rita de Ibitipoca/MG, Santa Rita de Jacutinga/MG, Santa Rita de Minas/MG, Santa Rita do Itueto/MG, Santa Rita do Sapucaí/MG, Santa Rosa da Serra/MG, Santa Vitória/MG, Santana da Vargem/MG, Santana de Cataguases/MG, Santana de Pirapama/MG, Santana do Deserto/MG, Santana do Garambéu/MG, Santana do Jacaré/MG, Santana do Manhuaçu/MG, Santana do Paraíso/MG, Santana do Riacho/MG, Santana dos Montes/MG, Santo Antônio do Amparo/MG, Santo Antônio do Aventureiro/MG, Santo Antônio do Grama/MG, Santo Antônio do Itambé/MG, Santo Antônio do Jacinto/MG, Santo Antônio do Monte/MG, Santo Antônio do Retiro/MG, Santo Antônio do Rio Abaixo/MG, Santo Hipólito/MG, Santos Dumont/MG, São Bento Abade/MG, São Brás do Suaçuí/MG, São Domingos das Dores/MG, São Domingos do Prata/MG, São Félix de Minas/MG, São Francisco de Paula/MG, São Francisco de Sales/MG, São Francisco do Glória/MG, São Francisco/MG, São Geraldo da Piedade/MG, São Geraldo do Baixio/MG, São Geraldo/MG, São Gonçalo do Abaeté/MG, São Gonçalo do Pará/MG, São Gonçalo do Rio Abaixo/MG, São Gonçalo do Rio Preto/MG, São Gonçalo do Sapucaí/MG, São Gotardo/MG, São João Batista do Glória/MG, São João da Lagoa/MG, São João da Mata/MG, São João da Ponte/MG, São João das Missões/MG, São João del Rei/MG, São João do Manhuaçu/MG, São João do Manteninha/MG, São João do Oriente/MG, São João do Pacuí/MG, São João do Paraíso/MG, São João Evangelista/MG, São João Nepomuceno/MG, São Joaquim de Bicas/MG, São José da Barra/MG, São José da Lapa/MG, São José da Safira/MG, São José da Varginha/MG, São José do Alegre/MG, São José do Divino/MG, São José do Goiabal/MG, São José do Jacuri/MG, São José do Mantimento/MG, São Lourenço/MG, São Miguel do Anta/MG, São Pedro da União/MG, São Pedro do Suaçuí/MG, São Pedro dos Ferros/MG, São Romão/MG, São Roque de Minas/MG, São Sebastião da Bela Vista/MG, São Sebastião da Vargem Alegre/MG, São Sebastião do Anta/MG, São Sebastião do Maranhão/MG, São Sebastião do Oeste/MG, São Sebastião do Paraíso/MG, São Sebastião do Rio Preto/MG, São Sebastião do Rio Verde/MG, São Thomé das Letras/MG, São Tiago/MG, São Tomás de Aquino/MG, São Vicente de Minas/MG, Sapucaí-Mirim/MG, Sardoá/MG, Sarzedo/MG, Sem-Peixe/MG, Senador Amaral/MG, Senador Cortes/MG, Senador Firmino/MG, Senador José Bento/MG, Senador Modestino Gonçalves/MG, Senhora de Oliveira/MG, Senhora do Porto/MG, Senhora dos Remédios/MG, Sericita/MG, Seritinga/MG, Serra Azul de Minas/MG, Serra da Saudade/MG, Serra do Salitre/MG, Serra dos Aimorés/MG, Serrania/MG, Serranópolis de Minas/MG, Serranos/MG, Serro/MG, Sete Lagoas/MG, Setubinha/MG, Silveirânia/MG, Silvianópolis/MG, Simão Pereira/MG, Simonésia/MG, Sobrália/MG, Soledade de Minas/MG, Tabuleiro/MG, Taiobeiras/MG, Taparuba/MG, Tapira/MG, Tapiraí/MG, Taquaraçu de Minas/MG, Tarumirim/MG, Teixeiras/MG, Teófilo Otoni/MG, Timóteo/MG, Tiradentes/MG, Tiros/MG, Tocantins/MG, Tocos do Moji/MG, Toledo/MG, Tombos/MG, Três Corações/MG, Três Marias/MG, Três Pontas/MG, Tumiritinga/MG, Tupaciguara/MG, Turmalina/MG, Turvolândia/MG, Ubá/MG, Ubaí/MG, Ubaporanga/MG, Uberaba/MG, Umburatiba/MG, Unaí/MG, União de Minas/MG, Uruana de Minas/MG, Urucânia/MG, Urucuia/MG, Vargem Alegre/MG, Vargem Bonita/MG, Vargem Grande do Rio Pardo/MG, Varginha/MG, Varjão de Minas/MG, Várzea da Palma/MG, Varzelândia/MG, Vazante/MG, Verdelândia/MG, Veredinha/MG, Veríssimo/MG, Vermelho Novo/MG, Vespasiano/MG, Viçosa/MG, Vieiras/MG, Virgem da Lapa/MG, Virgínia/MG, Virginópolis/MG, Virgolândia/MG, Visconde do Rio Branco/MG, Volta Grande/MG e Wenceslau Braz/MG</b>.
+                                                </label>
+                                                <br />
+                                    </p>
+
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Salários, Reajustes e Pagamento
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Piso Salarial
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TERCEIRA - PISOS SALARIAIS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                    <label class="tituloClausula" id="VigenciaClausula_31650767">
+                                                            <b>
+                                                                VIG&#202;NCIA DA CL&#193;USULA: 01/09/2025 a 31/08/2026
+                                                            </b>
+                                                    </label>
+                                                    <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A partir de 1&ordm; de setembro 2025, inclusive, ficam estabelecidos os seguintes Pisos Salariais:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p class="listparagraph" style="text-align: justify;">A)&nbsp;&nbsp;&nbsp; Para os PROFISSIONAIS DE INFORM&Aacute;TICA que atuam diretamente na atividade fim da empresa, independentemente das nomenclaturas que sejam atribu&iacute;das aos cargos profissionais:</p>
+<p class="listparagraph" style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">a.1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>R$2.215,97 mensais</strong>, para aqueles que trabalham em cidades com n&uacute;mero de habitantes maior ou igual a 100.000 (cem mil);</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p class="listparagraph" style="text-align: justify;">a.2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>R$2.089,31 </strong><strong>mensais</strong>, para aqueles que trabalham em cidades com n&uacute;mero de habitantes menor do que 100.000 (cem mil);</p>
+<p class="listparagraph" style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">B)&nbsp;&nbsp; Para os profissionais que exercem atividades ADMINISTRATIVAS e de SERVI&Ccedil;OS GERAIS, mesmo que com o uso de micro inform&aacute;tica, o Piso Salarial ser&aacute; no valor de <strong>R$1.689,38 </strong><strong>mensais.</strong></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect;1&ordm; As partes ajustaram que, em havendo legisla&ccedil;&atilde;o sobre Pol&iacute;tica Salarial do Governo, a mesma ser&aacute; aplicada sobre os Pisos Salariais, para que n&atilde;o permane&ccedil;am est&aacute;ticos no tempo, esclarecendo que os valores que resultaram dos reajustamentos, acima pactuados, s&atilde;o tidos como j&aacute; atualizados para o m&ecirc;s de <strong>setembro/2025</strong>.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect;2&ordm; Excepcionalmente, al&eacute;m do previsto no par&aacute;grafo 1&ordm; acima, a empresa que conceder adiantamento/antecipa&ccedil;&atilde;o salarial uniforme a seus empregados estender&aacute; o percentual concedido igualmente aos Pisos Salariais.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;"><strong>&sect; 3&ordm; &ndash; PROGRAMA DE EST&Iacute;MULO AO PRIMEIRO EMPREGO - </strong>Visando estimular o primeiro emprego, as EMPRESAS ASSOCIADAS AO SINDINFOR&nbsp;poder&atilde;o contratar profissionais para as fun&ccedil;&otilde;es abaixo especificadas, no qual estejam estabelecidas as condi&ccedil;&otilde;es da contrata&ccedil;&atilde;o tendo como refer&ecirc;ncia os itens &ldquo;a&rdquo;, &ldquo;b&rdquo;, &ldquo;c&rdquo;, &ldquo;d&rdquo; e &ldquo;e&rdquo;, deste par&aacute;grafo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">a)&nbsp;&nbsp;&nbsp; As empresas Associadas ao SINDINFOR poder&atilde;o contratar profissionais que ainda n&atilde;o tiveram a CTPS assinada como T&Eacute;CNICO EM SUPORTE E MANUTEN&Ccedil;&Atilde;O, T&Eacute;CNICO EM REDES e T&Eacute;CNICO EM IMPLANTA&Ccedil;&Atilde;O com sal&aacute;rio correspondente a 80% dos pisos do item &ldquo;A&rdquo; do <em>caput </em>da presente cl&aacute;usula, por um per&iacute;odo m&aacute;ximo de 06 (seis) meses, para a jornada di&aacute;ria legal, sendo que no m&iacute;nimo 20% do tempo &agrave; disposi&ccedil;&atilde;o do empregador deve ser revertido em treinamento.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">b)&nbsp;&nbsp;&nbsp;&nbsp; Os profissionais contratados na forma do item &ldquo;a&rdquo; deste par&aacute;grafo que forem demitidos sem justa causa, antes de completados o prazo de 06 (seis) meses de contrato de trabalho, receber&atilde;o, a t&iacute;tulo de indeniza&ccedil;&atilde;o, o valor correspondente a 1/16 (um dezesseis avos), calculado sobre as verbas rescis&oacute;rias devidas, exclu&iacute;da da base de c&aacute;lculo o valor da multa incidente sobre os dep&oacute;sitos no FGTS.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">c)&nbsp;&nbsp;&nbsp;&nbsp; As empresas Associadas poder&atilde;o admitir e manter em seus quadros o m&aacute;ximo de 20% dos profissionais contratados na forma do disposto no item &ldquo;a&rdquo; deste Par&aacute;grafo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">d)&nbsp;&nbsp;&nbsp; O disposto neste Par&aacute;grafo n&atilde;o se aplica aos profissionais que tenham realizado est&aacute;gio na empresa contratante com dura&ccedil;&atilde;o superior a dois anos.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p class="listparagraph" style="text-align: justify;">e)&nbsp;&nbsp;&nbsp;&nbsp; O regime disposto neste par&aacute;grafo n&atilde;o pode ser empregado para contrata&ccedil;&otilde;es de profissionais no regime de trabalho intermitente, na forma do art. 443, &sect;3&ordm;, CLT, devendo ser comunicada a ado&ccedil;&atilde;o do regime de est&iacute;mulo ao primeiro emprego ao Sindicato Profissional, no prazo de 5 dias uteis da contrata&ccedil;&atilde;o, em modelo elaborado pelos sindicatos signat&aacute;rios da presente CCT que contenha: nome do empregado e seu endere&ccedil;o, cargo, sal&aacute;rio base e forma do treinamento a que se refere a al&iacute;nea &lsquo;a&rsquo; da presente cl&aacute;usula.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Reajustes/Correções Salariais
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUARTA - REAJUSTE SALARIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                    <label class="tituloClausula" id="VigenciaClausula_31650768">
+                                                            <b>
+                                                                VIG&#202;NCIA DA CL&#193;USULA: 01/09/2025 a 31/08/2026
+                                                            </b>
+                                                    </label>
+                                                    <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica estabelecido que os sal&aacute;rios dos empregados abrangidos pela presente Conven&ccedil;&atilde;o Coletiva, n&atilde;o enquadrados nos pisos salariais por ela definidos, ser&atilde;o reajustados com base nos seguintes crit&eacute;rios, datas e percentuais:&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">A) <strong>5,45</strong><strong>% </strong><strong>(cinco v&iacute;rgula quarenta e cinco por cento),</strong> retroativos a 1&ordm; (primeiro) de setembro de 2025 para todos os trabalhadores.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; Os convenentes declaram que a aplica&ccedil;&atilde;o do percentual acima mencionado, seja na sua integralidade, seja segundo o crit&eacute;rio da proporcionalidade especificado na Cl&aacute;usula Quinta deste instrumento, encerra toda e qualquer discuss&atilde;o sobre poss&iacute;veis reposi&ccedil;&otilde;es de perdas salariais relativas ao per&iacute;odo de 1&ordm; de setembro de 2024 a 31 de agosto de 2025, posto que tal percentual representa a livre transa&ccedil;&atilde;o entre os convenentes.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; COMPENSA&Ccedil;&Otilde;ES &ndash; O percentual previsto nesta cl&aacute;usula incidir&aacute; sobre os sal&aacute;rios vigentes em 1&ordm; de setembro/2024, ou, conforme o caso, segundo disp&otilde;e a Cl&aacute;usula Quinta adiante, ficando compensados todos os aumentos, reajustes ou antecipa&ccedil;&otilde;es, espont&acirc;neos ou compuls&oacute;rios, que tenham sido concedidos a partir de 1&ordm; de setembro de 2024, salvo os decorrentes de t&eacute;rmino de aprendizagem, implemento de idade, promo&ccedil;&atilde;o por antiguidade ou merecimento, transfer&ecirc;ncia de cargo, fun&ccedil;&atilde;o, estabelecimento ou localidade, ou decorrente de equipara&ccedil;&atilde;o salarial determinada por senten&ccedil;a transitada em julgado. Fica ainda permitida a compensa&ccedil;&atilde;o integral das antecipa&ccedil;&otilde;es realizadas referentes &agrave; presente data-base.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUINTA - ADMITIDOS AP&#211;S A DATA-BASE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                    <label class="tituloClausula" id="VigenciaClausula_31650769">
+                                                            <b>
+                                                                VIG&#202;NCIA DA CL&#193;USULA: 01/09/2025 a 31/08/2026
+                                                            </b>
+                                                    </label>
+                                                    <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Os empregados admitidos ap&oacute;s 1o (primeiro) de setembro de 2024 e at&eacute; 16 de agosto de 2025 ter&atilde;o seus sal&aacute;rios reajustados em 1o (primeiro) de setembro de 2025, pelos &iacute;ndices constantes das tabelas a seguir, de acordo com a cl&aacute;usula de REAJUSTE SALARIAL:</p>
+<p>&nbsp;</p>
+<p><strong>TABELA DE CORRE&Ccedil;&Atilde;O SALARIAL</strong></p>
+<p><strong>&nbsp;</strong></p>
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center"><strong>ADMISS&Atilde;O</strong></p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center"><strong>PERCENTUAL</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">&nbsp;</td>
+<td valign="top" width="190">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">At&eacute; 15/09/2024</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">5,45%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 16/09/2024 a 16/10/2024</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">5,00%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 17/10/2024 a 15/11/2024</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">4,54%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 16/11/2024 a 16/12/2024</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">4,08%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 17/12/2024 a 16/01/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">3,63%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 17/01/2025 a 13/02/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">3,18%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 14/02/2025 a 16/03/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">2,72%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 17/03/2025 a 15/04/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">2,27%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 16/04/2025 a 16/05/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">1,82%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 17/05/2025 a 15/06/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">1,36%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 16/06/2025 a 16/07/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">0,91%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="189">
+<p class="tableparagraph" align="center">De 17/07/2025 a 16/08/2025</p>
+</td>
+<td valign="top" width="190">
+<p class="tableparagraph" align="center">0,45%</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Os percentuais incidir&atilde;o sobre o respectivo sal&aacute;rio de admiss&atilde;o, ficando compensados todos os aumentos e reajustes que tenham sido concedidos. Para fazer jus ao percentual do m&ecirc;s, o empregado dever&aacute; ter sido admitido at&eacute; o respectivo dia 15 (quinze), sendo que as admiss&otilde;es posteriores ao dia 15 (quinze) provocam reajustamento pelo &iacute;ndice do m&ecirc;s imediatamente seguinte. Com a aplica&ccedil;&atilde;o dos crit&eacute;rios desta cl&aacute;usula o empregado mais novo n&atilde;o poder&aacute; ter sal&aacute;rio superior ao do mais antigo na empresa, na mesma fun&ccedil;&atilde;o.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras normas referentes a salários, reajustes, pagamentos e critérios para cálculo
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA SEXTA - SAL&#193;RIO EM SUBSTITUI&#199;&#195;O
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p class="listparagraph" style="text-align: justify;">Ao empregado chamado a ocupar, em comiss&atilde;o, interinamente, ou em substitui&ccedil;&atilde;o eventual ou tempor&aacute;ria, cargo diverso do que exercer na empresa, ser&aacute; garantida a contagem do tempo naquele servi&ccedil;o, bem como o retorno ao cargo anterior.</p>
+<p class="listparagraph" style="text-align: justify;">&sect; PRIMEIRO - Enquanto perdurar a substitui&ccedil;&atilde;o que n&atilde;o tenha car&aacute;ter meramente eventual, inclusive nas f&eacute;rias, o empregado substituto far&aacute; jus ao sal&aacute;rio contratual do substitu&iacute;do.</p>
+<p class="listparagraph" style="text-align: justify;">&sect; SEGUNDO - Vago o cargo em definitivo, o empregado que passa a ocup&aacute;-lo n&atilde;o tem direito a sal&aacute;rio igual ao do antecessor.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Gratificações, Adicionais, Auxílios e Outros
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Adicional de Hora-Extra
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA S&#201;TIMA - ADICIONAL DE HORAS EXTRAS – MAJORA&#199;&#195;O
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As horas extraordin&aacute;rias ser&atilde;o remuneradas com adicional de <strong>75% (setenta e cinco por cento) sobre a hora normal de trabalho nos dias &uacute;teis</strong>, para as primeiras 02 (duas) horas ap&oacute;s a jornada normal de trabalho. Se for exigida do trabalhador uma sobre jornada mais el&aacute;stica, as horas excedentes de 02 (duas) horas ser&atilde;o remuneradas com o <strong>adicional de 100% (cem por cento).</strong>&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Na hip&oacute;tese de ocorrer trabalho em dia n&atilde;o &uacute;til (s&aacute;bado, quando a jornada for cumprida de segunda &agrave; sexta-feira, em dias de domingos, feriados ou dias j&aacute; compensados), a remunera&ccedil;&atilde;o adicional de hora extra ser&aacute; de <strong>100% (cem por cento).&nbsp;</strong></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - As horas extras restringem-se aos casos de absoluta necessidade. Em casos excepcionais, nas hip&oacute;teses de for&ccedil;a maior e caso fortuito, nos termos do art. 61, CLT, ser&atilde;o aplicados os adicionais de 50% para as duas primeiras horas extras e 100% para as demais.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Adicional Noturno
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA OITAVA - ADICIONAL NOTURNO – MAJORA&#199;&#195;O
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>O trabalho em hor&aacute;rio noturno, previsto em Lei, ser&aacute; remunerado com o adicional de <strong>50% (cinquenta por cento)</strong> calculado sobre o valor do sal&aacute;rio-hora normal diurno.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Participação nos Lucros e/ou Resultados
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA NONA - PARTICIPA&#199;&#195;O NOS LUCROS OU RESULTADOS (PLR):
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                    <label class="tituloClausula" id="VigenciaClausula_31650773">
+                                                            <b>
+                                                                VIG&#202;NCIA DA CL&#193;USULA: 01/09/2025 a 31/08/2026
+                                                            </b>
+                                                    </label>
+                                                    <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">O SINDADOS/MG e o SINDINFOR/MG, usando do direito &agrave; livre negocia&ccedil;&atilde;o e apoiados no art. 7&ordm;, inciso XXVI, da CF/88, e com o objetivo de darem por satisfeitas as disposi&ccedil;&otilde;es da Lei n&ordm; 10.101 de 19/12/2000 (D.O.U. 20/12/2000), empregados e empregadores, aqui representados pelos seus leg&iacute;timos Sindicatos de Classe, transigem e transacionam quanto aos direitos e obriga&ccedil;&otilde;es previstos na mencionada Lei, ajustando o presente pacto de Participa&ccedil;&atilde;o nos Lucros ou Resultados, nos seguintes termos, PARA O EXERC&Iacute;CIO DE 2025:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Para o surgimento dos direitos substantivos aos empregados, ora previstos, ser&aacute; adotado o crit&eacute;rio/&iacute;ndice de LUCRO OPERACIONAL DA EMPRESA, no exerc&iacute;cio respectivo, cuja comprova&ccedil;&atilde;o se dar&aacute; por meio de Balan&ccedil;o Cont&aacute;bil e D.R.E. do respectivo exerc&iacute;cio ou do SPED/ECD, caso obrigada a empresa.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - No caso de aus&ecirc;ncia de registro de Balan&ccedil;o Cont&aacute;bil e D.R.E. do respectivo exerc&iacute;cio ou do SPED/ECD, os documentos cont&aacute;beis dever&atilde;o ser acompanhados de uma declara&ccedil;&atilde;o firmada pelo contador e pelo representante legal da empresa, sob as penas da lei, atestando a veracidade das informa&ccedil;&otilde;es prestadas.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - Para o surgimento dos direitos substantivos aos empregados, ora previstos, o LUCRO OPERACIONAL DA EMPRESA no exerc&iacute;cio de 2025 dever&aacute; ser superior &agrave; folha mensal de sal&aacute;rios do m&ecirc;s de dezembro de 2025, sendo esta a META PRIM&Aacute;RIA para o deferimento do benef&iacute;cio;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 4&ordm; - Levando-se em conta que tal Participa&ccedil;&atilde;o est&aacute; considerando o ano fiscal de 2025 como &eacute;poca do seu estabelecimento, a ela far&atilde;o jus t&atilde;o somente aqueles empregados que estejam na empresa em 1&ordm; (primeiro) de setembro de 2025 e n&atilde;o venham a pedir demiss&atilde;o ou serem demitidos por justa causa at&eacute; 31 (trinta e um) de dezembro de 2025.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 5&ordm; - Ao empregado que, fazendo jus &agrave; Participa&ccedil;&atilde;o nos Lucros ou Resultados aqui pactuada, vier a ser dispensado na vig&ecirc;ncia deste instrumento normativo e sem justa causa, ser&aacute; assegurado o direito &agrave; percep&ccedil;&atilde;o, por ocasi&atilde;o dos acertos rescis&oacute;rios, da parcela ainda n&atilde;o recebida a t&iacute;tulo da Participa&ccedil;&atilde;o nos Lucros ou Resultados estabelecida nesta CCT.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 6&ordm; - O valor da PLR a ser pago relativo ao exerc&iacute;cio de 2025 ser&aacute; de 1/12 (um doze avos) do valor fixado na Tabela abaixo, conforme a faixa salarial do empregado vigente no m&ecirc;s de setembro/2025, por m&ecirc;s ou fra&ccedil;&atilde;o igual ou superior a 15 (quinze) dias de efetivo trabalho durante o exerc&iacute;cio de 2025 (1&ordm;/Janeiro a 31/Dezembro), sem preju&iacute;zo do per&iacute;odo de afastamento por motivo de f&eacute;rias ou aus&ecirc;ncias aceitas pela empresa, a saber:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<table style="width: 700px;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td colspan="2" valign="top" width="700">
+<p><strong>PARTICIPA&Ccedil;&Atilde;O NOS LUCROS E RESULTADOS &ndash; VALORES</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="341">
+<p><strong>FAIXA SALARIAL</strong></p>
+</td>
+<td valign="top" width="359">
+<p><strong>VALOR DA PLR</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="341">
+<p>Igual ou menor a R$4.541,97</p>
+</td>
+<td valign="top" width="359">
+<p>R$1.135,50</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="341">
+<p>Superior a R$4.541,97 e igual ou menor a R$7.569,95</p>
+</td>
+<td valign="top" width="359">
+<p>25% do sal&aacute;rio do empregado em SET/25</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="341">
+<p>Superior a R$7.569,95</p>
+</td>
+<td valign="top" width="359">
+<p>R$1.892,49</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 7&ordm; - O valor correspondente a que fizer jus o empregado, ser&aacute; pago em parcela &uacute;nica, at&eacute; o 5&ordm; dia &uacute;til do m&ecirc;s de MAIO DE 2026. &Eacute; facultado &agrave; empresa fazer o pagamento desta parcela em folha de pagamento separada.&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 8&ordm; - A empresa que, dentro da vig&ecirc;ncia da presente CCT, j&aacute; houver efetuado ou vier a efetuar pagamento ou fizer acordo sob o t&iacute;tulo &ldquo;Participa&ccedil;&atilde;o nos Lucros ou Resultados&rdquo; para o exerc&iacute;cio de 2025, fica dispensada do cumprimento desta cl&aacute;usula.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 9&ordm; - As empresas poder&atilde;o criar, juntamente com seus empregados, por meio de uma comiss&atilde;o parit&aacute;ria escolhida pelas partes, programas internos de &ldquo;Participa&ccedil;&atilde;o nos Lucros ou Resultados&rdquo;, nos termos da Lei, desde que garantidos os pagamentos m&iacute;nimos aqui previstos, presentes os seus requisitos.&nbsp; A empresa poder&aacute;, ent&atilde;o, compensar os valores ent&atilde;o ajustados com estes pactuados na presente CCT, observado o limite de periodicidade previsto no &sect; 2o, do Art. 3&ordm;, da Lei 10.101/2000. Assegura-se &agrave;s empresas o direito de conceder valor superior ao ajustado no &ldquo;caput&rdquo; da presente cl&aacute;usula, seguindo tais programas internos. A empresa que instituir tais programas internos de &ldquo;Participa&ccedil;&atilde;o nos Lucros ou Resultados&rdquo; dever&aacute; encaminhar, mediante recibo, no prazo de 15 (quinze) dias de sua assinatura, c&oacute;pia do referido acordo ao SINDADOS/MG e ao SINDINFOR.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 10&ordm; - A empresa que, antecipando-se ao aqui ajustado, j&aacute; estiver concedendo &ldquo;Participa&ccedil;&atilde;o nos Lucros ou Resultados&rdquo; a seus empregados, poder&aacute; compensar os valores ent&atilde;o ajustados com estes pactuados na presente CCT.&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 11&ordm; - A Participa&ccedil;&atilde;o nos Lucros ou Resultados aqui pactuada com base no direito &agrave; livre negocia&ccedil;&atilde;o e transa&ccedil;&atilde;o entre as partes, tem car&aacute;ter excepcional e transit&oacute;rio, atende e satisfaz o disposto na Lei acima referida, n&atilde;o constitui base para incid&ecirc;ncia de quaisquer encargos trabalhistas ou previdenci&aacute;rios em face da sua desvincula&ccedil;&atilde;o da remunera&ccedil;&atilde;o, n&atilde;o se lhe aplicando o princ&iacute;pio da habitualidade e devendo ser tributada para fins do Imposto de Renda, conforme a legisla&ccedil;&atilde;o vigente.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 12&ordm; - As empresas que, comprovadamente, estiverem impossibilitadas de satisfazerem o pagamento da Participa&ccedil;&atilde;o nos Lucros ou Resultados aqui estabelecida, dever&atilde;o negociar com o SINDADOS/MG condi&ccedil;&otilde;es e/ou valores diferenciados.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 13&ordm; - A empresa que n&atilde;o atingir os &iacute;ndices e metas ora pactuados dever&aacute; encaminhar correspond&ecirc;ncia ao SINDADOS, at&eacute; 30 de abril de 2026, acompanhada dos documentos indicados nos &sect; 1&ordm; e 2&ordm; desta cl&aacute;usula, que, no prazo de 10 (dez) dias dessa comprova&ccedil;&atilde;o, lhe fornecer&aacute; declara&ccedil;&atilde;o escrita desobrigando-a do cumprimento da presente cl&aacute;usula, comprometendo-se o SINDADOS/MG a n&atilde;o divulgar a lista das empresas que comprovarem a exist&ecirc;ncia de preju&iacute;zo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 14&ordm; - Reafirma-se que o cumprimento das condi&ccedil;&otilde;es e obriga&ccedil;&otilde;es previstas nesta cl&aacute;usula satisfaz integralmente as disposi&ccedil;&otilde;es contidas na Lei 10.101/2000 e encerra discuss&otilde;es quanto ao EXERC&Iacute;CIO DE 2025.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect;15&ordm; - Assegura-se &agrave; empresa o direito de conceder valor superior ao ajustado no &ldquo;caput&rdquo; da presente cl&aacute;usula, desde que a &eacute;poca para o pagamento da PLR continue sendo aquela aqui prevista.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Auxílio Alimentação
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA - AUX&#205;LIO ALIMENTA&#199;&#195;O
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                    <label class="tituloClausula" id="VigenciaClausula_31650774">
+                                                            <b>
+                                                                VIG&#202;NCIA DA CL&#193;USULA: 01/09/2025 a 31/08/2026
+                                                            </b>
+                                                    </label>
+                                                    <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As empresas dever&atilde;o fornecer a seus empregados, aux&iacute;lio alimenta&ccedil;&atilde;o na forma desta cl&aacute;usula e do art. 457, &sect;2&ordm;, CLT, n&atilde;o importando que seja total ou parcialmente subsidiado pela empresa, n&atilde;o se constitui em item de remunera&ccedil;&atilde;o do empregado, para quaisquer efeitos legais.&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm;&shy; - As empresas que dispuserem de restaurante para seus empregados, ou a eles fornecerem alimenta&ccedil;&atilde;o nos moldes do PAT &ndash; Programa de Alimenta&ccedil;&atilde;o do Trabalhador, estar&atilde;o desobrigadas do cumprimento desta cl&aacute;usula, devendo as demais empresas fornecerem tickets alimenta&ccedil;&atilde;o ou refei&ccedil;&atilde;o ou instrumentos similares, inclusive cart&otilde;es de m&uacute;ltiplos benef&iacute;cios, aceitos a crit&eacute;rio dos empregados e n&atilde;o oposi&ccedil;&atilde;o da empresa.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect;2&ordm; As empresas que operam em cidades mineiras com n&uacute;mero de habitantes maior ou igual a 100.000 (cem mil) e que para o cumprimento da presente cl&aacute;usula fornecem ticket-refei&ccedil;&atilde;o / ticket- alimenta&ccedil;&atilde;o ou documento similar, dever&atilde;o obedecer ao valor m&iacute;nimo de <strong>R$31,43</strong>para cada t&iacute;quete/jornada superior a 06:00 horas di&aacute;rias, cujo valor poder&aacute; ser objeto de reajuste na negocia&ccedil;&atilde;o da pr&oacute;xima data-base.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect;3&ordm; As empresas que operam em cidades mineiras com n&uacute;mero de habitantes menor do que 100.000 (cem mil) e que para o cumprimento da presente cl&aacute;usula fornecem t&iacute;quete-refei&ccedil;&atilde;o / t&iacute;quete-alimenta&ccedil;&atilde;o ou documento similar, dever&atilde;o obedecer ao valor m&iacute;nimo de <strong>R$28,69</strong> para cada t&iacute;quete/jornada superior a 06:00 horas di&aacute;rias, cujo valor poder&aacute; ser objeto de reajuste na negocia&ccedil;&atilde;o da pr&oacute;xima data-base.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect;4&ordm; Ao empregado que prestar seus servi&ccedil;os durante a jornada noturna, a empresa fornecer&aacute;, gratuitamente, um lanche, que n&atilde;o ter&aacute; natureza salarial &ndash; podendo ser adicionado aos t&iacute;quetes e instrumentos <em>supra</em> referidos no valor de <strong>R$ 5,76</strong> (cinco reais e setenta e seis centavos) / jornada.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 5&ordm; -&shy; Os valores previstos nesta cl&aacute;usula s&atilde;o os valores m&iacute;nimos institu&iacute;dos ao benef&iacute;cio, devendo ser garantidos a todos os trabalhadores.&nbsp; As empresas poder&atilde;o, entretanto, estabelecer condi&ccedil;&otilde;es diferenciadas de aux&iacute;lio-alimenta&ccedil;&atilde;o, quando fornecido fora do PAT, desde que n&atilde;o haja desvirtuamento do benef&iacute;cio, para empregados em cargos/n&iacute;veis de carreira diferenciados, garantindo-se, sempre, o m&iacute;nimo aqui disposto a todos os empregados.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 6&ordm; -&shy; No caso de haver participa&ccedil;&atilde;o do trabalhador no pagamento do valor do ticket-refei&ccedil;&atilde;o/alimenta&ccedil;&atilde;o, ficam estabelecidos os seguintes descontos m&aacute;ximos sobre o custo do benef&iacute;cio institu&iacute;do pela presente cl&aacute;usula:&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p class="listparagraph" style="text-align: justify;">I&nbsp; &ndash; Sal&aacute;rios at&eacute; <strong>R$ 3.483,79 </strong>&ndash; n&atilde;o haver&aacute; desconto sobre o custo do benef&iacute;cio;</p>
+<p class="listparagraph" style="text-align: justify;">II&nbsp;&nbsp; &ndash; Sal&aacute;rios iguais ou acima de <strong>R$ 3.483,79</strong>&ndash; 7,5% (sete e meio por cento) sobre o custo do benef&iacute;cio.</p>
+<p class="listparagraph" style="text-align: justify;">&nbsp;</p>
+<p class="listparagraph" style="text-align: justify;">&sect; 7&ordm; - Fica estabelecido que as empresas que j&aacute; promoveram o desconto sobre o custo dos tickets fornecidos antes da data de assinatura desta CCT, conforme previa a CCT-2024/2025, n&atilde;o estar&atilde;o obrigadas a promover a devolu&ccedil;&atilde;o dos respectivos valores.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Auxílio Transporte
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA PRIMEIRA - VALE COMBUSTIVEL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As Empresas Associadas ao SINDINFOR poder&atilde;o praticar, a requerimento escrito e pr&eacute;vio do empregado, a substitui&ccedil;&atilde;o do Vale-Transporte a que se refere a Lei 7.418/1985 pelo Vale-Combust&iacute;vel ou instrumento equivalente, pago mediante cart&atilde;o de benef&iacute;cios ou reembolso, exclusivamente para transporte do empregado, sendo que a parcela n&atilde;o tem natureza salarial, nem se incorpora &agrave; remunera&ccedil;&atilde;o para quaisquer efeitos; n&atilde;o constitui base de incid&ecirc;ncia de contribui&ccedil;&atilde;o previdenci&aacute;ria ou de Fundo de Garantia por Tempo de Servi&ccedil;o; e n&atilde;o se configura como rendimento tribut&aacute;vel do trabalhador.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;&sect; 1&ordm; - O empregador participar&aacute; dos gastos de deslocamento do trabalhador com a ajuda de custo equivalente &agrave; parcela que exceder a 6% (seis por cento) de seu sal&aacute;rio.&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - Nos termos do art. 457, &sect; 2&ordm;, e 458, &sect;2&ordm;, III, ambos da CLT, acordam as partes que a parcela paga a t&iacute;tulo de Vale Combust&iacute;vel que seja superior ao valor nominal do benef&iacute;cio de vale transporte ter&aacute; id&ecirc;ntica natureza indenizat&oacute;ria, desde que n&atilde;o haja desvirtuamento do benef&iacute;cio e participe o empregado no custo do benef&iacute;cio (at&eacute; o limite legal).</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outros Auxílios
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA SEGUNDA - ASSIST&#202;NCIA AOS FILHOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                    <label class="tituloClausula" id="VigenciaClausula_31650776">
+                                                            <b>
+                                                                VIG&#202;NCIA DA CL&#193;USULA: 01/09/2025 a 31/08/2026
+                                                            </b>
+                                                    </label>
+                                                    <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As empresas reembolsar&atilde;o &agrave;s suas empregadas, a t&iacute;tulo de ASSIST&Ecirc;NCIA AOS FILHOS, o valor mensal de at&eacute; <strong>R$317,49</strong>, por filho ou filha, durante 24 (vinte e quatro) meses ap&oacute;s o retorno da licen&ccedil;a-maternidade, desde que perdure o v&iacute;nculo empregat&iacute;cio.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - O presente benef&iacute;cio n&atilde;o tem natureza salarial, devendo a empregada comprovar o gasto, por meio de recibo. &Eacute; vedado o reembolso a familiares ou parentes de at&eacute; o 2&ordm; grau.&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - Fica a empresa dispensada do pagamento do benef&iacute;cio ora institu&iacute;do (Assist&ecirc;ncia aos Filhos), na hip&oacute;tese de possuir local apropriado para guarda e assist&ecirc;ncia dos filhos de suas empregadas ou conv&ecirc;nio com creche, nos termos do Art. 389, par&aacute;grafos 1&deg; e 2&deg;, da CLT.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - Esclarece-se que a empresa que fornecer o benef&iacute;cio de Assist&ecirc;ncia aos Filhos fica dispensada do cumprimento das exig&ecirc;ncias contidas no Art. 389, par&aacute;grafos 1&ordm; e 2&ordm;, da CLT.</p>
+<p style="text-align: justify;">&sect; 4&ordm; - O pagamento da vantagem prevista na presente cl&aacute;usula poder&aacute; ser considerado como AUX&Iacute;LIO CRECHE, nos termos da Lei n&ordm; 14.457/2022, observados os demais requisitos legais para sua concess&atilde;o.</p>
+<p style="text-align: justify;">&sect;5&ordm; - As empresas que assim desejarem, por mera liberalidade, poder&atilde;o praticar valores superiores ao definido no <em>caput</em> desta cl&aacute;usula, desde que n&atilde;o haja desvirtuamento do benef&iacute;cio.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA TERCEIRA - AUX&#205;LIO AO DEPENDENTE DEFICIENTE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                    <label class="tituloClausula" id="VigenciaClausula_31650777">
+                                                            <b>
+                                                                VIG&#202;NCIA DA CL&#193;USULA: 01/09/2025 a 31/08/2026
+                                                            </b>
+                                                    </label>
+                                                    <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A empresa conceder&aacute;, a t&iacute;tulo de reembolso, durante o per&iacute;odo de vig&ecirc;ncia desta CCT, aux&iacute;lio mensal ao empregado que tiver filho ou menor sob sua guarda, portador de necessidades especiais, defici&ecirc;ncia f&iacute;sica e/ou mental, sendo o benef&iacute;cio destinado a auxiliar o empregado no custeio de despesas, devidamente comprovadas, com tratamentos e/ou com escolas especializadas, no valor <strong>de&nbsp;</strong><strong>&nbsp;R$317,49</strong>, sem limite de idade para o filho dependente, desde que n&atilde;o tenha renda pr&oacute;pria de qualquer natureza ou n&atilde;o esteja em gozo de benef&iacute;cio da Previd&ecirc;ncia Social, o que dever&aacute; ser devidamente comprovado pelo empregado.</p>
+<p style="text-align: justify;"><strong>&nbsp;</strong></p>
+<p style="text-align: justify;">&sect; 1&ordm; - O empregado dever&aacute; apresentar &agrave; empresa laudo m&eacute;dico que ateste a condi&ccedil;&atilde;o de deficiente ou portador de necessidades especiais do filho ou do menor sob sua guarda e/ou comprovante de que o filho est&aacute; devidamente matriculado em escola especializada.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - A guarda do menor dever&aacute; ser comprovada mediante a apresenta&ccedil;&atilde;o da decis&atilde;o judicial que determinou essa condi&ccedil;&atilde;o.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - O pagamento do valor mensal de at&eacute; <strong>R$317,49</strong> ser&aacute; feito mediante a apresenta&ccedil;&atilde;o de comprovantes das despesas decorrentes de tratamentos e/ou de mensalidades de escolas especializadas.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 4&ordm; - A concess&atilde;o do benef&iacute;cio cessar&aacute; a partir do momento em que o benefici&aacute;rio n&atilde;o mais apresentar as condi&ccedil;&otilde;es que levaram, originalmente, &agrave; concess&atilde;o do mesmo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 5&ordm; - Os sindicatos signat&aacute;rios concordam que, por se tratar de mera parcela indenizat&oacute;ria, tal benef&iacute;cio n&atilde;o tem natureza salarial, n&atilde;o constitui base para incid&ecirc;ncia de quaisquer encargos trabalhistas ou previdenci&aacute;rios, em face da sua desvincula&ccedil;&atilde;o da remunera&ccedil;&atilde;o, n&atilde;o se lhe aplicando o princ&iacute;pio da habitualidade, devendo, entretanto, ser tributado para fins do Imposto de Renda, conforme a legisla&ccedil;&atilde;o vigente.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA QUARTA - COMPLEMENTA&#199;&#195;O DE AUX&#205;LIO-DOEN&#199;A E VALE-TRANSPORTE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As empresas que tenham mais de 50 (cinquenta) empregados dentro de um munic&iacute;pio mineiro, comprometem-se a complementar o valor do aux&iacute;lio-doen&ccedil;a pago pelo INSS ao empregado, observando-se:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Tal complementa&ccedil;&atilde;o ser&aacute; feita durante o tempo do afastamento e at&eacute; o prazo m&aacute;ximo de <strong>90 (noventa) dias</strong> contados do afastamento, cujo valor ter&aacute; como limite o valor do sal&aacute;rio que o empregado receberia se estivesse em servi&ccedil;o, menos a import&acirc;ncia devida a t&iacute;tulo da contribui&ccedil;&atilde;o previdenci&aacute;ria.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - Durante o tempo em que fizer tal complementa&ccedil;&atilde;o, o empregador fornecer&aacute; o Vale-Transporte ao empregado, na quantidade e mediante o desconto salarial como se estivesse em servi&ccedil;o, ficando ajustado que a complementa&ccedil;&atilde;o e o Vale-Transporte n&atilde;o ter&atilde;o natureza salarial.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - As empresas que, embora com menos de 50 (cinquenta) empregados, desejarem lhes conceder ou manter os benef&iacute;cios previstos na presente cl&aacute;usula, ou a eles assemelhados, poder&atilde;o faz&ecirc;-lo e ter&atilde;o a seu favor as disposi&ccedil;&otilde;es previstas nos par&aacute;grafos 1&ordm; e 2&ordm; acima.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA QUINTA - ASSIST&#202;NCIA M&#201;DICO ODONTOL&#211;GICA E OUTROS BENEF&#205;CIOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A presente Conven&ccedil;&atilde;o Coletiva assegura e declara que no caso de a empresa &ndash; por delibera&ccedil;&atilde;o livre e pessoal &ndash; decidir-se pela institui&ccedil;&atilde;o ou manuten&ccedil;&atilde;o de ASSIST&Ecirc;NCIA M&Eacute;DICA E/OU ODONTOL&Oacute;GICA ou PLANO DE ASSIST&Ecirc;NCIA M&Eacute;DICA, HOSPITALAR E/OU ODONTOL&Oacute;GICA; CESTA B&Aacute;SICA; PLANO COMPLEMENTAR DE PREVID&Ecirc;NCIA; BOLSA COMPLEMENTAR DE PREVID&Ecirc;NCIA; PLANO DE PREVID&Ecirc;NCIA PRIVADA; SEGURO DE VIDA; BOLSA DE ESTUDO; AUX&Iacute;LIO ALIMENTA&Ccedil;&Atilde;O ou benef&iacute;cios assemelhados, bem como aquelas utilidades relacionadas na Lei n&ordm; 10.243, de 19.06.2001, em favor de seus empregados, poder&aacute; faz&ecirc;-lo, ficando esclarecido que tais benef&iacute;cios n&atilde;o ter&atilde;o car&aacute;ter ou natureza salarial, desde que n&atilde;o tenha havido desvirtuamento de finalidade do benef&iacute;cio.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Relações de Trabalho – Condições de Trabalho, Normas de Pessoal e Estabilidades
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Igualdade de Oportunidades
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA SEXTA - PREENCHIMENTO DE VAGAS DIURNAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Recomenda-se, quando ocorrer necessidade de preenchimento de vagas no turno da manh&atilde; ou da tarde que, dentro das possibilidades e conveni&ecirc;ncia da empregadora, seja dada oportunidade para que seus empregados do turno da noite e/ou madrugada, dentro do prazo que vier a ser fixado, se habilitem para tais preenchimentos.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA S&#201;TIMA - GESTANTE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Fica assegurado o emprego ou sal&aacute;rio &agrave; empregada gestante, a partir da comprova&ccedil;&atilde;o da gravidez, ao empregador, e at&eacute; 90 (noventa) dias ap&oacute;s o t&eacute;rmino da licen&ccedil;a-maternidade.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Estabilidade Acidentados/Portadores Doença Profissional
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA OITAVA - AFASTADOS POR AUX&#205;LIO-DOEN&#199;A OU ACIDENTE DO TRABALHO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Aos empregados afastados pela Previd&ecirc;ncia Social por motivo de aux&iacute;lio-doen&ccedil;a ou acidente do trabalho fica assegurado o emprego ou o sal&aacute;rio pelo prazo a seguir discriminado, contado da alta m&eacute;dica, a saber:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">a) Por aux&iacute;lio-doen&ccedil;a: <strong>prazo de 180 (cento e oitenta) dias</strong>, desde que o empregado tenha, no m&iacute;nimo, 3 (tr&ecirc;s) meses de servi&ccedil;o e a Previd&ecirc;ncia Social tenha concedido um afastamento m&iacute;nimo de 30 (trinta) dias cont&iacute;nuos;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">a.1) Afastamentos cujas condi&ccedil;&otilde;es tenham causalidade com riscos psicossociais, nos termos da NR-1, para efeito da garantia prevista no item &ldquo;a&rdquo;, <em>supra</em>, geram direito &agrave; respectiva garantia desde que o prazo do contrato de trabalho total seja de, no m&iacute;nimo, 120 dias anterior ao afastamento;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">b) Por acidente do trabalho: <strong>prazo de 12 (doze) meses</strong>, nos termos do art. 118 da Lei n&ordm; 8.213/91, e do Dec. n&ordm; 3.048, de 1999 (art. 346).</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">Par&aacute;grafo &Uacute;nico - Tais garantias n&atilde;o se confundem com o prazo do aviso pr&eacute;vio.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras normas referentes a condições para o exercício do trabalho
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA NONA - ESTUDANTE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Em dias de provas ou exames escolares que coincidam com o hor&aacute;rio de trabalho, o empregado estudante ter&aacute; direito de se ausentar da empresa 1 (uma) hora antes dessas provas ou exames, desde que pr&eacute;-avise a empregadora com um m&iacute;nimo de 72 (setenta e duas) horas, e, depois, comprove sua participa&ccedil;&atilde;o nas provas ou exames, mediante documento fornecido pelo estabelecimento de ensino. Fica esclarecido que o tempo de aus&ecirc;ncia do empregado, nessa hip&oacute;tese, poder&aacute; ser, a crit&eacute;rio do empregador, com ou sem remunera&ccedil;&atilde;o.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA - TELETRABALHO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As empresas e seus empregados poder&atilde;o, em comum acordo, alterar o regime de trabalho presencial para o teletrabalho, o trabalho remoto ou outro tipo de trabalho a dist&acirc;ncia e, no caso da empresa, determinar o retorno ao regime de trabalho presencial, firmado previamente ou no prazo de quinze dias, contado da data da mudan&ccedil;a do regime de trabalho, mediante termo aditivo ao contrato de trabalho.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; Considera-se teletrabalho ou trabalho remoto a presta&ccedil;&atilde;o de servi&ccedil;os fora das depend&ecirc;ncias do empregador, de maneira preponderante ou n&atilde;o, com a utiliza&ccedil;&atilde;o de tecnologias de informa&ccedil;&atilde;o e de comunica&ccedil;&atilde;o, que, por sua natureza, n&atilde;o configure trabalho externo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect;1.1&ordm; - A convoca&ccedil;&atilde;o do empregado para a realiza&ccedil;&atilde;o de atividades presenciais em estabelecimento dever&aacute; ocorrer com, no m&iacute;nimo, 2 dias uteis de anteced&ecirc;ncia, ressalvadas situa&ccedil;&otilde;es excepcionais que importem em preju&iacute;zo ou paralisa&ccedil;&atilde;o &agrave;s atividades, a concord&acirc;ncia do empregado e/ou o caso de empregados com cargo de supervis&atilde;o, lideran&ccedil;a ou chefia.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - A altera&ccedil;&atilde;o do regime de teletrabalho para o presencial ser&aacute; notificada ao empregado com anteced&ecirc;ncia de, no m&iacute;nimo, 15 (quinze) dias, por escrito ou por meio eletr&ocirc;nico. Caso haja anu&ecirc;ncia do empregado, por escrito, este prazo poder&aacute; ser reduzido.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - Os meios de comando e de supervis&atilde;o do trabalho executado pelo empregado em teletrabalho, bem como a estipula&ccedil;&atilde;o de prazos, metas e agendamento de reuni&otilde;es dentre outros, n&atilde;o s&atilde;o considerados mecanismos de controle de jornada. Se adotados meios para o controle de jornada dos empregados, inclusive aqueles derivados do controle alternativo de jornada, tal jornada ser&aacute; considerada controlada, para todos os fins legais. Fica permitido o uso dos sistemas de controle alternativo de jornada (REP-P), observadas as prescri&ccedil;&otilde;es legais pertinentes<strong>.</strong> Caso esteja legalmente obrigada a empresa, o trabalho de empregados em teletrabalho quando executado em estabelecimento dever&aacute; estar sujeito ao controle de jornada.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 4&ordm; - As disposi&ccedil;&otilde;es relativas &agrave; responsabilidade pela aquisi&ccedil;&atilde;o, pela manuten&ccedil;&atilde;o ou pelo fornecimento dos equipamentos tecnol&oacute;gicos e da infraestrutura necess&aacute;ria e adequada &agrave; presta&ccedil;&atilde;o do teletrabalho, trabalho remoto ou trabalho a dist&acirc;ncia e ao reembolso de despesas arcadas pelo empregado ser&atilde;o previstas em contrato escrito, firmado previamente ou no prazo de quinze dias, contado da data da mudan&ccedil;a do regime de trabalho.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 5&ordm; - Na hip&oacute;tese de o empregado n&atilde;o possuir os equipamentos tecnol&oacute;gicos e a infraestrutura necess&aacute;ria e adequada &agrave; presta&ccedil;&atilde;o do teletrabalho, do trabalho remoto ou do trabalho a dist&acirc;ncia o empregador ir&aacute; fornecer os equipamentos em regime de comodato, subsidiar sua aquisi&ccedil;&atilde;o pelo empregado, total ou parcialmente ou, ainda, pagar por servi&ccedil;os de infraestrutura, que n&atilde;o caracterizam verba de natureza salarial. Na hip&oacute;tese de utiliza&ccedil;&atilde;o de equipamentos ou rede de acesso &agrave; internet possu&iacute;dos pelo empregado para a presta&ccedil;&atilde;o do teletrabalho, a EMPRESA ir&aacute; estipular, em comum acordo com o empregado, o valor destinado ao reembolso das despesas correspondentes, em valor suficiente para cobrir tais gastos, o qual ter&aacute; natureza indenizat&oacute;ria.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 6&ordm; - O uso de instrumentos telem&aacute;ticos ou informatizados fornecidos pela empresa ao empregado, por si s&oacute;, n&atilde;o caracteriza tempo &agrave; disposi&ccedil;&atilde;o; O tempo de uso de aplicativos e programas de comunica&ccedil;&atilde;o fora da jornada de trabalho normal do empregado n&atilde;o constitui tempo &agrave; disposi&ccedil;&atilde;o, regime de prontid&atilde;o ou de sobreaviso, desde que n&atilde;o utilizados em prol do empregador. Deve ser garantido aos empregados em regime de teletrabalho o direito &agrave; desconex&atilde;o.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 7&ordm; - O trabalho em regime de teletrabalho importar&aacute; na obrigatoriedade de cumprimento do disposto na presente Conven&ccedil;&atilde;o, garantindo-se a manuten&ccedil;&atilde;o dos demais benef&iacute;cios devidos aos obreiros por norma coletiva ou determina&ccedil;&atilde;o legal, exceto o fornecimento do Vale Transporte que somente ser&aacute; concedido para atividades presenciais.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 8&ordm; - As empresas dever&atilde;o orientar a todos os empregados no regime de teletrabalho sobre as medidas destinadas &agrave; preven&ccedil;&atilde;o de doen&ccedil;as e acidentes do trabalho, por meio f&iacute;sico ou digital; ministrando treinamentos &agrave; dist&acirc;ncia e/ou presenciais, inclusive sobre medidas de ergonomia e boas pr&aacute;ticas laborais.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 9&ordm; - Os contratos de trabalho em teletrabalho dos empregados com resid&ecirc;ncia em localidade diversa do estabelecimento da empresa, inclusive em outro estado da Federa&ccedil;&atilde;o, poder&atilde;o prever a aplica&ccedil;&atilde;o das disposi&ccedil;&otilde;es desta Conven&ccedil;&atilde;o Coletiva, bem como a vincula&ccedil;&atilde;o ao calend&aacute;rio da sede da empresa para o usufruto de feriados, havendo compensa&ccedil;&atilde;o respectiva no calend&aacute;rio corporativo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 10&ordm; - Ao contrato de trabalho do empregado admitido no Brasil que optar pela realiza&ccedil;&atilde;o de teletrabalho fora do territ&oacute;rio nacional aplica-se a legisla&ccedil;&atilde;o brasileira, excetuadas as disposi&ccedil;&otilde;es constantes da Lei n&ordm; 7.064, de 6 de dezembro de 1982, salvo disposi&ccedil;&atilde;o em contr&aacute;rio estipulada entre as partes.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 11&ordm; - O empregador n&atilde;o ser&aacute; respons&aacute;vel pelas despesas resultantes do retorno ao trabalho presencial, na hip&oacute;tese de o empregado optar pela realiza&ccedil;&atilde;o do teletrabalho ou trabalho remoto fora da localidade prevista no contrato, salvo disposi&ccedil;&atilde;o em contr&aacute;rio estipulada entre as partes.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 12&ordm; - Os empregadores dever&atilde;o conferir, nos termos da Lei, prioridade aos empregados com defici&ecirc;ncia e aos empregados e empregadas com filhos ou crian&ccedil;a sob guarda judicial at&eacute; quatro anos de idade na aloca&ccedil;&atilde;o em vagas para atividades que possam ser efetuadas por meio do teletrabalho ou trabalho remoto.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA PRIMEIRA - DISPENSA DE CUMPRIMENTO DE AVISO PR&#201;VIO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Provando o empregado a obten&ccedil;&atilde;o de outro emprego, no curso do aviso pr&eacute;vio dado pelo empregador, ficar&aacute; o empregado dispensado do cumprimento do restante do prazo do aviso pr&eacute;vio, desobrigando-se a empresa do pagamento dos dias restantes n&atilde;o trabalhados.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">Par&aacute;grafo &Uacute;nico - Assegura-se, ao empregador, o direito de exigir, para a efetiva&ccedil;&atilde;o desta cl&aacute;usula, que o SINDADOS/MG lance o seu &ldquo;ciente e de acordo&rdquo; no documento comprobat&oacute;rio da mencionada obten&ccedil;&atilde;o do novo emprego, ou assim se manifeste, ao empregador, via e-mail, se se tratar de empregador sediado no interior.</p>
+<p>&nbsp;</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA SEGUNDA - CARTA DE INFORMA&#199;&#213;ES
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Quando expressamente solicitada pelo empregado dispensado a empresa fornecer-lhe-&aacute;, contra recibo, carta ou declara&ccedil;&atilde;o informando as fun&ccedil;&otilde;es que nela desempenhou, bem como sobre cursos que frequentou na empresa ou que, por ela, foi encaminhado.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA TERCEIRA - INCORRE&#199;&#195;O DOS SAL&#193;RIOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Na hip&oacute;tese de ocorr&ecirc;ncia de erro ou incorre&ccedil;&atilde;o no sal&aacute;rio, que venha a ser denunciado expressamente pelo empregado e/ou constatado pela empregadora, esta dever&aacute; elaborar folha de pagamento suplementar no prazo m&aacute;ximo de 5 (cinco) dias &uacute;teis, contados da den&uacute;ncia e/ou constata&ccedil;&atilde;o, a fim de quitar a diferen&ccedil;a regularmente apurada. Se a diferen&ccedil;a for em favor da empregadora, esta poder&aacute; deduzi-la quando da pr&oacute;xima folha de pagamento.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras normas de pessoal
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA QUARTA - AVISO PR&#201;VIO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Os prazos e garantias de emprego ou sal&aacute;rio, ou estabilidades provis&oacute;rias previstos em cl&aacute;usulas desta CCT n&atilde;o se confundem e n&atilde;o haver&aacute; superposi&ccedil;&atilde;o, em nenhuma hip&oacute;tese, com o prazo de Aviso Pr&eacute;vio.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA QUINTA - ATRASO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Ao empregado que chegar atrasado ao trabalho, fica garantida a percep&ccedil;&atilde;o do repouso semanal remunerado correspondente &agrave; respectiva semana, quando o empregador lhe permitir trabalhar, ainda que mediante o desconto do tempo do atraso.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Jornada de Trabalho – Duração, Distribuição, Controle, Faltas
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Duração e Horário
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA SEXTA - JORNADA CONVENCIONAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Todas as empresas s&atilde;o obrigadas, desde a Conven&ccedil;&atilde;o 2023/2025 (MG000758/2024), a adotar, sem nenhuma redu&ccedil;&atilde;o de sal&aacute;rios, a jornada de 40 horas semanais, o que resta mantido em todo o per&iacute;odo de vig&ecirc;ncia desta norma coletiva.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA S&#201;TIMA - JORNADA DOS DIGITADORES
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>A jornada normal de trabalho dos digitadores ser&aacute; de, no m&aacute;ximo, 36 (trinta e seis) horas semanais, com repouso m&iacute;nimo de 10 (dez) minutos para cada 50 (cinquenta) minutos trabalhados, n&atilde;o deduzidos esses 10 (dez) minutos da jornada normal de trabalho.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Prorrogação/Redução de Jornada
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA OITAVA - BANCO DE HORAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Apoiados nas disposi&ccedil;&otilde;es do inciso XIII e XXVI, do art. 7&ordm; da Constitui&ccedil;&atilde;o Federal c.c. art. 59, CLT, os sindicatos convenentes ajustam e declaram o direito de empresas e empregados praticarem o regime de compensa&ccedil;&otilde;es decorrentes de horas trabalhadas al&eacute;m da jornada di&aacute;ria, ou de horas n&atilde;o trabalhadas dentro da jornada di&aacute;ria de trabalho, adotando, para tanto, o sistema de &ldquo;BANCO DE HORAS&rdquo;, observadas as seguintes regras e condi&ccedil;&otilde;es:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Para fins de registro ou lan&ccedil;amento no &ldquo;BANCO DE HORAS&rdquo;, ser&atilde;o denominadas para futura compensa&ccedil;&atilde;o:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">a) HORAS POSITIVAS: as que o empregado laborar al&eacute;m de sua jornada di&aacute;ria de trabalho, por exclusiva determina&ccedil;&atilde;o da empresa e n&atilde;o oposi&ccedil;&atilde;o do empregado;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">b) HORAS NEGATIVAS: as que o empregado deixar de laborar em sua jornada di&aacute;ria de trabalho, por exclusiva determina&ccedil;&atilde;o da empresa e n&atilde;o oposi&ccedil;&atilde;o do empregado;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - S&atilde;o formalidades do sistema de BANCO DE HORAS a serem observadas:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">a) As HORAS POSITIVAS laboradas e inseridas no &ldquo;BANCO DE HORAS&rdquo; poder&atilde;o ser compensadas <strong>at&eacute; o prazo de 12 (doze) meses</strong>, contados de sua realiza&ccedil;&atilde;o<strong>, sem qualquer acr&eacute;scimo</strong>, exceto as horas-extras realizadas em feriados, domingos e s&aacute;bados, quando estes forem dias n&atilde;o &uacute;teis, que ser&atilde;o sempre levadas ao &ldquo;BANCO DE HORAS&rdquo; com o acr&eacute;scimo de 100% (cem por cento), correspondendo cada hora creditada a cento e vinte minutos, para fins de compensa&ccedil;&atilde;o.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">b) A compensa&ccedil;&atilde;o das horas deve obedecer a cronologia de sua presta&ccedil;&atilde;o &ndash; a primeira realizada &eacute; a primeira a ser compensada, e assim por diante.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">c) Dos registros que a empresa fizer no &ldquo;BANCO DE HORAS&rdquo; do empregado, a este ser&aacute; fornecido um demonstrativo ou c&oacute;pia, mensalmente, para que, ap&oacute;s sua confer&ecirc;ncia, d&ecirc; recibo &agrave; empresa, sendo dispensado o recibo em caso de sistema eletr&ocirc;nico de apontamentos com livre acesso do empregado.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">d) O prazo m&aacute;ximo para promo&ccedil;&atilde;o das compensa&ccedil;&otilde;es &eacute; de at&eacute; 12 (doze) meses, contados a partir da realiza&ccedil;&atilde;o das horas.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">e) Caso n&atilde;o sejam efetivadas as mencionadas compensa&ccedil;&otilde;es dentro do prazo acima fixado, o saldo de HORAS POSITIVAS ser&aacute; pago ao empregado junto ao primeiro sal&aacute;rio a ser quitado ap&oacute;s o decurso do prazo com o respectivo adicional de hora extra de 75%, conforme cl&aacute;usula desta Conven&ccedil;&atilde;o, calculadas sobre o valor do sal&aacute;rio na data do pagamento;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">f) Nesta hip&oacute;tese, as HORAS NEGATIVAS n&atilde;o compensadas tempestivamente, ser&atilde;o desconsideradas;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">g) O empregado poder&aacute; requerer a contabiliza&ccedil;&atilde;o no &ldquo;BANCO DE HORAS&rdquo; das HORAS NEGATIVAS oriundas de faltas injustificadas que, a crit&eacute;rio da empresa, poder&atilde;o ser computadas para compensa&ccedil;&atilde;o futura.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">h) A presta&ccedil;&atilde;o de horas extras habituais n&atilde;o descaracteriza o acordo de compensa&ccedil;&atilde;o de jornada e o banco de horas.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - LIMITES: Fica ajustado que, para fins de compensa&ccedil;&atilde;o, o limite de HORAS POSITIVAS a ser levado a registro no &ldquo;BANCO DE HORAS&rdquo; &eacute; de 2 (duas) horas di&aacute;rias, 12 (doze) horas semanais e 44 (quarenta e quatro) horas mensais. Fica ajustado, ainda, o limite de jornada anual correspondente &agrave; soma das jornadas semanais do per&iacute;odo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 4&ordm; - DO DESLIGAMENTO: Ocorrendo o desligamento do empregado, as HORAS POSITIVAS E/OU NEGATIVAS n&atilde;o compensadas ser&atilde;o tratadas de seguinte forma:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">a) Na rescis&atilde;o a pedido do empregado ou por justa causa o saldo final das horas no Banco ser&atilde;o considerados por ocasi&atilde;o do acerto das verbas rescis&oacute;rias, levando-se em conta os crit&eacute;rios estabelecidos no &sect; 2&ordm; retro;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">b) Na rescis&atilde;o por iniciativa da empresa, sem justa causa, o saldo final de HORAS POSITIVAS ser&aacute; pago com o adicional de hora extra de 75%, conforme cl&aacute;usula desta Conven&ccedil;&atilde;o e eventual saldo final de HORAS NEGATIVAS dever&aacute; ser desconsiderado, por ocasi&atilde;o do acerto das verbas rescis&oacute;rias.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Compensação de Jornada
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA NONA - FERIADO DE CARNAVAL E DIAS PONTE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica estabelecido que a segunda-feira e ter&ccedil;a-feira de Carnaval ser&atilde;o consideradas dias de feriado, ficando autorizado o lan&ccedil;amento no Banco de Horas das horas correspondentes a uma jornada di&aacute;ria, para compensa&ccedil;&atilde;o futura, sem acr&eacute;scimo. A pedido do(s) empregado(s) e com a aquiesc&ecirc;ncia da empresa poder&aacute; ser laborada a segunda ou ter&ccedil;a-feira, de modo a excluir o lan&ccedil;amento no Banco de Horas.&nbsp; A Quarta-Feira de Cinzas ter&aacute; jornada de meio-expediente.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Caso o empregado n&atilde;o trabalhe a meia jornada da quarta-feira de cinzas, fica autorizado o lan&ccedil;amento no Banco de Horas das horas correspondentes &agrave; referida meia jornada, para compensa&ccedil;&atilde;o futura, sem acr&eacute;scimo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - Em comum acordo entre empresa e empregado, fica autorizada a pr&aacute;tica de feriados&nbsp;estendidos, quando este recaia em uma ter&ccedil;a-feira ou quinta-feira, permitindo aos empregados usufru&iacute;rem de um descanso prolongado, autorizado o cr&eacute;dito das horas n&atilde;o trabalhadas no dia ponte no Banco de Horas, para compensa&ccedil;&atilde;o 1:1, sem acr&eacute;scimo.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - Em comum acordo entre empresa e empregado, fica autorizada a antecipa&ccedil;&atilde;o para segunda-feira do feriado que recair em uma ter&ccedil;a-feira ou a posterga&ccedil;&atilde;o para sexta-feira do feriado que recair na quinta-feira, sem incid&ecirc;ncia de qualquer adicional.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 4&ordm; - A aplica&ccedil;&atilde;o das regras fixadas na presente cl&aacute;usula n&atilde;o poder&aacute; implicar em altera&ccedil;&atilde;o lesiva do contrato de trabalho, nos termos do Art. 468 da CLT.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Intervalos para Descanso
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA - DA REDU&#199;&#195;O DO INTERVALO INTRAJORNADA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As empresas e seus empregados, mediante acordo m&uacute;tuo obrigatoriamente escrito e previamente encaminhado ao SINDADOS/MG, poder&atilde;o instituir a REDU&Ccedil;&Atilde;O DA DURA&Ccedil;&Atilde;O DO HOR&Aacute;RIO PARA REFEI&Ccedil;&Atilde;O, de modo que o intervalo intrajornada poder&aacute; ser realizado em no m&iacute;nimo 30&rsquo; (trinta minutos) e no m&aacute;ximo, 2h (duas horas), para empregados com carga horaria superior a 6h di&aacute;rias.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - N&atilde;o poder&aacute; usufruir da redu&ccedil;&atilde;o prevista no caput o empregado que labore em qualquer cargo ou fun&ccedil;&atilde;o que implique em esfor&ccedil;o f&iacute;sico habitual ou eventual, que labore em qualquer cargo ou fun&ccedil;&atilde;o que possua regulamenta&ccedil;&atilde;o espec&iacute;fica quanto aos intervalos, como p.ex., empregados sujeitos a regime de teleatendimento (NR17) e empregados de categorias diferenciadas, sendo permitida a pactua&ccedil;&atilde;o de cl&aacute;usula no acordo m&uacute;tuo e pr&eacute;vio a que se refere o caput para defini&ccedil;&atilde;o de hor&aacute;rio de intervalo intrajornada di&aacute;rio m&iacute;nimo (30 minutos) e m&aacute;ximo (120min.).</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA PRIMEIRA - DO SISTEMA DE JORNADA FLEXIVEL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As empresas e seus empregados poder&atilde;o, mediante acordo m&uacute;tuo obrigatoriamente escrito e previamente encaminhado ao SINDADOS/MG, adotar, para todos ou alguns de seus empregados, JORNADA FLEXIVEL DE TRABALHO, na forma desta cl&aacute;usula.</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Entende-se por HORARIO FLEXIVEL a flexibiliza&ccedil;&atilde;o da jornada di&aacute;ria de trabalho, permitindo-se a antecipa&ccedil;&atilde;o ou posterga&ccedil;&atilde;o das entradas e sa&iacute;das do expediente, bem como do intervalo intrajornada, desde que seja obedecida a carga hor&aacute;ria contratual di&aacute;ria.</p>
+<p style="text-align: justify;">&sect; 2&ordm; - A jornada de trabalho adotada na empresa caso opte pelo presente regime, conforme defini&ccedil;&atilde;o no contrato de trabalho individual, efetivamente praticada, poder&aacute; ser flexibilizada, definido de forma livre entre empresa e empregado, de modo que o hor&aacute;rio de sa&iacute;da corresponda ao cumprimento da jornada di&aacute;ria de cada empregado, contada de seu efetivo in&iacute;cio.</p>
+<p style="text-align: justify;">&sect; 3&ordm; - O hor&aacute;rio n&uacute;cleo estar&aacute; compreendido entre 10h00 e 16h00, sendo que nesse per&iacute;odo todos os funcion&aacute;rios dever&atilde;o estar presentes na empresa ou em regime de teletrabalho, com os devidos registros de jornada.</p>
+<p>&nbsp;</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Controle da Jornada
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA SEGUNDA - DO SISTEMA ALTERNATIVO DO CONTROLE DE JORNADA DE TRABALHO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As Empresas Associadas ao SINDINFOR e seus empregados poder&atilde;o, mediante acordo m&uacute;tuo obrigatoriamente escrito adotar sistema alternativo do controle de jornada de trabalho que consiste na isen&ccedil;&atilde;o de impress&atilde;o do &ldquo;Comprovante de Registro de Ponto do Trabalhador&rdquo;, previsto na Portaria 1.510/09 do MTE. A empresa se obriga a cumprir todas as disposi&ccedil;&otilde;es da Portaria 373/2011 do MTE, mormente quanto aos requisitos de validade do sistema alternativo de controle de jornada de trabalho.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - Os sistemas alternativos eletr&ocirc;nicos n&atilde;o devem admitir:</p>
+<p style="text-align: justify;">I - Restri&ccedil;&otilde;es &agrave; marca&ccedil;&atilde;o do ponto;</p>
+<p style="text-align: justify;">II - Marca&ccedil;&atilde;o autom&aacute;tica do ponto;</p>
+<p style="text-align: justify;">III - Exig&ecirc;ncia de autoriza&ccedil;&atilde;o pr&eacute;via para marca&ccedil;&atilde;o de sobre jornada;</p>
+<p style="text-align: justify;">IV - A altera&ccedil;&atilde;o ou elimina&ccedil;&atilde;o dos dados registrados pelo empregado.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - Os sistemas alternativos eletr&ocirc;nicos dever&atilde;o:</p>
+<p style="text-align: justify;">I - Estar dispon&iacute;veis no local de trabalho;</p>
+<p style="text-align: justify;">II - Permitir a identifica&ccedil;&atilde;o de empregador e empregado;</p>
+<p style="text-align: justify;">III - Possibilitar, atrav&eacute;s da central de dados, a extra&ccedil;&atilde;o eletr&ocirc;nica e impress&atilde;o do registro fiel das marca&ccedil;&otilde;es realizadas pelo empregado.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - Os Sindicatos convenentes poder&atilde;o homologar sistemas inform&aacute;ticos para o controle alternativo de jornada, sendo, nestes casos, dispensado o acordo m&uacute;tuo obrigatoriamente escrito a que se refere o caput desta cl&aacute;usula.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras disposições sobre jornada
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA TERCEIRA - JORNADA 12 X 36
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Nos termos da Lei, fica facultada a pr&aacute;tica da jornada 12h x 36h.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Férias e Licenças
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Remuneração de Férias
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA QUARTA - F&#201;RIAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A empregadora dever&aacute; efetuar o pagamento das f&eacute;rias com anteced&ecirc;ncia m&iacute;nima de 48 (quarenta e oito) horas do seu in&iacute;cio, in&iacute;cio esse que n&atilde;o poder&aacute; coincidir com s&aacute;bados, domingos e feriados.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">Par&aacute;grafo &Uacute;nico - A pedido expresso do empregado e mediante a concord&acirc;ncia expressa da empresa, ou para atender &agrave;s necessidades de servi&ccedil;o das empresas e mediante concord&acirc;ncia expressa do empregado, as f&eacute;rias poder&atilde;o ser parceladas em at&eacute; 3 (tr&ecirc;s) per&iacute;odos, nenhum deles menor do que 10 (dez) dias cont&iacute;nuos, sem que haja limite de idade para tal fracionamento das f&eacute;rias.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Licença Remunerada
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA QUINTA - LICEN&#199;A PATERNIDADE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Ser&atilde;o concedidos aos empregados 07 (sete) dias uteis de licen&ccedil;a paternidade, contados a partir do nascimento do filho. O empregado dever&aacute; comunicar a empresa de forma antecipada a gravidez e a expectativa do parto e apresentar &agrave; empresa, ap&oacute;s o gozo da licen&ccedil;a, documento oficial de comprova&ccedil;&atilde;o da paternidade para justificar a referida concess&atilde;o.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA SEXTA - LICEN&#199;A
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>As empresas conceder&atilde;o a seus empregados, desde que devidamente comprovado o &oacute;bito, licen&ccedil;a remunerada por 5 (cinco) dias corridos, em caso de morte do c&ocirc;njuge ou familiar de 1&ordm; grau, ascendente ou descendente.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras disposições sobre férias e licenças
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA S&#201;TIMA - ABONO CONSULTA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>Assegura-se, ao empregado, a aus&ecirc;ncia remunerada de 1 (um) dia, por semestre, para acompanhamento &agrave; consulta m&eacute;dica de filho menor ou dependente previdenci&aacute;rio de at&eacute; 06 (seis) anos de idade, desde que comprovada por atestado m&eacute;dico apresentado nos 02 (dois) dias &uacute;teis subsequentes &agrave; aus&ecirc;ncia, com esclarecimento do nome do acompanhante.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Saúde e Segurança do Trabalhador
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Treinamento para Prevenção de Acidentes e Doenças do Trabalho
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA OITAVA - PROGRAMA DE INFORMA&#199;&#195;O EM SA&#218;DE OCUPACIONAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As empresas obrigadas &agrave; constitui&ccedil;&atilde;o de CIPA, nos termos da NR 5, dever&atilde;o colher anualmente informa&ccedil;&otilde;es sobre a exist&ecirc;ncia de tratamentos de sa&uacute;de e licen&ccedil;as derivadas de doen&ccedil;a ocupacional, encaminhando-as em relat&oacute;rio aos sindicatos convenentes (item 5.L da NR5), com vistas &agrave; melhoria da qualidade de vida da sua equipe de trabalho.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">Par&aacute;grafo &Uacute;nico - Os sindicatos convenentes dever&atilde;o, anualmente, analisar os relat&oacute;rios enviados pelas CIPAs e avaliar a an&aacute;lise das causas das doen&ccedil;as e acidentes de trabalho; avaliar e discutir os impactos de altera&ccedil;&otilde;es no ambiente e processo de trabalho relacionados &agrave; seguran&ccedil;a e sa&uacute;de dos trabalhadores, propondo, dentro de suas compet&ecirc;ncias, medidas de solu&ccedil;&atilde;o dos problemas identificados.</p>
+<p>&nbsp;</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Relações Sindicais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Acesso a Informações da Empresa
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA NONA - QUADRO DE AVISOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">O SINDADOS/MG poder&aacute; encaminhar informa&ccedil;&otilde;es para serem afixadas nos quadros de avisos das empresas, em local de f&aacute;cil acesso para os empregados das mesmas, desde que n&atilde;o se trate de mat&eacute;ria de cunho pol&iacute;tico partid&aacute;rio, nem ofensiva a quem quer que seja. Para tanto, o SINDADOS/MG encaminhar&aacute; a mat&eacute;ria, contra recibo, a fim de que a empresa promova a respectiva afixa&ccedil;&atilde;o.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Contribuições Sindicais
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA - RELA&#199;&#195;O DE EMPREGADOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Os empregadores remeter&atilde;o ao Sindicato Profissional, &agrave; Rua David Campista, n&ordm;. 150 &ndash; Bairro Floresta Belo Horizonte, CEP: 30.150-090, no prazo de 15 (quinze) dias contados da data do recolhimento da contribui&ccedil;&atilde;o sindical de seus empregados, que autorizarem pr&eacute;via e expressamente tal desconto, rela&ccedil;&atilde;o nominal desses empregados contribuintes, indicando a fun&ccedil;&atilde;o e o sal&aacute;rio de cada um, percebido no m&ecirc;s a que corresponder a contribui&ccedil;&atilde;o e o respectivo valor recolhido.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA PRIMEIRA - TAXA DE FORTALECIMENTO SINDICAL/CONTRIBUI&#199;&#195;O NEGOCIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Do sal&aacute;rio do m&ecirc;s de&nbsp;<strong>novembro/2025</strong>,&nbsp;reajustado integralmente na forma da cl&aacute;usula do reajuste salarial, al&iacute;nea &ldquo;A&rdquo;, desta Conven&ccedil;&atilde;o ou de acordo com o piso salarial aqui previsto, as empresas descontar&atilde;o de todos os seus empregados &ndash; associados ou n&atilde;o ao&nbsp;SINDADOS/MG &ndash; beneficiados por este instrumento normativo, em conformidade com a decis&atilde;o do Supremo Tribunal Federal proferida no Processo: ARE&nbsp;1018459, em julgamento realizado no 12/09/2023, o valor equivalente a <strong>2% (dois por cento) do valor dos sal&aacute;rios</strong>, repassando o total arrecadado &ndash; como meras intermedi&aacute;rias que s&atilde;o &ndash; ao SINDICATO DOS EMPREGADOS EM EMPRESAS DE PROCESSAMENTO DE&nbsp;DADOS, SERVI&Ccedil;OS DE INFORM&Aacute;TICA E SIMILARES DO ESTADO DE MINAS GERAIS &ndash;&nbsp;SINDADOS/MG.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 1&ordm; - O desconto acima referido ser&aacute; repassado at&eacute; o d&eacute;cimo dia subsequente ao do pagamento referido nesta cl&aacute;usula;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 2&ordm; - Qualquer empregado ter&aacute; direito de se opor ao desconto da taxa prevista nesta cl&aacute;usula em at&eacute; 10 (dez) dias ap&oacute;s a assinatura desta CCT, devendo, para tanto, manifestar sua oposi&ccedil;&atilde;o junto ao&nbsp;SINDADOS/MG, com copia para o e-mail da empregadora,&nbsp;acessando o site&nbsp;<a href="http://sindados-mg.org.br/" target="_blank">http://sindados-mg.org.br</a>, onde ir&aacute; preencher o formul&aacute;rio <em>googleforms</em> referente &agrave; &ldquo;Carta de Oposi&ccedil;&atilde;o&rdquo;, ali dispon&iacute;vel. Ap&oacute;s o preenchimento e envio do referido formul&aacute;rio, o trabalhador receber&aacute; um e-mail de confirma&ccedil;&atilde;o, o qual dever&aacute; ser encaminhado ao seu empregador, para fins de registro e n&atilde;o processamento do desconto.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 3&ordm; - As import&acirc;ncias descontadas dever&atilde;o ser recolhidas ao&nbsp;SINDADOS/MG atrav&eacute;s de dep&oacute;sito banc&aacute;rio, na Caixa Econ&ocirc;mica Federal, Ag&ecirc;ncia 0086 &ndash; Floresta &ndash; Opera&ccedil;&atilde;o 003 Conta Corrente n&ordm; 000579381816-9, ou via PIX, chave CNPJ: 19715739000108. Ap&oacute;s efetivado tal recolhimento, as empresas remeter&atilde;o c&oacute;pia do comprovante do mesmo ao&nbsp;SINDADOS/MG, juntamente com rela&ccedil;&atilde;o que contenha os nomes dos empregados que sofreram tal desconto, suas fun&ccedil;&otilde;es, bem como os valores dos sal&aacute;rios reajustados e os valores dos respectivos descontos;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&sect; 4&ordm; - Pelo fato de o desconto estabelecido nesta cl&aacute;usula ter origem em delibera&ccedil;&atilde;o da assembleia geral da categoria profissional que se realizou em 18/08/2025 bem como de assim estar assegurado o direito de oposi&ccedil;&atilde;o, o&nbsp;SINDADOS/MG reafirma que as empresas s&atilde;o meras intermedi&aacute;rias no tocante ao citado desconto salarial, ficando as empresas e/ou o Sindicato Patronal, a qualquer tempo, isentos de quaisquer responsabilidades pelos descontos e/ou por suas devolu&ccedil;&otilde;es que eventualmente venham a ser postuladas.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA SEGUNDA - CONTRIBUI&#199;&#195;O PARTICIPATIVA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>As empresas abrangidas pela presente Conven&ccedil;&atilde;o dever&atilde;o recolher de uma &uacute;nica vez ao SINDICATO DA INDUSTRIA DE SOFTWARE E DA TECNOLOGIA DA INFORMACAO DO ESTADO DE MINAS GERAIS - SINDINFOR, a contribui&ccedil;&atilde;o para o Fortalecimento Sindical Patronal, em conformidade com a decis&atilde;o do Supremo Tribunal Federal proferida no Processo: ARE&nbsp;1018459, em julgamento realizado no dia 12/09/2023, conforme aprovado na Assembleia Geral Extraordin&aacute;ria realizada em 12/09/2025, seguindo a tabela abaixo:</p>
+<p><strong>TABELA PARA C&Aacute;LCULO DA CONTRIBUI&Ccedil;&Atilde;O PARTICIPATIVA</strong></p>
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="69">
+<p class="tableparagraph" align="center"><strong>Linha</strong></p>
+</td>
+<td valign="top" width="204">
+<p class="tableparagraph" align="center"><strong>Classe de Capital Social (R$)</strong></p>
+</td>
+<td valign="top" width="161">
+<p class="tableparagraph"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Al&iacute;quota</strong></p>
+</td>
+<td valign="top" width="132">
+<p class="tableparagraph" align="center"><strong>Parcela a adicionar</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="69">
+<p class="tableparagraph" align="center"><strong>01</strong></p>
+</td>
+<td valign="top" width="204">
+<p class="tableparagraph" align="center"><strong>0,01 a 4.960,50</strong></p>
+</td>
+<td valign="top" width="161">
+<p class="tableparagraph" align="center"><strong>Contribui&ccedil;&atilde;o M&iacute;nima</strong></p>
+</td>
+<td valign="bottom" width="132">
+<p class="tableparagraph" align="center"><strong>R$ 302,80</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="69">
+<p class="tableparagraph" align="center"><strong>02</strong></p>
+</td>
+<td valign="top" width="204">
+<p class="tableparagraph" align="center"><strong>4.960,51 a 20.921,00</strong></p>
+</td>
+<td valign="top" width="161">
+<p class="tableparagraph" align="center"><strong>0,8%</strong></p>
+</td>
+<td valign="bottom" width="132">
+<p class="tableparagraph" align="center"><strong>R$ 346,37</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="69">
+<p class="tableparagraph" align="center"><strong>03</strong></p>
+</td>
+<td valign="top" width="204">
+<p class="tableparagraph" align="center"><strong>20.921,01 a 99.210,00</strong></p>
+</td>
+<td valign="top" width="161">
+<p class="tableparagraph" align="center"><strong>0,2%</strong></p>
+</td>
+<td valign="bottom" width="132">
+<p class="tableparagraph" align="center"><strong>R$ 652,70</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="69">
+<p class="tableparagraph" align="center"><strong>04</strong></p>
+</td>
+<td valign="top" width="204">
+<p class="tableparagraph" align="center"><strong>99.210,01 a 9.921.000,00</strong></p>
+</td>
+<td valign="top" width="161">
+<p class="tableparagraph" align="center"><strong>0,1%</strong></p>
+</td>
+<td valign="bottom" width="132">
+<p class="tableparagraph" align="center"><strong>R$ 900,93</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="69">
+<p class="tableparagraph" align="center"><strong>05</strong></p>
+</td>
+<td valign="top" width="204">
+<p class="tableparagraph" align="center"><strong>9.921.000,01 a 62.912.000,00</strong></p>
+</td>
+<td valign="top" width="161">
+<p class="tableparagraph" align="center"><strong>0,02%</strong></p>
+</td>
+<td valign="bottom" width="132">
+<p class="tableparagraph" align="center"><strong>R$ 12.459,18</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="69">
+<p class="tableparagraph" align="center"><strong>06</strong></p>
+</td>
+<td valign="top" width="204">
+<p class="tableparagraph" align="center"><strong>62.912.000,01 em diante</strong></p>
+</td>
+<td valign="top" width="161">
+<p class="tableparagraph" align="center"><strong>Contribui&ccedil;&atilde;o M&aacute;xima</strong></p>
+</td>
+<td valign="bottom" width="132">
+<p class="tableparagraph" align="center"><strong>R$ 31.353,96</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;<strong>&sect; 1&ordm;</strong> Qualquer empresa ter&aacute; direito de se opor ao pagamento da contribui&ccedil;&atilde;o para o fortalecimento sindical patronal constante nesta cl&aacute;usula, devendo se manifestar atrav&eacute;s de carta enviada ao SINDINFOR at&eacute; o dia 15/11/2025.</p>
+<p>&nbsp;<strong>&sect; 2&ordm;</strong> A contribui&ccedil;&atilde;o prevista nesta cl&aacute;usula dever&aacute; ser recolhida atrav&eacute;s de guia que ser&aacute; enviada pelo Sindicato, com vencimento em 31/03/2026.</p>
+<p>&nbsp;<strong>&sect; 3&ordm;</strong> O atraso no recolhimento da contribui&ccedil;&atilde;o para o fortalecimento sindical patronal implicar&aacute; em multa de 2%, acrescida de 1% por m&ecirc;s de atraso.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras disposições sobre relação entre sindicato e empresa
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA TERCEIRA - MULTA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Em caso de descumprimento de obriga&ccedil;&otilde;es "de fazer" previstas nesta Conven&ccedil;&atilde;o Coletiva de Trabalho, o empregador incorrer&aacute; na multa em valor equivalente a 10% (dez por cento) do sal&aacute;rio b&aacute;sico do empregado prejudicado, em favor deste.</p>
+<p style="text-align: justify;">Par&aacute;grafo &uacute;nico &ndash; As partes estabelecem que a aplica&ccedil;&atilde;o da multa prevista na presente cl&aacute;usula ficar&aacute; condicionada &agrave; Notifica&ccedil;&atilde;o Pr&eacute;via pelo SINDADOS/MG da empresa que tiver descumprido obriga&ccedil;&otilde;es "de fazer" previstas nesta CCT, facultando-se &agrave; mesma o prazo de 30 (trinta) dias para regulariza&ccedil;&atilde;o e comprova&ccedil;&atilde;o perante o sindicato notificante.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Disposições Gerais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras Disposições
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA QUARTA - ASSINATURAS ELETR&#212;NICAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p>As empresas Associadas ao SINDINFOR e seus empregados poder&atilde;o adotar protocolos de assinatura eletr&ocirc;nica de documentos, com a mesma validade de assinaturas presenciais, nos termos da MP 2.200/2 de 2000 (art. 10, &sect;2&ordm;), podendo ser utilizados os endere&ccedil;os de e-mail corporativo ou pessoal do empregado, aplicativos espec&iacute;ficos ou outro meio comumente utilizado pelas entidades corporativas para a valida&ccedil;&atilde;o de documentos.</p>
+<p>&nbsp;</p>
+<p align="center">Belo Horizonte, 03 de novembro de 2025.</p>
+<p align="center"><strong>&nbsp;</strong></p>
+                                                </label>
+                                                <br />
+                                    }
+                                    <br />
+                                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                    <br />
+    <br />
+    <label class="textonome">
+        ROSANE MARIA CORDEIRO
+        <br style="height: 5px" />
+        Membro de Diretoria Colegiada
+        <br style="height: 5px" />
+        SINDICATO DOS E E E DE P.DE D S DE INFORMATICA S EST MG
+        <br />
+        <br />
+    </label>
+
+    <br />
+    <br />
+    <label class="textonome">
+        FABIO VERAS DE SOUZA
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        SINDICATO DA INDUSTRIA DE SOFTWARE E DA TECNOLOGIA DA INFORM
+        <br />
+        <br />
+    </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                        <br />
+                                        <center>
+                                            <label class="textogrupo">
+                                                <b>ANEXOS </b>
+                                            </label>
+                                        </center>
+                                                        <label>
+                                                            <b>
+                                                                <center>
+                                                                    <label class="textogrupo">
+                                                                        ANEXO I - ATA DE ASSEMBLEIA
+                                                                    </label>
+                                                                </center>
+                                                                <label class="tituloClausula">
+                                                                                                                                    </label>
+                                                            </b>
+                                                        </label>
+                                                        <b>
+                                                            <label>
+
+                                                            </label>
+                                                        </b>
+                                                        <br />
+                                                        <label class="descricaoClausula" >
+                                                            <p><a href="https://www3.mte.gov.br/sistemas/mediador/imagemAnexo/MR069059_20252025_11_05T15_26_39.pdf" target="_blank">Anexo (PDF)</a></p>
+                                                        </label>
+                                                        <br />
+                                        <!--****************************************** FIM - Anexos ******************************************-->
+                                            <label class="texto">
+                                                &#160;&#160;&#160;&#160;A autenticidade deste documento poderá ser confirmada na
+                                                página do Ministerio do Trabalho e Emprego na Internet, no endereço http://www.mte.gov.br.
+                                            </label>
+                                            <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</body>
+<script>
+    setTimeout(function () {
+        window.history.replaceState({}, '', window.location.pathname);
+    }, 0);
+</script>
+</html>

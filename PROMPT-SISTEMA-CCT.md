@@ -8,9 +8,14 @@
 
 ## 1. Contexto
 
-Sou desenvolvedor de um escritório de contabilidade. Preciso saber quando sai uma convenção
-ou acordo coletivo novo dos sindicatos que atendem as empresas do meu escritório — **só
-desses**, que estão numa planilha minha, não do Brasil inteiro.
+Sou desenvolvedor de um escritório de contabilidade. Preciso saber quando sai uma
+**Convenção Coletiva vigente** dos sindicatos que atendem as empresas do meu escritório —
+**só desses**, que estão numa planilha minha, não do Brasil inteiro.
+
+**Escopo, que não é detalhe:** só `Convenção Coletiva` e só `Vigentes`. Acordo Coletivo é
+negociação empresa a empresa e fica de fora; termo aditivo também. Deixar "Todos os Tipos"
+multiplica o volume por 3 ou 4 e enche o painel de acordo de empresa que ninguém vai ler —
+na FECCOEMG são 17 instrumentos com tudo contra 13 convenções.
 
 Duas fontes, porque elas divergem:
 
@@ -72,7 +77,7 @@ Corpo (campos exatos que a página monta):
   "nrCei": "",
   "noRazaoSocial": "",
   "dsCategoria": "",
-  "tpRequerimento": ["acordo", "convencao", "termoAditivoAcordo", "termoAditivoConvecao"],
+  "tpRequerimento": ["convencao"],
   "tpVigencia": "1",
   "sgUfDeRegistro": "",
   "dtInicioRegistro": "", "dtFimRegistro": "",
@@ -140,7 +145,27 @@ Cuidados reais, medidos no arquivo baixado:
 O extrato traz: número de registro MTE, data de registro, nº da solicitação, nº do processo,
 data do protocolo, partes com CNPJ, vigência e as cláusulas com título e corpo.
 
-### 3.7 Armadilhas do formulário
+### 3.7 HTTP 500 quer dizer "sem resultado"
+
+Medido em 17/09/2026: uma consulta cujo CNPJ não tem instrumento devolve **HTTP 500**
+(às vezes 504), não uma lista vazia. No navegador a tela simplesmente volta em branco,
+sem mensagem nenhuma.
+
+Confirmado contra a captura de 21/07/2026: os CNPJs que respondem 500 são exatamente
+os que aquela rodada marcou como `NENHUM VIGENTE`.
+
+**Não trate 500 como "sem instrumento" direto.** Uma queda real do MTE viraria
+"nenhum sindicato tem convenção" e o painel ficaria verde mentindo — a pior falha
+possível para este sistema. Use um canário: ao receber erro de servidor, consulte um
+CNPJ que sabidamente tem resultado (FECCOEMG, `17219585000138`, tem 13 convenções vigentes).
+
+- canário responde → o serviço está de pé, o 500 significa vazio;
+- canário também falha → é indisponibilidade, e vira falha registrada.
+
+Insistir não adianta em 500: o resultado é estável. Retentativa só faz sentido
+quando o canário indica instabilidade.
+
+### 3.8 Armadilhas do formulário
 
 | Armadilha | O que acontece se ignorar |
 |---|---|
@@ -150,6 +175,8 @@ data do protocolo, partes com CNPJ, vigência e as cláusulas com título e corp
 | `termoAditivoConvecao` | Está **escrito errado na API do MTE**. Se você "corrigir" para `termoAditivoConvencao`, o filtro volta vazio, sem erro |
 | Resultado é paginado | "Página 1 de 2" — pagine até o fim ou perca metade |
 | `excel: true` no payload | Modo alternativo de exportação; investigue, pode substituir a paginação |
+| `cboTPRequerimento` vazio | Vazio quer dizer **todos os tipos**. Atribuir um valor que não existe no `<select>` deixa o campo vazio — o filtro some sem erro. Confira o `value` depois de atribuir |
+| Trocar de página é assíncrono | Ler o DOM cedo demais relê a página anterior; a deduplicação descarta as repetidas e o total sai menor **sem erro**. Confirme que "Página N de M" mudou antes de extrair |
 
 Valores de `tpVigencia`: `2`=Todos, `1`=Vigentes, `0`=Não Vigentes.
 
@@ -232,9 +259,18 @@ Quatro arquivos JSON versionados no repositório, um array cada:
 
 Não considere pronto sem provar cada um:
 
-1. `sindicatos.json` tem **63** sindicatos e a soma de data-bases é **109**.
+1. `sindicatos.json` tem **63** sindicatos e **91** data-bases distintas, preservando
+   as **109** linhas da planilha em `variantes`.
+
+   > Correção de 17/09/2026: a primeira versão deste critério dizia "109 data-bases",
+   > confundindo linha com data-base. As 18 linhas excedentes repetem CNPJ **e** mês —
+   > nenhuma é cópia exata, porque a coluna `Sindicato` carrega anotação do escritório
+   > sobre a empresa cliente (`- ACAI 01/2023`, `/ARAQUARI`, `- EM HORAS`,
+   > `-DESATIVADO !!`). Agrupar sem guardar essas anotações perderia informação do
+   > negócio; por isso `variantes` tem que bater com o total de linhas.
 2. Rodar o Estágio 1 devolve, para o CNPJ `17.219.585/0001-38` (FECCOEMG) com
-   `tpVigencia="1"`, **17 instrumentos** — número conferido no site em 17/09/2026.
+   `tpRequerimento=["convencao"]` e `tpVigencia="1"`, **13 convenções** — conferido
+   no site em 17/09/2026, com todos os resultados do tipo "Convenção Coletiva".
 3. Baixar `MR000649/2026` produz arquivo cujo texto extraído contém `CESTAS ALIMENTAÇÃO`
    (com acento, depois do `html.unescape`).
 4. Todo link de documento no painel responde com `Content-Type` de documento, **nunca**

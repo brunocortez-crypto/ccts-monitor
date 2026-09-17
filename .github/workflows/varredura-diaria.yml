@@ -1,0 +1,66 @@
+name: Varredura diaria - Mediador MTE
+
+# Uma consulta por dia cobre o país inteiro: o Mediador aceita buscar só por
+# "Período do Registro", sem CNPJ, e devolve ~12 convenções vigentes por dia.
+# Cada documento novo é baixado e casado por CNPJ contra a carteira do escritório.
+#
+# Isso pega convenção de sindicato que a busca por CNPJ não encontra — o SESCAP/PE
+# é o caso conhecido. A rodada mensal por CNPJ continua existindo como reconciliação.
+
+on:
+  schedule:
+    # Todo dia às 09:00 UTC = 06:00 em Brasília
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      dias:
+        description: 'Quantos dias para trás varrer (padrão 1)'
+        required: false
+        default: '1'
+
+permissions:
+  contents: write
+
+concurrency:
+  # Nunca duas rodadas mexendo em data/ ao mesmo tempo.
+  group: rodada-mediador
+  cancel-in-progress: false
+
+jobs:
+  varredura:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm ci || npm install
+
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Varrer o período
+        id: varrer
+        run: node scripts/varrer-por-data.js --dias "${{ inputs.dias || '2' }}"
+
+      - name: Conferir os links dos documentos
+        if: always()
+        run: node scripts/verificar-links.js
+
+      - name: Commit dos resultados
+        if: always()
+        run: |
+          git config user.name "CCTS Bot"
+          git config user.email "ccts-bot@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A data docs
+            git commit -m "Varredura diaria: $(date '+%d/%m/%Y')"
+            git push
+          else
+            echo "Nenhuma convenção nova da carteira hoje."
+          fi

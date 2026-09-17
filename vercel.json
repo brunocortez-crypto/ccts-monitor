@@ -1,4 +1,38 @@
 {
-  "buildCommand": "echo 'Static site'",
-  "outputDirectory": "."
+  "buildCommand": "echo 'Site estatico - nada a construir'",
+  "outputDirectory": ".",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/docs/MTE/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/msword; charset=windows-1252"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/data/(.*).json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
 }

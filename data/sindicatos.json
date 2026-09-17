@@ -1,602 +1,2326 @@
 [
   {
+    "cnpj": "00.450.308/0001-39",
+    "cnpj_digitos": "00450308000139",
+    "cnpj_valido": true,
+    "nome": "SIND EMPREG EMPRESAS ASSEIO CONS SIM TRIANG ALTO P",
+    "sigla": "ASSEIO E",
+    "entidade": "000.020.409.89766.8",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 12,
+        "nome": "SIND EMPREG EMPRESAS ASSEIO CONS SIM TRIANG ALTO P",
+        "sigla": "ASSEIO E",
+        "entidade": "000.020.409.89766.8",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
     "id": "sid_001",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "00.000.000/0000-00",
+    "cnpj_digitos": "00000000000000",
+    "cnpj_valido": false,
+    "nome": "DOMESTICAS",
+    "sigla": "DOMESTICAS",
+    "entidade": "000.000.00000.0",
+    "municipio": null,
+    "uf": null,
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 2,
+        "nome": "DOMESTICAS",
+        "sigla": "DOMESTICAS",
+        "entidade": "000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_002",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "17.219.585/0001-38",
+    "cnpj_digitos": "17219585000138",
+    "cnpj_valido": true,
     "nome": "FEDER DOS EMPRE NO COMERCIO E CONGENERES MG",
     "sigla": "FECCOEMG",
-    "cnpj": "17.219.585/0001-38",
-    "cnpj_valido": true,
+    "entidade": "005.093.00000.7",
+    "municipio": "Belo Horizonte",
     "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 5,
+        "nome": "FEDER DOS EMPRE NO COMERCIO E CONGENERES MG",
+        "sigla": "FECCOEMG",
+        "entidade": "005.093.00000.7",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_003",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
-    "id": "sid_002",
+    "cnpj": "01.785.997/0001-03",
+    "cnpj_digitos": "01785997000103",
+    "cnpj_valido": true,
+    "nome": "FED DOS TRAB NA AGRICULTURA NO EST TOCANTINS",
+    "sigla": "FED TRAB AGRI TOCANT",
+    "entidade": "000.300.729.97330.0",
+    "municipio": null,
+    "uf": "TO",
+    "site": "https://www.fetaet.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 3,
+        "nome": "FED DOS TRAB NA AGRICULTURA NO EST TOCANTINS",
+        "sigla": "FED TRAB AGRI TOCANT",
+        "entidade": "000.300.729.97330.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_004",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "17.388.158/0001-83",
+    "cnpj_digitos": "17388158000183",
+    "cnpj_valido": true,
     "nome": "FEDERACAO TRABALHADORES AGRICULTURA ESTADO MG",
     "sigla": "FED TRAB AGRIC",
-    "cnpj": "17.388.158/0001-83",
-    "cnpj_valido": true,
+    "entidade": "000.000.00000.0",
+    "municipio": "Belo Horizonte",
     "uf": "MG",
-    "cidade": "Belo Horizonte",
     "site": "https://www.fetaemg.org.br/",
-    "site_url": "https://www.fetaemg.org.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_003",
-    "nome": "SIND DOS NOTARIOS E REGISTRADORES DO EST GOIAS",
-    "sigla": "SIND NOTARIOS REG GO",
-    "cnpj": "02.249.018/0001-57",
-    "cnpj_valido": true,
-    "uf": "GO",
-    "cidade": "Goiânia",
-    "site": "https://sinoreggoias.com.br/",
-    "site_url": "https://sinoreggoias.com.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_004",
-    "nome": "SIND DOS TRAB NAS IND. CONST PESADA MG",
-    "sigla": "SIND TRAB CONS PESAD",
-    "cnpj": "38.736.377/0001-86",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "https://siticopmg.org.br/",
-    "site_url": "https://siticopmg.org.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 6,
+        "nome": "FEDERACAO TRABALHADORES AGRICULTURA ESTADO MG",
+        "sigla": "FED TRAB AGRIC",
+        "entidade": "000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
     "id": "sid_005",
-    "nome": "SIND DOS TRAB. EM TRANSP. ROD UBERLANDIA- CCT",
-    "sigla": "SINDTTRANS",
-    "cnpj": "21.288.931/0001-07",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "https://sindttrans.com.br/",
-    "site_url": "https://sindttrans.com.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
+    "cnpj": "21.462.646/0001-60",
+    "cnpj_digitos": "21462646000160",
+    "cnpj_valido": true,
+    "nome": "FED DOS TRAB RURAIS EMP ASS E ASS SO EST DE GOIAS",
+    "sigla": "FETAER GO",
+    "entidade": "000.000.000.00000.0",
+    "municipio": "Goiânia",
+    "uf": "GO",
+    "site": "http://www.fetaergo.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 4,
+        "nome": "FED DOS TRAB RURAIS EMP ASS E ASS SO EST DE GOIAS",
+        "sigla": "FETAER GO",
+        "entidade": "000.000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
     "id": "sid_006",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "21.018.023/0001-01",
+    "cnpj_digitos": "21018023000101",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS AUXILIARES DE ADMINISTRACAO ESCOLAR",
+    "sigla": "SAAETM-AP",
+    "entidade": "010.000.01425.4",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": "https://saaetmap.com.br/",
+    "data_bases": [
+      {
+        "mes": "Fevereiro",
+        "mes_numero": 2
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 50,
+        "nome": "SINDICATO DOS AUXILIARES DE ADMINISTRACAO ESCOLAR",
+        "sigla": "SAAETM-AP",
+        "entidade": "010.000.01425.4",
+        "mes": "Fevereiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_007",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "02.555.548/0001-23",
+    "cnpj_digitos": "02555548000123",
+    "cnpj_valido": true,
     "nome": "SIND EMPREG DE AGENTES AUTONOMOS DO COM GOIAS",
     "sigla": "SEAACOM",
-    "cnpj": "02.555.548/0001-23",
-    "cnpj_valido": true,
+    "entidade": "915.005.195.01124.0",
+    "municipio": "Goiânia",
     "uf": "GO",
-    "cidade": "Goiânia",
     "site": "https://seacom.org.br/",
-    "site_url": "https://seacom.org.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_007",
-    "nome": "SIND EMPREG. COM.H.TURISMO E HOSP-UBERABA",
-    "sigla": "SECOSAER",
-    "cnpj": "23.368.905/0001-14",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberaba",
-    "site": "https://www.secosaer.org.br/",
-    "site_url": "https://www.secosaer.org.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Julho",
+        "mes_numero": 7
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 11,
+        "nome": "SIND EMPREG DE AGENTES AUTONOMOS DO COM GOIAS",
+        "sigla": "SEAACOM",
+        "entidade": "915.005.195.01124.0",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 81,
+        "nome": "SIND EMPREG DE AGENTES AUTONOMOS DO COM GOIAS",
+        "sigla": "SEAACOM",
+        "entidade": "915.005.195.01124.0",
+        "mes": "Julho"
+      }
+    ],
+    "revisar": false,
     "id": "sid_008",
-    "nome": "SIND EMPREG. TURISMO E HOSP UBER -EM HORAS*Mira/Tr",
-    "sigla": "SIND EMP TUR",
-    "cnpj": "19.042.324/0001-10",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "https://sethtap.com.br/",
-    "site_url": "https://sethtap.com.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
+    "cnpj": "04.975.652/0001-00",
+    "cnpj_digitos": "04975652000100",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS EMPREG NO COMERCIO SERV ESTADO PARA",
+    "sigla": "SEC PA",
+    "entidade": "912.005.202.06544.7",
+    "municipio": "Belém",
+    "uf": "PA",
+    "site": "http://secpara.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 33,
+        "nome": "SINDICATO DOS EMPREG NO COMERCIO SERV ESTADO PARA",
+        "sigla": "SEC PA",
+        "entidade": "912.005.202.06544.7",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
     "id": "sid_009",
-    "nome": "SIND PUBLIC E TRAB AGENCIA DE PROPAGANDA",
-    "sigla": "SIND PUBLIC E TRAB A",
-    "cnpj": "20.991.758/0001-46",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
-    "id": "sid_010",
-    "nome": "SIND TRAB ESTAC,LAV,GUARD,MANOB E OPER AUT MG",
-    "sigla": "SINTRALAMAC",
-    "cnpj": "42.788.109/0001-85",
+    "cnpj": "02.889.400/0001-25",
+    "cnpj_digitos": "02889400000125",
     "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "https://sintralamacmg.com/",
-    "site_url": "https://sintralamacmg.com/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_011",
-    "nome": "SIND TRAB IND CONSTRUCAO CIVIL E DO MOBI UDIA (MAR",
-    "sigla": "SINTICOMTAP (MARCEN)",
-    "cnpj": "25.649.294/0001-08",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "https://www.sinticom-tap.com.br/",
-    "site_url": "https://www.sinticom-tap.com.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_012",
-    "nome": "SIND TRABALHADORES RURAIS DE PATOS MINAS",
-    "sigla": "SINDRPATOS",
-    "cnpj": "21.242.318/0001-59",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Patos de Minas",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_013",
-    "nome": "SIND. EMPREG. EM EMPRESAS DE PROCESS.DAD",
-    "sigla": "SINDADOS-MG",
-    "cnpj": "19.715.739/0001-08",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "https://sindados-mg.org.br/",
-    "site_url": "https://sindados-mg.org.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_014",
-    "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE UBERABA",
-    "sigla": "SINDICATO DOS EMPREG",
-    "cnpj": "25.449.208/0001-13",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberaba",
-    "site": "https://www.sindcomerciariosuberaba.org.br/",
-    "site_url": "https://www.sindcomerciariosuberaba.org.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_015",
-    "nome": "SINDICATO DOS TRAB RURAIS DE QUIRINOPOLIS",
-    "sigla": "SIND TRAB RUR QUIRIN",
-    "cnpj": "01.466.762/0001-40",
-    "cnpj_valido": true,
-    "uf": "GO",
-    "cidade": "Quirinópolis",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_016",
-    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE BU",
-    "sigla": "SINDICATO DOS TRABAL",
-    "cnpj": "21.355.805/0001-28",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Buritizeiro",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_017",
-    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UBERLANDIA",
-    "sigla": "STRUBERLANDIA",
-    "cnpj": "06.698.786/0001-49",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "https://www.facebook.com/SindicatoTRU/",
-    "site_url": "https://www.facebook.com/SindicatoTRU/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_018",
-    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UBERABA",
-    "sigla": "SINDICATO DOS TRABAL",
-    "cnpj": "17.778.382/0001-81",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "UBERABA",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_019",
-    "nome": "SINDICATO TRAB IND. VESTUARIO DE UBERLANDIA",
-    "sigla": "SINDICATO TRAB IND V",
-    "cnpj": "22.222.020/0001-40",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_020",
-    "nome": "SINDICATO TRABALHADORES RURAIS DE MONTE",
-    "sigla": "SINDICATO TRABALHADO",
-    "cnpj": "19.355.189/0001-63",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Monte Alegre de Minas",
-    "site": "https://sttrmontealegre.com.br/",
-    "site_url": "https://sttrmontealegre.com.br/",
-    "mes_database": "Janeiro",
-    "mes_database_numero": 1,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_021",
-    "nome": "SIND EMPRE ESTAB SERV SAUDE",
-    "sigla": "SEESS",
-    "cnpj": "23.099.179/0001-81",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Contagem",
-    "site": "https://www.seess.com.br/",
-    "site_url": "https://www.seess.com.br/",
-    "mes_database": "Fevereiro",
-    "mes_database_numero": 2,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_022",
-    "nome": "SIND DOS EMPREG ENTIDADES CULT RECREATIVAS MG",
-    "sigla": "Sind Entid Recreativas",
-    "cnpj": "00.786.960/0001-29",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "",
-    "site_url": null,
-    "mes_database": "Março",
-    "mes_database_numero": 3,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_023",
-    "nome": "SIND EMPREG DE CLUBES ESPORTIVOS E EM FEDER ACADEM",
-    "sigla": "SINDESPORTE",
-    "cnpj": "62.654.496/0001-74",
-    "cnpj_valido": true,
-    "uf": "SP",
-    "cidade": "São Paulo",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Março",
-    "mes_database_numero": 3,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_024",
     "nome": "SIND INTERM EMPREGADOS COM.HOTELEIRO ESTADO GOIAS",
     "sigla": "SECHSEG",
-    "cnpj": "02.889.400/0001-25",
-    "cnpj_valido": true,
+    "entidade": "000.000.00000.0",
+    "municipio": "Goiânia",
     "uf": "GO",
-    "cidade": "Goiânia",
     "site": "https://sechseg.com.br/",
-    "site_url": "https://sechseg.com.br/",
-    "mes_database": "Março",
-    "mes_database_numero": 3,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "data_bases": [
+      {
+        "mes": "Março",
+        "mes_numero": 3
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 54,
+        "nome": "SIND INTERM EMPREGADOS COM.HOTELEIRO ESTADO GOIAS",
+        "sigla": "SECHSEG",
+        "entidade": "000.000.00000.0",
+        "mes": "Março"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_010",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
-    "id": "sid_025",
-    "nome": "SIND TRAB IND FABRIC ALCOOL, PLAST,COSMET UBERABA",
-    "sigla": "SIND UB",
-    "cnpj": "20.052.817/0001-10",
+    "cnpj": "21.328.661/0001-10",
+    "cnpj_digitos": "21328661000110",
     "cnpj_valido": true,
+    "nome": "SIND EMPREGADOS NO COMERCIO DE ITUIUTABA E PONTAL",
+    "sigla": "SECIPTM",
+    "entidade": "005.093.07223.7",
+    "municipio": "Ituiutaba",
     "uf": "MG",
-    "cidade": "Uberaba",
-    "site": "https://stiquifar.com.br/",
-    "site_url": "https://stiquifar.com.br/",
-    "mes_database": "Março",
-    "mes_database_numero": 3,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "site": "https://www.seciptm.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 16,
+        "nome": "SIND EMPREGADOS NO COMERCIO DE ITUIUTABA E PONTAL",
+        "sigla": "SECIPTM",
+        "entidade": "005.093.07223.7",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 25,
+        "nome": "SIND.DOS EMPREG.NO COMERCIO DE ITUIUTABA",
+        "sigla": "SIND.DOS EMPREG.NO C",
+        "entidade": "005.093.07223.7",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_011",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
-    "id": "sid_026",
-    "nome": "SIND TRAB NAS INDS METALUR MEC E DE MAT ELET DE UB",
-    "sigla": "STIMMMEUA",
-    "cnpj": "25.649.302/0001-16",
+    "cnpj": "23.368.905/0001-14",
+    "cnpj_digitos": "23368905000114",
     "cnpj_valido": true,
+    "nome": "SIND EMPREG. COM.H.TURISMO E HOSP-UBERABA",
+    "sigla": "SECOSAER",
+    "entidade": "912.020.000.03487.0",
+    "municipio": "Uberaba",
     "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "https://metaludiaraguari.com.br/",
-    "site_url": "https://metaludiaraguari.com.br/",
-    "mes_database": "Abril",
-    "mes_database_numero": 4,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "site": "https://www.secosaer.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 13,
+        "nome": "SIND EMPREG. COM.H.TURISMO E HOSP-UBERABA",
+        "sigla": "SECOSAER",
+        "entidade": "912.020.000.03487.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_012",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
-    "id": "sid_027",
-    "nome": "SIND DOS CONTABILISTAS DE BELO HORIZONTE-MG",
-    "sigla": "SINDCONT",
-    "cnpj": "17.219.403/0001-29",
+    "cnpj": "04.542.619/0001-89",
+    "cnpj_digitos": "04542619000189",
     "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "https://scbh.com.br/",
-    "site_url": "https://scbh.com.br/",
-    "mes_database": "Maio",
-    "mes_database_numero": 5,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE SANTAREM",
+    "sigla": "SECS",
+    "entidade": "460.000.100.58015.1",
+    "municipio": "Santarém",
+    "uf": "PA",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Março",
+        "mes_numero": 3
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 58,
+        "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE SANTAREM",
+        "sigla": "SECS",
+        "entidade": "460.000.100.58015.1",
+        "mes": "Março"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_013",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   },
   {
-    "id": "sid_028",
-    "nome": "SIND DOS TRAB EM EMPRESAS DE ASSES PESQ",
-    "sigla": "SINTAPPI",
-    "cnpj": "23.199.862/0001-90",
+    "cnpj": "25.649.153/0001-95",
+    "cnpj_digitos": "25649153000195",
     "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "https://sintappimg.org.br/",
-    "site_url": "https://sintappimg.org.br/",
-    "mes_database": "Maio",
-    "mes_database_numero": 5,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_029",
-    "nome": "SIND DOS TRABALHADORES EM TRANSPORTE ROD",
-    "sigla": "SIND DOS",
-    "cnpj": "23.367.709/0001-25",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberaba",
-    "site": "https://www.sttrur.com.br/",
-    "site_url": "https://www.sttrur.com.br/",
-    "mes_database": "Maio",
-    "mes_database_numero": 5,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_030",
-    "nome": "SIND EMPREGADOS BARES,RESTAU,SIMILARES SALVADOR BA",
-    "sigla": "SINDBARES",
-    "cnpj": "27.358.200/0001-77",
-    "cnpj_valido": true,
-    "uf": "BA",
-    "cidade": "Salvador",
-    "site": "https://sindbaresbahia.com.br/",
-    "site_url": "https://sindbaresbahia.com.br/",
-    "mes_database": "Maio",
-    "mes_database_numero": 5,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_031",
-    "nome": "SIND. DOS TRAB NA IND. CONST. CIVIL E MOB GOIANIA",
-    "sigla": "SINDUSCOM-GO",
-    "cnpj": "01.640.911/0001-46",
-    "cnpj_valido": true,
-    "uf": "GO",
-    "cidade": "Goiânia",
-    "site": "https://www.sintracomgoiania.com.br/",
-    "site_url": "https://www.sintracomgoiania.com.br/",
-    "mes_database": "Maio",
-    "mes_database_numero": 5,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_032",
-    "nome": "SIND TABEL ESCREV AUX FUNC DE CART DE REG DE IMOV",
-    "sigla": "SINDSEAC",
-    "cnpj": "07.632.728/0001-85",
-    "cnpj_valido": true,
-    "uf": "GO",
-    "cidade": "Goiânia",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Junho",
-    "mes_database_numero": 6,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_033",
-    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE ARAGUARI",
-    "sigla": "SINDICATO DOS TRABAL",
-    "cnpj": "19.452.630/0001-25",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Araguari",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Junho",
-    "mes_database_numero": 6,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_034",
-    "nome": "SIND TRAB RESTAURANTES, BARES, CAMPINAS SP",
-    "sigla": "SINHORES",
-    "cnpj": "46.106.746/0001-85",
-    "cnpj_valido": true,
-    "uf": "SP",
-    "cidade": "Campinas",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Julho",
-    "mes_database_numero": 7,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_035",
-    "nome": "SINDELOT- SIND. EMPREGADOS LOTERICOS, JO",
-    "sigla": "SINDELOT",
-    "cnpj": "01.480.281/0001-90",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "https://www.sindelotmg.com.br/",
-    "site_url": "https://www.sindelotmg.com.br/",
-    "mes_database": "Julho",
-    "mes_database_numero": 7,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_036",
-    "nome": "SIND DAS EMPRESAS DE SERV CONTABEIS PERNAMBUCO-PE",
-    "sigla": "SESCAP/PE",
-    "cnpj": "41.227.034/0001-09",
-    "cnpj_valido": true,
-    "uf": "PE",
-    "cidade": "Recife",
-    "site": "http://sescappe.org.br/",
-    "site_url": "http://sescappe.org.br/",
-    "mes_database": "Agosto",
-    "mes_database_numero": 8,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_037",
-    "nome": "SENALBA- SIND.DOS EMPREG.ENT.CULT.RECR.A",
-    "sigla": "SENALBA- SIND.DOS EM",
-    "cnpj": "17.450.529/0001-00",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "Não localizado",
-    "site_url": null,
-    "mes_database": "Setembro",
-    "mes_database_numero": 9,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_038",
-    "nome": "SIND.TRAB.IND DE ALIMENTACAO E AFINS DE",
-    "sigla": "STIAU",
-    "cnpj": "25.634.452/0001-56",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Uberlândia",
-    "site": "https://www.stiau.org.br/",
-    "site_url": "https://www.stiau.org.br/",
-    "mes_database": "Setembro",
-    "mes_database_numero": 9,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_039",
-    "nome": "SIND DOS EMPREG.EM EMPRESAS DISTR PROD SIDER MG",
-    "sigla": "SEEDSIDER-MG",
-    "cnpj": "02.826.581/0001-40",
-    "cnpj_valido": true,
-    "uf": "MG",
-    "cidade": "Belo Horizonte",
-    "site": "https://seedsider.org.br/",
-    "site_url": "https://seedsider.org.br/",
-    "mes_database": "Novembro",
-    "mes_database_numero": 11,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
-  },
-  {
-    "id": "sid_040",
     "nome": "SINDICATO DOS EMPREG NO COM DE UBERLANDIA/ARAQUARI",
     "sigla": "SECUA",
-    "cnpj": "25.649.153/0001-95",
-    "cnpj_valido": true,
+    "entidade": "005.093.07232.6",
+    "municipio": "Uberlândia",
     "uf": "MG",
-    "cidade": "Uberlândia",
     "site": "https://www.secua.com.br/",
-    "site_url": "https://www.secua.com.br/",
-    "mes_database": "Dezembro",
-    "mes_database_numero": 12,
-    "status": "Ativo",
-    "importado_em": "2026-07-22"
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Dezembro",
+        "mes_numero": 12
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 31,
+        "nome": "SINDICATO DOS EMPREG NO COM DE UBERLANDIA/ARAQUARI",
+        "sigla": "SECUA",
+        "entidade": "005.093.07232.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 32,
+        "nome": "SINDICATO DOS EMPREG NO COM DE UBERLANDIA/Ad Hs",
+        "sigla": "SECUA",
+        "entidade": "005.093.07232.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 107,
+        "nome": "SINDICATO DOS EMPREG NO COM DE UBERLANDIA/ARAQUARI",
+        "sigla": "SECUA",
+        "entidade": "005.093.07232.6",
+        "mes": "Dezembro"
+      },
+      {
+        "linha": 108,
+        "nome": "SINDICATO DOS EMPREG NO COM DE UBERLANDIA/Ad Hs",
+        "sigla": "SECUA",
+        "entidade": "005.093.07232.6",
+        "mes": "Dezembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_014",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "02.826.581/0001-40",
+    "cnpj_digitos": "02826581000140",
+    "cnpj_valido": true,
+    "nome": "SIND DOS EMPREG.EM EMPRESAS DISTR PROD SIDER MG",
+    "sigla": "SEEDSIDER-MG",
+    "entidade": "011.091.97148.4",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://seedsider.org.br/",
+    "data_bases": [
+      {
+        "mes": "Novembro",
+        "mes_numero": 11
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 101,
+        "nome": "SIND DOS EMPREG.EM EMPRESAS DISTR PROD SIDER MG",
+        "sigla": "SEEDSIDER-MG",
+        "entidade": "011.091.97148.4",
+        "mes": "Novembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_015",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "23.099.179/0001-81",
+    "cnpj_digitos": "23099179000181",
+    "cnpj_valido": true,
+    "nome": "SIND EMPRE ESTAB SERV SAUDE",
+    "sigla": "SEESS",
+    "entidade": "021.230.87359.9",
+    "municipio": "Contagem",
+    "uf": "MG",
+    "site": "https://www.seess.com.br/",
+    "data_bases": [
+      {
+        "mes": "Fevereiro",
+        "mes_numero": 2
+      },
+      {
+        "mes": "Outubro",
+        "mes_numero": 10
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 48,
+        "nome": "SIND EMPRE ESTAB SERV SAUDE",
+        "sigla": "SEESS",
+        "entidade": "021.230.87359.9",
+        "mes": "Fevereiro"
+      },
+      {
+        "linha": 49,
+        "nome": "SIND EMPRE ESTAB SERV SAUDE - EM HORAS",
+        "sigla": "SIND EMPR SAUDE",
+        "entidade": "021.230.87359.9",
+        "mes": "Fevereiro"
+      },
+      {
+        "linha": 96,
+        "nome": "SIND EMPRE ESTAB SERV SAUDE",
+        "sigla": "SEESS",
+        "entidade": "021.230.87359.9",
+        "mes": "Outubro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_016",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "17.450.529/0001-00",
+    "cnpj_digitos": "17450529000100",
+    "cnpj_valido": true,
+    "nome": "SENALBA- SIND.DOS EMPREG.ENT.CULT.RECR.A",
+    "sigla": "SENALBA- SIND.DOS EM",
+    "entidade": "010.097.07283.1",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Setembro",
+        "mes_numero": 9
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 7,
+        "nome": "SENALBA- SIND.DOS EMPREG.ENT.CULT.RECR.A",
+        "sigla": "SENALBA- SIND.DOS EM",
+        "entidade": "010.097.07283.1",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 89,
+        "nome": "SENALBA- SIND.DOS EMPREG.ENT.CULT.RECR.A",
+        "sigla": "SENALBA- SIND.DOS EM",
+        "entidade": "010.097.07283.1",
+        "mes": "Setembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_017",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "41.227.034/0001-09",
+    "cnpj_digitos": "41227034000109",
+    "cnpj_valido": true,
+    "nome": "SIND DAS EMPRESAS DE SERV CONTABEIS PERNAMBUCO-PE",
+    "sigla": "SESCAP/PE",
+    "entidade": "000.000.00000.0",
+    "municipio": "Recife",
+    "uf": "PE",
+    "site": "http://sescappe.org.br/",
+    "data_bases": [
+      {
+        "mes": "Agosto",
+        "mes_numero": 8
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 85,
+        "nome": "SIND DAS EMPRESAS DE SERV CONTABEIS PERNAMBUCO-PE",
+        "sigla": "SESCAP/PE",
+        "entidade": "000.000.00000.0",
+        "mes": "Agosto"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_018",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "80.291.206/0001-57",
+    "cnpj_digitos": "80291206000157",
+    "cnpj_valido": true,
+    "nome": "SIND EMPREGADOS HOTEIS,REST,BARES E SIMIL MARINGÁ",
+    "sigla": "SETHAP",
+    "entidade": "020.232.03034.9",
+    "municipio": "Maringá",
+    "uf": "PR",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 70,
+        "nome": "SIND EMPREGADOS HOTEIS,REST,BARES E SIMIL MARINGÁ",
+        "sigla": "SETHAP",
+        "entidade": "020.232.03034.9",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_019",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "23.367.709/0001-25",
+    "cnpj_digitos": "23367709000125",
+    "cnpj_valido": true,
+    "nome": "SIND DOS TRABALHADORES EM TRANSPORTE ROD",
+    "sigla": "SIND DOS",
+    "entidade": "008.095.03488.4",
+    "municipio": "Uberaba",
+    "uf": "MG",
+    "site": "https://www.sttrur.com.br/",
+    "data_bases": [
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 64,
+        "nome": "SIND DOS TRABALHADORES EM TRANSPORTE ROD",
+        "sigla": "SIND DOS",
+        "entidade": "008.095.03488.4",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_020",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "00.786.960/0001-29",
+    "cnpj_digitos": "00786960000129",
+    "cnpj_valido": true,
+    "nome": "SIND DOS EMPR. ENTIDADES CULT RECREAT NO",
+    "sigla": "SIND DOS EMPR. ENTID",
+    "entidade": "010.097.05470.1",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://sindecmg.com.br/",
+    "data_bases": [
+      {
+        "mes": "Março",
+        "mes_numero": 3
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 52,
+        "nome": "SIND DOS EMPR. ENTIDADES CULT RECREAT NO",
+        "sigla": "SIND DOS EMPR. ENTID",
+        "entidade": "010.097.05470.1",
+        "mes": "Março"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_021",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "19.042.324/0001-10",
+    "cnpj_digitos": "19042324000110",
+    "cnpj_valido": true,
+    "nome": "SIND EMPREG. TURISMO E HOSP UBER -EM HORAS*Mira/Tr",
+    "sigla": "SIND EMP TUR",
+    "entidade": "020.409.01302.6",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": "https://sethtap.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      },
+      {
+        "mes": "Julho",
+        "mes_numero": 7
+      },
+      {
+        "mes": "Outubro",
+        "mes_numero": 10
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 14,
+        "nome": "SIND EMPREG. TURISMO E HOSP UBER -EM HORAS*Mira/Tr",
+        "sigla": "SIND EMP TUR",
+        "entidade": "020.409.01302.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 15,
+        "nome": "SIND EMPREG.TURISMO E HOSP UBER - ACAI 01/2023",
+        "sigla": "SIND EMP TUR",
+        "entidade": "020.409.01302.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 24,
+        "nome": "SIND.DOS EMPREG EM TUR E HOSP DE UDI (INST BELEZA)",
+        "sigla": "SIND EMPR TUR E HOSP",
+        "entidade": "020.409.01302.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 28,
+        "nome": "SINDEMPREG TURISMO E HOSPITALIDAD-DESATIVADO !!",
+        "sigla": "SETHAP",
+        "entidade": "020.409.01302.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 30,
+        "nome": "SINDICATO DOS EMPREG EM TURISMO E HOSP/Ad Hs",
+        "sigla": "SETHAP",
+        "entidade": "020.409.01302.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 34,
+        "nome": "SINDICATO DOS EMPREGADOS EM TUR E HOSPITALIDADE- H",
+        "sigla": "SETHAP",
+        "entidade": "020.409.01302.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 65,
+        "nome": "SIND EMP TURISMO E HOSPITAL UBER- CONDOMINIO072022",
+        "sigla": "SIND EMPREG. TURISMO",
+        "entidade": "020.409.01302.6",
+        "mes": "Maio"
+      },
+      {
+        "linha": 66,
+        "nome": "SIND EMPREG. TURISMO E HOSPITAL. DE UBER ( CONDOM)",
+        "sigla": "SIND EMPREG. TURISMO",
+        "entidade": "020.409.01302.6",
+        "mes": "Maio"
+      },
+      {
+        "linha": 67,
+        "nome": "SIND EMPREG. TURISMO E HOSPITAL. DE UBER - Multi %",
+        "sigla": "SIND EMPREG. TURISMO",
+        "entidade": "020.409.01302.6",
+        "mes": "Maio"
+      },
+      {
+        "linha": 68,
+        "nome": "SIND EMPREG. TURISMO E HOSPITAL. DE UBER -EM HORAS",
+        "sigla": "SIND EMPREG. TURISMO",
+        "entidade": "020.409.01302.6",
+        "mes": "Maio"
+      },
+      {
+        "linha": 83,
+        "nome": "SIND.DOS EMPREG EM TUR E HOSP DE UDI (INST BELEZA)",
+        "sigla": "SIND EMPR TUR E HOSP",
+        "entidade": "020.409.01302.6",
+        "mes": "Julho"
+      },
+      {
+        "linha": 98,
+        "nome": "SIND.DOS EMPREG EM TUR E HOSP DE UDI (INST BELEZA)",
+        "sigla": "SIND EMPR TUR E HOSP",
+        "entidade": "020.409.01302.6",
+        "mes": "Outubro"
+      }
+    ],
+    "revisar": true,
+    "id": "sid_022",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "02.249.018/0001-57",
+    "cnpj_digitos": "02249018000157",
+    "cnpj_valido": true,
+    "nome": "SIND DOS NOTARIOS E REGISTRADORES DO EST GOIAS",
+    "sigla": "SIND NOTARIOS REG GO",
+    "entidade": "000.000.000.00000.0",
+    "municipio": "Goiânia",
+    "uf": "GO",
+    "site": "https://sinoreggoias.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Junho",
+        "mes_numero": 6
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 8,
+        "nome": "SIND DOS NOTARIOS E REGISTRADORES DO EST GOIAS",
+        "sigla": "SIND NOTARIOS REG GO",
+        "entidade": "000.000.000.00000.0",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 78,
+        "nome": "SIND DOS NOTARIOS E REGISTRADORES DO EST GOIAS",
+        "sigla": "SIND NOTARIOS REG GO",
+        "entidade": "000.000.000.00000.0",
+        "mes": "Junho"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_023",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "20.991.758/0001-46",
+    "cnpj_digitos": "20991758000146",
+    "cnpj_valido": true,
+    "nome": "SIND PUBLIC E TRAB AGENCIA DE PROPAGANDA",
+    "sigla": "SIND PUBLIC E TRAB A",
+    "entidade": "009.210.01136.3",
+    "municipio": null,
+    "uf": null,
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Setembro",
+        "mes_numero": 9
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 17,
+        "nome": "SIND PUBLIC E TRAB AGENCIA DE PROPAGANDA",
+        "sigla": "SIND PUBLIC E TRAB A",
+        "entidade": "009.210.01136.3",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 90,
+        "nome": "SIND PUBLIC E TRAB AGENCIA DE PROPAGANDA",
+        "sigla": "SIND PUBLIC E TRAB A",
+        "entidade": "009.210.01136.3",
+        "mes": "Setembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_024",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "21.288.683/0001-02",
+    "cnpj_digitos": "21288683000102",
+    "cnpj_valido": true,
+    "nome": "Sindicato dos Trabalhadores Rurais de Monte Carmel",
+    "sigla": "SIND RURAL MTE CARME",
+    "entidade": "000.000.00000.0",
+    "municipio": "Monte Carmelo",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 47,
+        "nome": "Sindicato dos Trabalhadores Rurais de Monte Carmel",
+        "sigla": "SIND RURAL MTE CARME",
+        "entidade": "000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_025",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "38.736.377/0001-86",
+    "cnpj_digitos": "38736377000186",
+    "cnpj_valido": true,
+    "nome": "SIND DOS TRAB NAS IND. CONST PESADA MG",
+    "sigla": "SIND TRAB CONS PESAD",
+    "entidade": "004.362.03849.6",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://siticopmg.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Novembro",
+        "mes_numero": 11
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 9,
+        "nome": "SIND DOS TRAB NAS IND. CONST PESADA MG",
+        "sigla": "SIND TRAB CONS PESAD",
+        "entidade": "004.362.03849.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 102,
+        "nome": "SIND DOS TRAB NAS IND. CONST PESADA MG",
+        "sigla": "SIND TRAB CONS PESAD",
+        "entidade": "004.362.03849.6",
+        "mes": "Novembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_026",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "22.234.660/0001-70",
+    "cnpj_digitos": "22234660000170",
+    "cnpj_valido": true,
+    "nome": "SIND TRAB CONST CIVIL E MOB DO PRATA",
+    "sigla": "SIND TRAB CONST PRAT",
+    "entidade": null,
+    "municipio": "Prata",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Novembro",
+        "mes_numero": 11
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 103,
+        "nome": "SIND TRAB CONST CIVIL E MOB DO PRATA",
+        "sigla": "SIND TRAB CONST PRAT",
+        "entidade": null,
+        "mes": "Novembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_027",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "01.466.762/0001-40",
+    "cnpj_digitos": "01466762000140",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS TRAB RURAIS DE QUIRINOPOLIS",
+    "sigla": "SIND TRAB RUR QUIRIN",
+    "entidade": "000.000.00000.0",
+    "municipio": "Quirinópolis",
+    "uf": "GO",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 37,
+        "nome": "SINDICATO DOS TRAB RURAIS DE QUIRINOPOLIS",
+        "sigla": "SIND TRAB RUR QUIRIN",
+        "entidade": "000.000.00000.0",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 75,
+        "nome": "SINDICATO DOS TRAB RURAIS DE QUIRINOPOLIS",
+        "sigla": "SIND TRAB RUR QUIRIN",
+        "entidade": "000.000.00000.0",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_028",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "22.231.898/0001-41",
+    "cnpj_digitos": "22231898000141",
+    "cnpj_valido": true,
+    "nome": "SIND. DOS TRAB INDS GRAFICAS, JORNAIS E",
+    "sigla": "SIND. DOS TRAB INDS",
+    "entidade": "028.149.89770.7",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "http://graficosmg.org.br/",
+    "data_bases": [
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 73,
+        "nome": "SIND. DOS TRAB INDS GRAFICAS, JORNAIS E",
+        "sigla": "SIND. DOS TRAB INDS",
+        "entidade": "028.149.89770.7",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_029",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "19.715.739/0001-08",
+    "cnpj_digitos": "19715739000108",
+    "cnpj_valido": true,
+    "nome": "SIND. EMPREG. EM EMPRESAS DE PROCESS.DAD",
+    "sigla": "SINDADOS-MG",
+    "entidade": "005.436.01967.2",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://sindados-mg.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Setembro",
+        "mes_numero": 9
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 22,
+        "nome": "SIND. EMPREG. EM EMPRESAS DE PROCESS.DAD",
+        "sigla": "SINDADOS-MG",
+        "entidade": "005.436.01967.2",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 91,
+        "nome": "SIND. EMPREG. EM EMPRESAS DE PROCESS.DAD",
+        "sigla": "SINDADOS-MG",
+        "entidade": "005.436.01967.2",
+        "mes": "Setembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_030",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "27.358.200/0001-77",
+    "cnpj_digitos": "27358200000177",
+    "cnpj_valido": true,
+    "nome": "SIND EMPREGADOS BARES,RESTAU,SIMILARES SALVADOR BA",
+    "sigla": "SINDBARES",
+    "entidade": null,
+    "municipio": "Salvador",
+    "uf": "BA",
+    "site": "https://sindbaresbahia.com.br/",
+    "data_bases": [
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 69,
+        "nome": "SIND EMPREGADOS BARES,RESTAU,SIMILARES SALVADOR BA",
+        "sigla": "SINDBARES",
+        "entidade": null,
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_031",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "17.219.403/0001-29",
+    "cnpj_digitos": "17219403000129",
+    "cnpj_valido": true,
+    "nome": "SIND DOS CONTABILISTAS DE BELO HORIZONTE-MG",
+    "sigla": "SINDCONT",
+    "entidade": "000.000.000.00000.0",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://scbh.com.br/",
+    "data_bases": [
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 61,
+        "nome": "SIND DOS CONTABILISTAS DE BELO HORIZONTE-MG",
+        "sigla": "SINDCONT",
+        "entidade": "000.000.000.00000.0",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_032",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "62.812.573/0001-77",
+    "cnpj_digitos": "62812573000177",
+    "cnpj_valido": true,
+    "nome": "SIND DO S O A C T I DE CONF ROUP E CHAP DE SENH SP",
+    "sigla": "SINDCOST",
+    "entidade": "915.101.567.02514.3",
+    "municipio": "São Paulo",
+    "uf": "SP",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Agosto",
+        "mes_numero": 8
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 86,
+        "nome": "SIND DO S O A C T I DE CONF ROUP E CHAP DE SENH SP",
+        "sigla": "SINDCOST",
+        "entidade": "915.101.567.02514.3",
+        "mes": "Agosto"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_033",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "01.480.281/0001-90",
+    "cnpj_digitos": "01480281000190",
+    "cnpj_valido": true,
+    "nome": "SINDELOT- SIND. EMPREGADOS LOTERICOS, JO",
+    "sigla": "SINDELOT",
+    "entidade": "020.409.90481.8",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://www.sindelotmg.com.br/",
+    "data_bases": [
+      {
+        "mes": "Julho",
+        "mes_numero": 7
+      },
+      {
+        "mes": "Setembro",
+        "mes_numero": 9
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 84,
+        "nome": "SINDELOT- SIND. EMPREGADOS LOTERICOS, JO",
+        "sigla": "SINDELOT",
+        "entidade": "020.409.90481.8",
+        "mes": "Julho"
+      },
+      {
+        "linha": 93,
+        "nome": "SINDELOT- SIND. EMPREGADOS LOTERICOS, JO",
+        "sigla": "SINDELOT",
+        "entidade": "020.409.90481.8",
+        "mes": "Setembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_034",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "62.654.496/0001-74",
+    "cnpj_digitos": "62654496000174",
+    "cnpj_valido": true,
+    "nome": "SIND EMPREG DE CLUBES ESPORTIVOS E EM FEDER ACADEM",
+    "sigla": "SINDESPORTE",
+    "entidade": "913.010.000.86152.0",
+    "municipio": null,
+    "uf": null,
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Março",
+        "mes_numero": 3
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 53,
+        "nome": "SIND EMPREG DE CLUBES ESPORTIVOS E EM FEDER ACADEM",
+        "sigla": "SINDESPORTE",
+        "entidade": "913.010.000.86152.0",
+        "mes": "Março"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_035",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "08.420.470/0001-16",
+    "cnpj_digitos": "08420470000116",
+    "cnpj_valido": true,
+    "nome": "SINDICATO TRAB IND DE EXTRAÇÃO VEGETAL, CARVOEJAME",
+    "sigla": "sindexmg",
+    "entidade": "004.092.97620.7",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Agosto",
+        "mes_numero": 8
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 88,
+        "nome": "SINDICATO TRAB IND DE EXTRAÇÃO VEGETAL, CARVOEJAME",
+        "sigla": "sindexmg",
+        "entidade": "004.092.97620.7",
+        "mes": "Agosto"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_036",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "22.237.986/0001-50",
+    "cnpj_digitos": "22237986000150",
+    "cnpj_valido": true,
+    "nome": "SINDICADO TRAB. NO COM. DE MIN.DER. PETR",
+    "sigla": "SINDICADO TRAB. NO C",
+    "entidade": "005.017.04466.0",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Outubro",
+        "mes_numero": 10
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 29,
+        "nome": "SINDICADO TRAB. NO COM. DE MIN.DER. PETR",
+        "sigla": "SINDICADO TRAB. NO C",
+        "entidade": "005.017.04466.0",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 99,
+        "nome": "SINDICADO TRAB. NO COM. DE MIN.DER. PETR",
+        "sigla": "SINDICADO TRAB. NO C",
+        "entidade": "005.017.04466.0",
+        "mes": "Outubro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_037",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "25.449.208/0001-13",
+    "cnpj_digitos": "25449208000113",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE UBERABA",
+    "sigla": "SINDICATO DOS EMPREG",
+    "entidade": "000.000.000.00000.1",
+    "municipio": "Uberaba",
+    "uf": "MG",
+    "site": "https://www.sindcomerciariosuberaba.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Agosto",
+        "mes_numero": 8
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 35,
+        "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE UBERABA",
+        "sigla": "SINDICATO DOS EMPREG",
+        "entidade": "000.000.000.00000.1",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 87,
+        "nome": "SINDICATO DOS EMPREGADOS NO COMERCIO DE UBERABA",
+        "sigla": "SINDICATO DOS EMPREG",
+        "entidade": "000.000.000.00000.1",
+        "mes": "Agosto"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_038",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "05.434.349/0001-55",
+    "cnpj_digitos": "05434349000155",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS TRAB. DOMESTICOS DE UBL - SINTRAD",
+    "sigla": "SINDICATO DOS TRAB.",
+    "entidade": "000.000.00000.0",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Fevereiro",
+        "mes_numero": 2
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 51,
+        "nome": "SINDICATO DOS TRAB. DOMESTICOS DE UBL - SINTRAD",
+        "sigla": "SINDICATO DOS TRAB.",
+        "entidade": "000.000.00000.0",
+        "mes": "Fevereiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_039",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "21.355.805/0001-28",
+    "cnpj_digitos": "21355805000128",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE BU",
+    "sigla": "SINDICATO DOS TRABAL",
+    "entidade": "000.000.000.00000.0",
+    "municipio": "Buritizeiro",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 39,
+        "nome": "SINDICATO DOS TRABALHADORES RURAIS DE BU",
+        "sigla": "SINDICATO DOS TRABAL",
+        "entidade": "000.000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_040",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "01.325.943/0001-57",
+    "cnpj_digitos": "01325943000157",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE CA",
+    "sigla": "SINDICATO DOS TRABAL",
+    "entidade": "000.510.00128.2",
+    "municipio": null,
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 40,
+        "nome": "SINDICATO DOS TRABALHADORES RURAIS DE CA",
+        "sigla": "SINDICATO DOS TRABAL",
+        "entidade": "000.510.00128.2",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_041",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "17.778.382/0001-81",
+    "cnpj_digitos": "17778382000181",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB",
+    "sigla": "SINDICATO DOS TRABAL",
+    "entidade": "000.000.00313.1",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 42,
+        "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB",
+        "sigla": "SINDICATO DOS TRABAL",
+        "entidade": "000.000.00313.1",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 76,
+        "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB",
+        "sigla": "SINDICATO DOS TRABAL",
+        "entidade": "000.000.00313.1",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_042",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "19.452.630/0001-25",
+    "cnpj_digitos": "19452630000125",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE ARAGUARI",
+    "sigla": "SINDICATO DOS TRABAL",
+    "entidade": "000.000.00000.0",
+    "municipio": "Araguari",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Junho",
+        "mes_numero": 6
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 80,
+        "nome": "SINDICATO DOS TRABALHADORES RURAIS DE ARAGUARI",
+        "sigla": "SINDICATO DOS TRABAL",
+        "entidade": "000.000.00000.0",
+        "mes": "Junho"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_043",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "22.222.020/0001-40",
+    "cnpj_digitos": "22222020000140",
+    "cnpj_valido": true,
+    "nome": "SINDICATO TRAB IND. VESTUARIO DE UBERLANDIA",
+    "sigla": "SINDICATO TRAB IND V",
+    "entidade": "004.096.02736.6",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Outubro",
+        "mes_numero": 10
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 43,
+        "nome": "SINDICATO TRAB IND. VESTUARIO DE UBERLANDIA",
+        "sigla": "SINDICATO TRAB IND V",
+        "entidade": "004.096.02736.6",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 100,
+        "nome": "SINDICATO TRAB IND. VESTUARIO DE UBERLANDIA",
+        "sigla": "SINDICATO TRAB IND V",
+        "entidade": "004.096.02736.6",
+        "mes": "Outubro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_044",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "19.355.189/0001-63",
+    "cnpj_digitos": "19355189000163",
+    "cnpj_valido": true,
+    "nome": "SINDICATO TRABALHADORES RURAIS DE MONTE",
+    "sigla": "SINDICATO TRABALHADO",
+    "entidade": "000.000.00000.0",
+    "municipio": "Monte Alegre de Minas",
+    "uf": "MG",
+    "site": "https://sttrmontealegre.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 44,
+        "nome": "SINDICATO TRABALHADORES RURAIS DE MONTE",
+        "sigla": "SINDICATO TRABALHADO",
+        "entidade": "000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_045",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "50.981.489/0001-06",
+    "cnpj_digitos": "50981489000106",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS COMERCIARIOS DE SAO PAULO",
+    "sigla": "SINDICOMERCIO",
+    "entidade": "460.000.100.58015.1",
+    "municipio": "Jundiaí",
+    "uf": "SP",
+    "site": "https://comerciario.org.br/",
+    "data_bases": [
+      {
+        "mes": "Setembro",
+        "mes_numero": 9
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 94,
+        "nome": "SINDICATO DOS COMERCIARIOS DE SAO PAULO",
+        "sigla": "SINDICOMERCIO",
+        "entidade": "460.000.100.58015.1",
+        "mes": "Setembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_046",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "21.242.318/0001-59",
+    "cnpj_digitos": "21242318000159",
+    "cnpj_valido": true,
+    "nome": "SIND TRABALHADORES RURAIS DE PATOS MINAS",
+    "sigla": "SINDRPATOS",
+    "entidade": "000.000.00000.0",
+    "municipio": "Patos de Minas",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 20,
+        "nome": "SIND TRABALHADORES RURAIS DE PATOS MINAS",
+        "sigla": "SINDRPATOS",
+        "entidade": "000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_047",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "07.632.728/0001-85",
+    "cnpj_digitos": "07632728000185",
+    "cnpj_valido": true,
+    "nome": "SIND TABEL ESCREV AUX FUNC DE CART DE REG DE IMOV",
+    "sigla": "SINDSEAC",
+    "entidade": "915.000.000.97209.0",
+    "municipio": "Goiânia",
+    "uf": "GO",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Junho",
+        "mes_numero": 6
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 79,
+        "nome": "SIND TABEL ESCREV AUX FUNC DE CART DE REG DE IMOV",
+        "sigla": "SINDSEAC",
+        "entidade": "915.000.000.97209.0",
+        "mes": "Junho"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_048",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "21.288.931/0001-07",
+    "cnpj_digitos": "21288931000107",
+    "cnpj_valido": true,
+    "nome": "SIND DOS TRAB. EM TRANSP. ROD UBERLANDIA- CCT",
+    "sigla": "SINDTTRANS",
+    "entidade": "008.095.01676.2",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": "https://sindttrans.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Março",
+        "mes_numero": 3
+      },
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      },
+      {
+        "mes": "Dezembro",
+        "mes_numero": 12
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 10,
+        "nome": "SIND DOS TRAB. EM TRANSP. ROD UBERLANDIA- CCT",
+        "sigla": "SINDTTRANS",
+        "entidade": "008.095.01676.2",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 38,
+        "nome": "SINDICATO DOS TRAB. TRANSPORTES ROD. UDIA X COMERC",
+        "sigla": "SINDTRANS",
+        "entidade": "008.095.01676.1",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 56,
+        "nome": "SIND TRAB. EM TRANSP. ROD UBERLANDIA - MILENIUM/A1",
+        "sigla": "SINDTTRANS",
+        "entidade": "008.095.01676.2",
+        "mes": "Março"
+      },
+      {
+        "linha": 63,
+        "nome": "SIND DOS TRAB RODOV DE UBERLANDIA X CONST CIVIL",
+        "sigla": "SIND TRAB ROD UDI",
+        "entidade": "008.095.01676.2",
+        "mes": "Maio"
+      },
+      {
+        "linha": 72,
+        "nome": "SIND TRAB. EM TRANSP. ROD UBERLANDIA - MILENIUM/A1",
+        "sigla": "SINDTTRANS",
+        "entidade": "008.095.01676.2",
+        "mes": "Maio"
+      },
+      {
+        "linha": 109,
+        "nome": "SINDICATO DOS TRAB. TRANSPORTES ROD. UDIA X COMERC",
+        "sigla": "SINDTRANS",
+        "entidade": "008.095.01676.1",
+        "mes": "Dezembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_049",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "01.640.911/0001-46",
+    "cnpj_digitos": "01640911000146",
+    "cnpj_valido": true,
+    "nome": "SIND. DOS TRAB NA IND. CONST. CIVIL E MOB GOIANIA",
+    "sigla": "SINDUSCOM-GO",
+    "entidade": "000.000.01402.4",
+    "municipio": "Goiânia",
+    "uf": "GO",
+    "site": "https://www.sintracomgoiania.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 21,
+        "nome": "SIND. DOS TRAB NA IND. CONST. CIVIL E MOB GOIANIA",
+        "sigla": "SINDUSCOM-GO",
+        "entidade": "000.000.01402.4",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 74,
+        "nome": "SIND. DOS TRAB NA IND. CONST. CIVIL E MOB GOIANIA",
+        "sigla": "SINDUSCOM-GO",
+        "entidade": "000.000.01402.4",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_050",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "16.842.429/0001-66",
+    "cnpj_digitos": "16842429000166",
+    "cnpj_valido": true,
+    "nome": "SIND.DOS FARMACEUTICOS DO ESTADO DE MINAS GERAIS",
+    "sigla": "SINFARMIG",
+    "entidade": "012.557.183.01455.9",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://sinfarmig.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Março",
+        "mes_numero": 3
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 26,
+        "nome": "SIND.DOS FARMACEUTICOS DO ESTADO DE MINAS GERAIS",
+        "sigla": "SINFARMIG",
+        "entidade": "012.557.183.01455.9",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 57,
+        "nome": "SIND.DOS FARMACEUTICOS DO ESTADO DE MINAS GERAIS",
+        "sigla": "SINFARMIG",
+        "entidade": "012.557.183.01455.9",
+        "mes": "Março"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_051",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "46.106.746/0001-85",
+    "cnpj_digitos": "46106746000185",
+    "cnpj_valido": true,
+    "nome": "SIND TRAB RESTAURANTES, BARES, CAMPINAS SP",
+    "sigla": "SINHORES",
+    "entidade": null,
+    "municipio": "Campinas",
+    "uf": "SP",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Julho",
+        "mes_numero": 7
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 82,
+        "nome": "SIND TRAB RESTAURANTES, BARES, CAMPINAS SP",
+        "sigla": "SINHORES",
+        "entidade": null,
+        "mes": "Julho"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_052",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "00.544.185/0001-03",
+    "cnpj_digitos": "00544185000103",
+    "cnpj_valido": true,
+    "nome": "SINPRAFARMA-SND.DOS PRAT.DE FARM.E DOS E",
+    "sigla": "SINPRAFARMA",
+    "entidade": "005.093.87408.2",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://www.sinprafarmamg.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Dezembro",
+        "mes_numero": 12
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 45,
+        "nome": "SINPRAFARMA-SND.DOS PRAT.DE FARM.E DOS E",
+        "sigla": "SINPRAFARMA",
+        "entidade": "005.093.87408.2",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 110,
+        "nome": "SINPRAFARMA-SND.DOS PRAT.DE FARM.E DOS E",
+        "sigla": "SINPRAFARMA",
+        "entidade": "005.093.87408.2",
+        "mes": "Dezembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_053",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "17.243.494/0001-38",
+    "cnpj_digitos": "17243494000138",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS PROFESSORES NO ESTADO DE M",
+    "sigla": "SINPROMINAS",
+    "entidade": "010.125.07279.9",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://www.sinprominas.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 36,
+        "nome": "SINDICATO DOS PROFESSORES NO ESTADO DE M",
+        "sigla": "SINPROMINAS",
+        "entidade": "010.125.07279.9",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_054",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "23.199.862/0001-90",
+    "cnpj_digitos": "23199862000190",
+    "cnpj_valido": true,
+    "nome": "SIND DOS TRAB EM EMPRESAS DE ASSES PESQ",
+    "sigla": "SINTAPPI",
+    "entidade": "005.093.02813.0",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://sintappimg.org.br/",
+    "data_bases": [
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      },
+      {
+        "mes": "Outubro",
+        "mes_numero": 10
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 62,
+        "nome": "SIND DOS TRAB EM EMPRESAS DE ASSES PESQ",
+        "sigla": "SINTAPPI",
+        "entidade": "005.093.02813.0",
+        "mes": "Maio"
+      },
+      {
+        "linha": 97,
+        "nome": "SIND TRAB EM EMPRESAS DE ASSES PESQ x SINDHART RH",
+        "sigla": "SINTAPPI X SINDHARTR",
+        "entidade": "005.093.02813.0",
+        "mes": "Outubro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_055",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "02.131.247/0001-72",
+    "cnpj_digitos": "02131247000172",
+    "cnpj_valido": true,
+    "nome": "SIND. EMPREGADOS EM INSTIT.BENEFIC.RELIG",
+    "sigla": "SINTIBREF-MINAS",
+    "entidade": "020.409.89841.9",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://sintibref-minas.org.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 23,
+        "nome": "SIND. EMPREGADOS EM INSTIT.BENEFIC.RELIG",
+        "sigla": "SINTIBREF-MINAS",
+        "entidade": "020.409.89841.9",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_056",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "25.649.294/0001-08",
+    "cnpj_digitos": "25649294000108",
+    "cnpj_valido": true,
+    "nome": "SIND TRAB IND CONSTRUCAO CIVIL E DO MOBI UDIA (MAR",
+    "sigla": "SINTICOMTAP (MARCEN)",
+    "entidade": "004.090.07135.5",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": "https://www.sinticom-tap.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Novembro",
+        "mes_numero": 11
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 19,
+        "nome": "SIND TRAB IND CONSTRUCAO CIVIL E DO MOBI UDIA (MAR",
+        "sigla": "SINTICOMTAP (MARCEN)",
+        "entidade": "004.090.07135.5",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 104,
+        "nome": "SIND TRAB IND CONSTRUCAO CIVIL E DO MOBI UDIA (MAR",
+        "sigla": "SINTICOMTAP (MARCEN)",
+        "entidade": "004.090.07135.5",
+        "mes": "Novembro"
+      },
+      {
+        "linha": 106,
+        "nome": "SINDICATO DOS TRAB NAS INDS DA CONSTRUCA",
+        "sigla": "SINTICOM-TAP",
+        "entidade": "004.090.07135.5",
+        "mes": "Novembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_057",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "42.788.109/0001-85",
+    "cnpj_digitos": "42788109000185",
+    "cnpj_valido": true,
+    "nome": "SIND TRAB ESTAC,LAV,GUARD,MANOB E OPER AUT MG",
+    "sigla": "SINTRALAMAC",
+    "entidade": "111.111.111.11111.1",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "site": "https://sintralamacmg.com/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Maio",
+        "mes_numero": 5
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 18,
+        "nome": "SIND TRAB ESTAC,LAV,GUARD,MANOB E OPER AUT MG",
+        "sigla": "SINTRALAMAC",
+        "entidade": "111.111.111.11111.1",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 71,
+        "nome": "SIND TRAB ESTAC,LAV,GUARD,MANOB E OPER AUT MG",
+        "sigla": "SINTRALAMAC",
+        "entidade": "111.111.111.11111.1",
+        "mes": "Maio"
+      },
+      {
+        "linha": 77,
+        "nome": "SINTRALAMAC - Sindicato dos Trabalhadores, Lavador",
+        "sigla": "sintralamac",
+        "entidade": "460.100.009.22200.1",
+        "mes": "Maio"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_058",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "25.634.452/0001-56",
+    "cnpj_digitos": "25634452000156",
+    "cnpj_valido": true,
+    "nome": "SIND.TRAB.IND DE ALIMENTACAO E AFINS DE",
+    "sigla": "STIAU",
+    "entidade": "001.608.80711.8",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": "https://www.stiau.org.br/",
+    "data_bases": [
+      {
+        "mes": "Setembro",
+        "mes_numero": 9
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 92,
+        "nome": "SIND.TRAB.IND DE ALIMENTACAO E AFINS DE",
+        "sigla": "STIAU",
+        "entidade": "001.608.80711.8",
+        "mes": "Setembro"
+      },
+      {
+        "linha": 95,
+        "nome": "SINDICATO DOS TRABS NAS INDS DE ALIMENTA",
+        "sigla": "STIAU",
+        "entidade": "001.608.80711.8",
+        "mes": "Setembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_059",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "25.649.302/0001-16",
+    "cnpj_digitos": "25649302000116",
+    "cnpj_valido": true,
+    "nome": "SIND TRAB NAS INDS METALUR MEC E DE MAT ELET DE UB",
+    "sigla": "STIMMMEUA",
+    "entidade": "023.374.07177.1",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": "https://metaludiaraguari.com.br/",
+    "data_bases": [
+      {
+        "mes": "Abril",
+        "mes_numero": 4
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 59,
+        "nome": "SIND TRAB NAS INDS METALUR MEC E DE MAT ELET DE UB",
+        "sigla": "STIMMMEUA",
+        "entidade": "023.374.07177.1",
+        "mes": "Abril"
+      },
+      {
+        "linha": 60,
+        "nome": "SINDICATO TRAB NAS INDS METALURGICAS MEC",
+        "sigla": "SINDICATO TRAB NAS I",
+        "entidade": "023.374.07177.1",
+        "mes": "Abril"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_060",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "20.052.817/0001-10",
+    "cnpj_digitos": "20052817000110",
+    "cnpj_valido": true,
+    "nome": "SIND.TRAB.NAS IND QUIM E FARMACEUTICAS D",
+    "sigla": "STIQUIFAR",
+    "entidade": "000.556.000.88999.4",
+    "municipio": "Uberaba",
+    "uf": "MG",
+    "site": "https://stiquifar.com.br/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      },
+      {
+        "mes": "Março",
+        "mes_numero": 3
+      },
+      {
+        "mes": "Novembro",
+        "mes_numero": 11
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 27,
+        "nome": "SIND.TRAB.NAS IND QUIM E FARMACEUTICAS D",
+        "sigla": "STIQUIFAR",
+        "entidade": "000.556.000.88999.4",
+        "mes": "Janeiro"
+      },
+      {
+        "linha": 55,
+        "nome": "SIND TRAB IND FABRIC ALCOOL, PLAST,COSMET UBERABA",
+        "sigla": "SIND UB",
+        "entidade": null,
+        "mes": "Março"
+      },
+      {
+        "linha": 105,
+        "nome": "SIND.TRAB.NAS IND QUIM E FARMACEUTICAS D",
+        "sigla": "STIQUIFAR",
+        "entidade": "000.556.000.88999.4",
+        "mes": "Novembro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_061",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "17.815.341/0001-18",
+    "cnpj_digitos": "17815341000118",
+    "cnpj_valido": true,
+    "nome": "Sindicato dos Trabalhadores Rurais de Canapoilis",
+    "sigla": "STRC",
+    "entidade": null,
+    "municipio": "Canápolis",
+    "uf": "MG",
+    "site": null,
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 46,
+        "nome": "Sindicato dos Trabalhadores Rurais de Canapoilis",
+        "sigla": "STRC",
+        "entidade": null,
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_062",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
+  },
+  {
+    "cnpj": "06.698.786/0001-49",
+    "cnpj_digitos": "06698786000149",
+    "cnpj_valido": true,
+    "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB",
+    "sigla": "STRUBERLANDIA",
+    "entidade": "000.000.00000.0",
+    "municipio": "Uberlândia",
+    "uf": "MG",
+    "site": "https://www.facebook.com/SindicatoTRU/",
+    "data_bases": [
+      {
+        "mes": "Janeiro",
+        "mes_numero": 1
+      }
+    ],
+    "variantes": [
+      {
+        "linha": 41,
+        "nome": "SINDICATO DOS TRABALHADORES RURAIS DE UB",
+        "sigla": "STRUBERLANDIA",
+        "entidade": "000.000.00000.0",
+        "mes": "Janeiro"
+      }
+    ],
+    "revisar": false,
+    "id": "sid_063",
+    "importado_em": "2026-09-17",
+    "origem_planilha": "Sindicatos_Data_Base (2).xlsx"
   }
 ]

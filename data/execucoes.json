@@ -1,0 +1,177 @@
+[
+  {
+    "data": "2026-09-17T19:05:02.338Z",
+    "estagio": "varredura-por-data",
+    "periodo": "15/09/2026 a 17/09/2026",
+    "documentos_examinados": 47,
+    "da_carteira": 0,
+    "fora_da_carteira": 47,
+    "duracao_segundos": 115,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T18:59:18.661Z",
+    "estagio": "verificar-sites",
+    "ano_procurado": 2026,
+    "sites_alvo": 39,
+    "sites_ok": 34,
+    "divergencias": 3,
+    "duracao_segundos": 123,
+    "falhas": [
+      {
+        "sigla": "FED TRAB AGRI TOCANT",
+        "site": "https://www.fetaet.org.br/",
+        "motivo": "fetch failed"
+      },
+      {
+        "sigla": "SINDICATO TRABALHADO",
+        "site": "https://sttrmontealegre.com.br/",
+        "motivo": "fetch failed"
+      },
+      {
+        "sigla": "STIAU",
+        "site": "https://www.stiau.org.br/",
+        "motivo": "fetch failed"
+      },
+      {
+        "sigla": "STIMMMEUA",
+        "site": "https://metaludiaraguari.com.br/",
+        "motivo": "HTTP 500"
+      },
+      {
+        "sigla": "STRUBERLANDIA",
+        "site": "https://www.facebook.com/SindicatoTRU/",
+        "motivo": "HTTP 400"
+      }
+    ]
+  },
+  {
+    "data": "2026-09-17T18:57:52.385Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 1,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T18:56:55.699Z",
+    "estagio": "coletar-documentos",
+    "alvo": 84,
+    "baixados": 84,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 159,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T18:48:28.745Z",
+    "estagio": "coletar-documentos",
+    "alvo": 3,
+    "baixados": 3,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 4,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T18:47:56.892Z",
+    "estagio": "coletar-documentos",
+    "alvo": 3,
+    "baixados": 0,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 50,
+    "falhas": [
+      {
+        "nr_solicitacao": "MR080056/2025",
+        "sigla": "ASSEIO E",
+        "motivo": "HTTP 403 (após 3 tentativas)"
+      },
+      {
+        "nr_solicitacao": "MR079948/2025",
+        "sigla": "ASSEIO E",
+        "motivo": "HTTP 403 (após 3 tentativas)"
+      },
+      {
+        "nr_solicitacao": "MR001141/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "HTTP 403 (após 3 tentativas)"
+      }
+    ]
+  },
+  {
+    "data": "2026-09-17T18:42:49.071Z",
+    "estagio": "busca-mediador",
+    "tipo": "convencao",
+    "vigencia": "vigentes",
+    "sindicatos_alvo": 63,
+    "sindicatos_consultados": 62,
+    "sem_cnpj_valido": 1,
+    "sem_instrumento": 32,
+    "documentos_novos": 74,
+    "documentos_total": 87,
+    "duracao_segundos": 480,
+    "falhas": [
+      {
+        "sindicato_id": "sid_002",
+        "sigla": "DOMESTICAS",
+        "motivo": "CNPJ inválido na planilha"
+      }
+    ]
+  },
+  {
+    "data": "2026-09-17T18:34:01.671Z",
+    "estagio": "busca-mediador",
+    "tipo": "convencao",
+    "vigencia": "vigentes",
+    "sindicatos_alvo": 1,
+    "sindicatos_consultados": 1,
+    "sem_cnpj_valido": 0,
+    "sem_instrumento": 0,
+    "documentos_novos": 13,
+    "documentos_total": 13,
+    "duracao_segundos": 12,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T18:18:46.407Z",
+    "estagio": "busca-mediador",
+    "vigencia": "todos",
+    "sindicatos_alvo": 1,
+    "sindicatos_consultados": 0,
+    "sem_cnpj_valido": 0,
+    "sem_instrumento": 0,
+    "documentos_novos": 0,
+    "documentos_total": 23,
+    "duracao_segundos": 20,
+    "falhas": [
+      {
+        "sindicato_id": "sid_004",
+        "sigla": "FED TRAB AGRI TOCANT",
+        "motivo": "Mediador respondeu HTTP 504 na busca de 01785997000103"
+      }
+    ]
+  },
+  {
+    "data": "2026-09-17T18:18:19.457Z",
+    "estagio": "busca-mediador",
+    "vigencia": "vigentes",
+    "sindicatos_alvo": 4,
+    "sindicatos_consultados": 2,
+    "sem_cnpj_valido": 1,
+    "sem_instrumento": 0,
+    "documentos_novos": 23,
+    "documentos_total": 23,
+    "duracao_segundos": 26,
+    "falhas": [
+      {
+        "sindicato_id": "sid_002",
+        "sigla": "DOMESTICAS",
+        "motivo": "CNPJ inválido na planilha"
+      },
+      {
+        "sindicato_id": "sid_004",
+        "sigla": "FED TRAB AGRI TOCANT",
+        "motivo": "Mediador respondeu HTTP 500 na busca de 01785997000103"
+      }
+    ]
+  }
+]

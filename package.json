@@ -1,0 +1,25 @@
+{
+  "name": "ccts-monitor",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Monitor de convencoes coletivas dos sindicatos atendidos pelo escritorio",
+  "type": "module",
+  "scripts": {
+    "importar": "node scripts/importar-planilha.js",
+    "varrer": "node scripts/varrer-por-data.js",
+    "buscar": "node scripts/buscar-mediador.js",
+    "coletar": "node scripts/coletar-documentos.js",
+    "sites": "node scripts/verificar-sites.js",
+    "verificar": "node scripts/verificar-links.js",
+    "testar": "node scripts/testar-mediador.js",
+    "diaria": "npm run varrer && npm run verificar",
+    "mensal": "npm run buscar && npm run coletar && npm run sites && npm run verificar"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "exceljs": "^4.4.0",
+    "playwright": "^1.48.0"
+  }
+}

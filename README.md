@@ -1,251 +1,84 @@
-# 📋 CCTS Monitor
+# Monitor de CCTs
 
-**Sistema de Monitoramento Automático de Convenções Coletivas de Trabalho**
+Acompanha as convenções e acordos coletivos dos sindicatos que atendem as empresas do
+escritório. Duas fontes, porque elas divergem: o **Mediador do MTE**, onde o
+instrumento é registrado, e o **site do próprio sindicato**, que às vezes publica antes
+de homologar — ou publica algo que nunca é homologado.
 
-Desenvolvido para: **Escritorial Contadores e Associados** — Uberlândia/MG
+Especificação técnica e levantamento do Mediador: [PROMPT-SISTEMA-CCT.md](PROMPT-SISTEMA-CCT.md).
 
----
+## Como está montado
 
-## 🎯 O que é
+Só a busca precisa de navegador. O reCAPTCHA v3 do MTE protege a consulta; o download
+do documento é GET puro. Essa divisão é o que torna o sistema viável.
 
-Sistema web que monitora automaticamente **63 sindicatos** em busca de novas CCTs (Convenções Coletivas de Trabalho) todos os **dias 20 do mês, às 08:00**.
+| Estágio | Script | Precisa de navegador | Quando roda |
+|---|---|---|---|
+| 1 · Buscar no Mediador | `buscar-mediador.js` | **Sim** (Playwright) | dia 20, mensal |
+| 2 · Baixar documentos | `coletar-documentos.js` | Não | depois do 1 |
+| 3 · Sites dos sindicatos | `verificar-sites.js` | Não | depois do 1 |
+| 4 · Painel | `index.html` | — | estático na Vercel |
 
-### ✨ Funcionalidades
+O estágio 1 **não roda na Vercel**: serverless não sustenta navegador para 63 consultas
+pausadas. Roda no GitHub Actions (`.github/workflows/rodada-mensal.yml`) ou na máquina
+do escritório. A Vercel serve o painel.
 
-- ✅ **Seletor de mês dinâmico** — clique e veja CCTs do período
-- ✅ **Busca automática** — todo 20/mês, 08:00
-- ✅ **Análises completas** — piso, vale-alimentação, obrigações, riscos
-- ✅ **Gerenciar sindicatos** — adicione novos sem código
-- ✅ **Log de verificação** — rastreie todas as buscas
-- ✅ **Exportar em Word** — relatórios formatados
-- ✅ **Compartilhável** — acesse de qualquer PC
-
----
-
-## 🚀 Como usar
-
-### **Passo 1: Clonar o repositório**
-
-```bash
-git clone https://github.com/brunocortez-crypto/ccts-monitor.git
-cd ccts-monitor
-```
-
-### **Passo 2: Instalar dependências**
+## Instalar
 
 ```bash
 npm install
+npx playwright install chromium
 ```
 
-### **Passo 3: Executar localmente**
+## Usar
 
 ```bash
-npm start
+npm run importar     # planilha .xlsx -> data/sindicatos.json
+npm run buscar       # estágio 1: Convenções Coletivas vigentes dos 63 CNPJs
+npm run coletar      # estágio 2: baixa os documentos e extrai as cláusulas
+npm run sites        # estágio 3: varre os sites dos sindicatos
+npm run verificar    # confere se todo link aponta para documento de verdade
 ```
 
-Abre automaticamente em: http://localhost:3000
+Ou a rodada inteira: `npm run rodada`
 
-### **Passo 4: Deploy no GitHub Pages**
+Durante o desenvolvimento, atalhos úteis:
 
 ```bash
-npm run deploy
+node scripts/testar-mediador.js              # 1 consulta, confere o aceite (FECCOEMG = 17)
+node scripts/buscar-mediador.js --limite 5   # amostra rápida
+node scripts/buscar-mediador.js --sigla SECUA
+node scripts/buscar-mediador.js --visivel    # abre a janela, para depurar
+node scripts/verificar-links.js --url https://ccts-monitor.vercel.app
 ```
 
-App fica disponível em: **https://brunocortez-crypto.github.io/ccts-monitor**
+## Dados
 
----
+Tudo versionado no repositório, em `data/`:
 
-## 📊 Estrutura de Arquivos
+| Arquivo | O que guarda |
+|---|---|
+| `sindicatos.json` | 63 sindicatos, cada um com **lista** de data-bases |
+| `documentos.json` | instrumentos do MTE, chaveados por `nr_solicitacao` |
+| `execucoes.json` | cada rodada, com o que falhou e por quê |
+| `divergencias.json` | site publicou e o MTE não registrou |
+| `sites.json` | o que foi encontrado em cada site |
 
-```
-ccts-monitor/
-├── public/
-│   └── index.html              # HTML principal
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx         # Cabeçalho
-│   │   ├── MesSeletor.jsx     # Seletor de mês
-│   │   ├── DashboardCCTs.jsx  # Dashboard principal
-│   │   ├── Configuracoes.jsx  # Gerenciar sindicatos
-│   │   └── LogVerificacao.jsx # Log de buscas
-│   ├── data/
-│   │   ├── sindicatos.json    # 63 sindicatos
-│   │   ├── ccts-2026.json     # Histórico de CCTs
-│   │   └── verificacoes.json  # Log de verificações
-│   ├── App.jsx               # Componente principal
-│   ├── App.css               # Estilos
-│   └── index.jsx             # Entry point
-├── scripts/
-│   └── buscar-ccts.js         # Bot de busca automática
-├── .github/
-│   └── workflows/
-│       └── busca-mensal.yml   # GitHub Actions
-├── package.json
-├── README.md
-└── .gitignore
-```
+Os arquivos baixados ficam em `docs/MTE/`.
 
----
+## Três coisas que este sistema existe para não repetir
 
-## 🤖 Como funciona a busca automática
+**Um sindicato tem N data-bases, não uma.** A planilha veio do relatório "Relação
+Sindical pela Data-Base", onde o sindicato aparece uma vez por data-base. 23 dos 63 têm
+mais de uma; o SINDTTRANS tem quatro. Agrupar por CNPJ guardando só a primeira linha faz
+o alerta dos outros meses nunca disparar — em silêncio.
 
-### **Agendamento**
+**HTTP 500 no Mediador quer dizer "sem resultado".** Aceitar isso direto seria
+perigoso: uma queda real do MTE viraria "nenhum sindicato tem convenção", e o painel
+ficaria verde mentindo. Por isso existe o canário — ao receber 500, o sistema consulta
+um CNPJ que sabidamente tem resultado antes de concluir qualquer coisa.
 
-- **Dia**: 20 de cada mês
-- **Hora**: 08:00 (UTC-3 Brasília = 05:00 AM)
-- **Frequência**: Mensal
-- **Local**: GitHub Actions (automático)
-
-### **O que faz**
-
-1. Verifica todos os 63 sindicatos monitorados
-2. Busca por novas CCTs e aditivos
-3. Detecta mudanças (piso, benefícios, obrigações)
-4. Atualiza JSONs automaticamente
-5. Faz commit no repositório
-6. Dashboard se atualiza sozinho
-
-### **Sem fazer nada**
-
-O DP só abre o dashboard e vê tudo atualizado!
-
----
-
-## 📝 Adicionar novo sindicato
-
-1. Abra o app
-2. Vá em **⚙️ Configurações**
-3. Clique **➕ Novo Sindicato**
-4. Preencha:
-   - Nome completo
-   - CNPJ
-   - Data-base (ex: 15/01)
-   - Categoria
-5. Clique **Salvar**
-
-Próxima busca automática incluirá este sindicato!
-
----
-
-## 🔄 Mudar data da busca automática
-
-Para mudar dia/hora, edite este arquivo:
-
-`.github/workflows/busca-mensal.yml`
-
-Linha:
-```yaml
-- cron: '0 8 20 * *'
-         ↑ ↑ ↑
-         │ │ └─ dia (20)
-         │ └──── hora (8 = 08:00)
-         └────── minuto (0)
-```
-
-**Exemplos:**
-- `0 8 10 * *` — dia 10, 08:00
-- `0 6 1 * *` — dia 1º, 06:00
-- `0 8 1,15 * *` — dias 1º E 15
-
-Depois faça `git push` e pronto!
-
----
-
-## 📊 Dados iniciais
-
-Vem carregado com:
-- ✅ 5 sindicatos de exemplo
-- ✅ 2 CCTs de exemplo (2026)
-- ✅ 1 verificação de exemplo
-
-Carregue seus dados:
-
-1. Edite `src/data/sindicatos.json` (adicione seus 63)
-2. Edite `src/data/ccts-2026.json` (adicione CCTs reais)
-3. `git push`
-
----
-
-## 💾 Backup & Exportar
-
-### **Exportar dados**
-
-1. Abra DevTools (F12)
-2. Console → copie:
-```javascript
-localStorage.getItem('sindicatos')
-localStorage.getItem('ccts')
-```
-
-3. Cole em um arquivo `.json` para backup
-
-### **Importar dados**
-
-1. Edite `src/data/sindicatos.json`
-2. Adicione seus dados
-3. `git push`
-
----
-
-## 🐛 Troubleshooting
-
-### Erro: `npm: command not found`
-- Instale Node.js: https://nodejs.org/
-
-### Erro: `git: command not found`
-- Instale Git: https://git-scm.com/download/win
-
-### App não atualiza
-- Limpe cache: Ctrl+Shift+Delete
-- Ou abra em aba anônima
-
-### Busca automática não rodou
-- Verifique: **Actions** no GitHub
-- Veja logs da execução
-
----
-
-## 📧 Email automático (opcional)
-
-Para receber email quando novas CCTs forem encontradas:
-
-1. Configure SendGrid: https://sendgrid.com/ (100 emails/dia grátis)
-2. Adicione credenciais em `.env`:
-```
-SENDGRID_API_KEY=sua_chave
-EMAIL_NOTIFICACAO=seu_email@empresa.com
-```
-3. Edite `scripts/buscar-ccts.js` para enviar email
-
----
-
-## 🚀 Próximos passos
-
-- [ ] Integrar API Claude para análise automática de PDFs
-- [ ] Enviar email com relatório quando encontrar novas CCTs
-- [ ] Bot Telegram para notificações
-- [ ] Dashboard com gráficos de reajustes
-- [ ] Comparativo histórico (YoY)
-- [ ] Alertas de prazos críticos
-
----
-
-## 📞 Suporte
-
-Problemas? Dúvidas?
-
-- Revise este README
-- Verifique a aba **Issues** no GitHub
-- Abra uma nova Issue: https://github.com/brunocortez-crypto/ccts-monitor/issues
-
----
-
-## 📄 Licença
-
-Privado — Uso exclusivo Escritorial Contadores e Associados
-
----
-
-**Versão**: 1.0.0  
-**Última atualização**: Julho 2026  
-**Status**: ✅ Pronto para produção
+**Link quebrado tem que dar erro.** A versão anterior tinha 123 links apontando para
+uma pasta que não existia; a Vercel respondia com o próprio painel e HTTP 200, e quem
+clicava baixava a página achando que era a CCT. `npm run verificar` falha se qualquer
+link responder `text/html`.

@@ -1,0 +1,89 @@
+[
+  {
+    "sindicato_id": "sid_018",
+    "sigla": "SESCAP/PE",
+    "tipo": "no-site-sem-registro-no-mte",
+    "descricao": "site cita 2026 mas o Mediador não tem instrumento vigente alcançando 2026",
+    "documentos_no_mte": 0,
+    "links": [
+      {
+        "url": "http://sescappe.org.br/encerradas-as-negociacoes-da-cct-2025-2026/",
+        "rotulo": "Encerradas as negociações da CCT 2025/2026 entre o Sescap-PE e o Sindicon-PE",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "http://sescappe.org.br/convencao-coletiva-de-trabalho-2025-2026-ja-esta-disponivel/",
+        "rotulo": "Convenção Coletiva de Trabalho 2025/2026",
+        "e_arquivo": false,
+        "menciona_ano": true
+      }
+    ],
+    "detectado_em": "2026-09-17",
+    "conferido": false
+  },
+  {
+    "sindicato_id": "sid_029",
+    "sigla": "SIND. DOS TRAB INDS",
+    "tipo": "no-site-sem-registro-no-mte",
+    "descricao": "site cita 2026 mas o Mediador não tem instrumento vigente alcançando 2026",
+    "documentos_no_mte": 0,
+    "links": [
+      {
+        "url": "https://graficosmg.org.br/site/campanha_salarial-2026-2027/",
+        "rotulo": "Assembléia Geral – Campanha Salarial 2026/2027",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://graficosmg.org.br/site/campanha-salarial-2026-2027/",
+        "rotulo": "CAMPANHA SALARIAL 2026/2027",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://graficosmg.org.br/site/assembleia-geral-2/",
+        "rotulo": "Assembléia Geral – Campanha Salarial 2026",
+        "e_arquivo": false,
+        "menciona_ano": true
+      }
+    ],
+    "detectado_em": "2026-09-17",
+    "conferido": false
+  },
+  {
+    "sindicato_id": "sid_032",
+    "sigla": "SINDCONT",
+    "tipo": "no-site-sem-registro-no-mte",
+    "descricao": "site cita 2026 mas o Mediador não tem instrumento vigente alcançando 2026",
+    "documentos_no_mte": 0,
+    "links": [
+      {
+        "url": "https://scbh.com.br/2026/07/31/cct-2026-2027-e-assinada-e-ja-esta-disponivel-para-a-categoria-empregados-em-escritorios-contabilidade/",
+        "rotulo": "CCT 2026/2027 é assinada e já está disponível para a categoria Empregados em Escritórios Contabilidade",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://scbh.com.br/2026/07/31/cct-2026-2027-e-assinada-e-ja-esta-disponivel-para-a-categoria-empregados-em-escritorios-contabilidade/#respond",
+        "rotulo": "No Comments",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://scbh.com.br/2026/06/18/categoria-rejeita-proposta-patronal-e-scbh-segue-em-negociacao-para-a-cct-2026-2027/",
+        "rotulo": "Categoria Rejeita Proposta Patronal e SCBH Segue em Negociação para a CCT 2026/2027",
+        "e_arquivo": false,
+        "menciona_ano": true
+      },
+      {
+        "url": "https://scbh.com.br/2026/06/18/categoria-rejeita-proposta-patronal-e-scbh-segue-em-negociacao-para-a-cct-2026-2027/#respond",
+        "rotulo": "No Comments",
+        "e_arquivo": false,
+        "menciona_ano": true
+      }
+    ],
+    "detectado_em": "2026-09-17",
+    "conferido": false
+  }
+]

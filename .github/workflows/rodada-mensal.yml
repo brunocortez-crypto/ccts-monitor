@@ -1,0 +1,94 @@
+name: Rodada mensal - Mediador MTE
+
+# Estágio 1 (busca) precisa de navegador real por causa do reCAPTCHA v3, então roda
+# aqui no Actions com Playwright — NÃO na Vercel, que é serverless e não sustenta
+# navegador para 63 consultas pausadas. A Vercel só serve o painel estático.
+#
+# São 63 consultas por mês, serializadas, com pausa entre elas. Volume baixo e
+# educado com um serviço público.
+
+on:
+  schedule:
+    # Dia 20, 08:00 UTC = 05:00 em Brasília
+    - cron: '0 8 20 * *'
+  workflow_dispatch:
+    inputs:
+      vigencia:
+        description: 'vigentes | todos | nao-vigentes'
+        required: false
+        default: 'vigentes'
+
+permissions:
+  contents: write
+
+concurrency:
+  # Mesmo grupo da varredura diária: nunca duas rodadas mexendo em data/ ao mesmo
+  # tempo, senão uma sobrescreve o resultado da outra no push.
+  group: rodada-mediador
+  cancel-in-progress: false
+
+jobs:
+  rodada:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm ci || npm install
+
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Estágio 1 — buscar no Mediador
+        id: buscar
+        continue-on-error: true
+        run: node scripts/buscar-mediador.js --vigencia "${{ inputs.vigencia || 'vigentes' }}"
+
+      - name: Estágio 2 — baixar documentos
+        id: coletar
+        continue-on-error: true
+        run: node scripts/coletar-documentos.js
+
+      - name: Estágio 3 — sites dos sindicatos
+        id: sites
+        continue-on-error: true
+        run: node scripts/verificar-sites.js
+
+      - name: Conferir os links dos documentos
+        id: links
+        run: node scripts/verificar-links.js
+
+      - name: Commit dos resultados
+        run: |
+          git config user.name "CCTS Bot"
+          git config user.email "ccts-bot@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A data docs
+            git commit -m "Rodada automática: $(date '+%d/%m/%Y %H:%M')"
+            git push
+          else
+            echo "Nada mudou nesta rodada."
+          fi
+
+      # Um estágio que falhou não pode passar por rodada concluída. O commit acima
+      # roda de qualquer jeito para não perder o que deu certo, mas o job falha
+      # para que a aba Actions mostre vermelho e alguém olhe.
+      - name: Falhar se algum estágio falhou
+        if: |
+          steps.buscar.outcome == 'failure' ||
+          steps.coletar.outcome == 'failure' ||
+          steps.sites.outcome == 'failure'
+        run: |
+          echo "Estágios com falha:"
+          echo "  buscar ..: ${{ steps.buscar.outcome }}"
+          echo "  coletar .: ${{ steps.coletar.outcome }}"
+          echo "  sites ...: ${{ steps.sites.outcome }}"
+          echo ""
+          echo "Detalhes em data/execucoes.json e na aba Execuções do painel."
+          exit 1

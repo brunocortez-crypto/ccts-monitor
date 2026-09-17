@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "painel",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8145"],
+      "port": 8145
+    }
+  ]
+}

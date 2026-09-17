@@ -1,0 +1,1318 @@
+
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <title>
+        Mediador - Extrato Conven&#231;&#227;o Coletiva
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G"></script>
+
+    <script src='/sistemas/mediador/WebResource.axd?d=GgiiCHsexKYwW6VTVsG4rjPHfW189LGFvYjsgkJTXrpEvbU2zmRYfISARhgE7sA8TxoZX30lnXJJLI22ydsRJ1Gjw5RrxvMyx29HB7poBWNrhg0Cac6TOCbZBGx3rYntImJMtUYNne-lNdUPnlQgLJWN8CBdkR02xdc9Ur5qQH5f5edOUIyoLs7H0K9CVtJP0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=k5vpJpCswu4z1UZ5RnaTzQxbyC1p8BgCBBoqez5mzog9vLYaTet-Vhprt7zJ06tVHXpFLx8xZWPt0hF6aE0KWQrVlO-KhH45CNNQeNR9lRSXHh0PajwY3E8ThF0Li52HxTYG31LsnEu_knAggZ04H51H3Dr9R2FVvisr7T8YRXcKE1sIDxNzR_qgWuc_AeEIUpcafRghbbh5nhFuIneb2Q2&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=mMUPOHUdMHrct4_EFaFO5VI2OCkbrm00FAzsCS5wYwmiLquxA-nbuUMyJHYU37m4-TF4Eiaf9dcjnZ6AuGU0MkJuSLVjvw_phsTCbfczFV9Gm8D1mcvq0bSDXD_n0LXRTAdt7eGWrFx9y8BeF1AoeaX3RjDgqUxXeHsv6V9KuvqtpqMEykeRFJunlcjG0zDP0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=5zkt0AYE3mjczKObPdFrO79hkkoZATLWLCqQS85mAPO-4QWhwjAMG_65zTrJmr8Aa1BM7YLBAJd-gjNAj-gwd3O9oorzy3LAorntMquLSVIu51fxH9REKFb3WOvTgl7cxd08a_gbSkeLuVEH4txfWTw3f3d0OjjEskrCIt-C09XY_Utr6kWuLpqNdz8-WeNi0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=i3cUYFbIHidExeIfZJcuDOeUQNokXaOD-ghqL_FEsxwK201M_fFoHB-R-RyZTCQMfRPok6BWctfZzEA-bCaspWpn6ypP5TYf-_8U3TAPxGAjvQ-CMdYRSxtm6IURHsnm1uiTPTQSaFTohNXCfE5sF2DE1UyT_vNCac94SvDfxEtwy2BGDC7DiD7LedAkBqOa0&t=639193666532168144' type='text/javascript'></script>
+<script src='/sistemas/mediador/WebResource.axd?d=bQwZBSEKfcXoOfphRZAlJDsYolij_YiYFF6P6sqSKVEz4RPpflLS0JY2Mwu74HdtsMhwob4_oT8AJhd8MvZYb6EYglflqkOSeP26xBWRkXLhbajlkpksA2m89yZ9mRGBDg49tpIFEIfwYaseldPhe2aPr64MPREm3lnfSEedsv4YAr-FKgrfNrf12GMWGFCv0&t=639193666532168144' type='text/javascript'></script>
+
+
+<script type="text/javascript">
+        var recaptchaSiteKey = '6LdPnewrAAAAADM60VqWAyvhreJD6Jpyr1tORg6G';
+        var pageLoadToken = '';
+        var isPageValidated = false;
+
+        function onRecaptchaLoad() {
+            console.log('reCAPTCHA carregado, validando página...');
+            executePageLoadRecaptcha();
+        }
+
+        function executePageLoadRecaptcha() {
+            if (typeof grecaptcha === 'undefined') {
+                console.error('reCAPTCHA não carregado');
+                return;
+            }
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute(recaptchaSiteKey, {
+                    action: 'page_load_resumo'
+                }).then(function(token) {
+                    console.log('Token de página gerado');
+                    pageLoadToken = token;
+
+                    // Enviar o token para o servidor
+                    validatePageLoadToken(token);
+                }).catch(function(error) {
+                    console.error('Erro no reCAPTCHA de página:', error);
+                    // Em desenvolvimento, permitir continuar
+                });
+            });
+        }
+
+        function validatePageLoadToken(token) {
+            var currentUrl = window.location.href;
+            var queryString = window.location.search;
+            var nrSolicitacao = 'MR045268/2026';
+
+            $.ajax({
+                url: '/sistemas/mediador/Resumo/ValidateResumoPageLoad',
+                type: 'POST',
+                data: {
+                    recaptchaToken: token,
+                    currentUrl: currentUrl,
+                    queryString: queryString,
+                    nrSolicitacao: nrSolicitacao
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log('Página validada com sucesso');
+                        isPageValidated = true;
+                        showPageContent();
+                    } else {
+                        console.warn('Validação de página falhou:', response.message);
+                        handleValidationFailed(response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erro ao validar página:', error);
+                    handleValidationFailed({ message: 'Erro de comunicação com o servidor' });
+                }
+            });
+        }
+
+        function showPageContent() {
+            // Remover overlay de loading se existir
+            $('#recaptcha-loading').remove();
+            console.log('Conteúdo da página liberado');
+        }
+
+        function handleValidationFailed(response) {
+            // Mostrar mensagem de erro
+            var errorHtml = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                    <div style="text-align: center; padding: 20px;">
+                        <h2 style="color: #d32f2f;">Validação de Segurança</h2>
+                        <p style="font-size: 16px; margin: 20px 0;">${response.message || 'Falha na validação de segurança.'}</p>
+                        <button onclick="window.location.reload()" style="padding: 10px 20px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Tentar Novamente
+                        </button>
+                        <br><br>
+                        <button onclick="window.location.href='/sistemas/mediador/'" style="padding: 8px 16px; background: #757575; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Voltar para Página Inicial
+                        </button>
+                    </div>
+                </div>
+            `;
+            $('body').prepend(errorHtml);
+        }
+
+        $(document).ready(function() {
+            console.log('Página carregada - ambiente de produção');
+
+            // Pular validação reCAPTCHA em produção
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.log('Produção - validando sem reCAPTCHA');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 1000);
+
+            // Timeout de segurança reduzido
+            setTimeout(function() {
+                if (!isPageValidated) {
+                    console.warn('Timeout na validação - liberando conteúdo');
+                    isPageValidated = true;
+                    showPageContent();
+                }
+            }, 5000); // Reduzido para 5 segundos
+        });
+
+        function Imprimir() {
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "none";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "none";
+            window.print();
+            document.getElementById("btnResumoVisualizarImprimir").style.display = "";
+            document.getElementById("btnResumoVisualizarSalvar").style.display = "";
+            return true;
+        }
+        $(function () {
+            var marcaDaguaHtml = $('.MarcaDagua').html();
+            var width = $('body').width();
+            var marcaW = $('.MarcaDagua').width();
+
+            var qtdNescessarios = Math.round((width / marcaW) + 0.4);
+            if (qtdNescessarios > 0)
+                for (var incrementador = 0; incrementador < qtdNescessarios; incrementador++) {
+                    $('.MarcaDagua').append("<br />");
+                    $('.MarcaDagua').append(marcaDaguaHtml);
+                }
+        });
+
+
+</script>
+    <style type="text/css">
+        .titulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .Subtitulo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        .texto
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .tituloClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .descricaoClausula
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .textogrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .textosubgrupo
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .textonome
+        {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .textofuncao
+        {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .pagebreak
+        {
+            page-break-after: always;
+        }
+        table.titulo
+        {
+            text-align: left;
+        }
+        @page Section2 {size:21cm 29.7cm ;mso-page-orientation:portrait;margin-top:2cm; margin-rigth:2cm; mso-paper-source:0;}
+        div.Section2 {page:Section2;}
+        pre
+        {
+            white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            white-space: normal;
+        }
+    </style>
+    <!--[if gte mso 9]>
+    <xml>
+    <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+    </xml>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="Section2">
+
+        <center>
+            <table border="0" style="width: 18cm;" id="tblConteudo">
+                <tr>
+                    <td>
+                        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+
+                                                            <tr>
+                                    <td align="center" class="titulo" style="text-transform: uppercase;">
+                                        <b>
+                                            Conven&#231;&#227;o Coletiva De Trabalho 2026/2027
+                                        </b>
+                                        <br />
+                                        <br />
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    <div style="text-align: left;">
+                                        <table border="0" class="titulo" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+                                                        <b>NÚMERO DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        MG002709/2026
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DE REGISTRO NO MTE:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        31/07/2026
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>NÚMERO DA SOLICITAÇÃO:</b>
+                                                </td>
+                                                <td style="width: 10px">
+                                                </td>
+                                                <td>
+                                                    MR045268/2026
+                                                </td>
+                                            </tr>
+                                                                                            <tr>
+                                                    <td>
+                                                        <b>NÚMERO DO PROCESSO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+                                                        13621.211817/2026-93
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>DATA DO PROTOCOLO:</b>
+                                                    </td>
+                                                    <td style="width: 10px">
+                                                    </td>
+                                                    <td>
+22/07/2026                                                    </td>
+                                                </tr>
+                                        </table>
+                                        <br />
+
+                                                        <p>
+                                                            <label class="texto">
+                                                                <b>
+                                                                    Confira a autenticidade no endereço http://mediador.trabalho.gov.br/sistemas/mediador/.
+                                                                </b>
+                                                            </label>
+                                                        </p>
+                                                    <br />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="texto">
+                                    <p align="justify">
+FEDERACAO NACIONAL DE CULTURA FENAC, CNPJ n. 37.138.096/0001-69, neste ato representado(a) por seu 
+
+Presidente, Sr(a). JOSE ALMERO MOTA;
+    <br />
+&nbsp;
+    <br />
+                                        <label>
+                                            E
+                                        </label>
+                                        <br />
+                                        <br />
+SINDICATO DOS EMPREGADOS EM ENTIDADES DE ASSISTENCIA SOCIAL, DE ORIENTACAO E FORMACAO PROFISSIONAL NO ESTADO DE MINAS GERAIS - SENALBA-MG, CNPJ n. 17.450.529/0001-00, neste ato representado(a) por seu 
+
+Membro de Diretoria Colegiada, Sr(a). SERGIO OLIVEIRA SANTOS;
+    <br />
+&nbsp;
+    <br />
+                                                                                    celebram
+                                                                                    a
+                                         presente CONVEN&#199;&#195;O COLETIVA DE TRABALHO,
+ estipulando as condi&#231;&#245;es de trabalho previstas nas cl&#225;usulas seguintes:                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA PRIMEIRA - VIG&#202;NCIA E DATA-BASE
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    As partes fixam a vigência da presente Convenção Coletiva de Trabalho no período de 01º de maio de 2026 a 30 de abril de 2027 e a data-base da categoria em 01º de maio.
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        CL&#193;USULA SEGUNDA - ABRANG&#202;NCIA
+                                                        <br />
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula">
+                                                    A presente Convenção Coletiva de Trabalho abrangerá a(s) categoria(s) <b>                                           Profissional dos Empregados em Entidades Culturais, Recreativas de Assistência Social, de Orientação e Formação Profissional Integrante do 2º Grupo de Trabalhadores em Empresas de Difusão Cultural e Artística do Plano da CNTD e Categoria Econômica das Entidades compreendidas nos 2, 3, e 4 Grupos do Plano da Confederação Nacional de Educação e Cultura,                                  </b>, com abrangência territorial em <b>MG</b>.
+                                                </label>
+                                                <br />
+                                    </p>
+
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Salários, Reajustes e Pagamento
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Piso Salarial
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TERCEIRA - PISOS SALARIAIS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Ficam assegurados, para contrata&ccedil;&atilde;o inicial dos empregados das APAEs - ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS, os sal&aacute;rios nunca inferiores as condi&ccedil;&otilde;es abaixo discriminadas em Reais (RS) e j&aacute; reajustadas:&nbsp;</p>
+<p style="text-align: justify;">a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>FUN&Ccedil;&Atilde;O B&Aacute;SICA</strong>: Vigia ou Rondante, Porteiro, Cantineiro, Zelador, Auxiliar de Servi&ccedil;os Gerais, Mensageiro -&nbsp;<strong>R$ 1.621,07 (mil seiscentos e vinte e um reais e sete centavos);</strong></p>
+<p style="text-align: justify;">b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>FUN&Ccedil;&Atilde;O M&Eacute;DIA:</strong></p>
+<p style="text-align: justify;">b.1) Monitores, Auxiliar de Classe, Auxiliar de Secretaria, Auxiliar Administrativo, Cuidador Social, Educador Social, Operador de Telemarketing, M&atilde;e Social - &nbsp;&nbsp;<strong>R$ 1.635,00 (mil seiscentos e trinta e cinco reais);</strong></p>
+<p style="text-align: justify;">b.2) Instrutor, Secret&aacute;ria-&nbsp;<strong>R$&nbsp;1.701,16&nbsp; (mil setecentos e um reais e dezesseis centavos);</strong></p>
+<p style="text-align: justify;"><strong>c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><strong>FUN&Ccedil;&Atilde;O T&Eacute;CNICA</strong>: Auxiliares de Dentista, T&eacute;cnico em Contabilidade, Motorista&nbsp;&nbsp;<strong>R$ 1.983,82 (mil novecentos e oitenta e tr&ecirc;s reais e oitenta e dois centavos);</strong></p>
+<p style="text-align: justify;"><strong>d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><strong>FUN&Ccedil;&Atilde;O SUPERIOR</strong>:</p>
+<p style="text-align: justify;">d.1) M&eacute;dicos, Psic&oacute;logos, Pedagogos, Fisioterapeutas, Terapeutas Ocupacionais, Fonoaudi&oacute;logos, Instrutores com forma&ccedil;&atilde;o superior, Advogados, Administrador, Dentista -&nbsp;<strong>R$&nbsp;2,975,71 (dois mil, novecentos e setenta e cinco reais e setenta e um centavos).</strong>&nbsp;Este piso ser&aacute; aplicado para uma jornada de 44 horas semanais respeitando-se a carga hor&aacute;ria do profissional regulamentado em lei.</p>
+<p style="text-align: justify;">d.2) O reajuste desses profissionais da sa&uacute;de est&aacute; previsto na Lei 14.434/2022, ficando estabelecido o pagamento de <strong>R$ 5.143,00</strong> para enfermeiros, de <strong>R$ 3.600,00</strong> para t&eacute;cnicos de enfermagem, e de <strong>R$ 2.571,5</strong>2 para auxiliar de enfermagem. Estes pisos ser&atilde;o aplicados para uma jornada de 44 horas semanais respeitando-se a carga hor&aacute;ria do profissional regulamentado em lei.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo &Uacute;nico</strong>: Nos valores mencionados neste artigo, letras &ldquo;a&rdquo;, &ldquo;b, &ldquo;c&rdquo; e &ldquo;d&rdquo; j&aacute; est&aacute; incluso o repouso semanal remunerado.&nbsp;</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUARTA - VARIA&#199;&#195;O E CORRE&#199;&#195;O AUTOM&#193;TICA DE PISOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Para as al&iacute;neas (a) e (b) da cl&aacute;usula terceira, haver&aacute; um reajuste corrigido conforme &iacute;ndice aplicado ao sal&aacute;rio m&iacute;nimo de Janeiro/2027.&nbsp;</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Reajustes/Correções Salariais
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUINTA - REAJUSTE SALARIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">O reajuste salarial para os Empregados das APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS,&nbsp;ser&aacute; de <strong>4,11%</strong> (quatro v&iacute;rgula onze por cento), a ser aplicado sobre os sal&aacute;rios de maio de 2025 a serem pagos a partir de 1&ordm; de maio de 2026.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo &Uacute;nico</strong>&nbsp;- As diferen&ccedil;as salariais e os reflexos sobre as verbas rescis&oacute;rias, FGTS e INSS, advindos da aplica&ccedil;&atilde;o da presente Conven&ccedil;&atilde;o Coletiva de Trabalho dever&atilde;o ser pagos em Folha de Pagamento ou Rescis&atilde;o Complementar, no prazo m&aacute;ximo de 30 (trinta) dias contados da assinatura deste instrumento.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Pagamento de Salário – Formas e Prazos
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA SEXTA - CONTRA CHEQUE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As&nbsp;APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;obrigam-se a fornecer aos seus empregados ,comprovante de pagamento (contracheque) em que conste, al&eacute;m dos cr&eacute;ditos e descontos mensais, sua carga de horas mensais, o valor do sal&aacute;rio-hora e o valor a ser creditado na conta vinculada do FGTS.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras normas referentes a salários, reajustes, pagamentos e critérios para cálculo
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA S&#201;TIMA - SAL&#193;RIO SUBSTITUI&#199;&#195;O
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Na substitui&ccedil;&atilde;o que n&atilde;o tenha car&aacute;ter eventual, inclusive nas f&eacute;rias, ser&aacute; garantido ao empregado substituto, igual sal&aacute;rio base percebido pelo substitu&iacute;do nos termos da s&uacute;mula 159 do TST.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Gratificações, Adicionais, Auxílios e Outros
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Adicional de Hora-Extra
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA OITAVA - HORAS EXTRAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As&nbsp;APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;remunerar&atilde;o as 02 (duas) primeiras horas extras de segunda-feira a s&aacute;bado com acr&eacute;scimo de 50% (cinq&uuml;enta por cento), sendo &agrave;s demais horas-extras, bem como as realizadas nos domingos ou feriados, remunerada com adicional de 100% (cem por cento).</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Adicional Noturno
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA NONA - ADICIONAL NOTURNO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A remunera&ccedil;&atilde;o do trabalho noturno ser&aacute; acrescida do adicional de 30% (trinta por cento), para fins do art. 73 da CLT.&nbsp; &nbsp;&nbsp;</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Adicional de Insalubridade
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA - ADICIONAL DE INSALUBRIDADE/PERICULOSIDADE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Caso seja constatada por M&eacute;dico do Trabalho ou pela SRT, a insalubridade ou periculosidade no local de trabalho, o empregador pagar&aacute; de imediato o percentual definido no laudo, sobre o sal&aacute;rio m&iacute;nimo.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outros Adicionais
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA PRIMEIRA - DIFERENCIAL DE CHEFIA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Os empregados que exercem fun&ccedil;&otilde;es de chefia far&atilde;o jus a um percentual de 10% (dez por cento) que os diferencie dos subordinados.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Auxílio Creche
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA SEGUNDA - AUX&#205;LIO CRECHE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As&nbsp;APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;reembolsar&atilde;o, mensalmente, em &nbsp;<strong>R$ 126,10 (cento e vinte e seis reais e dez centavos)</strong>&nbsp;para cada filho em creche, at&eacute; que completem 6 (seis) anos de idade, mediante apresenta&ccedil;&atilde;o de comprovante de pagamento.&nbsp;</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outros Auxílios
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA TERCEIRA - PLANO DE SA&#218;DE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Os trabalhadores associados ao SENALBA-MG far&atilde;o jus a usufruir do conv&ecirc;nio firmado pelo sindicato com Cl&iacute;nicas M&eacute;dicas, podendo usufruir de at&eacute; 02 (duas) consultas m&eacute;dicas ao m&ecirc;s, n&atilde;o cumulativas.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo &Uacute;nico</strong>&nbsp;&ndash; No caso de haver Plano M&eacute;dico corporativo, patrocinado pela empregadora, o SENALBA-MG reembolsar&aacute; para os seus associados, quando houver participa&ccedil;&atilde;o financeira dos mesmos, at&eacute; 02 (duas) consultas mensais, limitado tal valor a R$ 25,00 (vinte e cinco reais) por consulta.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA QUARTA - REPOSI&#199;&#195;O DOS DESGASTES DAS MOTOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Para efeito de reposi&ccedil;&atilde;o dos desgastes sofridos pelas motos, a entidade empregadora proceder&aacute; da seguinte forma:</p>
+<p style="text-align: justify;">a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Conceder&aacute; 18 l. (dezoito litros) de &Oacute;leo lubrificante por ano;</p>
+<p style="text-align: justify;">&nbsp;b)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Conceder&aacute; 05(cinco) pneus por ano, mediante necessidade de troca;</p>
+<p style="text-align: justify;">&nbsp;c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Conceder&aacute; 60 l. (sessenta litros) de combust&iacute;vel mensalmente para cada mensageiro para realiza&ccedil;&atilde;o da rota dentro das cidades de arrecada&ccedil;&atilde;o.</p>
+<p style="text-align: justify;">&nbsp;d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A entidade empregadora pagar&aacute; uma ajuda de custo ou aluguel do ve&iacute;culo ao mensageiro em crit&eacute;rios a serem definidos pela pr&oacute;pria entidade.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo &Uacute;nico:</strong>&nbsp;A reposi&ccedil;&atilde;o dos desgastes das motos n&atilde;o integra o sal&aacute;rio ou remunera&ccedil;&atilde;o do empregado para qualquer efeito, n&atilde;o incidindo tributos ou contribui&ccedil;&otilde;es de qualquer natureza.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA QUINTA - REEMBOLSO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A APAE&nbsp;-&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;reembolsar&aacute; os seus funcion&aacute;rios das despesas autorizadas, que comprovadamente fizerem para o desempenho de suas atribui&ccedil;&otilde;es.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Contrato de Trabalho – Admissão, Demissão, Modalidades
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Desligamento/Demissão
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA SEXTA - CARTA DE REFER&#202;NCIA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A&nbsp;APAE -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;fornecer&aacute; no ato da homologa&ccedil;&atilde;o, ao empregado dispensado sem motivo justificado, uma carta de refer&ecirc;ncia, desde que solicitada previamente.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras normas referentes a admissão, demissão e modalidades de contratação
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA S&#201;TIMA - RECRUTAMENTO INTERNO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Assegurar prioridade de recrutamento interno no provimento de novas vagas</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Relações de Trabalho – Condições de Trabalho, Normas de Pessoal e Estabilidades
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Estabilidade Acidentados/Portadores Doença Profissional
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA OITAVA - GARANTIA DO EMPREGO AO ACIDENTADO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">O empregado que sofrer acidente no trabalho tem garantia, pelo prazo de 12 (doze) meses, ao seu contrato de trabalho, ap&oacute;s a cessa&ccedil;&atilde;o do aux&iacute;lio-doen&ccedil;a acident&aacute;rio.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Estabilidade Aposentadoria
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA D&#201;CIMA NONA - GARANTIA DA APOSENTADORIA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica assegurado a estabilidade provis&oacute;ria de 12 (doze) meses imediatamente anteriores a aquisi&ccedil;&atilde;o do direito a qualquer tipo de aposentadoria, para os empregados que mantiverem o contrato de trabalho com a mesma entidade/empresa pelo prazo m&iacute;nimo de&nbsp;05 (cinco) anos ininterruptos,&nbsp;ficando o empregado respons&aacute;vel pela comunica&ccedil;&atilde;o a seu empregador, da aquisi&ccedil;&atilde;o do direito de aposentadoria.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Jornada de Trabalho – Duração, Distribuição, Controle, Faltas
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Duração e Horário
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA - JORNADA DE TRABALHO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Os sal&aacute;rios estabelecidos para cada fun&ccedil;&atilde;o s&atilde;o obrigat&oacute;rios para uma jornada integral de trabalho, na forma da Constitui&ccedil;&atilde;o Federal em legisla&ccedil;&atilde;o espec&iacute;fica&nbsp;para a ocupa&ccedil;&atilde;o profissional.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo &Uacute;nico</strong>: Os sal&aacute;rios a serem pagos aos empregados sob o regime de tempo parcial ser&aacute; proporcional &agrave; sua jornada, em rela&ccedil;&atilde;o aos empregados que cumprem, nas mesmas fun&ccedil;&otilde;es, tempo integral.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Faltas
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA PRIMEIRA - EXPEDI&#199;&#195;O DE DOCUMENTOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A empresa se obriga a remunerar o dia, n&atilde;o repercutindo nas f&eacute;rias, nos casos de aus&ecirc;ncia do empregado com carga hor&aacute;ria de 44 (quarenta e quatro) horas semanais, motivado pela necessidade de obten&ccedil;&atilde;o de documentos legais, mediante comprova&ccedil;&atilde;o, tais como: CPF, CTPS, Identidade, T&iacute;tulo de Eleitor, Certificado de Reservista, e desde que solicitado.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras disposições sobre jornada
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA SEGUNDA - ESCALA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica facultado ao empregador, quando a lei o permitir, instituir hor&aacute;rio de trabalho em regime de plant&otilde;es, com escala 12x36 (doze por trinta e seis) horas, neles compreendidos os per&iacute;odos de refei&ccedil;&atilde;o. Os empregados que trabalharem em tal regime, bater&atilde;o os respectivos cart&otilde;es de ponto t&atilde;o somente na entrada e na sa&iacute;da dos plant&otilde;es.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA TERCEIRA - FALTAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">a)&nbsp;&nbsp; Licen&ccedil;a Paternidade: aos trabalhadores fica assegurada a licen&ccedil;a paternidade de 10 (dez) dias corridos, a contar da data de nascimento do seu filho.</p>
+<p style="text-align: justify;">b)&nbsp; Licen&ccedil;a Casamento: fica assegurada a licen&ccedil;a de 05 (cinco) dias &uacute;teis a partir da data do casamento do empregado.&nbsp;</p>
+<p style="text-align: justify;">c)&nbsp; Licen&ccedil;a Luto: o empregado ter&aacute; assegurada a licen&ccedil;a de 03 (tr&ecirc;s) dias &uacute;teis a partir da data da morte de seus ascendentes ou descendentes de 1&ordm; grau, c&ocirc;njuge, irm&atilde;os.</p>
+<p style="text-align: justify;">&nbsp;c.1) Concede-se o abono de 01 (um) dia corrido no caso de falecimento de sogro ou sogra e av&oacute;s.</p>
+<p style="text-align: justify;">d)&nbsp; Em caso de doen&ccedil;a grave comprovada de ascendente ou descendente em primeiro grau, os empregados poder&atilde;o faltar ao servi&ccedil;o 03 (tr&ecirc;s) dias por semestre, sem preju&iacute;zo da remunera&ccedil;&atilde;o.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Férias e Licenças
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Duração e Concessão de Férias
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA QUARTA - F&#201;RIAS INDIVIDUAIS OU COLETIVAS – CONCESS&#195;O – IN&#205;CIO DO GOZO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Determina-se que a concess&atilde;o das f&eacute;rias individuais ou coletivas dever&aacute; ser comunicada por escrito ao empregado com anteced&ecirc;ncia m&iacute;nima de 30 (trinta) dias, vedada a fixa&ccedil;&atilde;o do in&iacute;cio delas no per&iacute;odo de 02 (dois) dias anterior a folgas semanais, feriados, dias santos ou dias de inocorr&ecirc;ncia de trabalho.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Saúde e Segurança do Trabalhador
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Uniforme
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA QUINTA - FORNECIMENTO GRATUITO DE UNIFORMES
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As&nbsp;APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;fornecer&atilde;o aos empregados gratuitamente, quando por elas exigidas na presta&ccedil;&atilde;o dos servi&ccedil;os e quando a atividade assim o exigir.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        CIPA – composição, eleição, atribuições, garantias aos cipeiros
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA SEXTA - CIPA
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A APAE -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;que tiver mais de 20 (vinte) empregados, a depender de sua classifica&ccedil;&atilde;o de risco, nos termos da legisla&ccedil;&atilde;o em vigor, promover&aacute; a elei&ccedil;&atilde;o de representante da CIPA, conforme adequa&ccedil;&atilde;o prevista na NR 5/Portaria MTP n&ordm; 4.219/12-2022.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo &Uacute;nico:&nbsp;</strong>No prazo de 60 (sessenta) dias contados da assinatura da presente Conven&ccedil;&atilde;o, os empregadores que ainda n&atilde;o fizeram, obrigam-se a organizar a Comiss&atilde;o Interna de Preven&ccedil;&atilde;o de Acidentes &ndash; CIPA &ndash; na forma da legisla&ccedil;&atilde;o trabalhista.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Aceitação de Atestados Médicos
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA S&#201;TIMA - ATESTADO M&#201;DICO-ODONTOL&#211;GICO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Ser&atilde;o reconhecidos atestados m&eacute;dicos e/ou odontol&oacute;gicos dos conv&ecirc;nios que o SENALBA firmar com Cl&iacute;nicas, para efeito de justificativa de aus&ecirc;ncia do empregado ao trabalho.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA OITAVA - ATESTADO DE ACOMPANHAMENTO AO M&#201;DICO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">O empregado ter&aacute; a hora ou o dia de trabalho abonado, no caso de urg&ecirc;ncia ou emerg&ecirc;ncia&nbsp; m&eacute;dica dos filhos menores de 14 (quatorze) anos, mediante apresenta&ccedil;&atilde;o de atestado de acompanhamento fornecido pelo m&eacute;dico.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Relações Sindicais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Acesso do Sindicato ao Local de Trabalho
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA VIG&#201;SIMA NONA - ACESSO (DIRIGENTES SINDICAIS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Assegura-se o acesso dos dirigentes sindicais, devidamente credenciados, ao local de trabalho dos empregados membros da categoria profissional, mediante pr&eacute;vio entendimento com a administra&ccedil;&atilde;o do Empregador quanto &agrave; data e ao hor&aacute;rio da visita, que n&atilde;o poder&aacute; interromper ou prejudicar a evolu&ccedil;&atilde;o normal da presta&ccedil;&atilde;o dos servi&ccedil;os.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo &Uacute;nico:</strong>&nbsp;As&nbsp;APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;permitir&atilde;o aos trabalhadores a participa&ccedil;&atilde;o em assembleias e reuni&otilde;es sindicais do SENALBA, realizadas no local de trabalho, devidamente convocados, uma hora antes do t&eacute;rmino do expediente normal, desde que sejam informados com&nbsp;anteced&ecirc;ncia m&iacute;nima de 48 (quarenta e oito) horas. Nessa ocasi&atilde;o a entidade empregadora liberar&aacute; os seus empregados para que possam participar da referida assembleia.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Contribuições Sindicais
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA - SUSTENTA&#199;&#195;O FINANCEIRA/CONTRIBUI&#199;&#195;O NEGOCIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Conforme aprovado na assembleia virtual, realizada no site da entidade sindical no per&iacute;odo das 09h:30min do dia 15/12/2025 at&eacute; &agrave;s 15h:00min do dia 19/12/2025, ap&oacute;s publica&ccedil;&atilde;o ocorrida no jornal Estado de Minas no dia 10/12/2025 e, com ampla divulga&ccedil;&atilde;o nos meios de comunica&ccedil;&atilde;o do sindicato, respeitando o estatuto sindical e o julgamento pelo STF do ARE 1018459 afetado pelo Tema 935 de repercuss&atilde;o geral, ficou definido os seguintes crit&eacute;rios para a sustenta&ccedil;&atilde;o financeira/contribui&ccedil;&atilde;o negocial 2026:</span></p>
+<p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Primeiro: desconto de 3% (tr&ecirc;s por cento) nos sal&aacute;rios brutos dos(as) trabalhadores(as) das APAEs, a ser aplicado quando da celebra&ccedil;&atilde;o de acordos ou conven&ccedil;&otilde;es coletivas, com benef&iacute;cios econ&ocirc;micos e sociais.</span></p>
+<p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Segundo: O sindicato enviar&aacute; &agrave;s APAEs a rela&ccedil;&atilde;o dos(as) trabalhadores(as) que manifestaram seu direito de oposi&ccedil;&atilde;o na referida assembleia, ap&oacute;s a celebra&ccedil;&atilde;o dos acordos ou das conven&ccedil;&otilde;es.Caso o empregador n&atilde;o receba a rela&ccedil;&atilde;o, dever&aacute; efetuar o desconto de todos(as) os(as) trabalhadores(as).</span></p>
+<p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Terceiro: na primeira folha de pagamento dos sal&aacute;rios subsequente &agrave; assinatura dos instrumentos coletivos negociados ou no TRCT (principal ou complementar) para trabalhadores(as) que forem desligados ap&oacute;s a assinatura do instrumento, as APAEs descontar&atilde;o de todos(as) os(as) seus(suas) trabalhadores(as) que n&atilde;o exerceram o direito &agrave; oposi&ccedil;&atilde;o, o percentual previsto no &sect; 1&ordm;, uma &uacute;nica vez.</span></p>
+<p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Quarto: as entidades empregadoras realizar&atilde;o o dep&oacute;sito, at&eacute; o dia 10 (dez), da contribui&ccedil;&atilde;o negocial descontada, na conta do SENALBA/MG (Caixa Econ&ocirc;mica Federal &ndash;ag&ecirc;ncia 0084, opera&ccedil;&atilde;o 003, conta corrente 00570229-4), enviando ao sindicato, por qualquer meio f&iacute;sico ou eletr&ocirc;nico, o comprovante do dep&oacute;sito realizado e a listagem dos(as) trabalhadores(as) contribuintes, contendo o nome, o cargo ou fun&ccedil;&atilde;o, os valores dos sal&aacute;rios reajustados e o valor do desconto.</span></p>
+<p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">&nbsp;Par&aacute;grafo Quinto: Sobre os sal&aacute;rios dos trabalhadores(as) que forem admitidos (as) ap&oacute;s a assembleia referida no caput, desde que ocorrida a admiss&atilde;o antes da assinatura dos acordos ou conven&ccedil;&otilde;es coletivas, ser&aacute; descontada e recolhida em favor do SENALBA a contribui&ccedil;&atilde;o negocial, uma vez que decorrentes das normas coletivas, ir&atilde;o ser beneficiados com as cl&aacute;usulas econ&ocirc;micas e sociais. Entretanto, os trabalhadores(as) admitidos ap&oacute;s a assinatura dos acordos ou conven&ccedil;&otilde;es coletivas ficar&atilde;o isentos da contribui&ccedil;&atilde;o negocial e somente sofrer&atilde;o o desconto na pr&oacute;xima data base, caso n&atilde;o exer&ccedil;am o direito de oposi&ccedil;&atilde;o no prazo da assembleia.</span></p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA PRIMEIRA - MENSALIDADE DO ASSOCIADO DO SINDICATO – DESCONTO EM FOLHA DE PAGAMENTO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As APAEs - ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;obrigam-se a descontar, mensalmente, em folha de seus empregados sindicalizados, a mensalidade social, recolhendo-a ao sindicato at&eacute; o 10&ordm; (d&eacute;cimo) dia do m&ecirc;s subsequente, ficando assegurado ao empregado associado o direito de cancelar, a qualquer tempo, a autoriza&ccedil;&atilde;o do desconto mediante comunica&ccedil;&atilde;o por escrito ao seu sindicato.</p>
+<p style="text-align: justify;">Par&aacute;grafo Primeiro: Os respectivos valores ser&atilde;o repassados ao SENALBA-MG at&eacute; o 10&ordm; dia de cada m&ecirc;s subsequente, sob pena de acr&eacute;scimo de juros de 1% (um por cento) ao m&ecirc;s, multa de 10% (dez por cento), corre&ccedil;&atilde;o monet&aacute;ria pelo INPC sobre os valores, al&eacute;m da tarifa banc&aacute;ria pela emiss&atilde;o do boleto.</p>
+<p style="text-align: justify;">Par&aacute;grafo Segundo: A empregadora ser&aacute; obrigada a repassar mensalmente ao sindicato a rela&ccedil;&atilde;o de empregados s&oacute;cios sobre os sal&aacute;rios dos quais foi descontada a mensalidade social (exclusivamente por e-mail: (<span style="text-decoration: underline;"><a href="mailto:associados@senalbamg.org.br" target="_blank">associados@senalbamg.org.br</a></span>). Ser&aacute; obrigada ainda a empregadora informar os per&iacute;odos (datas) de afastamentos pelo INSS, licen&ccedil;a n&atilde;o remunerada e os desligamentos, sob pena de arcar ela pr&oacute;pria com os valores das mensalidades sociais.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA SEGUNDA - CONTRIBUI&#199;&#195;O DO EMPREGADOR ASSISTENCIAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Todas as APAEs recolher&atilde;o para a FENAC, a t&iacute;tulo de contribui&ccedil;&atilde;o assistencial patronal, o valor de <strong>R$ 1.500,00</strong> (um mil e quinhentos reais), ser paga no 5&ordm; (quinto) dia &uacute;til do m&ecirc;s subsequente a assinatura da presente Conven&ccedil;&atilde;o Coletiva de Trabalho.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo Primeiro</strong>: O pagamento poder&aacute; ser feito em at&eacute; 03 (tr&ecirc;s) parcelas. A primeira parcela dever&aacute; ser paga no 5&ordm; (quinto) dia &uacute;til do m&ecirc;s subsequente a assinatura da presente Conven&ccedil;&atilde;o Coletiva de Trabalho e as 02 (duas) demais parcelas, nos meses imediatamente seguintes.</p>
+<p style="text-align: justify;"><strong>Par&aacute;grafo Segundo: </strong>A contribui&ccedil;&atilde;o ser&aacute; cobrada atrav&eacute;s de guia de cobran&ccedil;a emitida pela FENAC, pag&aacute;vel por compensa&ccedil;&atilde;o banc&aacute;ria.</p>
+<p style="text-align: justify;"><strong style="text-align: justify;">Par&aacute;grafo Terceiro: </strong><span style="text-align: justify;">O recolhimento efetuado fora dos prazos previstos nesta Cl&aacute;usula, acarretar&aacute; ao empregador, o pagamento de multa de 10% (dez por cento), al&eacute;m de 1% (um por cento) de juros ao m&ecirc;s.&nbsp;</span><span style="text-align: justify;">&nbsp;de multa de 10% (dez por cento), al&eacute;m de 1% (um por cento) de juros ao m&ecirc;s.</span></p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA TERCEIRA - CONTRIBUI&#199;&#195;O SINDICAL PATRONAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">A contribui&ccedil;&atilde;o sindical patronal prevista nos artigos 579 e 580 III da CLT, facultada para toda a categoria, dever&aacute; ser recolhida no m&ecirc;s de janeiro de cada ano, atrav&eacute;s de guia pr&oacute;pria, solicitada e emitida pela FENAC.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras disposições sobre relação entre sindicato e empresa
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA QUARTA - COMUNICADO AO SINDICATO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;colocar&atilde;o &agrave; disposi&ccedil;&atilde;o do sindicato quadro de avisos para a fixa&ccedil;&atilde;o de informa&ccedil;&otilde;es referentes &agrave; categoria, mediante a comunica&ccedil;&atilde;o pr&eacute;via ao empregador.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA QUINTA - RELA&#199;&#195;O DOS EMPREGADOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <div style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">As APAEs, visando a comprova&ccedil;&atilde;o do cumprimento das normas aqui convencionadas, enviar&atilde;o ao SENALBA, uma &uacute;nica vez, por vig&ecirc;ncia desta CCT, no prazo de at&eacute; 40 (quarenta) dias &uacute;teis, contados do dia do protocolo desta conven&ccedil;&atilde;o no minist&eacute;rio do trabalho, c&oacute;pias das guias do FGTS, acompanhadas do descritivo das referidas guias, extra&iacute;das o eSocial, bem como, a rela&ccedil;&atilde;o dos empregados, contendo cargo, data de admiss&atilde;o e demiss&atilde;o, sendo todos os documentos do per&iacute;odo de maio de 2025 at&eacute; o m&ecirc;s seguinte ao da assinatura da presente Conven&ccedil;&atilde;o.</span></div>
+<div style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">&nbsp;</span></div>
+<div style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Primeiro: O envio e recebimento das informa&ccedil;&otilde;es observar&atilde;o rigorosamente as disposi&ccedil;&otilde;es da Lei Geral de Prote&ccedil;&atilde;o de Dados (Lei 13.709/2018), sendo vedado o uso das informa&ccedil;&otilde;es para finalidade diversa da fiscaliza&ccedil;&atilde;o sindical.</span></div>
+<div style="text-align: justify;">&nbsp;</div>
+<div style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Segundo - Caso a APAE descumpra o previsto no par&aacute;grafo 1&ordm;, o sindicato laboral, poder&aacute; ajuizar a&ccedil;&atilde;o de cumprimento com o pagamento da multa prevista nesta CCT.</span></div>
+<div style="text-align: justify;">&nbsp;</div>
+<div style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Terceiro - Em havendo propositura de a&ccedil;&atilde;o de cumprimento, fica a APAE obrigada a apresentar na audi&ecirc;ncia inicial, al&eacute;m das obriga&ccedil;&otilde;es contidas no caput da cl&aacute;usula, as fichas financeiras dos trabalhadores do per&iacute;odo de maio de 2025 at&eacute; o m&ecirc;s seguinte ao da assinatura da presente Conven&ccedil;&atilde;o.</span></div>
+<div style="text-align: justify;">&nbsp;</div>
+<div style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Par&aacute;grafo Quarto: Fica vedada a solicita&ccedil;&atilde;o de documentos que j&aacute; estejam em posse do Sindicato ou que sejam de acesso p&uacute;blico e irrestrito aos &oacute;rg&atilde;os de fiscaliza&ccedil;&atilde;o do trabalho.</span></div>
+<p style="text-align: justify;">&nbsp;</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras disposições sobre representação e organização
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA SEXTA - DELEGADO SINDICAL
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica facultado ao SENALBA/MG, nas&nbsp;APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;que contarem com mais de 50 (cinq&uuml;enta) empregados, promover a elei&ccedil;&atilde;o de um Delegado Sindical, que ser&aacute; detentor de estabilidade provis&oacute;ria no emprego, pelo per&iacute;odo do mandato e mais um ano ap&oacute;s, nos termos do Art. 543, par&aacute;grafo 3&ordm; da CLT.</p>
+                                                </label>
+                                                <br />
+                                        <center>
+                                            <br />
+                                            <b>
+                                                <label class="textogrupo">
+                                                    Disposições Gerais
+                                                    <br />
+                                                </label>
+                                            </b>
+                                        </center>
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Mecanismos de Solução de Conflitos
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA S&#201;TIMA - FORO COMPETENTE
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Eleito o foro de Belo Horizonte/MG, fica autorizada &agrave;s partes intentarem judicialmente em qualquer esfera, caso ocorra descumprimento da Conven&ccedil;&atilde;o Coletiva de Trabalho.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Descumprimento do Instrumento Coletivo
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA OITAVA - MULTAS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica estabelecida a multa equivalente a 15% (quinze por cento) do sal&aacute;rio do trabalhador, vigente na &eacute;poca do evento e por empregado envolvido, em caso de descumprimento de quaisquer das cl&aacute;usulas contidas nesta norma, ou da CLT &ndash; Consolida&ccedil;&atilde;o das Leis do Trabalho, revertendo o benef&iacute;cio em favor do trabalhador prejudicado.</p>
+                                                </label>
+                                                <br />
+                                            <center>
+                                                <b>
+                                                    <label class="textosubgrupo">
+                                                        Outras Disposições
+                                                        <br />
+                                                    </label>
+                                                </b>
+                                            </center>
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA TRIG&#201;SIMA NONA - PREVAL&#202;NCIA DO ACORDO COLETIVO
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica estabelecido que as entidades empregadoras que tiverem Acordo Coletivo de Trabalho, firmado diretamente com o SENALBA-MG, dever&atilde;o aplicar as suas cl&aacute;usulas, no caso de disposi&ccedil;&otilde;es contr&aacute;rias a esta Conven&ccedil;&atilde;o Coletiva de Trabalho.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA - MANUTEN&#199;&#195;O DE CONQUISTAS E BENEF&#205;CIOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">Fica garantida a manuten&ccedil;&atilde;o de conquistas e benef&iacute;cios constantes de Acordos em separado, que passam a incorporar os contratos individuais de trabalho</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA PRIMEIRA - DOS ACORDOS EM SEPARADOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p style="text-align: justify;">As&nbsp;APAEs -&nbsp;ASSOCIA&Ccedil;&Atilde;O DE PAIS E AMIGOS DOS EXCEPCIONAIS DO ESTADO DE MINAS GERAIS&nbsp;que n&atilde;o puderem cumprir com a presente Conven&ccedil;&atilde;o Coletiva de Trabalho, ter&atilde;o 60 (sessenta) dias ap&oacute;s assinatura da presente conven&ccedil;&atilde;o, para requerer acordo em separado, junto &agrave;s entidades sindicais convenentes.</p>
+                                                </label>
+                                                <br />
+                                                <label class="tituloClausula">
+                                                    <b>
+                                                        <br />
+                                                        CL&#193;USULA QUADRAG&#201;SIMA SEGUNDA - PUBLICA&#199;&#195;O DOS INSTRUMENTOS NORMATIVOS
+                                                        <br />
+                                                                                                                                                                                                                                                                                        
+                                                    </b>
+                                                </label>
+                                                <br />
+                                                <label class="descricaoClausula" >
+                                                    <p class="x_x_MsoNormal" style="text-align: justify;"><span style="font-family: arial, sans-serif; font-size: small;" data-olk-copy-source="MessageBody">O Termo celebrado entre as partes, ap&oacute;s a sua assinatura, tem aplica&ccedil;&atilde;o imediata para efeitos legais.</span></p>
+<p class="x_x_MsoNormal" style="text-align: justify;"><span style="font-size: small;"><span style="font-family: arial, sans-serif;">Par&aacute;grafo &uacute;nico: As partes divulgar&atilde;o os termos do instrumento normativo em suas respectivas entidades, a fim de dar publicidade, conforme expresso no Art. 614, S 20 da CLT</span></span></p>
+<p class="x_x_MsoNormal" style="text-align: justify;"><span style="font-size: small;"><span style="font-family: arial, sans-serif;">&nbsp;</span></span></p>
+                                                </label>
+                                                <br />
+                                    }
+                                    <br />
+                                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                    <br />
+    <br />
+    <label class="textonome">
+        JOSE ALMERO MOTA
+        <br style="height: 5px" />
+        Presidente
+        <br style="height: 5px" />
+        FEDERACAO NACIONAL DE CULTURA FENAC
+        <br />
+        <br />
+    </label>
+
+    <br />
+    <br />
+    <label class="textonome">
+        SERGIO OLIVEIRA SANTOS
+        <br style="height: 5px" />
+        Membro de Diretoria Colegiada
+        <br style="height: 5px" />
+        SINDICATO DOS EMPREGADOS EM ENTIDADES DE ASSISTENCIA SOCIAL, DE ORIENTACAO E FORMACAO PROFISSIONAL NO ESTADO DE MINAS GERAIS - SENALBA-MG
+        <br />
+        <br />
+    </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                        <br />
+                                        <center>
+                                            <label class="textogrupo">
+                                                <b>ANEXOS </b>
+                                            </label>
+                                        </center>
+                                                        <label>
+                                                            <b>
+                                                                <center>
+                                                                    <label class="textogrupo">
+                                                                        ANEXO I - ATA DA ASSEMBLEIA 
+                                                                    </label>
+                                                                </center>
+                                                                <label class="tituloClausula">
+                                                                                                                                    </label>
+                                                            </b>
+                                                        </label>
+                                                        <b>
+                                                            <label>
+
+                                                            </label>
+                                                        </b>
+                                                        <br />
+                                                        <label class="descricaoClausula" >
+                                                            <p><a href="https://mediador.trabalho.gov.br/sistemas/mediador/imagemAnexo/MR045268_20262026_07_22T12_45_56.pdf" target="_blank">Anexo (PDF)</a></p>
+                                                        </label>
+                                                        <br />
+                                        <!--****************************************** FIM - Anexos ******************************************-->
+                                            <label class="texto">
+                                                &#160;&#160;&#160;&#160;A autenticidade deste documento poderá ser confirmada na
+                                                página do Ministerio do Trabalho e Emprego na Internet, no endereço http://www.mte.gov.br.
+                                            </label>
+                                            <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</body>
+<script>
+    setTimeout(function () {
+        window.history.replaceState({}, '', window.location.pathname);
+    }, 0);
+</script>
+</html>
