@@ -76,7 +76,16 @@ o alerta dos outros meses nunca disparar — em silêncio.
 **HTTP 500 no Mediador quer dizer "sem resultado".** Aceitar isso direto seria
 perigoso: uma queda real do MTE viraria "nenhum sindicato tem convenção", e o painel
 ficaria verde mentindo. Por isso existe o canário — ao receber 500, o sistema consulta
-um CNPJ que sabidamente tem resultado antes de concluir qualquer coisa.
+um CNPJ que sabidamente tem resultado antes de concluir qualquer coisa. E no fim da
+rodada pergunta de novo: se o canário não responder, os vazios da última janela viram
+falha, porque "sem convenção" e "não consegui verificar" são coisas diferentes.
+
+**Piso só sai de cláusula de piso.** O extrator procura o valor dentro da cláusula
+("PISO SALARIAL", "SALÁRIO DA CATEGORIA", "SALÁRIO NORMATIVO"), nunca no documento
+inteiro. Varrer o documento trazia cobertura de seguro de vida (R$ 26.744,14) e
+auxílio funeral como se fossem piso. Quando não há cláusula reconhecível, o campo fica
+vazio: 70 dos 87 têm piso. Número errado num campo de piso é pior que campo vazio,
+porque alguém calcula folha com ele.
 
 **Link quebrado tem que dar erro.** A versão anterior tinha 123 links apontando para
 uma pasta que não existia; a Vercel respondia com o próprio painel e HTTP 200, e quem

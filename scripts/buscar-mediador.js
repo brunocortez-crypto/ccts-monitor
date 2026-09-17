@@ -72,17 +72,23 @@ const ERRO_DE_SERVIDOR = /HTTP (500|502|503|504)/;
 const VALIDADE_CANARIO = 5 * 60 * 1000;
 let canarioCache = { em: 0, ok: false };
 
-async function canarioResponde(page) {
-  // Revalidamos a cada 5 min em vez de a cada CNPJ vazio: verificar uma vez por
-  // sindicato dobraria a carga no MTE, e uma janela de 5 minutos é curta o
-  // bastante para pegar uma queda no meio da rodada.
-  if (Date.now() - canarioCache.em < VALIDADE_CANARIO) return canarioCache.ok;
+async function perguntarAoCanario(page) {
   try {
     const r = await consultarCnpj(page, CNPJ_CANARIO, { vigencia: VIGENCIA.VIGENTES, tipo });
-    canarioCache = { em: Date.now(), ok: r.instrumentos.length > 0 };
+    return r.instrumentos.length > 0;
   } catch {
-    canarioCache = { em: Date.now(), ok: false };
+    return false;
   }
+}
+
+async function canarioResponde(page) {
+  // Revalidamos a cada 5 min em vez de a cada CNPJ vazio: verificar uma vez por
+  // sindicato dobraria a carga no MTE. A janela de 5 minutos deixa uma brecha —
+  // se o MTE cair logo depois de uma checagem boa, os vazios desse intervalo
+  // seriam aceitos sem confirmação. Ela é fechada pelo canário final: ver
+  // confirmarVazios() no fim da rodada.
+  if (Date.now() - canarioCache.em < VALIDADE_CANARIO) return canarioCache.ok;
+  canarioCache = { em: Date.now(), ok: await perguntarAoCanario(page) };
   return canarioCache.ok;
 }
 
@@ -193,6 +199,8 @@ const falhas = [];
 // Sindicatos cuja consulta respondeu (com ou sem resultado). Só para estes é
 // seguro concluir que um documento ausente saiu de vigência — ver baixarBandeira().
 const consultadosComSucesso = new Set();
+// Cada vazio aceito por erro 500, com a marca de qual checagem de canário o autorizou.
+const vaziosPorCanario = [];
 const vistosNestaRodada = new Set();
 let novos = 0;
 let semCnpj = 0;
@@ -284,6 +292,9 @@ for (const [n, s] of alvos.entries()) {
         semInstrumento++;
         consultados++;
         consultadosComSucesso.add(s.id);
+        // Guardamos QUAL checagem de canário autorizou este vazio. Se o canário
+        // final falhar, os vazios autorizados pela última checagem viram falha.
+        vaziosPorCanario.push({ sindicato_id: s.id, sigla: s.sigla, canario_em: canarioCache.em });
         console.log(`${rotulo} nenhum instrumento (erro 500 = vazio; canário confirmou o serviço no ar)`);
         continue;
       }
@@ -303,6 +314,48 @@ for (const [n, s] of alvos.entries()) {
   await gravarDocumentos();
 
   if (n < alvos.length - 1) await pausa(PAUSA_ENTRE_SINDICATOS);
+}
+
+/**
+ * Canário final: fecha a brecha da janela de 5 minutos.
+ *
+ * Durante a rodada, um vazio é aceito quando o canário respondeu nos últimos 5
+ * minutos. Se o MTE cair logo depois de uma checagem boa, os vazios desse
+ * intervalo entram sem confirmação de verdade.
+ *
+ * No fim da rodada perguntamos ao canário de novo, agora sem cache:
+ *  - respondeu  → o serviço estava de pé no início E no fim; os vazios ficam;
+ *  - não respondeu → não dá para distinguir "sem convenção" de "MTE fora do ar".
+ *    Nesse caso os vazios autorizados pela ÚLTIMA checagem viram falha, porque o
+ *    estado deles é desconhecido. Os anteriores, confirmados por uma checagem que
+ *    o canário validou depois, continuam valendo.
+ */
+let canarioFinal = null;
+if (vaziosPorCanario.length) {
+  console.log('\nCanário final (confirma os vazios aceitos por erro 500)...');
+  canarioFinal = await perguntarAoCanario(page);
+
+  if (canarioFinal) {
+    console.log(`Canário respondeu: os ${vaziosPorCanario.length} vazios estão confirmados.`);
+  } else {
+    const ultimaChecagem = Math.max(...vaziosPorCanario.map((v) => v.canario_em));
+    const suspeitos = vaziosPorCanario.filter((v) => v.canario_em === ultimaChecagem);
+
+    console.log('Canário NÃO respondeu no fim da rodada.');
+    console.log(`${suspeitos.length} vazio(s) da última janela não podem ser confirmados`);
+    console.log('e viram falha — "sem convenção" e "não consegui verificar" são coisas diferentes.');
+
+    for (const v of suspeitos) {
+      semInstrumento--;
+      consultados--;
+      consultadosComSucesso.delete(v.sindicato_id);
+      falhas.push({
+        sindicato_id: v.sindicato_id,
+        sigla: v.sigla,
+        motivo: 'vazio não confirmado: o canário não respondeu no fim da rodada'
+      });
+    }
+  }
 }
 
 await navegador.close();
@@ -350,6 +403,8 @@ const registro = {
   sem_cnpj_valido: semCnpj,
   sem_instrumento: semInstrumento,
   documentos_novos: novos,
+  vazios_aceitos_por_canario: vaziosPorCanario.length,
+  canario_final: canarioFinal === null ? 'nao-aplicavel' : (canarioFinal ? 'respondeu' : 'NAO RESPONDEU'),
   documentos_que_sairam_de_vigencia: saiuDeVigencia.length,
   documentos_total: documentos.length,
   documentos_vigentes: documentos.filter((d) => d.vigente !== false).length,

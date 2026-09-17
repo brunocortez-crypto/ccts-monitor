@@ -209,9 +209,19 @@ function docsDoSindicato(id) {
   return DOCUMENTOS.filter((d) => d.sindicato_id === id);
 }
 
-/** Primeiro valor plausível de um indicador, ou null. */
-function indicador(d, campo) {
-  const lista = d.indicadores?.[campo];
+/**
+ * Piso mensal, só quando veio de uma cláusula de piso reconhecida.
+ * O extrator nao chuta: quando nao ha clausula identificavel, devolve null e o
+ * painel nao mostra piso nenhum. Numero errado num campo de piso e pior que campo
+ * vazio, porque alguem calcula folha com ele.
+ */
+function pisoDe(d) {
+  return d.indicadores?.piso_mensal ?? null;
+}
+
+/** Primeiro percentual de reajuste achado na cláusula de reajuste. */
+function reajusteDe(d) {
+  const lista = d.indicadores?.reajuste;
   return Array.isArray(lista) && lista.length ? lista[0].valor : null;
 }
 
@@ -222,8 +232,9 @@ function indicador(d, campo) {
  */
 function linhaDocumento(d) {
   const contraparte = (d.partes || [])[1] || (d.partes || [])[0] || '—';
-  const piso = indicador(d, 'piso');
-  const reajuste = indicador(d, 'reajuste');
+  const piso = pisoDe(d);
+  const reajuste = reajusteDe(d);
+  const origem = d.indicadores?.piso_origem;
   return `<div class="doc-linha">
     <div class="doc-topo">
       <span class="mono">${esc(d.nr_registro_mte || d.nr_solicitacao)}</span>
@@ -234,7 +245,7 @@ function linhaDocumento(d) {
     <div class="nome">com ${esc(contraparte)}</div>
     <div class="pilulas">
       <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
-      ${piso ? `<span class="pilula ouro">Piso R$ ${esc(piso)}</span>` : ''}
+      ${piso ? `<span class="pilula ouro" title="Extraído da cláusula &quot;${esc(origem)}&quot;">Piso R$ ${esc(piso)}</span>` : ''}
       ${reajuste ? `<span class="pilula ouro">Reajuste ${esc(reajuste)}%</span>` : ''}
       ${(d.clausulas || []).length ? `<span class="pilula neutra">${d.clausulas.length} cláusulas</span>` : ''}
     </div>
@@ -352,8 +363,8 @@ function desenharDocumentos() {
           </div>
           <div class="pilulas">
             <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
-            ${indicador(d, 'piso') ? `<span class="pilula ouro">Piso R$ ${esc(indicador(d, 'piso'))}</span>` : ''}
-            ${indicador(d, 'reajuste') ? `<span class="pilula ouro">Reajuste ${esc(indicador(d, 'reajuste'))}%</span>` : ''}
+            ${pisoDe(d) ? `<span class="pilula ouro" title="Cláusula: ${esc(d.indicadores?.piso_origem)}">Piso R$ ${esc(pisoDe(d))}</span>` : ''}
+            ${reajusteDe(d) ? `<span class="pilula ouro">Reajuste ${esc(reajusteDe(d))}%</span>` : ''}
             <span class="pilula neutra mono">${esc(d.nr_solicitacao)}</span>
             ${cl.length ? `<span class="pilula">${cl.length} cláusula(s)</span>` : ''}
             ${d.arquivo_local

@@ -1,5 +1,56 @@
 [
   {
+    "data": "2026-09-17T19:42:58.495Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 1,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T19:42:29.228Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 1,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T19:37:07.594Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 0,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-17T19:36:38.206Z",
+    "estagio": "busca-mediador",
+    "tipo": "convencao",
+    "vigencia": "vigentes",
+    "sindicatos_alvo": 8,
+    "sindicatos_consultados": 7,
+    "sem_cnpj_valido": 1,
+    "sem_instrumento": 2,
+    "documentos_novos": 0,
+    "vazios_aceitos_por_canario": 2,
+    "canario_final": "respondeu",
+    "documentos_que_sairam_de_vigencia": 0,
+    "documentos_total": 87,
+    "documentos_vigentes": 87,
+    "duracao_segundos": 65,
+    "falhas": [
+      {
+        "sindicato_id": "sid_002",
+        "sigla": "DOMESTICAS",
+        "motivo": "CNPJ inválido na planilha"
+      }
+    ]
+  },
+  {
     "data": "2026-09-17T19:05:02.338Z",
     "estagio": "varredura-por-data",
     "periodo": "15/09/2026 a 17/09/2026",

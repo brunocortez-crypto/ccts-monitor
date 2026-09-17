@@ -94,35 +94,96 @@ const DINHEIRO = '(\\d{1,3}(?:\\.\\d{3})+(?:,\\d{2})?|\\d+,\\d{2})';
 const PERCENTUAL = '(\\d{1,3}(?:,\\d{1,4})?)';
 
 /**
+ * Títulos de cláusula onde cada indicador costuma morar.
+ *
+ * Procurar no documento inteiro não funciona: as convenções raramente escrevem
+ * "piso salarial R$ X". Escrevem "SALÁRIO DA CATEGORIA: o menor salário a ser pago
+ * ... será de R$1.739,21", ou põem os valores numa tabela sob "PISOS SALARIAIS".
+ * Procurar DENTRO da cláusula certa é o que aproveita a estrutura do documento.
+ */
+const TITULO_PISO =
+  /piso|sal[áa]rio\s+(d[ao]\s+)?(categoria|normativo|ingresso|admiss)|sal[áa]rios?\s+m[íi]nimos?|remunera[çc][ãa]o\s+m[íi]nima/i;
+const TITULO_REAJUSTE =
+  /reajuste|corre[çc][ãa]o\s+salarial|aumento\s+salarial|recomposi[çc][ãa]o/i;
+
+/**
  * Indicadores que o escritório usa: piso salarial, reajuste e benefícios.
  *
- * Heurística sobre texto livre — cada achado guarda o trecho de origem para
- * conferência. Não substitui a leitura da cláusula, aponta onde olhar.
+ * Heurística sobre texto livre — cada achado guarda o título da cláusula e o
+ * trecho de origem. Não substitui a leitura da cláusula, aponta onde olhar.
  */
 export function extrairIndicadores(texto, clausulas = []) {
-  const achar = (re, limite = 3) => {
+  const acharEm = (fonte, padrao, limite, rotulo = null) => {
     const saida = [];
-    const rx = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g');
+    const rx = new RegExp(padrao, 'gi');
     let m;
-    while ((m = rx.exec(texto)) !== null && saida.length < limite) {
+    while ((m = rx.exec(fonte)) !== null && saida.length < limite) {
       saida.push({
         valor: m[1],
-        trecho: texto.slice(Math.max(0, m.index - 70), m.index + 110).replace(/\n/g, ' ').trim()
+        clausula: rotulo,
+        trecho: fonte.slice(Math.max(0, m.index - 80), m.index + 120).replace(/\s+/g, ' ').trim()
       });
     }
     return saida;
   };
 
-  const tituloTem = (re) => clausulas.filter((c) => re.test(c.titulo)).map((c) => c.titulo);
+  /**
+   * Procura SÓ dentro das cláusulas do tema. Sem fallback para o documento inteiro,
+   * de propósito.
+   *
+   * O fallback foi testado e produzia lixo com cara de dado bom: cobertura de seguro
+   * de vida (R$ 26.744,14), auxílio funeral (R$ 5.500,00) e teto de reajuste
+   * (R$ 14.000,00) entravam como "piso salarial". Todo valor implausível vinha dele.
+   *
+   * Quando a convenção não tem cláusula de piso reconhecível, a resposta certa é
+   * "não sei" — o painel mostra as cláusulas para leitura. Um número errado num
+   * campo de piso é pior que campo vazio: alguém calcula folha com ele.
+   */
+  const porClausula = (filtroTitulo, padrao, limite) => {
+    const alvo = clausulas.filter((c) => filtroTitulo.test(c.titulo || ''));
+    const achados = [];
+    for (const c of alvo) {
+      achados.push(...acharEm(c.texto || '', padrao, limite - achados.length, c.titulo));
+      if (achados.length >= limite) break;
+    }
+    return achados;
+  };
+
+  const tituloTem = (re) => clausulas.filter((c) => re.test(c.titulo || '')).map((c) => c.titulo);
+
+  const piso = porClausula(TITULO_PISO, `R\\$\\s*${DINHEIRO}`, 4);
+  const reajuste = porClausula(TITULO_REAJUSTE, `${PERCENTUAL}\\s*%`, 4);
 
   return {
-    piso: achar(new RegExp(`piso\\s+salarial[^.]{0,120}?R\\$\\s*${DINHEIRO}`, 'i')),
-    reajuste: achar(new RegExp(`reajuste[^.]{0,120}?${PERCENTUAL}\\s*%`, 'i')),
-    percentuais: achar(new RegExp(`${PERCENTUAL}\\s*%\\s*\\(`, 'i'), 5),
-    valores: achar(new RegExp(`R\\$\\s*${DINHEIRO}`, 'i'), 8),
+    piso,
+    reajuste,
+    // O menor valor da cláusula NÃO serve: a mesma cláusula costuma trazer o
+    // valor-hora junto do mensal ("R$14,70" ao lado de "R$1.739,21"). Pegamos o
+    // menor valor dentro da faixa plausível de piso MENSAL — abaixo do salário
+    // mínimo não é piso, e acima de trinta mil é outra coisa.
+    piso_mensal: menorNaFaixa(piso.map((p) => p.valor), 1000, 30000),
+    // De onde veio: título da cláusula, ou null se foi do documento inteiro.
+    piso_origem: piso[0]?.clausula ?? null,
+    percentuais: acharEm(texto, `${PERCENTUAL}\\s*%\\s*\\(`, 5),
+    valores: acharEm(texto, `R\\$\\s*${DINHEIRO}`, 8),
     clausulas_salariais: tituloTem(/sal[áa]ri|piso|reajust|remunera/i),
     clausulas_beneficios: tituloTem(/cesta|vale|aux[íi]lio|alimenta|transporte|sa[úu]de|plano/i)
   };
+}
+
+/** "1.739,21" -> 1739.21 */
+export function paraNumero(valor) {
+  const n = Number(String(valor ?? '').replace(/\./g, '').replace(',', '.'));
+  return Number.isFinite(n) ? n : Infinity;
+}
+
+/** Menor valor dentro da faixa, ou null se nenhum couber. Devolve como veio no texto. */
+function menorNaFaixa(valores, minimo, maximo) {
+  const dentro = valores
+    .map((v) => ({ texto: v, numero: paraNumero(v) }))
+    .filter((x) => x.numero >= minimo && x.numero <= maximo)
+    .sort((a, b) => a.numero - b.numero);
+  return dentro.length ? dentro[0].texto : null;
 }
 
 /** Pipeline completo: bytes crus do MTE -> estrutura. */
