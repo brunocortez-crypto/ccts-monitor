@@ -68,6 +68,13 @@ td{padding:9px 10px;border-bottom:1px solid var(--risco);vertical-align:top}
 a{color:var(--verde);text-underline-offset:2px}
 .vazio{padding:30px 14px;text-align:center;color:var(--tinta-3);font-size:14px;
   background:var(--papel);border:1px dashed var(--risco-2);border-radius:10px}
+.doc-linha{border-top:1px solid var(--risco);padding:11px 0 3px}
+.doc-topo{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.doc-linha .nome{margin:4px 0 0}
+.doc-linha .pilulas{margin-top:7px}
+a.pilula{text-decoration:none}
+a.pilula:hover{filter:brightness(.94)}
+.nota-vazia{margin:10px 0 0;font-size:13px;color:var(--tinta-3);font-style:italic}
 .aviso-caixa{background:var(--alerta-fundo);border-left:3px solid var(--alerta);
   padding:12px 14px;margin-bottom:18px;font-size:13.5px}
 .aviso-caixa b{color:var(--alerta)}
@@ -202,6 +209,47 @@ function docsDoSindicato(id) {
   return DOCUMENTOS.filter((d) => d.sindicato_id === id);
 }
 
+/** Primeiro valor plausível de um indicador, ou null. */
+function indicador(d, campo) {
+  const lista = d.indicadores?.[campo];
+  return Array.isArray(lista) && lista.length ? lista[0].valor : null;
+}
+
+/**
+ * Uma convenção em uma linha: quem negociou com quem, vigência, piso, reajuste e
+ * o link do documento. Serve tanto ao Resumo quanto à aba Sindicatos — saber que
+ * existem "2 documentos" sem poder abri-los não ajuda ninguém.
+ */
+function linhaDocumento(d) {
+  const contraparte = (d.partes || [])[1] || (d.partes || [])[0] || '—';
+  const piso = indicador(d, 'piso');
+  const reajuste = indicador(d, 'reajuste');
+  return `<div class="doc-linha">
+    <div class="doc-topo">
+      <span class="mono">${esc(d.nr_registro_mte || d.nr_solicitacao)}</span>
+      ${d.arquivo_local
+        ? `<a class="pilula ouro" href="${esc(d.arquivo_local)}">Abrir documento</a>`
+        : '<span class="pilula alerta">sem arquivo</span>'}
+    </div>
+    <div class="nome">com ${esc(contraparte)}</div>
+    <div class="pilulas">
+      <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
+      ${piso ? `<span class="pilula ouro">Piso R$ ${esc(piso)}</span>` : ''}
+      ${reajuste ? `<span class="pilula ouro">Reajuste ${esc(reajuste)}%</span>` : ''}
+      ${(d.clausulas || []).length ? `<span class="pilula neutra">${d.clausulas.length} cláusulas</span>` : ''}
+    </div>
+  </div>`;
+}
+
+/** Bloco expansível com as convenções do sindicato. */
+function blocoDocumentos(docs, rotuloVazio) {
+  if (!docs.length) return `<p class="nota-vazia">${esc(rotuloVazio)}</p>`;
+  return `<details${docs.length <= 3 ? ' open' : ''}>
+    <summary>Ver ${docs.length === 1 ? 'a convenção' : `as ${docs.length} convenções`}</summary>
+    ${docs.map(linhaDocumento).join('')}
+  </details>`;
+}
+
 function montarMedidas() {
   const ult = EXECUCOES[0];
   const falhas = EXECUCOES.filter((e) => (e.falhas || []).length)
@@ -256,9 +304,10 @@ function desenharResumo() {
           <div class="pilulas">
             <span class="pilula ouro">Data-base: ${esc(MESES[mes - 1])}</span>
             ${outras.length ? `<span class="pilula neutra">também: ${outras.map((d) => esc(d.mes)).join(', ')}</span>` : ''}
-            <span class="pilula${docs.length ? '' : ' alerta'}">${docs.length} documento(s) no MTE</span>
+            <span class="pilula${docs.length ? '' : ' alerta'}">${docs.length} no MTE</span>
             ${s.uf ? `<span class="pilula neutra">${esc(s.uf)}</span>` : ''}
           </div>
+          ${blocoDocumentos(docs, 'Nenhuma convenção vigente registrada no Mediador para este CNPJ.')}
         </div>`;
       }).join('')
     : `<div class="vazio">Nenhum sindicato com data-base em ${MESES[mes - 1]}.</div>`;
@@ -303,6 +352,8 @@ function desenharDocumentos() {
           </div>
           <div class="pilulas">
             <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
+            ${indicador(d, 'piso') ? `<span class="pilula ouro">Piso R$ ${esc(indicador(d, 'piso'))}</span>` : ''}
+            ${indicador(d, 'reajuste') ? `<span class="pilula ouro">Reajuste ${esc(indicador(d, 'reajuste'))}%</span>` : ''}
             <span class="pilula neutra mono">${esc(d.nr_solicitacao)}</span>
             ${cl.length ? `<span class="pilula">${cl.length} cláusula(s)</span>` : ''}
             ${d.arquivo_local
@@ -365,6 +416,7 @@ function desenharSindicatos() {
             ${s.revisar ? '<span class="pilula alerta">revisar: anotação diz DESATIVADO</span>' : ''}
             ${s.site ? `<a class="pilula" href="${esc(s.site)}" target="_blank" rel="noopener">site</a>` : ''}
           </div>
+          ${blocoDocumentos(docs, 'Nenhuma convenção vigente registrada no Mediador para este CNPJ.')}
           ${variantes.length > 1 ? `<details><summary>${variantes.length} anotações na planilha</summary>
             <div class="scroller"><table>
               <thead><tr><th style="width:70px">Linha</th><th>Anotação</th><th style="width:110px">Mês</th></tr></thead>
