@@ -4,97 +4,195 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Monitor de CCTs</title>
+<link rel="icon" href="assets/logo-escritorial.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&family=Ubuntu+Sans:wght@400;500;600&family=Ubuntu+Sans+Mono:wght@400;500&display=swap">
 <style>
+/* Paleta tirada da propria marca: #565F6B, a ardosia do logo. Os neutros herdam
+   esse leve vies azulado em vez de um cinza puro, para o painel parecer da mesma
+   familia do logo e nao um template com a logo colada em cima. */
 :root{
-  --verde:#1a4f3a; --verde-claro:#2a6b50; --verde-fundo:#e8f0eb;
-  --ouro:#e8a33d; --ouro-fundo:#fdf3e2;
-  --alerta:#9a3b26; --alerta-fundo:#f9ece7;
-  --ok:#1d6b4a; --ok-fundo:#e6f2eb;
-  --ground:#f5f4ef; --papel:#ffffff;
-  --tinta:#1b241f; --tinta-2:#55635b; --tinta-3:#8a9690;
-  --risco:#e0ddd2; --risco-2:#c7c3b5;
+  --marca:#565F6B; --marca-forte:#3E4651; --marca-fraca:#EDEFF2;
+  --ground:#F6F7F9; --papel:#FFFFFF; --papel-2:#FBFCFD;
+  --tinta:#171B21; --tinta-2:#5A6470; --tinta-3:#98A1AD;
+  --risco:#E6E9ED; --risco-2:#CFD5DC;
+  --ok:#1F6B48; --ok-fundo:#EBF4EF;
+  --alerta:#9C3A28; --alerta-fundo:#FAEDEA; --alerta-risco:#E2BDB3;
+  --sombra:0 1px 2px rgba(23,27,33,.04);
 }
+@media (prefers-color-scheme: dark){ :root:not([data-tema="claro"]){
+  --marca:#98A3B2; --marca-forte:#C3CBD6; --marca-fraca:#222933;
+  --ground:#0E1117; --papel:#161A21; --papel-2:#1A1F27;
+  --tinta:#E7EAEF; --tinta-2:#A3ACB9; --tinta-3:#727C8A;
+  --risco:#262C35; --risco-2:#39424E;
+  --ok:#6FCB9B; --ok-fundo:#14251D;
+  --alerta:#E39280; --alerta-fundo:#2B1A16; --alerta-risco:#5A342B;
+  --sombra:none;
+}}
+:root[data-tema="escuro"]{
+  --marca:#98A3B2; --marca-forte:#C3CBD6; --marca-fraca:#222933;
+  --ground:#0E1117; --papel:#161A21; --papel-2:#1A1F27;
+  --tinta:#E7EAEF; --tinta-2:#A3ACB9; --tinta-3:#727C8A;
+  --risco:#262C35; --risco-2:#39424E;
+  --ok:#6FCB9B; --ok-fundo:#14251D;
+  --alerta:#E39280; --alerta-fundo:#2B1A16; --alerta-risco:#5A342B;
+  --sombra:none;
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--ground);color:var(--tinta);
-  font:15px/1.55 "Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-.faixa{background:var(--verde);color:#fff;padding:18px 0}
-.wrap{max-width:1160px;margin:0 auto;padding-inline:16px}
-.faixa h1{margin:0;font-size:21px;font-weight:600;letter-spacing:-.01em}
-.faixa p{margin:3px 0 0;font-size:13px;opacity:.82}
-.abas{background:var(--papel);border-bottom:1px solid var(--risco);position:sticky;
-  top:0;z-index:10;display:flex;gap:2px;overflow-x:auto}
-.aba{background:none;border:0;border-bottom:2px solid transparent;padding:13px 16px;
-  font:inherit;font-size:14px;color:var(--tinta-2);cursor:pointer;white-space:nowrap}
-.aba:hover{color:var(--tinta);background:var(--ground)}
-.aba[aria-selected="true"]{color:var(--verde);border-bottom-color:var(--ouro);font-weight:600}
-.aba:focus-visible{outline:2px solid var(--verde);outline-offset:-2px}
-main{padding-block:26px 60px}
+html,body{margin:0}
+body{background:var(--ground);color:var(--tinta);
+  font-family:"Ubuntu Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+
+/* ── cabecalho ─────────────────────────────────── */
+.topo{background:var(--papel);border-bottom:1px solid var(--risco)}
+.topo-int{display:flex;align-items:center;gap:14px;padding-block:18px}
+.topo img{width:32px;height:32px;flex:none;display:block}
+.marca-txt{display:flex;flex-direction:column;gap:1px;min-width:0}
+.marca-nome{font-family:Michroma,"Ubuntu Sans",sans-serif;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--tinta);line-height:1.3}
+.marca-sub{font-size:12.5px;color:var(--tinta-3);
+  font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tema{margin-left:auto;flex:none;background:none;border:1px solid var(--risco-2);
+  color:var(--tinta-2);border-radius:999px;width:32px;height:32px;cursor:pointer;
+  font-size:14px;line-height:1;display:grid;place-items:center}
+.tema:hover{border-color:var(--marca);color:var(--marca)}
+
+/* ── abas ──────────────────────────────────────── */
+.abas{background:var(--papel);border-bottom:1px solid var(--risco);
+  position:sticky;top:0;z-index:20}
+.abas-int{display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
+.abas-int::-webkit-scrollbar{display:none}
+.aba{background:none;border:0;padding:12px 0 11px;font:inherit;font-size:14px;
+  color:var(--tinta-3);cursor:pointer;white-space:nowrap;position:relative;
+  border-bottom:2px solid transparent;margin-bottom:-1px}
+.aba:hover{color:var(--tinta-2)}
+.aba[aria-selected="true"]{color:var(--tinta);font-weight:500;border-bottom-color:var(--marca)}
+.aba:focus-visible{outline:2px solid var(--marca);outline-offset:2px;border-radius:3px}
+.aba .conta{margin-left:6px;font-size:11.5px;color:var(--tinta-3);
+  font-variant-numeric:tabular-nums}
+
+main{padding-block:32px 72px}
 section[hidden]{display:none}
-h2{font-size:17px;font-weight:600;margin:0 0 4px}
-.legenda{color:var(--tinta-2);font-size:13.5px;margin:0 0 18px;max-width:72ch}
-.medidas{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:26px}
-.medida{background:var(--papel);border:1px solid var(--risco);border-radius:10px;padding:14px 16px}
-.medida .n{font-size:27px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
-.medida .r{font-size:12.5px;color:var(--tinta-2);margin-top:3px}
-.medida.aviso{border-color:var(--alerta);background:var(--alerta-fundo)}
+h2{font-size:18px;font-weight:600;margin:0 0 5px;letter-spacing:-.01em}
+.legenda{color:var(--tinta-2);font-size:13.5px;margin:0 0 22px;max-width:70ch}
+
+/* ── medidas ───────────────────────────────────── */
+/* Cartoes independentes, nao uma grade emendada: quando o numero de indicadores
+   nao fecha a linha, a grade emendada deixa uma celula vazia com cara de erro.
+   Com gap de verdade, o que nao existe simplesmente nao aparece. */
+.medidas{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  gap:10px;margin-bottom:28px}
+.medida{background:var(--papel);border:1px solid var(--risco);border-radius:10px;
+  padding:15px 16px 14px;box-shadow:var(--sombra)}
+.medida .n{font-size:25px;font-weight:500;line-height:1.15;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.medida .r{font-size:12px;color:var(--tinta-3);margin-top:2px;line-height:1.35}
+.medida.aviso{background:var(--alerta-fundo);border-color:var(--alerta-risco)}
 .medida.aviso .n{color:var(--alerta)}
-.barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
-input[type=search],select{font:inherit;font-size:14px;background:var(--papel);color:var(--tinta);
-  border:1px solid var(--risco-2);border-radius:6px;padding:8px 11px}
-input[type=search]{flex:1 1 260px;min-width:0}
-input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--verde);outline-offset:1px}
-.contagem{font-size:12.5px;color:var(--tinta-3);margin:0 0 10px;font-variant-numeric:tabular-nums}
+.medida.aviso .r{color:var(--alerta)}
+
+/* ── controles ─────────────────────────────────── */
+.barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+input[type=search],select{font:inherit;font-size:14px;background:var(--papel);
+  color:var(--tinta);border:1px solid var(--risco-2);border-radius:8px;
+  padding:9px 12px;min-width:0}
+input[type=search]{flex:1 1 280px}
+input[type=search]::placeholder{color:var(--tinta-3)}
+input:focus-visible,select:focus-visible,button:focus-visible{
+  outline:2px solid var(--marca);outline-offset:1px}
+.rotulo{font-size:13px;color:var(--tinta-3)}
+.contagem{font-size:12.5px;color:var(--tinta-3);margin:0 0 12px;
+  font-variant-numeric:tabular-nums}
+
+/* ── cartoes ───────────────────────────────────── */
 .cartao{background:var(--papel);border:1px solid var(--risco);border-radius:10px;
-  padding:14px 16px;margin-bottom:10px}
-.cartao-topo{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;justify-content:space-between}
-.sigla{font-weight:600;font-size:15px}
-.nome{color:var(--tinta-2);font-size:13px;margin-top:2px;line-height:1.4}
-.pilulas{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
-.pilula{font-size:12px;padding:2px 9px;border-radius:11px;background:var(--verde-fundo);
-  color:var(--verde);white-space:nowrap}
-.pilula.ouro{background:var(--ouro-fundo);color:#7a4c07}
+  padding:16px 18px;margin-bottom:8px;box-shadow:var(--sombra)}
+.cartao-topo{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;
+  justify-content:space-between}
+.sigla{font-weight:600;font-size:15px;letter-spacing:-.005em}
+.nome{color:var(--tinta-2);font-size:13px;margin-top:3px;line-height:1.45}
+.pilulas{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.pilula{font-size:12px;padding:3px 10px;border-radius:999px;
+  background:var(--marca-fraca);color:var(--marca-forte);white-space:nowrap;
+  line-height:1.5}
+.pilula.ouro{background:var(--papel);color:var(--tinta);border:1px solid var(--risco-2);
+  font-weight:500;font-variant-numeric:tabular-nums}
 .pilula.alerta{background:var(--alerta-fundo);color:var(--alerta)}
-.pilula.neutra{background:var(--ground);color:var(--tinta-2)}
-details{margin-top:10px}
-summary{cursor:pointer;font-size:13.5px;color:var(--verde);padding:4px 0}
-summary:focus-visible{outline:2px solid var(--verde);outline-offset:2px}
-.scroller{overflow-x:auto;margin-top:8px}
-table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
-th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--tinta-3);font-weight:600;padding:9px 10px;border-bottom:1px solid var(--risco-2)}
-td{padding:9px 10px;border-bottom:1px solid var(--risco);vertical-align:top}
-.mono{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:12.5px;
-  font-variant-numeric:tabular-nums;white-space:nowrap}
-a{color:var(--verde);text-underline-offset:2px}
-.vazio{padding:30px 14px;text-align:center;color:var(--tinta-3);font-size:14px;
-  background:var(--papel);border:1px dashed var(--risco-2);border-radius:10px}
-.doc-linha{border-top:1px solid var(--risco);padding:11px 0 3px}
-.doc-topo{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
-.doc-linha .nome{margin:4px 0 0}
-.doc-linha .pilulas{margin-top:7px}
+.pilula.neutra{background:transparent;color:var(--tinta-3);
+  border:1px solid var(--risco)}
 a.pilula{text-decoration:none}
-a.pilula:hover{filter:brightness(.94)}
-.nota-vazia{margin:10px 0 0;font-size:13px;color:var(--tinta-3);font-style:italic}
-.aviso-caixa{background:var(--alerta-fundo);border-left:3px solid var(--alerta);
-  padding:12px 14px;margin-bottom:18px;font-size:13.5px}
-.aviso-caixa b{color:var(--alerta)}
-.rodape{margin-top:36px;padding-top:14px;border-top:1px solid var(--risco);
-  font-size:12.5px;color:var(--tinta-3)}
-@media(max-width:600px){.cartao-topo{flex-direction:column}}
+a.pilula:hover{border-color:var(--marca);color:var(--marca-forte)}
+a.pilula.ouro:hover{background:var(--marca-fraca)}
+
+details{margin-top:12px}
+summary{cursor:pointer;font-size:13px;color:var(--marca-forte);padding:3px 0;
+  list-style:none;display:inline-flex;align-items:center;gap:5px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸';font-size:10px;transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+summary:hover{color:var(--tinta)}
+summary:focus-visible{outline:2px solid var(--marca);outline-offset:2px;border-radius:3px}
+
+.doc-linha{border-top:1px solid var(--risco);padding:13px 0 4px;margin-top:4px}
+.doc-topo{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+  justify-content:space-between}
+.doc-linha .nome{margin:5px 0 0}
+.doc-linha .pilulas{margin-top:9px}
+
+.scroller{overflow-x:auto;margin-top:10px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tinta-3);font-weight:600;padding:8px 10px;
+  border-bottom:1px solid var(--risco-2)}
+td{padding:9px 10px;border-bottom:1px solid var(--risco);vertical-align:top}
+tr:last-child td{border-bottom:0}
+
+.mono{font-family:"Ubuntu Sans Mono",ui-monospace,Consolas,monospace;
+  font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;
+  color:var(--tinta-2)}
+a{color:var(--marca-forte);text-underline-offset:2px;
+  text-decoration-color:var(--risco-2)}
+a:hover{text-decoration-color:currentColor}
+
+.vazio{padding:36px 18px;text-align:center;color:var(--tinta-3);font-size:14px;
+  background:var(--papel);border:1px dashed var(--risco-2);border-radius:10px}
+.nota-vazia{margin:11px 0 0;font-size:13px;color:var(--tinta-3)}
+.aviso-caixa{background:var(--alerta-fundo);border:1px solid var(--alerta-risco);
+  border-radius:10px;padding:13px 16px;margin-bottom:20px;font-size:13.5px;
+  color:var(--tinta)}
+.aviso-caixa b{color:var(--alerta);font-weight:600}
+.rodape{margin-top:44px;padding-top:16px;border-top:1px solid var(--risco);
+  font-size:12.5px;color:var(--tinta-3);max-width:76ch}
+
+@media(max-width:560px){
+  .wrap{padding-inline:16px}
+  .cartao-topo{flex-direction:column;align-items:flex-start}
+  .abas-int{gap:18px}
+  .marca-sub{white-space:normal}
+}
 </style>
 </head>
 <body>
 
-<div class="faixa"><div class="wrap">
-  <h1>Monitor de CCTs</h1>
-  <p id="subtitulo">Carregando…</p>
-</div></div>
+<header class="topo"><div class="wrap topo-int">
+  <img src="assets/logo-escritorial.png" alt="Escritorial">
+  <div class="marca-txt">
+    <span class="marca-nome">Monitor de CCTs</span>
+    <span class="marca-sub" id="subtitulo">Carregando…</span>
+  </div>
+  <button class="tema" id="btnTema" type="button" aria-label="Alternar tema claro e escuro">◐</button>
+</div></header>
 
-<nav class="abas" role="tablist"><div class="wrap" style="display:flex;gap:2px">
+<nav class="abas"><div class="wrap abas-int" role="tablist">
   <button class="aba" role="tab" aria-selected="true" data-painel="resumo">Resumo</button>
-  <button class="aba" role="tab" aria-selected="false" data-painel="documentos">Documentos</button>
-  <button class="aba" role="tab" aria-selected="false" data-painel="sindicatos">Sindicatos</button>
-  <button class="aba" role="tab" aria-selected="false" data-painel="divergencias">Divergências</button>
+  <button class="aba" role="tab" aria-selected="false" data-painel="documentos">Convenções<span class="conta" id="cntDoc"></span></button>
+  <button class="aba" role="tab" aria-selected="false" data-painel="sindicatos">Sindicatos<span class="conta" id="cntSind"></span></button>
+  <button class="aba" role="tab" aria-selected="false" data-painel="divergencias">Divergências<span class="conta" id="cntDiv"></span></button>
   <button class="aba" role="tab" aria-selected="false" data-painel="execucoes">Execuções</button>
 </div></nav>
 
@@ -106,7 +204,7 @@ a.pilula:hover{filter:brightness(.94)}
       mais de uma data-base aparece em <em>todos</em> os meses dele.</p>
     <div class="medidas" id="medidas"></div>
     <div class="barra">
-      <label for="mes" style="font-size:13.5px;color:var(--tinta-2)">Mês</label>
+      <label class="rotulo" for="mes">Mês</label>
       <select id="mes"></select>
     </div>
     <p class="contagem" id="contaResumo"></p>
@@ -114,11 +212,11 @@ a.pilula:hover{filter:brightness(.94)}
   </section>
 
   <section id="documentos" role="tabpanel" hidden>
-    <h2>Documentos registrados no MTE</h2>
-    <p class="legenda">Instrumentos encontrados no Mediador. O link abre o extrato
-      baixado do próprio MTE.</p>
+    <h2>Convenções registradas no MTE</h2>
+    <p class="legenda">Convenções coletivas vigentes encontradas no Mediador. O link
+      abre o extrato baixado do próprio MTE.</p>
     <div class="barra">
-      <input type="search" id="buscaDoc" placeholder="Buscar por sigla, registro, tipo ou parte">
+      <input type="search" id="buscaDoc" placeholder="Buscar por sigla, registro ou parte">
       <select id="filtroTipo"><option value="">Todos os tipos</option></select>
     </div>
     <p class="contagem" id="contaDoc"></p>
@@ -127,8 +225,8 @@ a.pilula:hover{filter:brightness(.94)}
 
   <section id="sindicatos" role="tabpanel" hidden>
     <h2>Sindicatos monitorados</h2>
-    <p class="legenda">Vindos da planilha do escritório. As anotações por empresa cliente
-      ficam preservadas em cada cartão.</p>
+    <p class="legenda">Vindos da planilha do escritório. As anotações por empresa
+      cliente ficam preservadas em cada cartão.</p>
     <div class="barra">
       <input type="search" id="buscaSind" placeholder="Buscar por sigla, nome, CNPJ ou município">
       <select id="filtroUf"><option value="">Todas as UFs</option></select>
@@ -138,7 +236,7 @@ a.pilula:hover{filter:brightness(.94)}
   </section>
 
   <section id="divergencias" role="tabpanel" hidden>
-    <h2>Site publicou, MTE não registrou</h2>
+    <h2>Publicado no site, sem registro no MTE</h2>
     <p class="legenda">Candidatos levantados no site do sindicato sem instrumento
       correspondente no Mediador. São pistas para conferência, não veredito.</p>
     <div id="listaDiv"></div>
@@ -217,6 +315,10 @@ async function carregar() {
     ? `Última execução: ${dataBr(ult.data)} · ${SINDICATOS.length} sindicatos · ${DOCUMENTOS.length} documentos`
     : `${SINDICATOS.length} sindicatos · ${DOCUMENTOS.length} documentos · nenhuma execução registrada`;
 
+  document.getElementById('cntDoc').textContent = DOCUMENTOS.length || '';
+  document.getElementById('cntSind').textContent = SINDICATOS.length || '';
+  document.getElementById('cntDiv').textContent = DIVERGENCIAS.length || '';
+
   montarMedidas();
   montarResumo();
   montarDocumentos();
@@ -232,6 +334,12 @@ async function carregar() {
 
 function docsDoSindicato(id) {
   return DOCUMENTOS.filter((d) => d.sindicato_id === id);
+}
+
+/** "2 convenções" / "1 convenção" / "sem convenção" — em vez de "2 no MTE". */
+function rotuloConvencoes(n) {
+  if (!n) return 'sem convenção no MTE';
+  return n === 1 ? '1 convenção no MTE' : `${n} convenções no MTE`;
 }
 
 /**
@@ -293,14 +401,20 @@ function montarMedidas() {
   const coletados = DOCUMENTOS.filter((d) => d.coletado_em).length;
   const semCnpj = SINDICATOS.filter((s) => !s.cnpj_valido).length;
 
+  // Sete cartoes, quatro deles zerados, viram ruido: o olho para de distinguir o
+  // que pede atencao. Os quatro primeiros sao o retrato permanente; os de alerta
+  // so aparecem quando ha alerta de verdade.
   const cartoes = [
     { n: SINDICATOS.length, r: 'sindicatos monitorados' },
     { n: SINDICATOS.reduce((t, s) => t + (s.data_bases || []).length, 0), r: 'data-bases acompanhadas' },
-    { n: DOCUMENTOS.length, r: 'documentos no MTE' },
-    { n: coletados, r: 'documentos baixados', aviso: coletados < DOCUMENTOS.length },
-    { n: DIVERGENCIAS.length, r: 'divergências a conferir', aviso: DIVERGENCIAS.length > 0 },
-    { n: falhas, r: 'falhas na última rodada', aviso: falhas > 0 }
+    { n: DOCUMENTOS.length, r: 'convenções vigentes' },
+    { n: DOCUMENTOS.filter((d) => pisoDe(d)).length, r: 'com piso identificado' }
   ];
+  if (coletados < DOCUMENTOS.length) {
+    cartoes.push({ n: DOCUMENTOS.length - coletados, r: 'sem documento baixado', aviso: true });
+  }
+  if (DIVERGENCIAS.length) cartoes.push({ n: DIVERGENCIAS.length, r: 'divergências a conferir', aviso: true });
+  if (falhas) cartoes.push({ n: falhas, r: 'falhas na última rodada', aviso: true });
   if (semCnpj) cartoes.push({ n: semCnpj, r: 'sem CNPJ válido', aviso: true });
 
   document.getElementById('medidas').innerHTML = cartoes.map((c) =>
@@ -340,7 +454,7 @@ function desenharResumo() {
           <div class="pilulas">
             <span class="pilula ouro">Data-base: ${esc(MESES[mes - 1])}</span>
             ${outras.length ? `<span class="pilula neutra">também: ${outras.map((d) => esc(d.mes)).join(', ')}</span>` : ''}
-            <span class="pilula${docs.length ? '' : ' alerta'}">${docs.length} no MTE</span>
+            <span class="pilula${docs.length ? '' : ' alerta'}">${rotuloConvencoes(docs.length)}</span>
             ${s.uf ? `<span class="pilula neutra">${esc(s.uf)}</span>` : ''}
           </div>
           ${blocoDocumentos(docs, 'Nenhuma convenção vigente registrada no Mediador para este CNPJ.')}
@@ -373,7 +487,8 @@ function desenharDocumentos() {
 
   const baixados = vis.filter((d) => d.arquivo_local).length;
   document.getElementById('contaDoc').textContent =
-    `${vis.length} documento(s) · ${baixados} com arquivo baixado`;
+    `${vis.length} ${vis.length === 1 ? 'convenção' : 'convenções'}` +
+    (baixados < vis.length ? ` · ${vis.length - baixados} sem documento baixado` : '');
 
   document.getElementById('listaDoc').innerHTML = vis.length
     ? vis.map((d) => {
@@ -446,7 +561,7 @@ function desenharSindicatos() {
           </div>
           <div class="pilulas">
             ${(s.data_bases || []).map((d) => `<span class="pilula ouro">${esc(d.mes)}</span>`).join('')}
-            <span class="pilula${docs.length ? '' : ' alerta'}">${docs.length} no MTE</span>
+            <span class="pilula${docs.length ? '' : ' alerta'}">${rotuloConvencoes(docs.length)}</span>
             ${s.municipio ? `<span class="pilula neutra">${esc(s.municipio)}${s.uf ? '/' + esc(s.uf) : ''}</span>` : ''}
             ${s.cnpj_valido ? '' : '<span class="pilula alerta">CNPJ inválido</span>'}
             ${s.revisar ? '<span class="pilula alerta">revisar: anotação diz DESATIVADO</span>' : ''}
@@ -540,6 +655,40 @@ for (const aba of document.querySelectorAll('.aba')) {
 }
 
 carregar();
+
+/* ── TEMA ───────────────────────────────────────── */
+
+/**
+ * Tres estados: o padrao segue o sistema operacional; o botao alterna para
+ * claro ou escuro e guarda a escolha. localStorage pode estourar em janela
+ * anonima, entao toda leitura e escrita vai dentro de try.
+ */
+const btnTema = document.getElementById('btnTema');
+
+function temaGuardado() {
+  try { return localStorage.getItem('tema'); } catch { return null; }
+}
+
+function aplicarTema(t) {
+  if (t) document.documentElement.setAttribute('data-tema', t);
+  else document.documentElement.removeAttribute('data-tema');
+  btnTema.textContent = t === 'escuro' ? '☀' : (t === 'claro' ? '☾' : '◐');
+  btnTema.title = t === 'escuro' ? 'Tema escuro — clique para seguir o sistema'
+    : t === 'claro' ? 'Tema claro — clique para escuro'
+    : 'Seguindo o sistema — clique para claro';
+}
+
+aplicarTema(temaGuardado());
+
+btnTema.addEventListener('click', () => {
+  const atual = temaGuardado();
+  const proximo = atual === 'claro' ? 'escuro' : atual === 'escuro' ? null : 'claro';
+  try {
+    if (proximo) localStorage.setItem('tema', proximo);
+    else localStorage.removeItem('tema');
+  } catch { /* segue sem guardar */ }
+  aplicarTema(proximo);
+});
 </script>
 </body>
 </html>
