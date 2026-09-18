@@ -13,7 +13,8 @@
     "verificar": "node scripts/verificar-links.js",
     "testar": "node scripts/testar-mediador.js",
     "diaria": "npm run varrer && npm run verificar",
-    "mensal": "npm run buscar && npm run coletar && npm run sites && npm run verificar"
+    "mensal": "npm run buscar && npm run coletar && npm run sites && npm run verificar",
+    "sindicato": "node scripts/adicionar-sindicato.js"
   },
   "engines": {
     "node": ">=20"

@@ -162,6 +162,40 @@ a:hover{text-decoration-color:currentColor}
 .vazio{padding:36px 18px;text-align:center;color:var(--tinta-3);font-size:14px;
   background:var(--papel);border:1px dashed var(--risco-2);border-radius:10px}
 .nota-vazia{margin:11px 0 0;font-size:13px;color:var(--tinta-3)}
+
+/* Marcador de estado: cheio = tem convencao vigente no MTE, vazado = nao tem.
+   Forma antes de cor, para funcionar tambem para quem nao distingue as duas. */
+.marcador{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block;
+  vertical-align:baseline;margin-right:8px}
+.marcador.tem{background:var(--ok);box-shadow:0 0 0 2.5px var(--ok-fundo)}
+.marcador.nao{background:transparent;border:1.5px solid var(--tinta-3)}
+.sigla{display:flex;align-items:center;gap:0}
+
+/* ── incluir sindicato ─────────────────────────── */
+.form-add{background:var(--papel);border:1px solid var(--risco);border-radius:10px;
+  padding:16px 18px;margin-bottom:18px}
+.form-add summary{font-size:13.5px}
+.campos{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin-top:14px}
+.campo{display:flex;flex-direction:column;gap:5px;min-width:0}
+.campo label{font-size:12px;color:var(--tinta-3)}
+.campo input{font:inherit;font-size:14px;background:var(--papel);color:var(--tinta);
+  border:1px solid var(--risco-2);border-radius:8px;padding:9px 12px;min-width:0}
+.campo input[aria-invalid="true"]{border-color:var(--alerta)}
+.campo .erro{font-size:12px;color:var(--alerta);min-height:1em}
+.form-acoes{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.botao{font:inherit;font-size:14px;background:var(--marca);color:#fff;border:0;
+  border-radius:8px;padding:9px 16px;cursor:pointer}
+.botao:hover{background:var(--marca-forte)}
+.botao.secundario{background:transparent;color:var(--tinta-2);
+  border:1px solid var(--risco-2)}
+.botao.secundario:hover{background:var(--marca-fraca);color:var(--marca-forte)}
+.saida-cmd{margin-top:14px;background:var(--ground);border:1px solid var(--risco);
+  border-radius:8px;padding:13px 15px}
+.saida-cmd code{font-family:"Ubuntu Sans Mono",monospace;font-size:12.5px;
+  white-space:pre-wrap;word-break:break-word;display:block;color:var(--tinta);
+  line-height:1.6}
+.saida-cmd p{margin:0 0 9px;font-size:12.5px;color:var(--tinta-3)}
 .aviso-caixa{background:var(--alerta-fundo);border:1px solid var(--alerta-risco);
   border-radius:10px;padding:13px 16px;margin-bottom:20px;font-size:13.5px;
   color:var(--tinta)}
@@ -227,6 +261,52 @@ a:hover{text-decoration-color:currentColor}
     <h2>Sindicatos monitorados</h2>
     <p class="legenda">Vindos da planilha do escritório. As anotações por empresa
       cliente ficam preservadas em cada cartão.</p>
+    <details class="form-add">
+      <summary>Incluir um sindicato que não está na planilha</summary>
+      <div class="campos">
+        <div class="campo">
+          <label for="fCnpj">CNPJ</label>
+          <input id="fCnpj" inputmode="numeric" placeholder="12.345.678/0001-90" autocomplete="off">
+          <span class="erro" id="eCnpj"></span>
+        </div>
+        <div class="campo">
+          <label for="fSigla">Sigla</label>
+          <input id="fSigla" placeholder="SINDXYZ" autocomplete="off">
+          <span class="erro" id="eSigla"></span>
+        </div>
+        <div class="campo" style="grid-column:1/-1">
+          <label for="fNome">Nome completo</label>
+          <input id="fNome" placeholder="SINDICATO DOS TRABALHADORES EM..." autocomplete="off">
+          <span class="erro" id="eNome"></span>
+        </div>
+        <div class="campo">
+          <label for="fMeses">Data-base (um ou mais meses, separados por vírgula)</label>
+          <input id="fMeses" placeholder="Janeiro, Maio" autocomplete="off">
+          <span class="erro" id="eMeses"></span>
+        </div>
+        <div class="campo">
+          <label for="fUf">UF</label>
+          <input id="fUf" maxlength="2" placeholder="MG" autocomplete="off">
+          <span class="erro"></span>
+        </div>
+        <div class="campo">
+          <label for="fMunicipio">Município (opcional)</label>
+          <input id="fMunicipio" placeholder="Uberlândia" autocomplete="off">
+          <span class="erro"></span>
+        </div>
+        <div class="campo">
+          <label for="fSite">Site (opcional)</label>
+          <input id="fSite" placeholder="sindxyz.org.br" autocomplete="off">
+          <span class="erro"></span>
+        </div>
+      </div>
+      <div class="form-acoes">
+        <button class="botao" type="button" id="btnGerar">Gerar comando</button>
+        <button class="botao secundario" type="button" id="btnLimpar">Limpar</button>
+      </div>
+      <div class="saida-cmd" id="saidaCmd" hidden></div>
+    </details>
+
     <div class="barra">
       <input type="search" id="buscaSind" placeholder="Buscar por sigla, nome, CNPJ ou município">
       <select id="filtroUf"><option value="">Todas as UFs</option></select>
@@ -334,6 +414,17 @@ async function carregar() {
 
 function docsDoSindicato(id) {
   return DOCUMENTOS.filter((d) => d.sindicato_id === id);
+}
+
+/**
+ * Bolinha de estado antes da sigla: cheia quando o sindicato tem convenção
+ * vigente no MTE, vazada quando não tem. A diferença é de FORMA, não só de cor —
+ * quem não distingue verde de cinza continua enxergando.
+ */
+function marcador(n) {
+  return n
+    ? '<span class="marcador tem" title="Tem convenção vigente no MTE"></span>'
+    : '<span class="marcador nao" title="Sem convenção vigente no MTE"></span>';
 }
 
 /** "2 convenções" / "1 convenção" / "sem convenção" — em vez de "2 no MTE". */
@@ -446,7 +537,7 @@ function desenharResumo() {
         return `<div class="cartao">
           <div class="cartao-topo">
             <div>
-              <div class="sigla">${esc(s.sigla)}</div>
+              <div class="sigla">${marcador(docs.length)}${esc(s.sigla)}</div>
               <div class="nome">${esc(s.nome)}</div>
             </div>
             <div class="mono">${esc(s.cnpj)}</div>
@@ -554,7 +645,7 @@ function desenharSindicatos() {
         return `<div class="cartao">
           <div class="cartao-topo">
             <div>
-              <div class="sigla">${esc(s.sigla)}</div>
+              <div class="sigla">${marcador(docs.length)}${esc(s.sigla)}</div>
               <div class="nome">${esc(s.nome)}</div>
             </div>
             <div class="mono">${esc(s.cnpj)}</div>
@@ -655,6 +746,140 @@ for (const aba of document.querySelectorAll('.aba')) {
 }
 
 carregar();
+
+/* ── INCLUIR SINDICATO ──────────────────────────── */
+
+/**
+ * O painel é estático: não existe servidor para gravar nada. Um formulário que
+ * fingisse salvar guardaria no localStorage do navegador de quem digitou, e o
+ * dado sumiria para todo mundo — inclusive para quem digitou, em outra máquina.
+ *
+ * Então ele faz o que pode fazer bem: valida e monta o comando exato. O registro
+ * de verdade acontece em data/sindicatos-extras.json, que o importador respeita.
+ */
+const MESES_VALIDOS = MESES.map((m) => m.toLowerCase());
+
+/** Mesma validação do lado do Node, para o erro aparecer antes de rodar nada. */
+function cnpjValidoBrowser(valor) {
+  const d = String(valor ?? '').replace(/\D/g, '');
+  if (d.length !== 14 || /^(\d)\1{13}$/.test(d)) return false;
+  const calc = (base, peso0) => {
+    let soma = 0, peso = peso0;
+    for (const ch of base) { soma += Number(ch) * peso; peso = peso === 2 ? 9 : peso - 1; }
+    const r = soma % 11;
+    return r < 2 ? 0 : 11 - r;
+  };
+  return calc(d.slice(0, 12), 5) === Number(d[12]) && calc(d.slice(0, 13), 6) === Number(d[13]);
+}
+
+function campo(id) { return document.getElementById(id); }
+
+function marcarErro(idCampo, idErro, msg) {
+  const el = campo(idCampo);
+  if (el) el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  const e = campo(idErro);
+  if (e) e.textContent = msg || '';
+  return !msg;
+}
+
+function validarFormulario() {
+  const cnpj = campo('fCnpj').value.trim();
+  const sigla = campo('fSigla').value.trim();
+  const nome = campo('fNome').value.trim();
+  const meses = campo('fMeses').value.trim();
+
+  let ok = true;
+
+  if (!cnpj) ok = marcarErro('fCnpj', 'eCnpj', 'Obrigatório') && ok;
+  else if (!cnpjValidoBrowser(cnpj)) {
+    ok = marcarErro('fCnpj', 'eCnpj', 'CNPJ inválido — o Mediador não acharia nada') && ok;
+  } else {
+    const chave = cnpj.replace(/\D/g, '');
+    const existente = SINDICATOS.find((x) => x.cnpj_digitos === chave);
+    ok = marcarErro('fCnpj', 'eCnpj',
+      existente ? `Já monitorado: ${existente.sigla}` : '') && ok;
+  }
+
+  ok = marcarErro('fSigla', 'eSigla', sigla ? '' : 'Obrigatório') && ok;
+  ok = marcarErro('fNome', 'eNome', nome ? '' : 'Obrigatório') && ok;
+
+  if (!meses) ok = marcarErro('fMeses', 'eMeses', 'Obrigatório') && ok;
+  else {
+    const ruins = meses.split(',').map((m) => m.trim()).filter(Boolean)
+      .filter((m) => !MESES_VALIDOS.includes(m.toLowerCase()));
+    ok = marcarErro('fMeses', 'eMeses',
+      ruins.length ? `Mês não reconhecido: ${ruins.join(', ')}` : '') && ok;
+  }
+
+  return ok;
+}
+
+function montarComando() {
+  const aspas = (v) => `"${String(v).replace(/"/g, '\\"')}"`;
+  const partes = [
+    'node scripts/adicionar-sindicato.js',
+    `--cnpj ${campo('fCnpj').value.trim()}`,
+    `--sigla ${aspas(campo('fSigla').value.trim())}`,
+    `--nome ${aspas(campo('fNome').value.trim())}`,
+    `--meses ${aspas(campo('fMeses').value.trim())}`
+  ];
+  const uf = campo('fUf').value.trim();
+  const mun = campo('fMunicipio').value.trim();
+  const site = campo('fSite').value.trim();
+  if (uf) partes.push(`--uf ${uf.toUpperCase()}`);
+  if (mun) partes.push(`--municipio ${aspas(mun)}`);
+  if (site) partes.push(`--site ${aspas(site)}`);
+  return partes.join(' \\n  ');
+}
+
+const btnGerar = document.getElementById('btnGerar');
+if (btnGerar) {
+  btnGerar.addEventListener('click', () => {
+    const saida = document.getElementById('saidaCmd');
+    if (!validarFormulario()) {
+      saida.hidden = true;
+      return;
+    }
+    const cmd = montarComando();
+    const sigla = campo('fSigla').value.trim();
+    saida.hidden = false;
+    saida.innerHTML =
+      '<p>Rode isto na pasta do projeto. O painel é estático e não grava nada sozinho — ' +
+      'o registro vale quando estiver em <span class="mono">data/sindicatos-extras.json</span>.</p>' +
+      `<code id="cmdTexto">${esc(cmd)}</code>` +
+      '<div class="form-acoes">' +
+      '<button class="botao secundario" type="button" id="btnCopiar">Copiar comando</button>' +
+      '</div>' +
+      `<p style="margin-top:10px">Depois: <span class="mono">npm run importar</span> e ` +
+      `<span class="mono">node scripts/buscar-mediador.js --sigla ${esc(sigla)}</span></p>`;
+
+    document.getElementById('btnCopiar').addEventListener('click', async (ev) => {
+      try {
+        await navigator.clipboard.writeText(cmd);
+        ev.target.textContent = 'Copiado';
+        setTimeout(() => { ev.target.textContent = 'Copiar comando'; }, 1600);
+      } catch {
+        // Sem permissão de área de transferência: selecionar é melhor que nada.
+        const r = document.createRange();
+        r.selectNodeContents(document.getElementById('cmdTexto'));
+        const sel = getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+        ev.target.textContent = 'Selecionado — use Ctrl+C';
+      }
+    });
+  });
+
+  document.getElementById('btnLimpar').addEventListener('click', () => {
+    for (const id of ['fCnpj','fSigla','fNome','fMeses','fUf','fMunicipio','fSite']) {
+      const el = campo(id);
+      el.value = '';
+      el.removeAttribute('aria-invalid');
+    }
+    for (const id of ['eCnpj','eSigla','eNome','eMeses']) campo(id).textContent = '';
+    document.getElementById('saidaCmd').hidden = true;
+  });
+}
 
 /* ── TEMA ───────────────────────────────────────── */
 

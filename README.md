@@ -58,13 +58,36 @@ Tudo versionado no repositório, em `data/`:
 
 | Arquivo | O que guarda |
 |---|---|
-| `sindicatos.json` | 63 sindicatos, cada um com **lista** de data-bases |
+| `sindicatos.json` | os sindicatos monitorados, cada um com **lista** de data-bases |
+| `sindicatos-extras.json` | incluídos fora da planilha |
+| `sindicatos-ignorados.json` | tirados do monitoramento, com o motivo |
 | `documentos.json` | instrumentos do MTE, chaveados por `nr_solicitacao` |
 | `execucoes.json` | cada rodada, com o que falhou e por quê |
 | `divergencias.json` | site publicou e o MTE não registrou |
 | `sites.json` | o que foi encontrado em cada site |
 
 Os arquivos baixados ficam em `docs/MTE/`.
+
+## Incluir ou tirar um sindicato
+
+A planilha manda nas linhas dela, mas não é a única fonte. `npm run importar`
+reescreve `data/sindicatos.json` inteiro — então editar aquele arquivo na mão
+funciona até alguém reimportar, e aí a alteração some sem avisar.
+
+Use os dois arquivos que o importador respeita:
+
+```bash
+npm run sindicato -- --cnpj 12.345.678/0001-90 --sigla SINDXYZ   --nome "SINDICATO DOS ..." --uf MG --meses "Janeiro,Maio"
+
+npm run sindicato -- --ignorar 00.000.000/0000-00 --motivo "CNPJ de preenchimento"
+
+npm run sindicato -- --listar
+```
+
+Depois, `npm run importar` aplica. O painel tem um formulário na aba Sindicatos que
+valida os campos e monta o comando pronto — ele não grava sozinho porque é um site
+estático, e um formulário que fingisse salvar guardaria o dado no navegador de quem
+digitou, invisível para todo mundo.
 
 ## Três coisas que este sistema existe para não repetir
 

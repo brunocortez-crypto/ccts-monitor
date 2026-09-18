@@ -5,10 +5,34 @@
  *
  * Critério de aceite (PROMPT-SISTEMA-CCT.md §8.1): 63 sindicatos, 109 data-bases.
  */
-import { writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { lerPlanilha } from './lib/planilha.js';
+import { lerPlanilha, digitos, cnpjValido } from './lib/planilha.js';
+
+const IGNORADOS = 'data/sindicatos-ignorados.json';
+const EXTRAS = 'data/sindicatos-extras.json';
+
+/**
+ * A planilha e a fonte das linhas dela, mas nao e a unica fonte de verdade.
+ *
+ * Este script reescreve data/sindicatos.json inteiro. Sem os dois arquivos abaixo,
+ * toda decisao manual morreria no proximo import: um sindicato excluido voltaria,
+ * um sindicato incluido a mao sumiria — e ninguem perceberia, porque o import
+ * termina dizendo "Aceite OK".
+ *
+ *  - sindicatos-ignorados.json: CNPJs que o escritorio decidiu nao monitorar.
+ *  - sindicatos-extras.json: sindicatos que entraram fora da planilha.
+ */
+async function lerLista(caminho) {
+  if (!existsSync(caminho)) return [];
+  try {
+    const j = JSON.parse(await readFile(caminho, 'utf8'));
+    return Array.isArray(j) ? j : [];
+  } catch (e) {
+    throw new Error(`${caminho} está corrompido: ${e.message}`);
+  }
+}
 
 const PADRAO = 'C:\\Users\\bruno\\OneDrive\\Desktop\\Convenções\\Sindicatos_Data_Base (2).xlsx';
 
@@ -68,11 +92,54 @@ if (revisar.length) {
   console.log('  (continuam sendo monitorados — confirme com o escritório antes de remover)');
 }
 
-const saida = sindicatos.map(({ linhas_planilha, ...s }) => ({
-  ...s,
-  importado_em: new Date().toISOString().slice(0, 10),
-  origem_planilha: path.basename(caminho)
-}));
+const ignorados = await lerLista(IGNORADOS);
+const extras = await lerLista(EXTRAS);
+const cnpjsIgnorados = new Set(ignorados.map((i) => digitos(i.cnpj)));
+
+const daPlanilha = sindicatos
+  .filter((s) => !cnpjsIgnorados.has(s.cnpj_digitos))
+  .map(({ linhas_planilha, ...s }) => ({
+    ...s,
+    origem: 'planilha',
+    importado_em: new Date().toISOString().slice(0, 10),
+    origem_planilha: path.basename(caminho)
+  }));
+
+const jaTem = new Set(daPlanilha.map((s) => s.cnpj_digitos));
+const extrasValidos = [];
+for (const e of extras) {
+  const chave = digitos(e.cnpj);
+  if (cnpjsIgnorados.has(chave)) continue;
+  if (jaTem.has(chave)) {
+    console.log(`  (extra ${e.sigla} já está na planilha — usando a linha da planilha)`);
+    continue;
+  }
+  jaTem.add(chave);
+  extrasValidos.push({
+    ...e,
+    cnpj_digitos: chave,
+    cnpj_valido: cnpjValido(chave),
+    data_bases: e.data_bases ?? [],
+    variantes: e.variantes ?? [],
+    revisar: false,
+    origem: 'incluido-a-mao'
+  });
+}
+
+if (ignorados.length) {
+  console.log(`
+Ignorados por decisão do escritório (${ignorados.length}):`);
+  for (const i of ignorados) console.log(`  ${String(i.sigla).padEnd(24)} ${i.cnpj} — ${i.motivo}`);
+}
+if (extrasValidos.length) {
+  console.log(`
+Incluídos fora da planilha (${extrasValidos.length}):`);
+  for (const e of extrasValidos) console.log(`  ${String(e.sigla).padEnd(24)} ${e.cnpj}`);
+}
+
+const saida = [...daPlanilha, ...extrasValidos]
+  .sort((a, b) => String(a.sigla).localeCompare(String(b.sigla), 'pt'))
+  .map((s, i) => ({ ...s, id: `sid_${String(i + 1).padStart(3, '0')}` }));
 
 await mkdir('data', { recursive: true });
 await writeFile('data/sindicatos.json', JSON.stringify(saida, null, 2) + '\n', 'utf8');
@@ -83,8 +150,16 @@ console.log('\nGravado: data/sindicatos.json');
 const problemas = [];
 for (const [chave, esperado] of Object.entries(ESPERADO)) {
   if (totais[chave] !== esperado) {
-    problemas.push(`${chave}: esperava ${esperado}, saiu ${totais[chave]}`);
+    problemas.push(`${chave}: esperava ${esperado} na planilha, saiu ${totais[chave]}`);
   }
+}
+// O aceite mede a LEITURA da planilha. Ignorados e extras entram depois, por
+// decisao do escritorio, e sao conferidos por contagem propria.
+const esperadoNoArquivo = totais.sindicatos - ignorados.filter(
+  (i) => sindicatos.some((s) => s.cnpj_digitos === digitos(i.cnpj))
+).length + extrasValidos.length;
+if (saida.length !== esperadoNoArquivo) {
+  problemas.push(`sindicatos.json ficou com ${saida.length}, esperava ${esperadoNoArquivo}`);
 }
 // Nenhuma linha da planilha pode sumir no caminho.
 if (totais.variantes !== totais.linhas) {
@@ -96,6 +171,11 @@ if (problemas.length) {
   for (const p of problemas) console.error(`  - ${p}`);
   console.error('\nSe a planilha mudou de propósito, atualize ESPERADO neste arquivo.\n');
   process.exitCode = 1;
+} else {
+  const ignoradosDaPlanilha = totais.sindicatos - daPlanilha.length;
+  console.log(`\nAceite OK: ${totais.sindicatos} sindicatos na planilha, ` +
+              `${totais.data_bases} data-bases.`);
+  console.log(`Gravados: ${saida.length} (${daPlanilha.length} da planilha` +
+              `${extrasValidos.length ? ` + ${extrasValidos.length} incluído(s) à mão` : ''}` +
+              `${ignoradosDaPlanilha ? `, ${ignoradosDaPlanilha} ignorado(s)` : ''}).\n`);
 }
-
-console.log(`Aceite OK: ${totais.sindicatos} sindicatos, ${totais.data_bases} data-bases.\n`);
