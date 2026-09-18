@@ -549,6 +549,27 @@ function pisoDe(d) {
   return d.indicadores?.piso_mensal ?? null;
 }
 
+/**
+ * Pílula do piso. Quando a cláusula traz vários — por jornada, por função ou por
+ * período —, mostra a faixa e avisa. Escolher um número nesse caso é mentira:
+ * numa convenção aqui os pisos vão de R$ 1.476,03 (180h, 1º semestre) a
+ * R$ 1.822,08 (220h, 2º semestre), e a regra antiga exibia o menor.
+ */
+function pilulaPiso(d) {
+  const i = d.indicadores || {};
+  if (i.piso_mensal) {
+    return `<span class="pilula ouro" title="Cláusula: ${esc(i.piso_origem || '—')}">` +
+           `Piso R$ ${esc(i.piso_mensal)}</span>`;
+  }
+  if (i.piso_faixa) {
+    return `<span class="pilula ambar" title="A cláusula &quot;${esc(i.piso_origem || '—')}&quot; ` +
+           `traz ${i.piso_faixa.quantos} pisos diferentes — por jornada, função ou período. ` +
+           `Abra as cláusulas para ver qual se aplica.">` +
+           `Piso R$ ${esc(i.piso_faixa.min)} a ${esc(i.piso_faixa.max)} · varia</span>`;
+  }
+  return '';
+}
+
 /** Primeiro percentual de reajuste achado na cláusula de reajuste. */
 function reajusteDe(d) {
   const lista = d.indicadores?.reajuste;
@@ -575,7 +596,7 @@ function linhaDocumento(d) {
     <div class="nome">com ${esc(contraparte)}</div>
     <div class="pilulas">
       <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
-      ${piso ? `<span class="pilula ouro" title="Extraído da cláusula &quot;${esc(origem)}&quot;">Piso R$ ${esc(piso)}</span>` : ''}
+      ${pilulaPiso(d)}
       ${d.indicadores?.piso_condicional
         ? `<span class="pilula neutra" title="Piso de regime especial (REPIS / ME / EPP). Só vale para empresa que aderiu formalmente — não é o piso da categoria.">REPIS R$ ${esc(d.indicadores.piso_condicional)}</span>`
         : ''}
@@ -597,8 +618,18 @@ function blocoDocumentos(docs, rotuloVazio) {
 
 function montarMedidas() {
   const ult = EXECUCOES[0];
-  const falhas = EXECUCOES.filter((e) => (e.falhas || []).length)
-    .slice(0, 1).reduce((n, e) => n + e.falhas.length, 0);
+  // Falhas em aberto = as da rodada mais recente DE CADA estágio.
+  //
+  // Antes era `filter(tem falha).slice(0,1)`: pegava a execução mais recente que
+  // TEVE falha, por mais antiga que fosse, e rotulava "última rodada". Uma
+  // rodada de 87 falhas resolvida uma hora depois continuava no painel como se
+  // fosse o estado atual.
+  const ultimaPorEstagio = new Map();
+  for (const e of EXECUCOES) {
+    if (!ultimaPorEstagio.has(e.estagio)) ultimaPorEstagio.set(e.estagio, e);
+  }
+  const falhas = [...ultimaPorEstagio.values()]
+    .reduce((n, e) => n + (e.falhas || []).length, 0);
   const coletados = DOCUMENTOS.filter((d) => d.coletado_em).length;
   const semCnpj = SINDICATOS.filter((s) => !s.cnpj_valido).length;
 
@@ -609,13 +640,14 @@ function montarMedidas() {
     { n: SINDICATOS.length, r: 'sindicatos monitorados' },
     { n: SINDICATOS.reduce((t, s) => t + (s.data_bases || []).length, 0), r: 'data-bases acompanhadas' },
     { n: DOCUMENTOS.length, r: 'convenções vigentes' },
-    { n: DOCUMENTOS.filter((d) => pisoDe(d)).length, r: 'com piso identificado' }
+    { n: DOCUMENTOS.filter((d) => pisoDe(d) || d.indicadores?.piso_faixa).length,
+      r: 'com piso identificado' }
   ];
   if (coletados < DOCUMENTOS.length) {
     cartoes.push({ n: DOCUMENTOS.length - coletados, r: 'sem documento baixado', aviso: true });
   }
   if (DIVERGENCIAS.length) cartoes.push({ n: DIVERGENCIAS.length, r: 'divergências a conferir', aviso: true });
-  if (falhas) cartoes.push({ n: falhas, r: 'falhas na última rodada', aviso: true });
+  if (falhas) cartoes.push({ n: falhas, r: 'falhas em aberto', aviso: true });
   if (semCnpj) cartoes.push({ n: semCnpj, r: 'sem CNPJ válido', aviso: true });
 
   document.getElementById('medidas').innerHTML = cartoes.map((c) =>
@@ -704,7 +736,7 @@ function desenharDocumentos() {
           </div>
           <div class="pilulas">
             <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
-            ${pisoDe(d) ? `<span class="pilula ouro" title="Cláusula: ${esc(d.indicadores?.piso_origem)}">Piso R$ ${esc(pisoDe(d))}</span>` : ''}
+            ${pilulaPiso(d)}
             ${d.indicadores?.piso_condicional
               ? `<span class="pilula neutra" title="Piso de regime especial (REPIS / ME / EPP). Só vale para empresa que aderiu formalmente.">REPIS R$ ${esc(d.indicadores.piso_condicional)}</span>`
               : ''}
@@ -1114,7 +1146,9 @@ function baixarCsv() {
       (s?.data_bases || []).map((x) => x.mes).join(' / '),
       d.nr_registro_mte, d.nr_solicitacao, d.tipo,
       dataBr(d.vigencia_inicio), dataBr(d.vigencia_fim), diasAteVencer(d) ?? '',
-      pisoDe(d) ?? '', d.indicadores?.piso_condicional ?? '',
+      pisoDe(d) ?? (d.indicadores?.piso_faixa
+        ? `${d.indicadores.piso_faixa.min} a ${d.indicadores.piso_faixa.max}` : ''),
+      d.indicadores?.piso_condicional ?? '',
       reajusteDe(d) ?? '', d.total_clausulas ?? 0,
       (d.partes || []).join(' x ')
     ].map(campo).join(';');

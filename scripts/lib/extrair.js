@@ -227,10 +227,21 @@ export function extrairIndicadores(texto, clausulas = []) {
   return {
     piso,
     reajuste,
-    // O menor valor da cláusula NÃO serve sozinho: a mesma cláusula traz o
-    // valor-hora junto do mensal ("R$14,70" ao lado de "R$1.739,21"). Pegamos o
-    // menor DENTRO da faixa de piso mensal — e só entre os não condicionais.
-    piso_mensal: menorNaFaixa(pisosGerais, 1000, 30000),
+    // UM número só de piso é mentira quando a cláusula traz vários.
+    //
+    // Caso real (SETH-TAP, MG004433/2025): a cláusula tem quatro pisos —
+    // R$ 1.804,04 (220h) e R$ 1.476,03 (180h) para jan-jun, R$ 1.822,08 e
+    // R$ 1.490,79 para jul-dez. A regra do "menor plausível" mostrava
+    // R$ 1.476,03: jornada parcial E semestre vencido. Para quem trabalha 220h
+    // hoje, o piso é R$ 1.822,08 — R$ 346,05 acima do que o painel dizia.
+    //
+    // Piso varia por jornada, por função e por período dentro da mesma
+    // convenção. Quando há mais de um, mostramos a FAIXA e mandamos ler a
+    // cláusula; um número escolhido por heurística vira folha errada.
+    piso_mensal: pisosGerais.length === 1
+      ? menorNaFaixa(pisosGerais, 1000, 30000)
+      : null,
+    piso_faixa: faixaDe(pisosGerais, 1000, 30000),
     // Piso de regime especial (REPIS/ME/EPP), quando existe. Não substitui o da
     // categoria: mostrar como se fosse faz pagar abaixo do piso.
     piso_condicional: menorNaFaixa(pisosCondicionais, 1000, 30000),
@@ -248,6 +259,23 @@ export function extrairIndicadores(texto, clausulas = []) {
 export function paraNumero(valor) {
   const n = Number(String(valor ?? '').replace(/\./g, '').replace(',', '.'));
   return Number.isFinite(n) ? n : Infinity;
+}
+
+/**
+ * Faixa de valores plausíveis: { min, max, quantos } ou null.
+ * Usada quando a cláusula traz mais de um piso — por jornada, função ou período.
+ */
+function faixaDe(valores, minimo, maximo) {
+  const dentro = [...new Set(valores)]
+    .map((v) => ({ texto: v, numero: paraNumero(v) }))
+    .filter((x) => x.numero >= minimo && x.numero <= maximo)
+    .sort((a, b) => a.numero - b.numero);
+  if (dentro.length < 2) return null;
+  return {
+    min: dentro[0].texto,
+    max: dentro[dentro.length - 1].texto,
+    quantos: dentro.length
+  };
 }
 
 /** Menor valor dentro da faixa, ou null se nenhum couber. Devolve como veio no texto. */
