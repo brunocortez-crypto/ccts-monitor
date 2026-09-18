@@ -1,5 +1,16 @@
 [
   {
+    "data": "2026-09-18T11:15:36.550Z",
+    "estagio": "varredura-por-data",
+    "periodo": "17/09/2026 a 18/09/2026",
+    "documentos_examinados": 21,
+    "descartados_por_uf": 13,
+    "da_carteira": 0,
+    "fora_da_carteira": 21,
+    "duracao_segundos": 66,
+    "falhas": []
+  },
+  {
     "data": "2026-09-17T19:42:58.495Z",
     "estagio": "coletar-documentos",
     "alvo": 87,
