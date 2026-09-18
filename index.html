@@ -576,6 +576,9 @@ function linhaDocumento(d) {
     <div class="pilulas">
       <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
       ${piso ? `<span class="pilula ouro" title="Extraído da cláusula &quot;${esc(origem)}&quot;">Piso R$ ${esc(piso)}</span>` : ''}
+      ${d.indicadores?.piso_condicional
+        ? `<span class="pilula neutra" title="Piso de regime especial (REPIS / ME / EPP). Só vale para empresa que aderiu formalmente — não é o piso da categoria.">REPIS R$ ${esc(d.indicadores.piso_condicional)}</span>`
+        : ''}
       ${reajuste ? `<span class="pilula ouro">Reajuste ${esc(reajuste)}%</span>` : ''}
       ${d.total_clausulas ? `<span class="pilula neutra">${d.total_clausulas} cláusulas</span>` : ''}
     </div>
@@ -702,6 +705,9 @@ function desenharDocumentos() {
           <div class="pilulas">
             <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
             ${pisoDe(d) ? `<span class="pilula ouro" title="Cláusula: ${esc(d.indicadores?.piso_origem)}">Piso R$ ${esc(pisoDe(d))}</span>` : ''}
+            ${d.indicadores?.piso_condicional
+              ? `<span class="pilula neutra" title="Piso de regime especial (REPIS / ME / EPP). Só vale para empresa que aderiu formalmente.">REPIS R$ ${esc(d.indicadores.piso_condicional)}</span>`
+              : ''}
             ${reajusteDe(d) ? `<span class="pilula ouro">Reajuste ${esc(reajusteDe(d))}%</span>` : ''}
             <span class="pilula neutra mono">${esc(d.nr_solicitacao)}</span>
             ${cl.length ? `<span class="pilula">${cl.length} cláusula(s)</span>` : ''}
@@ -1094,7 +1100,7 @@ function blocoComparacao(docs) {
  */
 function baixarCsv() {
   const cabecalho = ['Sindicato','CNPJ','UF','Data-base','Registro MTE','Solicitação',
-    'Tipo','Início','Fim','Dias para vencer','Piso','Reajuste %','Cláusulas','Partes'];
+    'Tipo','Início','Fim','Dias para vencer','Piso','Piso REPIS/ME','Reajuste %','Cláusulas','Partes'];
 
   const campo = (v) => {
     const t = String(v ?? '').replace(/"/g, '""');
@@ -1108,7 +1114,8 @@ function baixarCsv() {
       (s?.data_bases || []).map((x) => x.mes).join(' / '),
       d.nr_registro_mte, d.nr_solicitacao, d.tipo,
       dataBr(d.vigencia_inicio), dataBr(d.vigencia_fim), diasAteVencer(d) ?? '',
-      pisoDe(d) ?? '', reajusteDe(d) ?? '', d.total_clausulas ?? 0,
+      pisoDe(d) ?? '', d.indicadores?.piso_condicional ?? '',
+      reajusteDe(d) ?? '', d.total_clausulas ?? 0,
       (d.partes || []).join(' x ')
     ].map(campo).join(';');
   });

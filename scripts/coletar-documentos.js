@@ -188,6 +188,8 @@ if (falhas.length) {
   for (const f of falhas.slice(0, 20)) console.log(`  ${f.nr_solicitacao}: ${f.motivo}`);
   if (falhas.length > 20) console.log(`  ... mais ${falhas.length - 20}`);
   process.exitCode = 1;
+} else {
+  // Fora do else, esta linha já imprimiu "Sem falhas" logo depois de listar 87
+  // falhas. Mensagem de sucesso que não depende do resultado não é mensagem.
+  console.log('\nSem falhas. Confira os links com: npm run verificar');
 }
-
-console.log('\nSem falhas. Confira os links com: npm run verificar');

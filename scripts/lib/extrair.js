@@ -141,22 +141,54 @@ const TITULO_REAJUSTE =
   /reajuste|corre[çc][ãa]o\s+salarial|aumento\s+salarial|recomposi[çc][ãa]o/i;
 
 /**
+ * Piso que só vale sob condição, não para a categoria inteira.
+ *
+ * Caso real (FECCOEMG, MG000329/2026): a convenção tem "SALÁRIO DA CATEGORIA"
+ * com R$ 1.739,21 e, logo abaixo, "REGIME ESPECIAL DE PISO SALARIAL (REPIS) PARA
+ * AS ME E EPP" com R$ 1.663,91. O REPIS só vale para micro e pequena empresa que
+ * aderiu formalmente, tem Certificado de Adesão e está adimplente.
+ *
+ * Como o piso geral é o MENOR valor plausível da cláusula, o REPIS — que é menor
+ * ainda — ganhava. O painel publicava R$ 1.663,91 como piso da categoria: R$ 75,30
+ * abaixo do correto, e quem calculasse folha com ele pagaria menos que o piso.
+ *
+ * Valor sob condição não é o piso da categoria. Fica registrado à parte.
+ */
+const CLAUSULA_CONDICIONAL =
+  /repis|regime especial|\bME\b|\bEPP\b|microempresa|pequeno porte|ades[ãa]o|simples nacional/i;
+
+/**
  * Indicadores que o escritório usa: piso salarial, reajuste e benefícios.
  *
  * Heurística sobre texto livre — cada achado guarda o título da cláusula e o
  * trecho de origem. Não substitui a leitura da cláusula, aponta onde olhar.
  */
+/**
+ * Palavras que, perto do valor, dizem que aquilo NÃO é piso.
+ *
+ * Caso real (FECCOEMG): dentro da cláusula do REPIS convivem o piso
+ * (R$ 1.663,91), a taxa de utilização (R$ 14,70) e duas multas por falta do
+ * Certificado de Adesão (R$ 1.000,00). Como o piso é o menor valor plausível da
+ * cláusula, a multa de mil reais ganhava do piso de mil seiscentos.
+ *
+ * Estar na cláusula certa não basta: o valor precisa não ser uma penalidade.
+ */
+const NAO_E_PISO = /multa|penalidade|taxa|juros|mora|indeniza[çc][ãa]o|honor[áa]rio/i;
+
 export function extrairIndicadores(texto, clausulas = []) {
-  const acharEm = (fonte, padrao, limite, rotulo = null) => {
+  const acharEm = (fonte, padrao, limite, rotulo = null, excluir = null) => {
     const saida = [];
     const rx = new RegExp(padrao, 'gi');
     let m;
     while ((m = rx.exec(fonte)) !== null && saida.length < limite) {
-      saida.push({
-        valor: m[1],
-        clausula: rotulo,
-        trecho: fonte.slice(Math.max(0, m.index - 80), m.index + 120).replace(/\s+/g, ' ').trim()
-      });
+      const trecho = fonte.slice(Math.max(0, m.index - 80), m.index + 120)
+        .replace(/\s+/g, ' ').trim();
+      // Só o contexto imediato ANTES do valor decide: "multa no importe de
+      // R$1.000,00" exclui; uma multa citada no fim do parágrafo não deveria
+      // derrubar um piso citado no começo.
+      const antes = fonte.slice(Math.max(0, m.index - 70), m.index);
+      if (excluir && excluir.test(antes)) continue;
+      saida.push({ valor: m[1], clausula: rotulo, trecho });
     }
     return saida;
   };
@@ -173,11 +205,11 @@ export function extrairIndicadores(texto, clausulas = []) {
    * "não sei" — o painel mostra as cláusulas para leitura. Um número errado num
    * campo de piso é pior que campo vazio: alguém calcula folha com ele.
    */
-  const porClausula = (filtroTitulo, padrao, limite) => {
+  const porClausula = (filtroTitulo, padrao, limite, excluir = null) => {
     const alvo = clausulas.filter((c) => filtroTitulo.test(c.titulo || ''));
     const achados = [];
     for (const c of alvo) {
-      achados.push(...acharEm(c.texto || '', padrao, limite - achados.length, c.titulo));
+      achados.push(...acharEm(c.texto || '', padrao, limite - achados.length, c.titulo, excluir));
       if (achados.length >= limite) break;
     }
     return achados;
@@ -185,19 +217,26 @@ export function extrairIndicadores(texto, clausulas = []) {
 
   const tituloTem = (re) => clausulas.filter((c) => re.test(c.titulo || '')).map((c) => c.titulo);
 
-  const piso = porClausula(TITULO_PISO, `R\\$\\s*${DINHEIRO}`, 4);
+  const piso = porClausula(TITULO_PISO, `R\\$\\s*${DINHEIRO}`, 6, NAO_E_PISO)
+    .map((p) => ({ ...p, condicional: CLAUSULA_CONDICIONAL.test(String(p.clausula ?? '')) }));
   const reajuste = porClausula(TITULO_REAJUSTE, `${PERCENTUAL}\\s*%`, 4);
+
+  const pisosGerais = piso.filter((p) => !p.condicional).map((p) => p.valor);
+  const pisosCondicionais = piso.filter((p) => p.condicional).map((p) => p.valor);
 
   return {
     piso,
     reajuste,
-    // O menor valor da cláusula NÃO serve: a mesma cláusula costuma trazer o
+    // O menor valor da cláusula NÃO serve sozinho: a mesma cláusula traz o
     // valor-hora junto do mensal ("R$14,70" ao lado de "R$1.739,21"). Pegamos o
-    // menor valor dentro da faixa plausível de piso MENSAL — abaixo do salário
-    // mínimo não é piso, e acima de trinta mil é outra coisa.
-    piso_mensal: menorNaFaixa(piso.map((p) => p.valor), 1000, 30000),
-    // De onde veio: título da cláusula, ou null se foi do documento inteiro.
-    piso_origem: piso[0]?.clausula ?? null,
+    // menor DENTRO da faixa de piso mensal — e só entre os não condicionais.
+    piso_mensal: menorNaFaixa(pisosGerais, 1000, 30000),
+    // Piso de regime especial (REPIS/ME/EPP), quando existe. Não substitui o da
+    // categoria: mostrar como se fosse faz pagar abaixo do piso.
+    piso_condicional: menorNaFaixa(pisosCondicionais, 1000, 30000),
+    // De onde veio o piso GERAL. Antes apontava para piso[0], que podia ser a
+    // cláusula condicional — o número mostrado e a cláusula citada divergiam.
+    piso_origem: piso.find((p) => !p.condicional)?.clausula ?? null,
     percentuais: acharEm(texto, `${PERCENTUAL}\\s*%\\s*\\(`, 5),
     valores: acharEm(texto, `R\\$\\s*${DINHEIRO}`, 8),
     clausulas_salariais: tituloTem(/sal[áa]ri|piso|reajust|remunera/i),

@@ -1,5 +1,913 @@
 [
   {
+    "data": "2026-09-18T17:34:11.865Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 1,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-18T17:28:48.206Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 0,
+    "falhas": []
+  },
+  {
+    "data": "2026-09-18T17:23:34.809Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 0,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 0,
+    "falhas": [
+      {
+        "nr_solicitacao": "MR080056/2025",
+        "sigla": "ASSEIO E",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR079948/2025",
+        "sigla": "ASSEIO E",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR001141/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR001284/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR006803/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026211/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027139/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026235/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026193/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027974/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027951/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR029628/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026222/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR051695/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR057976/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR024733/2026",
+        "sigla": "FED TRAB AGRIC",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR022179/2026",
+        "sigla": "FETAER GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038875/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038418/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038392/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038671/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040095/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR041317/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR048372/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR053810/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR010860/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR019115/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR020254/2025",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025548/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR054051/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR022891/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025341/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040221/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR043300/2024",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025356/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038545/2025",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR003575/2026",
+        "sigla": "SECIPTM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025534/2026",
+        "sigla": "SECIPTM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR080012/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR078953/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR079901/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR002601/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR006366/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR007552/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR007493/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR073835/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR077523/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040267/2026",
+        "sigla": "SECS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR034005/2026",
+        "sigla": "SECUA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR047454/2026",
+        "sigla": "SENALBA- SIND.DOS EM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR045268/2026",
+        "sigla": "SENALBA- SIND.DOS EM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR018287/2026",
+        "sigla": "SIND DOS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR019415/2026",
+        "sigla": "SIND DOS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR034929/2026",
+        "sigla": "SIND DOS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR032914/2026",
+        "sigla": "SIND DOS EMPR. ENTID",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR042008/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR042036/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049046/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049077/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049110/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR077170/2025",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR071641/2025",
+        "sigla": "SIND TRAB CONS PESAD",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR070097/2025",
+        "sigla": "SINDADOS-MG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR076013/2025",
+        "sigla": "SINDESPORTE",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR023722/2026",
+        "sigla": "SINDESPORTE",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040743/2026",
+        "sigla": "SINDICADO TRAB. NO C",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR006859/2026",
+        "sigla": "SINDICATO DOS EMPREG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025624/2026",
+        "sigla": "SINDICATO DOS EMPREG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR076299/2025",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR041198/2026",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR046144/2025",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR046419/2025",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027654/2025",
+        "sigla": "SINDUSCOM-GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR032842/2025",
+        "sigla": "SINDUSCOM-GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049473/2026",
+        "sigla": "SINDUSCOM-GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR044253/2026",
+        "sigla": "SINFARMIG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR068605/2025",
+        "sigla": "SINPRAFARMA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031495/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031493/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031494/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031492/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR059473/2024",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR077976/2025",
+        "sigla": "SINTIBREF-MINAS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR050793/2025",
+        "sigla": "SINTICOMTAP (MARCEN)",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR071434/2025",
+        "sigla": "STIAU",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR034639/2026",
+        "sigla": "STIMMMEUA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR074726/2025",
+        "sigla": "STIQUIFAR",
+        "motivo": "pisosGerais is not defined"
+      }
+    ]
+  },
+  {
+    "data": "2026-09-18T17:06:53.967Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 0,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 0,
+    "falhas": [
+      {
+        "nr_solicitacao": "MR080056/2025",
+        "sigla": "ASSEIO E",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR079948/2025",
+        "sigla": "ASSEIO E",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR001141/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR001284/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR006803/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026211/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027139/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026235/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026193/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027974/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027951/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR029628/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR026222/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR051695/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR057976/2026",
+        "sigla": "FECCOEMG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR024733/2026",
+        "sigla": "FED TRAB AGRIC",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR022179/2026",
+        "sigla": "FETAER GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038875/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038418/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038392/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038671/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040095/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR041317/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR048372/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR053810/2026",
+        "sigla": "SEAACOM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR010860/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR019115/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR020254/2025",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025548/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR054051/2026",
+        "sigla": "SEC PA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR022891/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025341/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040221/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR043300/2024",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025356/2026",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR038545/2025",
+        "sigla": "SECHSEG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR003575/2026",
+        "sigla": "SECIPTM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025534/2026",
+        "sigla": "SECIPTM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR080012/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR078953/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR079901/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR002601/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR006366/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR007552/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR007493/2026",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR073835/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR077523/2025",
+        "sigla": "SECOSAER",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040267/2026",
+        "sigla": "SECS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR034005/2026",
+        "sigla": "SECUA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR047454/2026",
+        "sigla": "SENALBA- SIND.DOS EM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR045268/2026",
+        "sigla": "SENALBA- SIND.DOS EM",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR018287/2026",
+        "sigla": "SIND DOS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR019415/2026",
+        "sigla": "SIND DOS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR034929/2026",
+        "sigla": "SIND DOS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR032914/2026",
+        "sigla": "SIND DOS EMPR. ENTID",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR042008/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR042036/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049046/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049077/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049110/2026",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR077170/2025",
+        "sigla": "SIND EMP TUR",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR071641/2025",
+        "sigla": "SIND TRAB CONS PESAD",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR070097/2025",
+        "sigla": "SINDADOS-MG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR076013/2025",
+        "sigla": "SINDESPORTE",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR023722/2026",
+        "sigla": "SINDESPORTE",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR040743/2026",
+        "sigla": "SINDICADO TRAB. NO C",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR006859/2026",
+        "sigla": "SINDICATO DOS EMPREG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR025624/2026",
+        "sigla": "SINDICATO DOS EMPREG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR076299/2025",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR041198/2026",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR046144/2025",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR046419/2025",
+        "sigla": "SINDTTRANS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR027654/2025",
+        "sigla": "SINDUSCOM-GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR032842/2025",
+        "sigla": "SINDUSCOM-GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR049473/2026",
+        "sigla": "SINDUSCOM-GO",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR044253/2026",
+        "sigla": "SINFARMIG",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR068605/2025",
+        "sigla": "SINPRAFARMA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031495/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031493/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031494/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR031492/2026",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR059473/2024",
+        "sigla": "SINTAPPI",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR077976/2025",
+        "sigla": "SINTIBREF-MINAS",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR050793/2025",
+        "sigla": "SINTICOMTAP (MARCEN)",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR071434/2025",
+        "sigla": "STIAU",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR034639/2026",
+        "sigla": "STIMMMEUA",
+        "motivo": "pisosGerais is not defined"
+      },
+      {
+        "nr_solicitacao": "MR074726/2025",
+        "sigla": "STIQUIFAR",
+        "motivo": "pisosGerais is not defined"
+      }
+    ]
+  },
+  {
     "data": "2026-09-18T16:27:52.928Z",
     "estagio": "coletar-documentos",
     "alvo": 87,
