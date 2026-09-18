@@ -84,7 +84,13 @@ export function extrairCabecalho(texto) {
  * O extrato numera como "CLÁUSULA PRIMEIRA - VIGÊNCIA E DATA-BASE".
  */
 export function extrairClausulas(texto) {
-  const re = /CL[ÁA]USULA\s+([A-ZÁÂÃÉÊÍÓÔÕÚÇÀ-ÿ\s]+?)\s*[-–]\s*([^\n]+)/gi;
+  // A linha TEM que começar com CLÁUSULA em caixa alta, seguida de ordinal.
+  //
+  // Sem exigir início de linha e caixa alta, o regex casava "cláusula" no meio de
+  // frase: "descrita no caput desta cláusula fica garantido..." virava uma
+  // cláusula chamada "APOSENTADORIA da CCT descrita no caput...". Eram 64 de 4216
+  // (1,5%) — pouco em percentual, mas cada uma vira uma linha falsa no resumo.
+  const re = /^[ \t]*CL[ÁA]USULA\s+([A-ZÁÂÃÉÊÍÓÔÕÚÇ]+(?:[ \t]+[A-ZÁÂÃÉÊÍÓÔÕÚÇ]+){0,2})\s*[-–—]\s*(.+)$/gm;
   const marcas = [];
   let m;
   while ((m = re.exec(texto)) !== null) {
@@ -93,8 +99,19 @@ export function extrairClausulas(texto) {
   return marcas.map((marca, i) => {
     const fim = i + 1 < marcas.length ? marcas[i + 1].pos : texto.length;
     const bloco = texto.slice(marca.pos, fim);
-    const corpo = bloco.split('\n').slice(1).join('\n').trim();
-    return { ordinal: marca.ordinal, titulo: marca.titulo, texto: corpo };
+    let corpo = bloco.split('\n').slice(1).join('\n').trim();
+    let titulo = marca.titulo;
+
+    // Parte das convenções põe título e corpo na MESMA linha, separados por
+    // dois-pontos: "CESTA BÁSICA: Fica garantido o fornecimento subsidiado...".
+    // Sem separar, o título vira um parágrafo inteiro e o corpo perde o começo.
+    const dois = titulo.indexOf(': ');
+    if (titulo.length > 60 && dois > 0 && dois <= 60) {
+      corpo = `${titulo.slice(dois + 2).trim()}\n${corpo}`.trim();
+      titulo = titulo.slice(0, dois).trim();
+    }
+
+    return { ordinal: marca.ordinal, titulo, texto: corpo };
   });
 }
 

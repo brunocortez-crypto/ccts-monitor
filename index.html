@@ -209,6 +209,26 @@ a:hover{text-decoration-color:currentColor}
 .vazio{padding:36px 18px;text-align:center;color:var(--tinta-3);font-size:14px;
   background:var(--papel);border:1px dashed var(--risco-2);border-radius:10px}
 .nota-vazia{margin:11px 0 0;font-size:13px;color:var(--tinta-3)}
+/* ── resumo da convencao ───────────────────────── */
+.resumo{margin-top:12px;border-top:1px solid var(--risco);padding-top:12px}
+.tema{margin-bottom:11px}
+.tema-cab{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tema-nome{font-size:12.5px;font-weight:600;color:var(--tinta)}
+.tema-qtd{font-size:11.5px;color:var(--tinta-3)}
+.tema-valores{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.vlr{font-size:12px;padding:3px 10px;border-radius:999px;white-space:nowrap;
+  background:var(--verde-fundo);color:var(--verde);font-weight:500;
+  font-variant-numeric:tabular-nums;cursor:help}
+.vlr.pct{background:var(--azul-fundo);color:var(--azul)}
+.tema-clausulas{font-size:12px;color:var(--tinta-3);margin-top:5px;line-height:1.5}
+.incomuns{margin-top:12px;padding-top:10px;border-top:1px dashed var(--risco)}
+.incomuns .rotulo{margin-bottom:5px}
+.abrangencia{font-size:12.5px;color:var(--tinta-2);line-height:1.5;margin:0 0 12px;
+  padding-left:10px;border-left:2px solid var(--risco-2)}
+.carregando{font-size:12.5px;color:var(--tinta-3);font-style:italic}
+.texto-clausula{font-size:13px;color:var(--tinta-2);line-height:1.6;
+  white-space:pre-wrap;margin:6px 0 0}
+
 
 /* Marcador de estado: cheio = tem convencao vigente no MTE, vazado = nao tem.
    Forma antes de cor, para funcionar tambem para quem nao distingue as duas. */
@@ -557,8 +577,9 @@ function linhaDocumento(d) {
       <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
       ${piso ? `<span class="pilula ouro" title="Extraído da cláusula &quot;${esc(origem)}&quot;">Piso R$ ${esc(piso)}</span>` : ''}
       ${reajuste ? `<span class="pilula ouro">Reajuste ${esc(reajuste)}%</span>` : ''}
-      ${(d.clausulas || []).length ? `<span class="pilula neutra">${d.clausulas.length} cláusulas</span>` : ''}
+      ${d.total_clausulas ? `<span class="pilula neutra">${d.total_clausulas} cláusulas</span>` : ''}
     </div>
+    ${blocoResumo(d)}
   </div>`;
 }
 
@@ -669,7 +690,7 @@ function desenharDocumentos() {
 
   document.getElementById('listaDoc').innerHTML = vis.length
     ? vis.map((d) => {
-        const cl = d.clausulas || [];
+        const cl = d.clausulas_titulos || [];
         return `<div class="cartao">
           <div class="cartao-topo">
             <div>
@@ -688,12 +709,7 @@ function desenharDocumentos() {
               ? `<a class="pilula ouro" href="${esc(d.arquivo_local)}">Baixar extrato</a>`
               : '<span class="pilula alerta">arquivo ainda não baixado</span>'}
           </div>
-          ${cl.length ? `<details><summary>Cláusulas</summary>
-            <div class="scroller"><table>
-              <thead><tr><th style="width:110px">Ordinal</th><th>Título</th></tr></thead>
-              <tbody>${cl.map((c) =>
-                `<tr><td class="mono">${esc(c.ordinal)}</td><td>${esc(c.titulo)}</td></tr>`).join('')}
-              </tbody></table></div></details>` : ''}
+          ${blocoResumo(d)}
         </div>`;
       }).join('')
     : '<div class="vazio">Nenhum documento com esses filtros.</div>';
@@ -756,6 +772,103 @@ function desenharSindicatos() {
       }).join('')
     : '<div class="vazio">Nenhum sindicato com esses filtros.</div>';
 }
+
+/* ── RESUMO DA CONVENÇÃO ────────────────────────── */
+
+/**
+ * Cada valor mostra, no title, a cláusula e o trecho de onde saiu.
+ *
+ * Um piso ou percentual errado num resumo vira folha errada. Quem confere precisa
+ * conseguir conferir passando o mouse, sem abrir o documento de 70 cláusulas.
+ */
+function pilulaValor(v) {
+  const ehPct = String(v.valor).includes('%');
+  const titulo = `${v.clausula}\n\n${v.trecho}`;
+  const prefixo = ehPct ? '' : 'R$ ';
+  return `<span class="vlr${ehPct ? ' pct' : ''}" title="${esc(titulo)}">` +
+         `${esc(v.rotulo)}: ${prefixo}${esc(v.valor)}</span>`;
+}
+
+function blocoResumo(d) {
+  const r = d.resumo;
+  if (!r) return '';
+
+  const temas = (r.temas || []).map((t) => `<div class="tema">
+    <div class="tema-cab">
+      <span class="tema-nome">${esc(t.rotulo)}</span>
+      <span class="tema-qtd">${t.clausulas.length} cláusula${t.clausulas.length > 1 ? 's' : ''}</span>
+    </div>
+    ${t.valores.length
+      ? `<div class="tema-valores">${t.valores.map(pilulaValor).join('')}</div>`
+      : ''}
+    <div class="tema-clausulas">${t.clausulas.slice(0, 5).map(esc).join(' · ')}` +
+      `${t.clausulas.length > 5 ? ` · +${t.clausulas.length - 5}` : ''}</div>
+  </div>`).join('');
+
+  const incomuns = (r.incomuns || []).length
+    ? `<div class="incomuns">
+         <div class="rotulo">Cláusulas que poucas convenções têm</div>
+         <div class="tema-clausulas">${r.incomuns.map(esc).join(' · ')}</div>
+       </div>`
+    : '';
+
+  return `<details>
+    <summary>Resumo — ${r.total_clausulas} cláusulas em ${(r.temas || []).length} temas</summary>
+    <div class="resumo">
+      ${r.abrangencia ? `<p class="abrangencia">${esc(r.abrangencia)}</p>` : ''}
+      ${temas}
+      ${incomuns}
+    </div>
+  </details>
+  <details data-texto="${esc(d.texto_arquivo || '')}" data-nr="${esc(d.nr_solicitacao)}">
+    <summary>Ler as cláusulas</summary>
+    <div class="carregando">Carregando…</div>
+  </details>`;
+}
+
+/**
+ * O texto das cláusulas vem sob demanda, de data/textos/<nº>.json.
+ *
+ * O índice tinha 8,4 MB e o painel baixava tudo a cada abertura — metade era
+ * texto integral que ele nunca mostra. Agora o índice tem 1 MB e o texto só chega
+ * quando alguém abre uma convenção específica.
+ */
+const textosCarregados = new Map();
+
+async function carregarTexto(det) {
+  const arquivo = det.dataset.texto;
+  const alvo = det.querySelector('.carregando');
+  if (!arquivo || !alvo) return;
+
+  try {
+    if (!textosCarregados.has(arquivo)) {
+      const r = await fetch(arquivo);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      textosCarregados.set(arquivo, await r.json());
+    }
+    const cheio = textosCarregados.get(arquivo);
+    const cl = cheio.clausulas || [];
+    det.querySelector('.carregando').outerHTML = cl.length
+      ? `<div class="resumo">${cl.map((c) => `<div class="tema">
+           <div class="tema-nome">${esc(c.ordinal)} — ${esc(c.titulo)}</div>
+           <p class="texto-clausula">${esc(c.texto || '(sem texto)')}</p>
+         </div>`).join('')}</div>`
+      : '<p class="nota-vazia">Este documento não tem cláusulas reconhecidas.</p>';
+  } catch (e) {
+    alvo.className = 'nota-vazia';
+    alvo.textContent = `Não consegui carregar o texto: ${e.message}`;
+  }
+}
+
+// Um ouvinte só, no documento: os cartões são redesenhados o tempo todo e
+// registrar ouvinte em cada um deixaria listeners órfãos a cada filtro.
+document.addEventListener('toggle', (ev) => {
+  const det = ev.target;
+  if (det.tagName === 'DETAILS' && det.open && det.dataset.texto &&
+      det.querySelector('.carregando')) {
+    carregarTexto(det);
+  }
+}, true);
 
 /* ── VENCIMENTOS ────────────────────────────────── */
 
@@ -901,7 +1014,7 @@ function desenharEmpresas() {
  * documento inteiro está a um clique.
  */
 function compararConvencoes(antiga, nova) {
-  const titulos = (d) => new Set((d.clausulas || []).map((c) => String(c.titulo).trim().toUpperCase()));
+  const titulos = (d) => new Set((d.clausulas_titulos || []).map((t) => String(t).trim().toUpperCase()));
   const tA = titulos(antiga);
   const tN = titulos(nova);
   return {
@@ -952,8 +1065,8 @@ function blocoComparacao(docs) {
         ${linhaComparacao('Reajuste', c.reajusteAntes, c.reajusteDepois, '', '%')}
         <tr>
           <td>Cláusulas</td>
-          <td class="mono">${(antiga.clausulas || []).length}</td>
-          <td class="mono">${(nova.clausulas || []).length}</td>
+          <td class="mono">${antiga.total_clausulas ?? 0}</td>
+          <td class="mono">${nova.total_clausulas ?? 0}</td>
           <td></td>
         </tr>
       </tbody>
@@ -995,7 +1108,7 @@ function baixarCsv() {
       (s?.data_bases || []).map((x) => x.mes).join(' / '),
       d.nr_registro_mte, d.nr_solicitacao, d.tipo,
       dataBr(d.vigencia_inicio), dataBr(d.vigencia_fim), diasAteVencer(d) ?? '',
-      pisoDe(d) ?? '', reajusteDe(d) ?? '', (d.clausulas || []).length,
+      pisoDe(d) ?? '', reajusteDe(d) ?? '', d.total_clausulas ?? 0,
       (d.partes || []).join(' x ')
     ].map(campo).join(';');
   });

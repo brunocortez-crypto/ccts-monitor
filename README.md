@@ -36,6 +36,7 @@ npx playwright install chromium
 npm run importar     # planilha .xlsx -> data/sindicatos.json
 npm run buscar       # estágio 1: Convenções Coletivas vigentes dos 63 CNPJs
 npm run coletar      # estágio 2: baixa os documentos e extrai as cláusulas
+npm run resumir      # resume cada convenção e separa o texto pesado do índice
 npm run sites        # estágio 3: varre os sites dos sindicatos
 npm run verificar    # confere se todo link aponta para documento de verdade
 npm run alertar      # monta o aviso do dia (data/alerta.md)
@@ -67,6 +68,7 @@ Tudo versionado no repositório, em `data/`:
 | `divergencias.json` | site publicou e o MTE não registrou |
 | `sites.json` | o que foi encontrado em cada site |
 | `alerta.md` | o aviso da última rodada, em Markdown |
+| `textos/<nº>.json` | texto integral e corpo das cláusulas, carregado sob demanda |
 
 Os arquivos baixados ficam em `docs/MTE/`.
 

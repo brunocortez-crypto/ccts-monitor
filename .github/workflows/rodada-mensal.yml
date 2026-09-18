@@ -55,6 +55,11 @@ jobs:
         continue-on-error: true
         run: node scripts/coletar-documentos.js
 
+      - name: Resumir as convenções
+        id: resumir
+        continue-on-error: true
+        run: node scripts/gerar-resumos.js
+
       - name: Estágio 3 — sites dos sindicatos
         id: sites
         continue-on-error: true
