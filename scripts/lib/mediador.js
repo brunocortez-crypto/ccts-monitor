@@ -1,3 +1,4 @@
+
 /**
  * Consulta ao Mediador do MTE.
  *

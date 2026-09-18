@@ -187,7 +187,7 @@ if (falhas.length) {
   console.log(`\nFALHAS (${falhas.length}) — em data/execucoes.json:`);
   for (const f of falhas.slice(0, 20)) console.log(`  ${f.nr_solicitacao}: ${f.motivo}`);
   if (falhas.length > 20) console.log(`  ... mais ${falhas.length - 20}`);
-  process.exit(1);
+  process.exitCode = 1;
 }
 
 console.log('\nSem falhas. Confira os links com: npm run verificar');

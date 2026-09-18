@@ -130,6 +130,7 @@ async function lerJson(caminho, padrao) {
 const sindicatos = await lerJson('data/sindicatos.json', null);
 if (!sindicatos) {
   console.error('data/sindicatos.json não existe. Rode antes: npm run importar');
+  // Aborta de verdade: sem a lista, a linha seguinte estoura em null.
   process.exit(1);
 }
 
@@ -431,7 +432,7 @@ if (falhas.length) {
   console.log(`\nFALHAS (${falhas.length}) — registradas em data/execucoes.json:`);
   for (const f of falhas) console.log(`  ${String(f.sigla).padEnd(24)} ${f.motivo}`);
   console.log('\nRodada com falha não é rodada concluída. Reveja antes de confiar no painel.');
-  process.exit(1);
+  process.exitCode = 1;
 }
 
 console.log('\nSem falhas. Próximo passo: npm run coletar');

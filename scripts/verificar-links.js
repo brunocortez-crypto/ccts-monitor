@@ -14,6 +14,16 @@
 import { readFile, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
+const pausa = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// A Vercel liga o "Security Checkpoint" quando leva uma rajada de requisicoes.
+// Medido em 18/09/2026: 87 GETs seguidos contra o site publicado derrubaram tudo
+// em HTTP 403 por alguns minutos - inclusive para o navegador. Verificar link nao
+// pode virar ataque ao proprio site, entao a checagem remota vai devagar e por
+// amostra. A checagem local nao tem esse limite e cobre os 87.
+const PAUSA_REMOTA = 700;
+const AMOSTRA_REMOTA = 12;
+
 function argumento(nome, padrao = null) {
   const i = process.argv.indexOf(`--${nome}`);
   return i !== -1 && process.argv[i + 1] ? process.argv[i + 1] : padrao;
@@ -33,10 +43,16 @@ const semArquivo = documentos.filter((d) => !d.arquivo_local);
 console.log(`Documentos ................ ${documentos.length}`);
 console.log(`Com arquivo apontado ...... ${comArquivo.length}`);
 console.log(`Sem arquivo ainda ......... ${semArquivo.length}`);
-console.log(base ? `Verificando em ${base}\n` : 'Verificando arquivos locais\n');
+console.log(base
+  ? `Verificando ${limite || AMOSTRA_REMOTA} de ${comArquivo.length} em ${base}\n` +
+    `(amostra, ${PAUSA_REMOTA}ms entre requisições — a checagem completa é a local)\n`
+  : 'Verificando todos os arquivos locais\n');
 
-const alvos = limite ? comArquivo.slice(0, limite) : comArquivo;
+// Sem --limite, a checagem remota usa amostra; a local cobre tudo.
+const padraoRemoto = base ? AMOSTRA_REMOTA : comArquivo.length;
+const alvos = comArquivo.slice(0, limite || padraoRemoto);
 const problemas = [];
+const inconclusivos = [];
 
 if (!base) {
   for (const d of alvos) {
@@ -63,13 +79,24 @@ if (!base) {
   }
 } else {
   for (const [n, d] of alvos.entries()) {
+    if (n > 0) await pausa(PAUSA_REMOTA);
     const url = new URL(d.arquivo_local, base.endsWith('/') ? base : base + '/').href;
     try {
       const resp = await fetch(url, { method: 'GET', signal: AbortSignal.timeout(30000) });
       const tipo = resp.headers.get('content-type') || '';
       const tamanho = Number(resp.headers.get('content-length') || 0);
 
-      if (!resp.ok) {
+      // O desafio da Vercel chega como 403, então precisa ser testado ANTES de
+      // "não respondeu OK". Sem isso o script grita "link quebrado" quando o link
+      // está perfeito e quem está barrado é o verificador — e alguém vai caçar um
+      // problema que não existe. Isso é inconclusivo, não é defeito.
+      const ehDesafio = resp.headers.has('x-vercel-challenge-token') ||
+        (/text\/html/i.test(tipo) &&
+         /vercel security checkpoint/i.test(await resp.clone().text().catch(() => '')));
+
+      if (ehDesafio) {
+        inconclusivos.push({ doc: d.nr_solicitacao, url });
+      } else if (!resp.ok) {
         problemas.push({ doc: d.nr_solicitacao, motivo: `HTTP ${resp.status} em ${url}` });
       } else if (/text\/html/i.test(tipo)) {
         // Este é o caso que importa: HTTP 200 servindo HTML no lugar do documento.
@@ -90,16 +117,38 @@ if (!base) {
 console.log('─────────────────────────────────────────');
 console.log(`verificados .............. ${alvos.length}`);
 console.log(`problemas ................ ${problemas.length}`);
+if (inconclusivos.length) console.log(`inconclusivos ............ ${inconclusivos.length}`);
 
 if (problemas.length) {
   console.error('\nLINKS QUEBRADOS:');
   for (const p of problemas.slice(0, 25)) console.error(`  ${p.doc}: ${p.motivo}`);
   if (problemas.length > 25) console.error(`  ... mais ${problemas.length - 25}`);
   console.error('\nCritério §8.4 FALHOU. Não publique assim.\n');
-  process.exit(1);
+  process.exitCode = 1;
+}
+
+if (inconclusivos.length) {
+  console.log(`\nA Vercel respondeu com desafio anti-bot em ${inconclusivos.length} de ${alvos.length}.`);
+  console.log('Isso NÃO quer dizer que o link está quebrado — quer dizer que o verificador');
+  console.log('foi barrado. Acontece depois de muitas requisições seguidas; espere alguns');
+  console.log('minutos e repita. A checagem que cobre os 87 é a local: npm run verificar');
+
+  // Aprovar sem ter verificado nada seria pior que falhar: o script existe
+  // justamente para impedir que "parece ok" passe por "está ok".
+  if (inconclusivos.length === alvos.length) {
+    console.error('\nNENHUM link pôde ser confirmado nesta rodada. Resultado inconclusivo,');
+    console.error('não é aprovação.\n');
+    process.exitCode = 2;
+  }
 }
 
 if (semArquivo.length) {
   console.log(`\nAVISO: ${semArquivo.length} documento(s) ainda sem arquivo. Rode: npm run coletar`);
 }
-console.log('\nCritério §8.4 OK: todo link aponta para documento de verdade.');
+
+// Só declara aprovação quando houve o que aprovar. "OK nos 0 links confirmados"
+// é a frase de um script que não verificou nada e mesmo assim passou.
+const confirmados = alvos.length - inconclusivos.length;
+if (!problemas.length && confirmados > 0) {
+  console.log(`\nCritério §8.4 OK nos ${confirmados} link(s) confirmado(s).`);
+}

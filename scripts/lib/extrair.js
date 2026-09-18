@@ -1,3 +1,4 @@
+
 /**
  * Extração de texto e cláusulas do extrato do Mediador.
  *

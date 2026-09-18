@@ -87,4 +87,4 @@ try {
   await navegador.close();
 }
 
-process.exit(saida);
+process.exitCode = saida;

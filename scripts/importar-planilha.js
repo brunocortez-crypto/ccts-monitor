@@ -95,7 +95,7 @@ if (problemas.length) {
   console.error('\nCRITÉRIO DE ACEITE FALHOU:');
   for (const p of problemas) console.error(`  - ${p}`);
   console.error('\nSe a planilha mudou de propósito, atualize ESPERADO neste arquivo.\n');
-  process.exit(1);
+  process.exitCode = 1;
 }
 
 console.log(`Aceite OK: ${totais.sindicatos} sindicatos, ${totais.data_bases} data-bases.\n`);

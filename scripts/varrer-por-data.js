@@ -230,7 +230,7 @@ if (daCarteira.length) {
 if (falhas.length) {
   console.log(`\nFALHAS (${falhas.length}) — em data/execucoes.json:`);
   for (const f of falhas) console.log(`  ${f.nr_solicitacao ?? f.periodo}: ${f.motivo}`);
-  process.exit(1);
+  process.exitCode = 1;
 }
 
 console.log('');
