@@ -17,7 +17,8 @@
     "sindicato": "node scripts/adicionar-sindicato.js",
     "alertar": "node scripts/alertar.js",
     "migrar-ids": "node scripts/migrar-ids.js",
-    "resumir": "node scripts/gerar-resumos.js"
+    "resumir": "node scripts/gerar-resumos.js",
+    "auditar": "node scripts/auditar-extracao.js"
   },
   "engines": {
     "node": ">=20"

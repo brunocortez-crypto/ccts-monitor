@@ -577,6 +577,22 @@ function reajusteDe(d) {
 }
 
 /**
+ * Pílula do reajuste. Quando é tabelado por mês de admissão, o percentual isolado
+ * vale só para uma fatia da categoria — em 31 dos 87 documentos é esse o caso.
+ * Mostrar o número seco repete o erro do piso.
+ */
+function pilulaReajuste(d) {
+  const v = reajusteDe(d);
+  if (!v) return '';
+  if (d.indicadores?.reajuste_proporcional) {
+    return `<span class="pilula ambar" title="O reajuste é tabelado por mês de admissão. ` +
+           `${esc(v)}% é o índice do topo da tabela — quem entrou depois recebe menos. ` +
+           `Abra a cláusula para ver a tabela inteira.">Reajuste até ${esc(v)}% · tabela</span>`;
+  }
+  return `<span class="pilula ouro">Reajuste ${esc(v)}%</span>`;
+}
+
+/**
  * Uma convenção em uma linha: quem negociou com quem, vigência, piso, reajuste e
  * o link do documento. Serve tanto ao Resumo quanto à aba Sindicatos — saber que
  * existem "2 documentos" sem poder abri-los não ajuda ninguém.
@@ -600,7 +616,7 @@ function linhaDocumento(d) {
       ${d.indicadores?.piso_condicional
         ? `<span class="pilula neutra" title="Piso de regime especial (REPIS / ME / EPP). Só vale para empresa que aderiu formalmente — não é o piso da categoria.">REPIS R$ ${esc(d.indicadores.piso_condicional)}</span>`
         : ''}
-      ${reajuste ? `<span class="pilula ouro">Reajuste ${esc(reajuste)}%</span>` : ''}
+      ${pilulaReajuste(d)}
       ${d.total_clausulas ? `<span class="pilula neutra">${d.total_clausulas} cláusulas</span>` : ''}
     </div>
     ${blocoResumo(d)}
@@ -740,7 +756,7 @@ function desenharDocumentos() {
             ${d.indicadores?.piso_condicional
               ? `<span class="pilula neutra" title="Piso de regime especial (REPIS / ME / EPP). Só vale para empresa que aderiu formalmente.">REPIS R$ ${esc(d.indicadores.piso_condicional)}</span>`
               : ''}
-            ${reajusteDe(d) ? `<span class="pilula ouro">Reajuste ${esc(reajusteDe(d))}%</span>` : ''}
+            ${pilulaReajuste(d)}
             <span class="pilula neutra mono">${esc(d.nr_solicitacao)}</span>
             ${cl.length ? `<span class="pilula">${cl.length} cláusula(s)</span>` : ''}
             ${d.arquivo_local
@@ -968,7 +984,7 @@ function desenharVencimentos() {
             <span class="pilula">${dataBr(d.vigencia_inicio)} a ${dataBr(d.vigencia_fim)}</span>
             ${sind ? `<span class="pilula neutra">data-base: ${(sind.data_bases || []).map((x) => esc(x.mes)).join(', ') || '—'}</span>` : ''}
             ${piso ? `<span class="pilula ouro">Piso R$ ${esc(piso)}</span>` : ''}
-            ${reajuste ? `<span class="pilula ouro">Reajuste ${esc(reajuste)}%</span>` : ''}
+            ${pilulaReajuste(d)}
             ${d.arquivo_local ? `<a class="pilula" href="${esc(d.arquivo_local)}">Abrir documento</a>` : ''}
           </div>
         </div>`;

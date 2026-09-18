@@ -224,9 +224,27 @@ export function extrairIndicadores(texto, clausulas = []) {
   const pisosGerais = piso.filter((p) => !p.condicional).map((p) => p.valor);
   const pisosCondicionais = piso.filter((p) => p.condicional).map((p) => p.valor);
 
+  /**
+   * Reajuste que não é um número, é uma tabela.
+   *
+   * Caso FECCOEMG: "3,90%" vale só para quem foi admitido até janeiro/2025.
+   * Quem entrou depois tem índice menor, numa tabela por mês de admissão. A
+   * auditoria achou o mesmo padrão em 31 dos 87 documentos.
+   *
+   * Mostrar "Reajuste 3,90%" para uma categoria onde a maioria recebe menos é o
+   * mesmo erro do piso: um número plausível, da cláusula certa, e errado para
+   * quase todo mundo.
+   */
+  const reajusteProporcional = reajuste.some((r) =>
+    /m[êe]s de admiss[ãa]o|proporcional|fator de multiplica|tabela a seguir|[íi]ndice[s]?\s+a\s+seguir/i
+      .test(String(r.trecho ?? '')));
+
   return {
     piso,
     reajuste,
+    // Quando o reajuste é tabelado por mês de admissão, o percentual isolado vale
+    // só para uma fatia da categoria. O painel avisa em vez de exibir o número seco.
+    reajuste_proporcional: reajusteProporcional,
     // UM número só de piso é mentira quando a cláusula traz vários.
     //
     // Caso real (SETH-TAP, MG004433/2025): a cláusula tem quatro pisos —

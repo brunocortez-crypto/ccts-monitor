@@ -1,5 +1,14 @@
 [
   {
+    "data": "2026-09-18T18:38:38.601Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 0,
+    "falhas": []
+  },
+  {
     "data": "2026-09-18T18:26:54.535Z",
     "estagio": "coletar-documentos",
     "alvo": 87,
