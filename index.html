@@ -169,23 +169,48 @@ const dataBr = (iso) => {
   return m ? `${m[3]}/${m[2]}/${m[1]}` : String(iso);
 };
 
-async function ler(arquivo, padrao) {
-  for (const base of ['data/', './', '/data/']) {
-    try {
-      const r = await fetch(base + arquivo + '?v=' + Date.now());
-      if (!r.ok) continue;
-      const j = await r.json();
-      if (Array.isArray(j)) return j;
-    } catch (e) { /* tenta o próximo */ }
+/**
+ * Lê um arquivo de dados. Só de data/, de propósito.
+ *
+ * Havia um fallback que tentava data/, depois ./, depois /data/. Parecia robusto e
+ * era uma armadilha: cópias antigas de julho moravam na raiz, com 40 sindicatos em
+ * vez de 63. Qualquer falha ao ler data/ fazia o painel carregar a versão velha
+ * sem avisar — dado errado com cara de dado bom.
+ *
+ * Agora falha alto. Painel sem dado é um problema visível; painel com dado errado
+ * é um problema que ninguém vê.
+ */
+async function ler(arquivo, padrao, obrigatorio = false) {
+  try {
+    const r = await fetch('data/' + arquivo + '?v=' + Date.now());
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const j = await r.json();
+    if (!Array.isArray(j)) throw new Error('conteúdo não é uma lista');
+    return j;
+  } catch (e) {
+    if (obrigatorio) throw new Error(`Não consegui ler data/${arquivo}: ${e.message}`);
+    return padrao;
   }
-  return padrao;
 }
 
 async function carregar() {
-  [SINDICATOS, DOCUMENTOS, EXECUCOES, DIVERGENCIAS] = await Promise.all([
-    ler('sindicatos.json', []), ler('documentos.json', []),
-    ler('execucoes.json', []), ler('divergencias.json', [])
-  ]);
+  try {
+    // sindicatos e documentos são obrigatórios: sem eles o painel não tem o que
+    // dizer, e mostrar "0 sindicatos" seria mentir sobre a carteira.
+    [SINDICATOS, DOCUMENTOS, EXECUCOES, DIVERGENCIAS] = await Promise.all([
+      ler('sindicatos.json', [], true), ler('documentos.json', [], true),
+      ler('execucoes.json', []), ler('divergencias.json', [])
+    ]);
+  } catch (e) {
+    document.getElementById('subtitulo').textContent = 'Falha ao carregar os dados';
+    document.getElementById('listaResumo').innerHTML =
+      `<div class="vazio" style="border-color:var(--alerta);color:var(--alerta)">
+         <b>Os dados não carregaram.</b><br>${esc(e.message)}<br>
+         <span style="font-size:13px">O painel não mostra número nenhum enquanto isso —
+         numero errado seria pior que nenhum.</span>
+       </div>`;
+    return;
+  }
 
   const ult = EXECUCOES[0];
   document.getElementById('subtitulo').textContent = ult
