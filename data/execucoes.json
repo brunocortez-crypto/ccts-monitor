@@ -1,5 +1,14 @@
 [
   {
+    "data": "2026-09-18T12:54:31.560Z",
+    "estagio": "coletar-documentos",
+    "alvo": 87,
+    "baixados": 87,
+    "sem_clausula_reconhecida": 0,
+    "duracao_segundos": 1,
+    "falhas": []
+  },
+  {
     "data": "2026-09-18T11:15:36.550Z",
     "estagio": "varredura-por-data",
     "periodo": "17/09/2026 a 18/09/2026",

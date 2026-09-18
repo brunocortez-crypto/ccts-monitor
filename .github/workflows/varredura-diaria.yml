@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   # Nunca duas rodadas mexendo em data/ ao mesmo tempo.
@@ -51,6 +52,29 @@ jobs:
       - name: Conferir os links dos documentos
         if: always()
         run: node scripts/verificar-links.js
+
+      # Abre uma issue quando ha novidade. O GitHub manda o e-mail para quem
+      # acompanha o repositorio, entao nao precisa de servidor de e-mail nem de
+      # senha guardada em secret nenhum.
+      - name: Montar o aviso
+        id: aviso
+        if: always()
+        run: node scripts/alertar.js --dias 60
+
+      - name: Avisar por issue
+        if: always() && steps.aviso.outputs.avisar == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const corpo = fs.readFileSync('data/alerta.md', 'utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: ${{ toJSON(steps.aviso.outputs.titulo) }},
+              body: corpo,
+              labels: ['monitor-cct']
+            });
 
       - name: Commit dos resultados
         if: always()

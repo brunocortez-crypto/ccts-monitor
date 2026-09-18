@@ -13,22 +13,38 @@
  */
 
 const ENTIDADES_NOMEADAS = {
-  nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'",
-  aacute: 'á', eacute: 'é', iacute: 'í', oacute: 'ó', uacute: 'ú',
-  acirc: 'â', ecirc: 'ê', ocirc: 'ô', atilde: 'ã', otilde: 'õ',
-  ccedil: 'ç', agrave: 'à', uuml: 'ü',
-  Aacute: 'Á', Eacute: 'É', Iacute: 'Í', Oacute: 'Ó', Uacute: 'Ú',
-  Acirc: 'Â', Ecirc: 'Ê', Ocirc: 'Ô', Atilde: 'Ã', Otilde: 'Õ',
-  Ccedil: 'Ç', Agrave: 'À', ordm: 'º', ordf: 'ª', deg: '°',
-  laquo: '«', raquo: '»', hellip: '…', ndash: '–', mdash: '—',
-  lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”'
+ AElig: 'Æ', Aacute: 'Á', Acirc: 'Â', Agrave: 'À', Aring: 'Å', Atilde: 'Ã',
+  Auml: 'Ä', Ccedil: 'Ç', Dagger: '‡', ETH: 'Ð', Eacute: 'É', Ecirc: 'Ê',
+  Egrave: 'È', Euml: 'Ë', Iacute: 'Í', Icirc: 'Î', Igrave: 'Ì', Iuml: 'Ï',
+  Ntilde: 'Ñ', Oacute: 'Ó', Ocirc: 'Ô', Ograve: 'Ò', Oslash: 'Ø',
+  Otilde: 'Õ', Ouml: 'Ö', THORN: 'Þ', Uacute: 'Ú', Ucirc: 'Û', Ugrave: 'Ù',
+  Uuml: 'Ü', Yacute: 'Ý', aacute: 'á', acirc: 'â', acute: '´', aelig: 'æ',
+  agrave: 'à', amp: '&', apos: "'", aring: 'å', atilde: 'ã', auml: 'ä',
+  bdquo: '„', brvbar: '¦', bull: '•', ccedil: 'ç', cedil: '¸', cent: '¢',
+  copy: '©', curren: '¤', dagger: '†', deg: '°', divide: '÷', eacute: 'é',
+  ecirc: 'ê', egrave: 'è', eth: 'ð', euml: 'ë', euro: '€', frac12: '½',
+  frac14: '¼', frac34: '¾', gt: '>', harr: '↔', hellip: '…', iacute: 'í',
+  icirc: 'î', iexcl: '¡', igrave: 'ì', iquest: '¿', iuml: 'ï', laquo: '«',
+  larr: '←', ldquo: '“', lsaquo: '‹', lsquo: '‘', lt: '<', macr: '¯',
+  mdash: '—', micro: 'µ', middot: '·', minus: '−', nbsp: ' ', ndash: '–',
+  not: '¬', ntilde: 'ñ', oacute: 'ó', ocirc: 'ô', ograve: 'ò', ordf: 'ª',
+  ordm: 'º', oslash: 'ø', otilde: 'õ', ouml: 'ö', para: '¶', permil: '‰',
+  plusmn: '±', pound: '£', quot: '"', raquo: '»', rarr: '→', rdquo: '”',
+  reg: '®', rsaquo: '›', rsquo: '’', sbquo: '‚', sect: '§', shy: '­',
+  sup1: '¹', sup2: '²', sup3: '³', szlig: 'ß', thorn: 'þ', times: '×',
+  trade: '™', uacute: 'ú', ucirc: 'û', ugrave: 'ù', uml: '¨', uuml: 'ü',
+  yacute: 'ý', yen: '¥', yuml: 'ÿ'
 };
 
 export function decodificarEntidades(txt) {
   return String(txt ?? '')
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-    .replace(/&([a-z]+);/gi, (m, nome) => ENTIDADES_NOMEADAS[nome] ?? m);
+    // O nome da entidade e case-sensitive no HTML (&Eacute; != &eacute;), mas os
+    // extratos do MTE as vezes mandam tudo em caixa alta junto com o titulo. Tenta
+    // exato primeiro; so entao a forma minuscula.
+    .replace(/&([a-zA-Z]+);/g, (m, nome) =>
+      ENTIDADES_NOMEADAS[nome] ?? ENTIDADES_NOMEADAS[nome.toLowerCase()] ?? m);
 }
 
 /** HTML do extrato -> texto corrido legível. */

@@ -12,9 +12,10 @@
     "sites": "node scripts/verificar-sites.js",
     "verificar": "node scripts/verificar-links.js",
     "testar": "node scripts/testar-mediador.js",
-    "diaria": "npm run varrer && npm run verificar",
+    "diaria": "npm run varrer && npm run verificar && npm run alertar",
     "mensal": "npm run buscar && npm run coletar && npm run sites && npm run verificar",
-    "sindicato": "node scripts/adicionar-sindicato.js"
+    "sindicato": "node scripts/adicionar-sindicato.js",
+    "alertar": "node scripts/alertar.js"
   },
   "engines": {
     "node": ">=20"

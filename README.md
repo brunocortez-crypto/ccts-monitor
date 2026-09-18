@@ -38,6 +38,7 @@ npm run buscar       # estágio 1: Convenções Coletivas vigentes dos 63 CNPJs
 npm run coletar      # estágio 2: baixa os documentos e extrai as cláusulas
 npm run sites        # estágio 3: varre os sites dos sindicatos
 npm run verificar    # confere se todo link aponta para documento de verdade
+npm run alertar      # monta o aviso do dia (data/alerta.md)
 ```
 
 Ou a rodada inteira: `npm run rodada`
@@ -65,6 +66,7 @@ Tudo versionado no repositório, em `data/`:
 | `execucoes.json` | cada rodada, com o que falhou e por quê |
 | `divergencias.json` | site publicou e o MTE não registrou |
 | `sites.json` | o que foi encontrado em cada site |
+| `alerta.md` | o aviso da última rodada, em Markdown |
 
 Os arquivos baixados ficam em `docs/MTE/`.
 
