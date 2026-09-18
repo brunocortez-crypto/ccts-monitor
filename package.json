@@ -15,7 +15,8 @@
     "diaria": "npm run varrer && npm run verificar && npm run alertar",
     "mensal": "npm run buscar && npm run coletar && npm run sites && npm run verificar",
     "sindicato": "node scripts/adicionar-sindicato.js",
-    "alertar": "node scripts/alertar.js"
+    "alertar": "node scripts/alertar.js",
+    "migrar-ids": "node scripts/migrar-ids.js"
   },
   "engines": {
     "node": ">=20"

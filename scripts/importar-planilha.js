@@ -138,8 +138,8 @@ Incluídos fora da planilha (${extrasValidos.length}):`);
 }
 
 const saida = [...daPlanilha, ...extrasValidos]
-  .sort((a, b) => String(a.sigla).localeCompare(String(b.sigla), 'pt'))
-  .map((s, i) => ({ ...s, id: `sid_${String(i + 1).padStart(3, '0')}` }));
+  .map((s) => ({ ...s, id: s.id ?? `sid_${s.cnpj_digitos}` }))
+  .sort((a, b) => String(a.sigla).localeCompare(String(b.sigla), 'pt'));
 
 await mkdir('data', { recursive: true });
 await writeFile('data/sindicatos.json', JSON.stringify(saida, null, 2) + '\n', 'utf8');

@@ -1,4 +1,6 @@
 /**
+ * Confere a integridade dos dados e dos links antes de publicar.
+ *
  * Critério de aceite §8.4 — todo link de documento tem que responder com
  * Content-Type de documento, NUNCA text/html.
  *
@@ -39,6 +41,47 @@ if (!existsSync('data/documentos.json')) {
 const documentos = JSON.parse(await readFile('data/documentos.json', 'utf8'));
 const comArquivo = documentos.filter((d) => d.arquivo_local);
 const semArquivo = documentos.filter((d) => !d.arquivo_local);
+
+/* ── integridade das ligações ──────────────────────────────────
+ *
+ * Em 18/09/2026 o id do sindicato era posicional e reatribuído a cada import.
+ * Remover um sindicato deslocou todos os seguintes e cada documento passou a
+ * apontar para o vizinho. Zero órfãos, zero erros — só o documento certo embaixo
+ * do sindicato errado, e o painel mostrando "sem convenção" para quem tinha duas.
+ *
+ * Esta checagem existe porque aquele defeito passou por tudo que havia: rodou,
+ * gravou, publicou e ninguém viu até alguém olhar a tela.
+ */
+const problemasDados = [];
+if (existsSync('data/sindicatos.json')) {
+  const sindicatos = JSON.parse(await readFile('data/sindicatos.json', 'utf8'));
+  const soDigitos = (v) => String(v ?? '').replace(/\D/g, '');
+  const porId = new Map();
+
+  for (const s of sindicatos) {
+    if (porId.has(s.id)) problemasDados.push(`id repetido: ${s.id} (${s.sigla})`);
+    porId.set(s.id, s);
+    if (s.id !== `sid_${s.cnpj_digitos}`) {
+      problemasDados.push(`${s.sigla}: id "${s.id}" não deriva do CNPJ — ids posicionais quebram ao remover alguém`);
+    }
+  }
+
+  for (const d of documentos) {
+    const dono = porId.get(d.sindicato_id);
+    if (!dono) {
+      problemasDados.push(`${d.nr_registro_mte}: sindicato_id "${d.sindicato_id}" não existe`);
+    } else if (d.cnpj_sindicato && soDigitos(dono.cnpj) !== soDigitos(d.cnpj_sindicato)) {
+      problemasDados.push(
+        `${d.nr_registro_mte} (${d.sindicato_sigla}) está ligado a ${dono.sigla} — ` +
+        `CNPJ do documento ${d.cnpj_sindicato} != CNPJ do sindicato ${dono.cnpj}`
+      );
+    }
+  }
+
+  console.log(`Sindicatos ................ ${sindicatos.length}`);
+  console.log(`Ligações conferidas ....... ${documentos.length}` +
+              (problemasDados.length ? `  (${problemasDados.length} problema(s))` : '  OK'));
+}
 
 console.log(`Documentos ................ ${documentos.length}`);
 console.log(`Com arquivo apontado ...... ${comArquivo.length}`);
@@ -114,6 +157,16 @@ if (!base) {
   }
 }
 
+if (problemasDados.length) {
+  console.error('\nLIGAÇÕES QUEBRADAS ENTRE DOCUMENTO E SINDICATO:');
+  for (const p of problemasDados.slice(0, 15)) console.error(`  ${p}`);
+  if (problemasDados.length > 15) console.error(`  ... mais ${problemasDados.length - 15}`);
+  console.error('\nUm documento embaixo do sindicato errado não dá erro em lugar nenhum:');
+  console.error('o painel só mostra a convenção do vizinho como se fosse dele.');
+  console.error('Para religar pelo CNPJ: node scripts/migrar-ids.js --aplicar\n');
+  process.exitCode = 1;
+}
+
 console.log('─────────────────────────────────────────');
 console.log(`verificados .............. ${alvos.length}`);
 console.log(`problemas ................ ${problemas.length}`);
@@ -149,6 +202,6 @@ if (semArquivo.length) {
 // Só declara aprovação quando houve o que aprovar. "OK nos 0 links confirmados"
 // é a frase de um script que não verificou nada e mesmo assim passou.
 const confirmados = alvos.length - inconclusivos.length;
-if (!problemas.length && confirmados > 0) {
+if (!problemas.length && !problemasDados.length && confirmados > 0) {
   console.log(`\nCritério §8.4 OK nos ${confirmados} link(s) confirmado(s).`);
 }

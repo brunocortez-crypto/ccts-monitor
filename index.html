@@ -12,31 +12,62 @@
 /* Paleta tirada da propria marca: #565F6B, a ardosia do logo. Os neutros herdam
    esse leve vies azulado em vez de um cinza puro, para o painel parecer da mesma
    familia do logo e nao um template com a logo colada em cima. */
+/* Neutros da marca (#565F6B, a ardosia do logo) com os acentos vivos do
+   ts-control: azul #3080ff, ciano #00b7d7, verde #00c758, ambar #f99c00,
+   vermelho #fb2c36. Sao as cores que os dois sistemas do escritorio ja usam.
+
+   A cor aqui carrega significado, nao enfeite: verde = tem convencao, ambar =
+   vence em breve, vermelho = vence ja ou falhou. Se tudo fosse colorido, nada
+   chamaria atencao — que era o problema dos sete indicadores. */
 :root{
   --marca:#565F6B; --marca-forte:#3E4651; --marca-fraca:#EDEFF2;
-  --ground:#F6F7F9; --papel:#FFFFFF; --papel-2:#FBFCFD;
-  --tinta:#171B21; --tinta-2:#5A6470; --tinta-3:#98A1AD;
-  --risco:#E6E9ED; --risco-2:#CFD5DC;
-  --ok:#1F6B48; --ok-fundo:#EBF4EF;
-  --alerta:#9C3A28; --alerta-fundo:#FAEDEA; --alerta-risco:#E2BDB3;
-  --sombra:0 1px 2px rgba(23,27,33,.04);
+  --ground:#F4F6F9; --papel:#FFFFFF; --papel-2:#FBFCFD;
+  --tinta:#141A22; --tinta-2:#55606E; --tinta-3:#8C96A4;
+  --risco:#E3E8EE; --risco-2:#CAD2DC;
+
+  --azul:#2563EB; --azul-fundo:#E8F0FE; --azul-risco:#B6D0FB;
+  --ciano:#0891B2; --ciano-fundo:#E0F5FA;
+  --verde:#0F9D58; --verde-fundo:#E4F6EC; --verde-risco:#A8E0C2;
+  --ambar:#B45309; --ambar-fundo:#FEF3E2; --ambar-risco:#F3CC94;
+  --vermelho:#DC2626; --vermelho-fundo:#FDECEC; --vermelho-risco:#F5B5B5;
+
+  --ok:var(--verde); --ok-fundo:var(--verde-fundo);
+  --alerta:var(--vermelho); --alerta-fundo:var(--vermelho-fundo);
+  --alerta-risco:var(--vermelho-risco);
+  --sombra:0 1px 2px rgba(20,26,34,.05);
 }
 @media (prefers-color-scheme: dark){ :root:not([data-tema="claro"]){
-  --marca:#98A3B2; --marca-forte:#C3CBD6; --marca-fraca:#222933;
-  --ground:#0E1117; --papel:#161A21; --papel-2:#1A1F27;
-  --tinta:#E7EAEF; --tinta-2:#A3ACB9; --tinta-3:#727C8A;
-  --risco:#262C35; --risco-2:#39424E;
-  --ok:#6FCB9B; --ok-fundo:#14251D;
-  --alerta:#E39280; --alerta-fundo:#2B1A16; --alerta-risco:#5A342B;
+  --marca:#9AA6B6; --marca-forte:#C6CEDA; --marca-fraca:#222A35;
+  --ground:#0C1016; --papel:#151A22; --papel-2:#1A212A;
+  --tinta:#E8ECF2; --tinta-2:#A5AFBD; --tinta-3:#6F7A89;
+  --risco:#242C37; --risco-2:#38424F;
+
+  --azul:#60A5FA; --azul-fundo:#15243C; --azul-risco:#2B4870;
+  --ciano:#22D3EE; --ciano-fundo:#0D2A33;
+  --verde:#4ADE80; --verde-fundo:#0E2A1C; --verde-risco:#1F5637;
+  --ambar:#FBBF24; --ambar-fundo:#2E2210; --ambar-risco:#5C4415;
+  --vermelho:#F87171; --vermelho-fundo:#2E1516; --vermelho-risco:#5E2A2B;
+
+  --ok:var(--verde); --ok-fundo:var(--verde-fundo);
+  --alerta:var(--vermelho); --alerta-fundo:var(--vermelho-fundo);
+  --alerta-risco:var(--vermelho-risco);
   --sombra:none;
 }}
 :root[data-tema="escuro"]{
-  --marca:#98A3B2; --marca-forte:#C3CBD6; --marca-fraca:#222933;
-  --ground:#0E1117; --papel:#161A21; --papel-2:#1A1F27;
-  --tinta:#E7EAEF; --tinta-2:#A3ACB9; --tinta-3:#727C8A;
-  --risco:#262C35; --risco-2:#39424E;
-  --ok:#6FCB9B; --ok-fundo:#14251D;
-  --alerta:#E39280; --alerta-fundo:#2B1A16; --alerta-risco:#5A342B;
+  --marca:#9AA6B6; --marca-forte:#C6CEDA; --marca-fraca:#222A35;
+  --ground:#0C1016; --papel:#151A22; --papel-2:#1A212A;
+  --tinta:#E8ECF2; --tinta-2:#A5AFBD; --tinta-3:#6F7A89;
+  --risco:#242C37; --risco-2:#38424F;
+
+  --azul:#60A5FA; --azul-fundo:#15243C; --azul-risco:#2B4870;
+  --ciano:#22D3EE; --ciano-fundo:#0D2A33;
+  --verde:#4ADE80; --verde-fundo:#0E2A1C; --verde-risco:#1F5637;
+  --ambar:#FBBF24; --ambar-fundo:#2E2210; --ambar-risco:#5C4415;
+  --vermelho:#F87171; --vermelho-fundo:#2E1516; --vermelho-risco:#5E2A2B;
+
+  --ok:var(--verde); --ok-fundo:var(--verde-fundo);
+  --alerta:var(--vermelho); --alerta-fundo:var(--vermelho-fundo);
+  --alerta-risco:var(--vermelho-risco);
   --sombra:none;
 }
 
@@ -60,7 +91,7 @@ body{background:var(--ground);color:var(--tinta);
 .tema{margin-left:auto;flex:none;background:none;border:1px solid var(--risco-2);
   color:var(--tinta-2);border-radius:999px;width:32px;height:32px;cursor:pointer;
   font-size:14px;line-height:1;display:grid;place-items:center}
-.tema:hover{border-color:var(--marca);color:var(--marca)}
+.tema:hover{border-color:var(--azul);color:var(--azul)}
 
 /* ── abas ──────────────────────────────────────── */
 .abas{background:var(--papel);border-bottom:1px solid var(--risco);
@@ -71,10 +102,12 @@ body{background:var(--ground);color:var(--tinta);
   color:var(--tinta-3);cursor:pointer;white-space:nowrap;position:relative;
   border-bottom:2px solid transparent;margin-bottom:-1px}
 .aba:hover{color:var(--tinta-2)}
-.aba[aria-selected="true"]{color:var(--tinta);font-weight:500;border-bottom-color:var(--marca)}
+.aba[aria-selected="true"]{color:var(--azul);font-weight:600;border-bottom-color:var(--azul)}
 .aba:focus-visible{outline:2px solid var(--marca);outline-offset:2px;border-radius:3px}
-.aba .conta{margin-left:6px;font-size:11.5px;color:var(--tinta-3);
-  font-variant-numeric:tabular-nums}
+.aba .conta{margin-left:6px;font-size:11px;color:var(--tinta-3);
+  font-variant-numeric:tabular-nums;background:var(--marca-fraca);
+  padding:1px 7px;border-radius:999px}
+.aba[aria-selected="true"] .conta{background:var(--azul-fundo);color:var(--azul)}
 
 main{padding-block:32px 72px}
 section[hidden]{display:none}
@@ -88,12 +121,24 @@ h2{font-size:18px;font-weight:600;margin:0 0 5px;letter-spacing:-.01em}
 .medidas{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
   gap:10px;margin-bottom:28px}
 .medida{background:var(--papel);border:1px solid var(--risco);border-radius:10px;
-  padding:15px 16px 14px;box-shadow:var(--sombra)}
-.medida .n{font-size:25px;font-weight:500;line-height:1.15;
-  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  padding:15px 16px 14px 18px;box-shadow:var(--sombra);position:relative;
+  overflow:hidden}
+/* Faixa de cor a esquerda: da vida ao bloco sem pintar o fundo inteiro, que
+   deixaria o numero menos legivel. */
+.medida::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:var(--azul)}
+.medida:nth-child(2)::before{background:var(--ciano)}
+.medida:nth-child(3)::before{background:var(--verde)}
+.medida:nth-child(4)::before{background:var(--marca)}
+.medida .n{font-size:26px;font-weight:600;line-height:1.15;
+  font-variant-numeric:tabular-nums;letter-spacing:-.025em;color:var(--azul)}
+.medida:nth-child(2) .n{color:var(--ciano)}
+.medida:nth-child(3) .n{color:var(--verde)}
+.medida:nth-child(4) .n{color:var(--tinta)}
 .medida .r{font-size:12px;color:var(--tinta-3);margin-top:2px;line-height:1.35}
 .medida.aviso{background:var(--alerta-fundo);border-color:var(--alerta-risco)}
-.medida.aviso .n{color:var(--alerta)}
+.medida.aviso::before,.medida.aviso:nth-child(n)::before{background:var(--vermelho)}
+.medida.aviso .n,.medida.aviso:nth-child(n) .n{color:var(--alerta)}
 .medida.aviso .r{color:var(--alerta)}
 
 /* ── controles ─────────────────────────────────── */
@@ -104,7 +149,7 @@ input[type=search],select{font:inherit;font-size:14px;background:var(--papel);
 input[type=search]{flex:1 1 280px}
 input[type=search]::placeholder{color:var(--tinta-3)}
 input:focus-visible,select:focus-visible,button:focus-visible{
-  outline:2px solid var(--marca);outline-offset:1px}
+  outline:2px solid var(--azul);outline-offset:1px}
 .rotulo{font-size:13px;color:var(--tinta-3)}
 .contagem{font-size:12.5px;color:var(--tinta-3);margin:0 0 12px;
   font-variant-numeric:tabular-nums}
@@ -118,19 +163,21 @@ input:focus-visible,select:focus-visible,button:focus-visible{
 .nome{color:var(--tinta-2);font-size:13px;margin-top:3px;line-height:1.45}
 .pilulas{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
 .pilula{font-size:12px;padding:3px 10px;border-radius:999px;
-  background:var(--marca-fraca);color:var(--marca-forte);white-space:nowrap;
-  line-height:1.5}
-.pilula.ouro{background:var(--papel);color:var(--tinta);border:1px solid var(--risco-2);
-  font-weight:500;font-variant-numeric:tabular-nums}
+  background:var(--azul-fundo);color:var(--azul);white-space:nowrap;
+  line-height:1.5;font-weight:500}
+/* "ouro" e o nome antigo da pilula de destaque: hoje sao os numeros que o DP
+   procura — piso e reajuste — em verde, a cor de "esta resolvido". */
+.pilula.ouro{background:var(--verde-fundo);color:var(--verde);
+  font-variant-numeric:tabular-nums}
 .pilula.alerta{background:var(--alerta-fundo);color:var(--alerta)}
+.pilula.ambar{background:var(--ambar-fundo);color:var(--ambar)}
 .pilula.neutra{background:transparent;color:var(--tinta-3);
-  border:1px solid var(--risco)}
-a.pilula{text-decoration:none}
-a.pilula:hover{border-color:var(--marca);color:var(--marca-forte)}
-a.pilula.ouro:hover{background:var(--marca-fraca)}
+  border:1px solid var(--risco);font-weight:400}
+a.pilula{text-decoration:none;background:var(--marca-fraca);color:var(--marca-forte)}
+a.pilula:hover{background:var(--azul);color:#fff}
 
 details{margin-top:12px}
-summary{cursor:pointer;font-size:13px;color:var(--marca-forte);padding:3px 0;
+summary{cursor:pointer;font-size:13px;color:var(--azul);padding:3px 0;
   list-style:none;display:inline-flex;align-items:center;gap:5px}
 summary::-webkit-details-marker{display:none}
 summary::before{content:'▸';font-size:10px;transition:transform .15s}
@@ -155,8 +202,8 @@ tr:last-child td{border-bottom:0}
 .mono{font-family:"Ubuntu Sans Mono",ui-monospace,Consolas,monospace;
   font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;
   color:var(--tinta-2)}
-a{color:var(--marca-forte);text-underline-offset:2px;
-  text-decoration-color:var(--risco-2)}
+a{color:var(--azul);text-underline-offset:2px;
+  text-decoration-color:var(--azul-risco)}
 a:hover{text-decoration-color:currentColor}
 
 .vazio{padding:36px 18px;text-align:center;color:var(--tinta-3);font-size:14px;
@@ -167,7 +214,7 @@ a:hover{text-decoration-color:currentColor}
    Forma antes de cor, para funcionar tambem para quem nao distingue as duas. */
 .marcador{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block;
   vertical-align:baseline;margin-right:8px}
-.marcador.tem{background:var(--ok);box-shadow:0 0 0 2.5px var(--ok-fundo)}
+.marcador.tem{background:var(--verde);box-shadow:0 0 0 3px var(--verde-fundo)}
 .marcador.nao{background:transparent;border:1.5px solid var(--tinta-3)}
 .sigla{display:flex;align-items:center;gap:0}
 
@@ -184,9 +231,9 @@ a:hover{text-decoration-color:currentColor}
 .campo input[aria-invalid="true"]{border-color:var(--alerta)}
 .campo .erro{font-size:12px;color:var(--alerta);min-height:1em}
 .form-acoes{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
-.botao{font:inherit;font-size:14px;background:var(--marca);color:#fff;border:0;
-  border-radius:8px;padding:9px 16px;cursor:pointer}
-.botao:hover{background:var(--marca-forte)}
+.botao{font:inherit;font-size:14px;background:var(--azul);color:#fff;border:0;
+  border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:500}
+.botao:hover{filter:brightness(1.08)}
 .botao.secundario{background:transparent;color:var(--tinta-2);
   border:1px solid var(--risco-2)}
 .botao.secundario:hover{background:var(--marca-fraca);color:var(--marca-forte)}
@@ -722,12 +769,16 @@ function diasAteVencer(d) {
   return Math.round((fim - hoje) / DIA);
 }
 
-/** Vermelho só para o que realmente aperta; o resto fica neutro. */
+/**
+ * Três faixas, não duas: vermelho perde o efeito se tudo que vence em dois meses
+ * for vermelho. Até 30 dias aperta de verdade; até 90 é aviso; além disso é
+ * informação.
+ */
 function pilulaPrazo(dias) {
   if (dias === null) return '<span class="pilula neutra">sem data de fim</span>';
   if (dias < 0) return `<span class="pilula alerta">venceu há ${Math.abs(dias)} dia(s)</span>`;
   if (dias === 0) return '<span class="pilula alerta">vence hoje</span>';
-  const classe = dias <= 60 ? 'alerta' : 'ouro';
+  const classe = dias <= 30 ? 'alerta' : dias <= 90 ? 'ambar' : '';
   return `<span class="pilula ${classe}">vence em ${dias} dia(s)</span>`;
 }
 

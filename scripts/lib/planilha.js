@@ -180,8 +180,14 @@ function agrupar(linhas) {
     }))
     .sort((a, b) => String(a.sigla).localeCompare(String(b.sigla), 'pt'));
 
-  sindicatos.forEach((s, i) => {
-    s.id = `sid_${String(i + 1).padStart(3, '0')}`;
+  // O id vem do CNPJ, nao da posicao na lista.
+  //
+  // Com id posicional (sid_001, sid_002...), reatribuido a cada import, remover um
+  // sindicato deslocava todos os seguintes — e cada documento passava a ser
+  // atribuido ao vizinho. Sem erro, sem orfao, sem nada piscando: so o documento
+  // errado embaixo do sindicato errado. CNPJ nao muda; posicao muda sempre.
+  sindicatos.forEach((s) => {
+    s.id = `sid_${s.cnpj_digitos}`;
   });
 
   return {
