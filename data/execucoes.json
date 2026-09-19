@@ -1,5 +1,21 @@
 [
   {
+    "data": "2026-09-19T12:57:58.527Z",
+    "estagio": "varredura-por-data",
+    "periodo": "17/09/2026 a 19/09/2026",
+    "documentos_examinados": 0,
+    "descartados_por_uf": 0,
+    "da_carteira": 0,
+    "fora_da_carteira": 0,
+    "duracao_segundos": 14,
+    "falhas": [
+      {
+        "periodo": "17/09/2026–19/09/2026",
+        "motivo": "page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')\n    at extrairDaPagina (eval at evaluate (:311:30), <anonymous>:3:31)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      }
+    ]
+  },
+  {
     "data": "2026-09-18T18:38:38.601Z",
     "estagio": "coletar-documentos",
     "alvo": 87,
